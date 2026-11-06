@@ -1,0 +1,22 @@
+:root {
+  --navy: #102b5e;
+  --navy-2: #183b76;
+  --blue: #2053c6;
+  --blue-light: #4678db;
+  --form-value-color: #315b91;
+  --search-active-gradient: linear-gradient(110deg, #6389cf, #4166b2);
+  --field-focus-gradient: linear-gradient(0deg, #eaf2ff 0%, #ffffff 100%);
+  --line: #d7e2f2;
+  --soft-line: #dfe7f4;
+  --ink-soft: #70819d;
+  --page: #ffffff;
+  --gold: #ffc629;
+  --white: #ffffff;
+  --shadow: 0 15px 40px rgba(15, 41, 87, 0.09);
+  --font-family: "Barlow", "Arial Narrow", Arial, sans-serif;
+  --font-display-family: Georgia, "Times New Roman", serif;
+  --hero-tagline-size: clamp(28px, 3vw, 42px);
+  --font-scale: 1.18;
+  --icon-size: 22px;
+  --icon-scale: 1.1;
+}
