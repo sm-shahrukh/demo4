@@ -21,52 +21,12 @@
     <link href="components/header.css" rel="stylesheet" />
     <link href="css/homepage.css" rel="stylesheet" />
     <link href="components/footer.css" rel="stylesheet" />
+    <script src="components/include.js" defer></script>
   </head>
   <body>
-    <header class="td-header">
-      <div class="container d-flex align-items-center">
-        <a class="td-logo" href="homepage.html" aria-label="TravelDeals home">
-          <img src="images/logo.png" alt="TravelDeals" />
-        </a>
-        <input type="checkbox" id="navtoggle" class="td-navcheck" hidden />
-        <nav class="td-nav" aria-label="Main navigation">
-          <a href="homepage.html" aria-current="page">Home</a>
-          <a href="#flight-deals">Flights</a>
-          <a href="#destinations">Hotels</a>
-          <a href="#help">Visa</a>
-          <a href="#help">Contact</a>
-          <div class="td-mobile-menu-actions">
-            <a class="btn-td btn-td-outline" href="#">Sign In</a>
-            <a class="btn-td btn-td-soft" href="#search">Get Started</a>
-          </div>
-        </nav>
-        <div class="ms-auto d-flex align-items-center gap-2">
-          <a class="btn-td btn-td-outline d-none d-md-inline-flex" href="#">Sign In</a>
-          <a class="btn-td btn-td-soft d-none d-md-inline-flex" href="#search">Get Started</a>
-          <label for="navtoggle" class="td-burger d-md-none" aria-label="Toggle navigation">
-            <i class="bi bi-list" aria-hidden="true"></i>
-          </label>
-        </div>
-      </div>
-    </header>
+    <div data-component="header"></div>
 
-    <nav class="td-mobile-bottom-nav" aria-label="Mobile navigation">
-      <a class="td-mobile-nav-item" href="homepage.html">
-        <i class="bi bi-house-door" aria-hidden="true"></i><span>Home</span>
-      </a>
-      <label class="td-mobile-nav-item" for="st-f">
-        <i class="bi bi-airplane" aria-hidden="true"></i><span>Flights</span>
-      </label>
-      <label class="td-mobile-nav-item" for="st-h">
-        <i class="bi bi-buildings" aria-hidden="true"></i><span>Hotels</span>
-      </label>
-      <label class="td-mobile-nav-item" for="st-v">
-        <i class="bi bi-person-vcard" aria-hidden="true"></i><span>Visa</span>
-      </label>
-      <a class="td-mobile-nav-item" href="#help">
-        <i class="bi bi-chat-dots" aria-hidden="true"></i><span>Contact</span>
-      </a>
-    </nav>
+    <div data-component="mobile-navigation"></div>
 
     <main>
       <div class="td-first-screen">
@@ -89,7 +49,7 @@
               ><label for="st-v"><i class="bi bi-person-vcard"></i>Visa</label>
             </div>
 
-            <form class="td-pane td-pane-f" action="#">
+            <form class="td-pane td-pane-f" action="search-flight.html" method="get">
               <div class="td-opts">
                 <label class="td-rad"
                   ><input type="radio" name="trip" id="t1" checked />One-way</label
@@ -466,7 +426,7 @@
                   >
                 </div>
                 <div class="td-fd-p">
-                  <small>From</small> <b>$349</b
+                  <small>From</small> <b>PKR 349</b
                   ><a href="#"
                     >View details <i class="bi bi-chevron-right"></i
                   ></a>
@@ -485,7 +445,7 @@
                   >
                 </div>
                 <div class="td-fd-p">
-                  <small>From</small> <b>$429</b
+                  <small>From</small> <b>PKR 429</b
                   ><a href="#"
                     >View details <i class="bi bi-chevron-right"></i
                   ></a>
@@ -768,89 +728,7 @@
         </section>
       </div>
     </main>
-    <footer class="td-foot">
-      <div class="container">
-        <div class="nl">
-          <i class="bi bi-envelope"></i>
-          <div class="nl-t">
-            <b>Get travel inspiration in your inbox</b
-            ><small
-              >Receive travel ideas, fare alerts, and special offers from
-              TravelDeals.</small
-            >
-          </div>
-          <form class="nl-f" action="#">
-            <input
-              type="email"
-              placeholder="Enter your email address"
-              aria-label="Email"
-            /><button class="btn-search" type="submit">Subscribe</button>
-          </form>
-        </div>
-        <hr />
-        <div class="fcols">
-          <div class="fb">
-            <a class="td-logo sm" href="index.html"
-              ><img src="images/logo.png" alt="TravelDeals" /></a
-            >
-            <p>
-              Your trusted travel partner for flights, hotels, Umrah, visa
-              support, and more — helping you explore the world with ease.
-            </p>
-            <div class="soc">
-              <a href="#" aria-label="Facebook"
-                ><i class="bi bi-facebook"></i></a
-              ><a href="#" aria-label="Instagram"
-                ><i class="bi bi-instagram"></i></a
-              ><a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a
-              ><a href="#" aria-label="LinkedIn"
-                ><i class="bi bi-linkedin"></i></a
-              ><a href="#" aria-label="X"><i class="bi bi-twitter-x"></i></a>
-            </div>
-          </div>
-          <div>
-            <h4>Explore</h4>
-            <a href="#">Flights</a><a href="#">Hotels</a><a href="#">Visa</a>
-          </div>
-          <div>
-            <h4>TravelDeals</h4>
-            <a href="#">About us</a><a href="#">Careers</a><a href="#">Press</a
-            ><a href="#">Partners</a>
-          </div>
-          <div>
-            <h4>Support</h4>
-            <a href="#">Help center</a><a href="#">Contact us</a
-            ><a href="#">FAQs</a><a href="#">Travel advisories</a>
-          </div>
-          <div>
-            <h4>Company</h4>
-            <a href="#">Terms of service</a><a href="#">Privacy policy</a
-            ><a href="#">Cookie policy</a>
-          </div>
-        </div>
-        <hr />
-        <div class="fbot">
-          <small>© 2025 TravelDeals. All rights reserved.</small>
-          <div class="d-flex align-items-center gap-2">
-            <div class="dd dd-up" tabindex="0">
-              <div class="dd-t">English <i class="bi bi-chevron-down"></i></div>
-              <div class="dd-m">
-                <span class="dd-o">English</span><span class="dd-o">اردو</span
-                ><span class="dd-o">العربية</span>
-              </div>
-            </div>
-            <span class="vr"></span>
-            <div class="dd dd-up" tabindex="0">
-              <div class="dd-t">USD <i class="bi bi-chevron-down"></i></div>
-              <div class="dd-m">
-                <span class="dd-o">USD</span><span class="dd-o">AED</span
-                ><span class="dd-o">PKR</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <div data-component="footer"></div>
     <script>
       (() => {
         const airports = [

@@ -1,0 +1,1233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Flights from Islamabad to Dubai | TravelDeals</title>
+    <meta
+      name="description"
+      content="Compare sample flight options from Islamabad to Dubai with TravelDeals."
+    />
+    <link rel="icon" href="images/favicon.ico" sizes="any" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/themes.css" rel="stylesheet" />
+    <link href="components/header.css" rel="stylesheet" />
+    <link href="css/search-flight.css" rel="stylesheet" />
+    <link href="components/footer.css" rel="stylesheet" />
+    <script src="components/include.js" defer></script>
+  </head>
+  <body class="search-flight-page">
+    <div data-component="header"></div>
+    <div data-component="mobile-navigation"></div>
+    <main class="sf-main">
+      <section class="sf-hero" aria-label="Flight search">
+        <div class="container"><h1>Find your perfect flight</h1></div>
+      </section>
+      <div class="container sf-container">
+        <section class="sf-search-card" aria-label="Your flight search">
+          <form class="sf-search-form" action="search-flight.html" method="get">
+            <div class="sf-search-options">
+              <label class="sf-choice" for="sf-t1"
+                ><input
+                  type="radio"
+                  name="trip"
+                  id="sf-t1"
+                  value="One-way"
+                  checked
+                />
+                One-way</label
+              >
+              <label class="sf-choice" for="sf-t2"
+                ><input type="radio" name="trip" id="sf-t2" value="Roundtrip" />
+                Roundtrip</label
+              >
+              <label class="sf-choice" for="sf-t3"
+                ><input
+                  type="radio"
+                  name="trip"
+                  id="sf-t3"
+                  value="Multi-city"
+                />
+                Multi-city</label
+              >
+              <span class="sf-search-divider" aria-hidden="true"></span>
+              <div class="dd sf-class" tabindex="0" aria-label="Cabin class">
+                <div class="dd-t">
+                  <span class="v1">Economy</span
+                  ><span class="v2">Premium economy</span
+                  ><span class="v3">Business</span><span class="v4">First</span>
+                  <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                </div>
+                <div class="dd-m">
+                  <label class="dd-o"
+                    ><input
+                      type="radio"
+                      name="cabin"
+                      id="c1"
+                      checked
+                    />Economy</label
+                  >
+                  <label class="dd-o"
+                    ><input type="radio" name="cabin" id="c2" />Premium
+                    economy</label
+                  >
+                  <label class="dd-o"
+                    ><input type="radio" name="cabin" id="c3" />Business</label
+                  >
+                  <label class="dd-o"
+                    ><input type="radio" name="cabin" id="c4" />First</label
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="sf-route-bar">
+              <input type="checkbox" id="sf-sw" class="sf-st" hidden />
+              <div class="sf-fld sf-ff" tabindex="0">
+                <i class="bi bi-airplane" aria-hidden="true"></i>
+                <input aria-label="From" value="Islamabad (ISB)" />
+                <div class="pop">
+                  <a class="sf-sg" href="#"
+                    ><i class="bi bi-geo-alt"></i
+                    ><span
+                      ><b>Islamabad (ISB)</b
+                      ><small>Islamabad International</small></span
+                    ></a
+                  >
+                  <a class="sf-sg" href="#"
+                    ><i class="bi bi-geo-alt"></i
+                    ><span
+                      ><b>Lahore (LHE)</b
+                      ><small>Allama Iqbal International</small></span
+                    ></a
+                  >
+                  <a class="sf-sg" href="#"
+                    ><i class="bi bi-geo-alt"></i
+                    ><span
+                      ><b>Karachi (KHI)</b
+                      ><small>Jinnah International</small></span
+                    ></a
+                  >
+                </div>
+              </div>
+              <label
+                class="sf-swap"
+                for="sf-sw"
+                aria-label="Swap departure and destination"
+              >
+                <i class="bi bi-arrow-left-right" aria-hidden="true"></i>
+              </label>
+              <div class="sf-fld sf-fto" tabindex="0">
+                <i class="bi bi-airplane" aria-hidden="true"></i>
+                <input aria-label="To" value="Dubai (DXB)" />
+                <div class="pop">
+                  <a class="sf-sg" href="#"
+                    ><i class="bi bi-geo-alt"></i
+                    ><span
+                      ><b>Dubai (DXB)</b
+                      ><small>Dubai International</small></span
+                    ></a
+                  >
+                  <a class="sf-sg" href="#"
+                    ><i class="bi bi-geo-alt"></i
+                    ><span
+                      ><b>Jeddah (JED)</b
+                      ><small>King Abdulaziz International</small></span
+                    ></a
+                  >
+                  <a class="sf-sg" href="#"
+                    ><i class="bi bi-geo-alt"></i
+                    ><span
+                      ><b>Istanbul (IST)</b
+                      ><small>Istanbul Airport</small></span
+                    ></a
+                  >
+                </div>
+              </div>
+              <div class="sf-fld sf-date" tabindex="0">
+                <i class="bi bi-calendar3" aria-hidden="true"></i
+                ><span>Sat, Nov 21</span>
+                <div class="pop sf-cal">
+                  <div class="sf-cal-h">
+                    <i class="bi bi-chevron-left" aria-hidden="true"></i
+                    ><b>November 2026</b
+                    ><i class="bi bi-chevron-right" aria-hidden="true"></i>
+                  </div>
+                  <div class="sf-cal-g">
+                    <em>Su</em><em>Mo</em><em>Tu</em><em>We</em><em>Th</em
+                    ><em>Fr</em><em>Sa</em> <i>1</i><i>2</i><i>3</i><i>4</i
+                    ><i>5</i><i>6</i><i>7</i> <i>8</i><b>9</b><b>10</b><b>11</b
+                    ><b>12</b><b>13</b><b>14</b> <b>15</b><b>16</b><b>17</b
+                    ><b>18</b><b>19</b><b>20</b><b class="on">21</b><b>22</b>
+                    <b>23</b><b>24</b><b>25</b><b>26</b><b>27</b><b>28</b
+                    ><b>29</b><b>30</b>
+                  </div>
+                </div>
+              </div>
+              <div class="sf-fld sf-date sf-fr" tabindex="0">
+                <i class="bi bi-calendar3" aria-hidden="true"></i
+                ><span>Sat, Nov 28</span>
+                <div class="pop sf-cal">
+                  <div class="sf-cal-h">
+                    <i class="bi bi-chevron-left" aria-hidden="true"></i
+                    ><b>November 2026</b
+                    ><i class="bi bi-chevron-right" aria-hidden="true"></i>
+                  </div>
+                  <div class="sf-cal-g">
+                    <em>Su</em><em>Mo</em><em>Tu</em><em>We</em><em>Th</em
+                    ><em>Fr</em><em>Sa</em> <i>1</i><i>2</i><i>3</i><i>4</i
+                    ><i>5</i><i>6</i><i>7</i> <i>8</i><b>9</b><b>10</b><b>11</b
+                    ><b>12</b><b>13</b><b>14</b> <b>15</b><b>16</b><b>17</b
+                    ><b>18</b><b>19</b><b>20</b><b>21</b> <b>22</b><b>23</b
+                    ><b>24</b><b>25</b><b>26</b><b>27</b><b class="on">28</b
+                    ><b>29</b><b>30</b>
+                  </div>
+                </div>
+              </div>
+              <div class="sf-fld sf-ft" tabindex="0">
+                <i class="bi bi-person" aria-hidden="true"></i
+                ><span>1 traveler</span>
+                <div class="pop">
+                  <label class="sf-cnt"
+                    >Adults<input
+                      type="number"
+                      value="1"
+                      min="1"
+                      max="9"
+                      aria-label="Adults"
+                  /></label>
+                  <label class="sf-cnt"
+                    >Children<input
+                      type="number"
+                      value="0"
+                      min="0"
+                      max="9"
+                      aria-label="Children"
+                  /></label>
+                  <label class="sf-cnt"
+                    >Infants<input
+                      type="number"
+                      value="0"
+                      min="0"
+                      max="9"
+                      aria-label="Infants"
+                  /></label>
+                </div>
+              </div>
+              <button class="sf-primary-btn" type="submit">Search</button>
+            </div>
+            <div class="sf-multi-controls" aria-label="Multi-city flights">
+              <div class="sf-leg-control sf-leg-2">
+                <input
+                  class="sf-toggle-input"
+                  type="checkbox"
+                  id="sf-flight-leg-2"
+                  checked
+                />
+                <div class="sf-multi-row sf-flight-leg-2">
+                  <div class="sf-multi-field sf-multi-location" tabindex="0">
+                    <i class="bi bi-airplane" aria-hidden="true"></i
+                    ><span>Flight 2 · From</span
+                    ><input value="Dubai (DXB)" aria-label="Flight 2 from" />
+                    <div class="pop">
+                      <a class="sf-sg" href="#"
+                        ><i class="bi bi-geo-alt"></i
+                        ><span
+                          ><b>Dubai (DXB)</b
+                          ><small>Dubai International</small></span
+                        ></a
+                      >
+                      <a class="sf-sg" href="#"
+                        ><i class="bi bi-geo-alt"></i
+                        ><span
+                          ><b>Jeddah (JED)</b
+                          ><small>King Abdulaziz International</small></span
+                        ></a
+                      >
+                      <a class="sf-sg" href="#"
+                        ><i class="bi bi-geo-alt"></i
+                        ><span
+                          ><b>Istanbul (IST)</b
+                          ><small>Istanbul Airport</small></span
+                        ></a
+                      >
+                    </div>
+                  </div>
+                  <div class="sf-multi-field sf-multi-location" tabindex="0">
+                    <i class="bi bi-airplane" aria-hidden="true"></i
+                    ><span>To</span
+                    ><input placeholder="Going to" aria-label="Flight 2 to" />
+                    <div class="pop">
+                      <a class="sf-sg" href="#"
+                        ><i class="bi bi-geo-alt"></i
+                        ><span
+                          ><b>London (LHR)</b
+                          ><small>Heathrow Airport</small></span
+                        ></a
+                      >
+                      <a class="sf-sg" href="#"
+                        ><i class="bi bi-geo-alt"></i
+                        ><span
+                          ><b>New York (JFK)</b
+                          ><small>John F. Kennedy</small></span
+                        ></a
+                      >
+                      <a class="sf-sg" href="#"
+                        ><i class="bi bi-geo-alt"></i
+                        ><span
+                          ><b>Doha (DOH)</b
+                          ><small>Hamad International</small></span
+                        ></a
+                      >
+                    </div>
+                  </div>
+                  <label class="sf-multi-field"
+                    ><i class="bi bi-calendar3" aria-hidden="true"></i
+                    ><span>Date</span
+                    ><input
+                      type="date"
+                      value="2026-11-25"
+                      aria-label="Flight 2 date"
+                  /></label>
+                  <div class="sf-multi-actions">
+                    <label
+                      class="sf-remove sf-remove-icon"
+                      for="sf-flight-leg-2"
+                      aria-label="Remove Flight 2"
+                      title="Remove flight"
+                      ><i class="bi bi-x-lg" aria-hidden="true"></i
+                    ></label>
+                  </div>
+                </div>
+              </div>
+              <div class="sf-leg-control sf-leg-3">
+                <input
+                  class="sf-toggle-input"
+                  type="checkbox"
+                  id="sf-flight-leg-3"
+                />
+                <div class="sf-multi-row sf-flight-leg-3">
+                  <div class="sf-multi-field sf-multi-location" tabindex="0">
+                    <i class="bi bi-airplane" aria-hidden="true"></i
+                    ><span>Flight 3 · From</span
+                    ><input
+                      placeholder="Leaving from"
+                      aria-label="Flight 3 from"
+                    />
+                    <div class="pop">
+                      <a class="sf-sg" href="#"
+                        ><i class="bi bi-geo-alt"></i
+                        ><span
+                          ><b>London (LHR)</b
+                          ><small>Heathrow Airport</small></span
+                        ></a
+                      >
+                      <a class="sf-sg" href="#"
+                        ><i class="bi bi-geo-alt"></i
+                        ><span
+                          ><b>Paris (CDG)</b
+                          ><small>Charles de Gaulle</small></span
+                        ></a
+                      >
+                    </div>
+                  </div>
+                  <div class="sf-multi-field sf-multi-location" tabindex="0">
+                    <i class="bi bi-airplane" aria-hidden="true"></i
+                    ><span>To</span
+                    ><input placeholder="Going to" aria-label="Flight 3 to" />
+                    <div class="pop">
+                      <a class="sf-sg" href="#"
+                        ><i class="bi bi-geo-alt"></i
+                        ><span
+                          ><b>Islamabad (ISB)</b
+                          ><small>Islamabad International</small></span
+                        ></a
+                      >
+                      <a class="sf-sg" href="#"
+                        ><i class="bi bi-geo-alt"></i
+                        ><span
+                          ><b>Dubai (DXB)</b
+                          ><small>Dubai International</small></span
+                        ></a
+                      >
+                    </div>
+                  </div>
+                  <label class="sf-multi-field"
+                    ><i class="bi bi-calendar3" aria-hidden="true"></i
+                    ><span>Date</span
+                    ><input type="date" aria-label="Flight 3 date"
+                  /></label>
+                  <div class="sf-multi-actions">
+                    <label
+                      class="sf-remove sf-remove-icon"
+                      for="sf-flight-leg-3"
+                      aria-label="Remove Flight 3"
+                      title="Remove flight"
+                      ><i class="bi bi-x-lg" aria-hidden="true"></i
+                    ></label>
+                  </div>
+                </div>
+              </div>
+              <div class="sf-leg-control sf-leg-4">
+                <input
+                  class="sf-toggle-input"
+                  type="checkbox"
+                  id="sf-flight-leg-4"
+                />
+                <div class="sf-multi-row sf-flight-leg-4">
+                  <div class="sf-multi-field sf-multi-location" tabindex="0">
+                    <i class="bi bi-airplane" aria-hidden="true"></i
+                    ><span>Flight 4 · From</span
+                    ><input
+                      placeholder="Leaving from"
+                      aria-label="Flight 4 from"
+                    />
+                    <div class="pop">
+                      <a class="sf-sg" href="#"
+                        ><i class="bi bi-geo-alt"></i
+                        ><span
+                          ><b>Paris (CDG)</b
+                          ><small>Charles de Gaulle</small></span
+                        ></a
+                      >
+                    </div>
+                  </div>
+                  <div class="sf-multi-field sf-multi-location" tabindex="0">
+                    <i class="bi bi-airplane" aria-hidden="true"></i
+                    ><span>To</span
+                    ><input placeholder="Going to" aria-label="Flight 4 to" />
+                    <div class="pop">
+                      <a class="sf-sg" href="#"
+                        ><i class="bi bi-geo-alt"></i
+                        ><span
+                          ><b>Rome (FCO)</b
+                          ><small>Leonardo da Vinci</small></span
+                        ></a
+                      >
+                    </div>
+                  </div>
+                  <label class="sf-multi-field"
+                    ><i class="bi bi-calendar3" aria-hidden="true"></i
+                    ><span>Date</span
+                    ><input type="date" aria-label="Flight 4 date"
+                  /></label>
+                  <div class="sf-multi-actions">
+                    <label
+                      class="sf-remove sf-remove-icon"
+                      for="sf-flight-leg-4"
+                      aria-label="Remove Flight 4"
+                      title="Remove flight"
+                      ><i class="bi bi-x-lg" aria-hidden="true"></i
+                    ></label>
+                  </div>
+                </div>
+              </div>
+              <div class="sf-leg-control sf-leg-5">
+                <input
+                  class="sf-toggle-input"
+                  type="checkbox"
+                  id="sf-flight-leg-5"
+                />
+                <div class="sf-multi-row sf-flight-leg-5">
+                  <div class="sf-multi-field sf-multi-location" tabindex="0">
+                    <i class="bi bi-airplane" aria-hidden="true"></i
+                    ><span>Flight 5 · From</span
+                    ><input
+                      placeholder="Leaving from"
+                      aria-label="Flight 5 from"
+                    />
+                  </div>
+                  <div class="sf-multi-field sf-multi-location" tabindex="0">
+                    <i class="bi bi-airplane" aria-hidden="true"></i
+                    ><span>To</span
+                    ><input placeholder="Going to" aria-label="Flight 5 to" />
+                  </div>
+                  <label class="sf-multi-field"
+                    ><i class="bi bi-calendar3" aria-hidden="true"></i
+                    ><span>Date</span
+                    ><input type="date" aria-label="Flight 5 date"
+                  /></label>
+                  <div class="sf-multi-actions">
+                    <label
+                      class="sf-remove sf-remove-icon"
+                      for="sf-flight-leg-5"
+                      aria-label="Remove Flight 5"
+                      title="Remove flight"
+                      ><i class="bi bi-x-lg" aria-hidden="true"></i
+                    ></label>
+                  </div>
+                </div>
+              </div>
+              <div class="sf-leg-control sf-leg-6">
+                <input
+                  class="sf-toggle-input"
+                  type="checkbox"
+                  id="sf-flight-leg-6"
+                />
+                <div class="sf-multi-row sf-flight-leg-6">
+                  <div class="sf-multi-field sf-multi-location" tabindex="0">
+                    <i class="bi bi-airplane" aria-hidden="true"></i
+                    ><span>Flight 6 · From</span
+                    ><input
+                      placeholder="Leaving from"
+                      aria-label="Flight 6 from"
+                    />
+                  </div>
+                  <div class="sf-multi-field sf-multi-location" tabindex="0">
+                    <i class="bi bi-airplane" aria-hidden="true"></i
+                    ><span>To</span
+                    ><input placeholder="Going to" aria-label="Flight 6 to" />
+                  </div>
+                  <label class="sf-multi-field"
+                    ><i class="bi bi-calendar3" aria-hidden="true"></i
+                    ><span>Date</span
+                    ><input type="date" aria-label="Flight 6 date"
+                  /></label>
+                  <div class="sf-multi-actions">
+                    <label
+                      class="sf-remove sf-remove-icon"
+                      for="sf-flight-leg-6"
+                      aria-label="Remove Flight 6"
+                      title="Remove flight"
+                      ><i class="bi bi-x-lg" aria-hidden="true"></i
+                    ></label>
+                  </div>
+                </div>
+              </div>
+              <div class="sf-multi-footer">
+                <label class="sf-add sf-add-leg-2" for="sf-flight-leg-2"
+                  >+ Add another flight</label
+                >
+                <label class="sf-add sf-add-leg-3" for="sf-flight-leg-3"
+                  >+ Add another flight</label
+                >
+                <label class="sf-add sf-add-leg-4" for="sf-flight-leg-4"
+                  >+ Add another flight</label
+                >
+                <label class="sf-add sf-add-leg-5" for="sf-flight-leg-5"
+                  >+ Add another flight</label
+                >
+                <label class="sf-add sf-add-leg-6" for="sf-flight-leg-6"
+                  >+ Add another flight</label
+                >
+                <button class="sf-primary-btn sf-multi-search" type="submit">
+                  Search
+                </button>
+              </div>
+            </div>
+          </form>
+        </section>
+        <nav class="sf-breadcrumb" aria-label="Breadcrumb">
+          <a href="homepage.html">Home</a><span aria-hidden="true">/</span
+          ><a href="homepage.html#search">Flights</a
+          ><span aria-hidden="true">/</span
+          ><span aria-current="page">Search results</span>
+        </nav>
+        <nav
+          class="sf-date-strip"
+          id="flight-results"
+          aria-label="Nearby flight dates"
+        >
+          <a
+            class="sf-date-arrow"
+            href="#flight-results"
+            aria-label="Previous dates"
+            ><i class="bi bi-chevron-left" aria-hidden="true"></i
+          ></a>
+          <a class="sf-date-card sf-date-extra" href="#flight-results"
+            ><b>Thu, Nov 19</b><span>From PKR 312</span></a
+          >
+          <a class="sf-date-card" href="#flight-results"
+            ><b>Fri, Nov 20</b><span>From PKR 319</span></a
+          >
+          <a
+            class="sf-date-card is-active"
+            href="#flight-results"
+            aria-current="date"
+            ><b>Sat, Nov 21</b><span>From PKR 275</span
+            ><small>Lowest fare</small></a
+          >
+          <a class="sf-date-card" href="#flight-results"
+            ><b>Sun, Nov 22</b><span class="sf-desktop-copy">From PKR 329</span
+            ><span class="sf-mobile-copy">From PKR 229</span></a
+          >
+          <a class="sf-date-card sf-date-extra" href="#flight-results"
+            ><b>Mon, Nov 23</b><span>From PKR 335</span></a
+          >
+          <a
+            class="sf-date-arrow"
+            href="#flight-results"
+            aria-label="Next dates"
+            ><i class="bi bi-chevron-right" aria-hidden="true"></i
+          ></a>
+        </nav>
+        <div class="sf-results-layout">
+          <aside class="sf-filters" aria-label="Flight filters">
+            <form>
+              <div class="sf-filter-heading">
+                <h3>Filter results</h3>
+                <button type="reset">Clear all</button>
+              </div>
+              <fieldset class="sf-filter-group">
+                <legend>
+                  Stops<i class="bi bi-chevron-up" aria-hidden="true"></i>
+                </legend>
+                <label
+                  ><input type="radio" name="stops" value="0" checked /> Any
+                  stops</label
+                ><label
+                  ><input type="radio" name="stops" value="1" /> Nonstop</label
+                ><label
+                  ><input type="radio" name="stops" value="2" /> 1 stop</label
+                >
+              </fieldset>
+              <fieldset class="sf-filter-group">
+                <legend>
+                  Departure time<i
+                    class="bi bi-chevron-up"
+                    aria-hidden="true"
+                  ></i>
+                </legend>
+                <div class="sf-time-options">
+                  <label
+                    ><input type="checkbox" name="departure" value="0" /><span
+                      ><i class="bi bi-moon" aria-hidden="true"></i>
+                      12AM–6AM</span
+                    ></label
+                  ><label
+                    ><input type="checkbox" name="departure" value="1" /><span
+                      ><i class="bi bi-brightness-high" aria-hidden="true"></i>
+                      6AM–12PM</span
+                    ></label
+                  ><label
+                    ><input type="checkbox" name="departure" value="2" /><span
+                      ><i class="bi bi-brightness-high" aria-hidden="true"></i>
+                      12PM–6PM</span
+                    ></label
+                  ><label
+                    ><input type="checkbox" name="departure" value="3" /><span
+                      ><i class="bi bi-moon" aria-hidden="true"></i>
+                      6PM–12AM</span
+                    ></label
+                  >
+                </div>
+              </fieldset>
+              <fieldset class="sf-filter-group">
+                <legend>
+                  Airlines<i class="bi bi-chevron-up" aria-hidden="true"></i>
+                </legend>
+                <label
+                  ><input type="checkbox" name="airline" value="Emirates" />
+                  Emirates</label
+                ><label
+                  ><input type="checkbox" name="airline" value="flydubai" />
+                  flydubai</label
+                ><label
+                  ><input type="checkbox" name="airline" value="PIA" />
+                  PIA</label
+                ><label
+                  ><input
+                    type="checkbox"
+                    name="airline"
+                    value="Qatar Airways"
+                  />
+                  Qatar Airways</label
+                >
+              </fieldset>
+              <fieldset class="sf-filter-group">
+                <legend>
+                  Price range<i class="bi bi-chevron-up" aria-hidden="true"></i>
+                </legend>
+                <p>PKR 250–PKR 400</p>
+                <div class="sf-range">
+                  <span class="sf-range-start" aria-hidden="true"></span
+                  ><input
+                    type="range"
+                    min="250"
+                    max="450"
+                    value="385"
+                    aria-label="Maximum fare"
+                  />
+                </div>
+              </fieldset>
+              <fieldset class="sf-filter-group">
+                <legend>
+                  Baggage<i class="bi bi-chevron-up" aria-hidden="true"></i>
+                </legend>
+                <label
+                  ><input type="checkbox" name="baggage" /> Include checked
+                  baggage</label
+                >
+              </fieldset>
+            </form>
+          </aside>
+          <section class="sf-flight-results" aria-label="Available flights">
+            <div class="sf-mobile-tools">
+              <details class="sf-filter-disclosure">
+                <summary>
+                  <i class="bi bi-sliders" aria-hidden="true"></i> Filters
+                  <b>2</b>
+                </summary>
+                <form class="sf-filter-panel">
+                  <div class="sf-filter-heading">
+                    <h3>Filter results</h3>
+                    <button type="reset">Clear all</button>
+                  </div>
+                  <fieldset class="sf-filter-group">
+                    <legend>
+                      Stops<i class="bi bi-chevron-up" aria-hidden="true"></i>
+                    </legend>
+                    <label
+                      ><input type="radio" name="stops" value="0" checked /> Any
+                      stops</label
+                    ><label
+                      ><input type="radio" name="stops" value="1" />
+                      Nonstop</label
+                    ><label
+                      ><input type="radio" name="stops" value="2" /> 1
+                      stop</label
+                    >
+                  </fieldset>
+                  <fieldset class="sf-filter-group">
+                    <legend>
+                      Departure time<i
+                        class="bi bi-chevron-up"
+                        aria-hidden="true"
+                      ></i>
+                    </legend>
+                    <div class="sf-time-options">
+                      <label
+                        ><input
+                          type="checkbox"
+                          name="departure"
+                          value="0"
+                        /><span
+                          ><i class="bi bi-moon" aria-hidden="true"></i>
+                          12AM–6AM</span
+                        ></label
+                      ><label
+                        ><input
+                          type="checkbox"
+                          name="departure"
+                          value="1"
+                        /><span
+                          ><i
+                            class="bi bi-brightness-high"
+                            aria-hidden="true"
+                          ></i>
+                          6AM–12PM</span
+                        ></label
+                      ><label
+                        ><input
+                          type="checkbox"
+                          name="departure"
+                          value="2"
+                        /><span
+                          ><i
+                            class="bi bi-brightness-high"
+                            aria-hidden="true"
+                          ></i>
+                          12PM–6PM</span
+                        ></label
+                      ><label
+                        ><input
+                          type="checkbox"
+                          name="departure"
+                          value="3"
+                        /><span
+                          ><i class="bi bi-moon" aria-hidden="true"></i>
+                          6PM–12AM</span
+                        ></label
+                      >
+                    </div>
+                  </fieldset>
+                  <fieldset class="sf-filter-group">
+                    <legend>
+                      Airlines<i
+                        class="bi bi-chevron-up"
+                        aria-hidden="true"
+                      ></i>
+                    </legend>
+                    <label
+                      ><input type="checkbox" name="airline" value="Emirates" />
+                      Emirates</label
+                    ><label
+                      ><input type="checkbox" name="airline" value="flydubai" />
+                      flydubai</label
+                    ><label
+                      ><input type="checkbox" name="airline" value="PIA" />
+                      PIA</label
+                    ><label
+                      ><input
+                        type="checkbox"
+                        name="airline"
+                        value="Qatar Airways"
+                      />
+                      Qatar Airways</label
+                    >
+                  </fieldset>
+                  <fieldset class="sf-filter-group">
+                    <legend>
+                      Price range<i
+                        class="bi bi-chevron-up"
+                        aria-hidden="true"
+                      ></i>
+                    </legend>
+                    <p>PKR 250–PKR 400</p>
+                    <div class="sf-range">
+                      <span class="sf-range-start" aria-hidden="true"></span
+                      ><input
+                        type="range"
+                        min="250"
+                        max="450"
+                        value="385"
+                        aria-label="Maximum fare"
+                      />
+                    </div>
+                  </fieldset>
+                  <fieldset class="sf-filter-group">
+                    <legend>
+                      Baggage<i class="bi bi-chevron-up" aria-hidden="true"></i>
+                    </legend>
+                    <label
+                      ><input type="checkbox" name="baggage" /> Include checked
+                      baggage</label
+                    >
+                  </fieldset>
+                </form>
+              </details>
+              <div class="sf-sort-select">
+                <select aria-label="Sort flights">
+                  <option>Sort: Recommended</option>
+                  <option>Sort: Cheapest</option>
+                  <option>Sort: Fastest</option></select
+                ><i class="bi bi-chevron-down" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="sf-results-title">
+              <h2>Available flights</h2>
+              <span>Sample itineraries · Illustrative fares</span>
+            </div>
+            <div class="sf-sort-tabs">
+              <a class="is-active" href="#flight-results">Recommended</a
+              ><a href="#flight-results">Cheapest</a
+              ><a href="#flight-results">Fastest</a>
+              <div class="sf-sort-select">
+                <select aria-label="Sort flights">
+                  <option>Sort by: Recommended</option>
+                  <option>Sort by: Cheapest</option>
+                  <option>Sort by: Fastest</option></select
+                ><i class="bi bi-chevron-down" aria-hidden="true"></i>
+              </div>
+            </div>
+            <article
+              class="sf-flight-card sf-oneway-card"
+              aria-label="One-way flight"
+            >
+              <div class="sf-card-itineraries">
+                <h3 class="sf-trip-label">One-way</h3>
+                <div class="sf-leg sf-single-leg">
+                  <div class="sf-airline sf-airline-emirates">
+                    <img src="images/airlines/emirates.svg" alt="Emirates" />
+                  </div>
+                  <div class="sf-journey">
+                    <span class="sf-leg-caption">Sat, Nov 21</span>
+                    <div class="sf-route-times">
+                      <div class="sf-time">
+                        <strong>09:00</strong><span>ISB</span>
+                      </div>
+                      <span class="sf-flight-path" aria-label="to"
+                        ><i class="bi bi-airplane-fill" aria-hidden="true"></i
+                      ></span>
+                      <div class="sf-time sf-time-arrival">
+                        <strong>11:15</strong><span>DXB</span>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="sf-leg-details">
+                    <li>
+                      <i class="bi bi-clock" aria-hidden="true"></i
+                      ><span>3h 15m</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-airplane" aria-hidden="true"></i
+                      ><span>Nonstop</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-handbag" aria-hidden="true"></i
+                      ><span>1 checked bag (23 kg)</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="sf-fare">
+                <div><strong>PKR 349</strong><span>per traveler</span></div>
+                <a class="sf-primary-btn" href="#flight-results"
+                  >Select flight</a
+                >
+                <details class="sf-fare-details">
+                  <summary
+                    >Flight &amp; fare details
+                    <i class="bi bi-chevron-down" aria-hidden="true"></i
+                  ></summary>
+                </details>
+              </div>
+            </article>
+            <article
+              class="sf-flight-card sf-roundtrip-card"
+              aria-label="Roundtrip flight"
+            >
+              <div class="sf-card-itineraries">
+                <h3 class="sf-trip-label">Roundtrip</h3>
+                <div class="sf-leg">
+                  <div class="sf-airline sf-airline-flydubai">
+                    <img src="images/airlines/flydubai.svg" alt="flydubai" />
+                  </div>
+                  <div class="sf-journey">
+                    <span class="sf-leg-caption">Outbound · Sat, Nov 21</span>
+                    <div class="sf-route-times">
+                      <div class="sf-time">
+                        <strong>09:00</strong><span>ISB</span>
+                      </div>
+                      <span class="sf-flight-path" aria-label="to"
+                        ><i class="bi bi-airplane-fill" aria-hidden="true"></i
+                      ></span>
+                      <div class="sf-time sf-time-arrival">
+                        <strong>11:15</strong><span>DXB</span>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="sf-leg-details">
+                    <li>
+                      <i class="bi bi-clock" aria-hidden="true"></i
+                      ><span>3h 15m</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-airplane" aria-hidden="true"></i
+                      ><span>Nonstop</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-handbag" aria-hidden="true"></i
+                      ><span>1 checked bag (23 kg)</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="sf-leg sf-leg-warm">
+                  <div class="sf-airline sf-airline-emirates">
+                    <img src="images/airlines/emirates.svg" alt="Emirates" />
+                  </div>
+                  <div class="sf-journey">
+                    <span class="sf-leg-caption">Return · Fri, Nov 27</span>
+                    <div class="sf-route-times">
+                      <div class="sf-time">
+                        <strong>14:30</strong><span>DXB</span>
+                      </div>
+                      <span class="sf-flight-path" aria-label="to"
+                        ><i class="bi bi-airplane-fill" aria-hidden="true"></i
+                      ></span>
+                      <div class="sf-time sf-time-arrival">
+                        <strong>18:35</strong><span>ISB</span>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="sf-leg-details">
+                    <li>
+                      <i class="bi bi-clock" aria-hidden="true"></i
+                      ><span>4h 05m</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-airplane" aria-hidden="true"></i
+                      ><span>Nonstop</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-handbag" aria-hidden="true"></i
+                      ><span>1 checked bag (23 kg)</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="sf-fare">
+                <div><strong>PKR 595</strong><span>roundtrip</span></div>
+                <a class="sf-primary-btn" href="#flight-results"
+                  >Select flight</a
+                >
+                <details class="sf-fare-details">
+                  <summary
+                    >Flight &amp; fare details
+                    <i class="bi bi-chevron-down" aria-hidden="true"></i
+                  ></summary>
+                </details>
+              </div>
+            </article>
+            <article
+              class="sf-flight-card sf-multicity-card"
+              aria-label="Multi-city flight"
+            >
+              <div class="sf-card-itineraries">
+                <h3 class="sf-trip-label">Multi-city</h3>
+                <div class="sf-leg">
+                  <div class="sf-airline sf-airline-qatar">
+                    <img src="images/airlines/qatar.svg" alt="Qatar Airways" />
+                  </div>
+                  <div class="sf-journey">
+                    <span class="sf-leg-caption">Flight 1 · Nov 21</span>
+                    <div class="sf-route-times">
+                      <div class="sf-time">
+                        <strong>09:00</strong><span>ISB</span>
+                      </div>
+                      <span class="sf-flight-path" aria-label="to"
+                        ><i class="bi bi-airplane-fill" aria-hidden="true"></i
+                      ></span>
+                      <div class="sf-time sf-time-arrival">
+                        <strong>11:15</strong><span>DXB</span>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="sf-leg-details">
+                    <li>
+                      <i class="bi bi-clock" aria-hidden="true"></i
+                      ><span>3h 15m</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-airplane" aria-hidden="true"></i
+                      ><span>Nonstop</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-handbag" aria-hidden="true"></i
+                      ><span>1 checked bag (23 kg)</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="sf-leg sf-leg-warm">
+                  <div class="sf-airline sf-airline-flydubai">
+                    <img src="images/airlines/flydubai.svg" alt="flydubai" />
+                  </div>
+                  <div class="sf-journey">
+                    <span class="sf-leg-caption">Flight 2 · Nov 23</span>
+                    <div class="sf-route-times">
+                      <div class="sf-time">
+                        <strong>14:30</strong><span>DXB</span>
+                      </div>
+                      <span class="sf-flight-path" aria-label="to"
+                        ><i class="bi bi-airplane-fill" aria-hidden="true"></i
+                      ></span>
+                      <div class="sf-time sf-time-arrival">
+                        <strong>16:00</strong><span>DOH</span>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="sf-leg-details">
+                    <li>
+                      <i class="bi bi-clock" aria-hidden="true"></i
+                      ><span>1h 30m</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-airplane" aria-hidden="true"></i
+                      ><span>Nonstop</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-handbag" aria-hidden="true"></i
+                      ><span>1 checked bag (23 kg)</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="sf-leg">
+                  <div class="sf-airline sf-airline-qatar">
+                    <img src="images/airlines/qatar.svg" alt="Qatar Airways" />
+                  </div>
+                  <div class="sf-journey">
+                    <span class="sf-leg-caption">Flight 3 · Nov 27</span>
+                    <div class="sf-route-times">
+                      <div class="sf-time">
+                        <strong>17:00</strong><span>DOH</span>
+                      </div>
+                      <span class="sf-flight-path" aria-label="to"
+                        ><i class="bi bi-airplane-fill" aria-hidden="true"></i
+                      ></span>
+                      <div class="sf-time sf-time-arrival">
+                        <strong>20:35</strong><span>ISB</span>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="sf-leg-details">
+                    <li>
+                      <i class="bi bi-clock" aria-hidden="true"></i
+                      ><span>3h 35m</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-airplane" aria-hidden="true"></i
+                      ><span>Nonstop</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-handbag" aria-hidden="true"></i
+                      ><span>1 checked bag (23 kg)</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="sf-fare">
+                <div><strong>PKR 779</strong><span>all 3 flights</span></div>
+                <a class="sf-primary-btn" href="#flight-results"
+                  >Select flight</a
+                >
+                <details class="sf-fare-details">
+                  <summary
+                    >Flight &amp; fare details
+                    <i class="bi bi-chevron-down" aria-hidden="true"></i
+                  ></summary>
+                </details>
+              </div>
+            </article>
+            <a class="sf-compare" href="#flight-results"
+              >Compare flight options
+              <i class="bi bi-chevron-down" aria-hidden="true"></i
+            ></a>
+          </section>
+        </div>
+        <section class="sf-confidence" aria-label="Booking benefits">
+          <h2>Book with confidence</h2>
+          <article>
+            <i class="bi bi-tag" aria-hidden="true"></i>
+            <div>
+              <h3>Transparent fares</h3>
+              <p>
+                <span class="sf-desktop-copy"
+                  >No hidden fees, so you always know what you pay.</span
+                ><span class="sf-mobile-copy"
+                  >No hidden fees. You always know what you pay.</span
+                >
+              </p>
+            </div>
+          </article>
+          <article>
+            <i class="bi bi-shield-check" aria-hidden="true"></i>
+            <div>
+              <h3>Secure booking</h3>
+              <p>Your details are protected with industry-leading security.</p>
+            </div>
+          </article>
+          <article>
+            <i class="bi bi-headphones" aria-hidden="true"></i>
+            <div>
+              <h3>
+                <span class="sf-desktop-copy">Support when you need it</span
+                ><span class="sf-mobile-copy">Travel support</span>
+              </h3>
+              <p>
+                <span class="sf-desktop-copy"
+                  >Get help before, during, and after your trip.</span
+                ><span class="sf-mobile-copy"
+                  >Help before, during, and after your trip.</span
+                >
+              </p>
+            </div>
+          </article>
+        </section>
+        <section class="sf-help-banner">
+          <i class="bi bi-headset" aria-hidden="true"></i>
+          <div>
+            <h2>Need help choosing?</h2>
+            <p>
+              Our travel experts can help you find the right flight for your
+              trip.
+            </p>
+          </div>
+          <a href="homepage.html#help"
+            >Contact us <i class="bi bi-chevron-right" aria-hidden="true"></i
+          ></a>
+        </section>
+      </div>
+    </main>
+    <div data-component="footer"></div>
+    <script>
+      document.querySelectorAll(".sf-multi-date").forEach((picker) => {
+        const dateInput = picker.querySelector(".sf-multi-date-value");
+        const dateLabel = picker.querySelector(".sf-multi-date-label");
+        const monthLabel = picker.querySelector(".sf-cal-month");
+        const calendar = picker.querySelector(".sf-cal-g");
+        const initialDate = dateInput.value
+          ? new Date(`${dateInput.value}T00:00:00`)
+          : new Date(2026, 10, 1);
+        let displayedMonth = new Date(
+          initialDate.getFullYear(),
+          initialDate.getMonth(),
+          1,
+        );
+
+        const formatDate = (date) =>
+          new Intl.DateTimeFormat("en", {
+            weekday: "short",
+            month: "short",
+            day: "numeric",
+          }).format(date);
+
+        const renderCalendar = () => {
+          const year = displayedMonth.getFullYear();
+          const month = displayedMonth.getMonth();
+          monthLabel.textContent = new Intl.DateTimeFormat("en", {
+            month: "long",
+            year: "numeric",
+          }).format(displayedMonth);
+          calendar.replaceChildren();
+
+          ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].forEach((day) => {
+            const heading = document.createElement("em");
+            heading.textContent = day;
+            calendar.append(heading);
+          });
+
+          const firstWeekday = new Date(year, month, 1).getDay();
+          const daysInMonth = new Date(year, month + 1, 0).getDate();
+          for (let cell = 0; cell < firstWeekday; cell += 1) {
+            calendar.append(document.createElement("span"));
+          }
+          for (let day = 1; day <= daysInMonth; day += 1) {
+            const date = new Date(year, month, day);
+            const dateValue = [
+              year,
+              String(month + 1).padStart(2, "0"),
+              String(day).padStart(2, "0"),
+            ].join("-");
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "sf-cal-day";
+            button.textContent = String(day);
+            button.setAttribute("aria-label", formatDate(date));
+            button.setAttribute(
+              "aria-pressed",
+              String(dateInput.value === dateValue),
+            );
+            if (dateInput.value === dateValue) button.classList.add("on");
+            button.addEventListener("click", () => {
+              dateInput.value = dateValue;
+              dateLabel.textContent = formatDate(date);
+              renderCalendar();
+            });
+            calendar.append(button);
+          }
+        };
+
+        picker.querySelectorAll(".sf-cal-nav").forEach((button, index) => {
+          button.addEventListener("click", () => {
+            displayedMonth.setMonth(
+              displayedMonth.getMonth() + (index === 0 ? -1 : 1),
+            );
+            renderCalendar();
+          });
+        });
+
+        renderCalendar();
+      });
+    </script>
+  </body>
+</html>
