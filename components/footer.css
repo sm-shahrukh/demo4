@@ -1,0 +1,115 @@
+/* Footer styles use shared tokens from css/themes.css. */
+/* footer */
+.td-foot {
+  margin-top: 2.9rem;
+  padding: 1.4rem 0 0.9rem;
+  background: var(--td-soft);
+}
+.td-foot hr {
+  margin: 1.1rem 0;
+  border-color: var(--td-divider);
+  opacity: 1;
+}
+.nl {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.nl > i {
+  font-size: 1.6rem;
+}
+.nl-t {
+  flex: 1;
+}
+.nl-t b {
+  display: block;
+}
+.nl-f {
+  display: flex;
+  gap: 0.6rem;
+  flex: 1;
+  max-width: 520px;
+}
+.nl-f input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  font: inherit;
+  font-size: 0.9rem;
+  transition: 0.15s;
+}
+.nl-f input:focus {
+  outline: 0;
+  border-color: var(--td-blue);
+  box-shadow: 0 0 0 3px var(--td-blue-soft);
+}
+.nl-f .btn-search {
+  padding: 0.6rem 1.5rem;
+}
+.fcols {
+  display: grid;
+  grid-template-columns: 1.7fr repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.fcols h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+.fcols a {
+  display: block;
+  color: var(--td-muted);
+  font-size: 0.9rem;
+  padding: 0.12rem 0;
+  transition: color 0.15s;
+}
+.fcols a:hover {
+  color: var(--td-blue);
+  text-decoration: underline;
+  text-decoration-color: var(--td-gold);
+}
+.fb p {
+  color: var(--td-muted);
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+.soc {
+  display: flex;
+  gap: 1rem;
+}
+.soc a {
+  font-size: 1.1rem;
+  color: var(--td-text);
+}
+.fbot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dd-up .dd-m {
+  top: auto;
+  bottom: calc(100% + 6px);
+  left: auto;
+  right: 0;
+}
+.td-foot .dd-t {
+  min-width: 0;
+  padding: 0.2rem 0.5rem;
+  border: 0;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+@media(max-width:991.98px){
+  .fcols{grid-template-columns:repeat(4,1fr)}
+  .fb{grid-column:1/-1}
+}
+@media(max-width:767.98px){
+  .nl{flex-wrap:wrap}
+  .nl-t{flex-basis:70%}
+  .nl-f{flex-basis:100%;max-width:none;flex-direction:column}
+  .fcols{grid-template-columns:1fr 1fr 1fr}
+  .fb{grid-column:auto;grid-row:span 2}
+  .fbot{flex-direction:column;align-items:flex-start;gap:.5rem}
+}

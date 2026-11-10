@@ -1,1068 +1,898 @@
 ﻿<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f6f9fe" />
-    <meta
-      name="description"
-      content="TravelDeals — a fresh, elegant journey planner for flights, Umrah and visa services."
-    />
-    <title>TravelDeals | Plan your next journey</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>TravelDeals – Flights, Hotels, Umrah &amp; Visa</title>
+    <link rel="icon" href="images/favicon.ico" sizes="any" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/themes.css" />
-    <link rel="stylesheet" href="css/homepage.css" />
-    <link rel="stylesheet" href="css/homepage-editorial.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/themes.css" rel="stylesheet" />
+    <link href="components/header.css" rel="stylesheet" />
+    <link href="css/homepage.css" rel="stylesheet" />
+    <link href="components/footer.css" rel="stylesheet" />
   </head>
   <body>
-    <svg aria-hidden="true" class="sprite" xmlns="http://www.w3.org/2000/svg">
-      <symbol id="i-plane" viewBox="0 0 24 24">
-        <path
-          d="M3 14v-2l7-4V4a2 2 0 0 1 4 0v4l7 4v2l-7-2v6l3 2v1l-5-1-5 1v-1l3-2v-6l-7 2Z"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.7"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </symbol>
-      <symbol id="i-plane-solid" viewBox="0 0 24 24">
-        <path
-          d="m21 3-8.1 18-2.8-7.1L3 11.1 21 3Z"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.7"
-          stroke-linejoin="round"
-        />
-        <path d="m10.1 13.9 5.2-5.2" stroke="currentColor" stroke-width="1.7" />
-      </symbol>
-      <symbol id="i-moon" viewBox="0 0 24 24">
-        <path
-          d="M19.4 15.2A8.3 8.3 0 0 1 8.8 4.6 8.5 8.5 0 1 0 19.4 15.2Z"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.7"
-          stroke-linejoin="round"
-        />
-        <path
-          d="m18 2 .8 2.2L21 5l-2.2.8L18 8l-.8-2.2L15 5l2.2-.8L18 2Zm-5 2 .4 1.1 1.1.4-1.1.4L13 7l-.4-1.1-1.1-.4 1.1-.4L13 4Z"
-          fill="currentColor"
-        />
-      </symbol>
-      <symbol id="i-passport" viewBox="0 0 24 24">
-        <rect
-          x="4"
-          y="2"
-          width="16"
-          height="20"
-          rx="2.5"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.7"
-        />
-        <circle
-          cx="12"
-          cy="10"
-          r="4"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-        />
-        <path
-          d="M8 10h8M12 6v8M8 17h8"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.3"
-        />
-      </symbol>
-      <symbol id="i-chevron" viewBox="0 0 24 24">
-        <path
-          d="m6 9 6 6 6-6"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </symbol>
-      <symbol id="i-arrow" viewBox="0 0 24 24">
-        <path
-          d="M4 12h16m-6-6 6 6-6 6"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </symbol>
-      <symbol id="i-swap" viewBox="0 0 24 24">
-        <path
-          d="M4 7h16m-4-4 4 4-4 4M20 17H4m4-4-4 4 4 4"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </symbol>
-      <symbol id="i-calendar" viewBox="0 0 24 24">
-        <rect
-          x="3"
-          y="5"
-          width="18"
-          height="16"
-          rx="2"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.7"
-        />
-        <path
-          d="M7 2v5m10-5v5M3 10h18M7 14h.01M12 14h.01M17 14h.01M7 18h.01M12 18h.01M17 18h.01"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.7"
-        />
-      </symbol>
-      <symbol id="i-user" viewBox="0 0 24 24">
-        <circle
-          cx="12"
-          cy="8"
-          r="4"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.7"
-        />
-        <path
-          d="M4 21v-1.2a8 8 0 0 1 16 0V21M8.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0Z"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.7"
-        />
-      </symbol>
-      <symbol id="i-headset" viewBox="0 0 24 24">
-        <path
-          d="M4 13v-2a8 8 0 0 1 16 0v2M4 13h3v7H5a2 2 0 0 1-2-2v-3a2 2 0 0 1 1-2Zm16 0h-3v7h2a2 2 0 0 0 2-2v-3a2 2 0 0 0-1-2Zm-3 7c0 1.3-1.6 2-4 2"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.7"
-          stroke-linecap="round"
-        />
-      </symbol>
-      <symbol id="i-shield" viewBox="0 0 24 24">
-        <path
-          d="M12 2 4 5v6c0 5.4 3.4 9 8 11 4.6-2 8-5.6 8-11V5l-8-3Z"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.7"
-        />
-        <path
-          d="m8 12 2.5 2.5L16 9"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-        />
-      </symbol>
-      <symbol id="i-bag" viewBox="0 0 24 24">
-        <rect
-          x="3"
-          y="6"
-          width="18"
-          height="15"
-          rx="2"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.7"
-        />
-        <path
-          d="M8 6V4a4 4 0 0 1 8 0v2M8 10v7m8-7v7M7 21v1m10-1v1"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.7"
-        />
-      </symbol>
-      <symbol id="i-location" viewBox="0 0 24 24">
-        <path
-          d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.7"
-        />
-        <circle
-          cx="12"
-          cy="10"
-          r="2.2"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.7"
-        />
-      </symbol>
-      <symbol id="i-menu" viewBox="0 0 24 24">
-        <path
-          d="M4 6h16M4 12h16M4 18h16"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-        />
-      </symbol>
-      <symbol id="i-close" viewBox="0 0 24 24">
-        <path
-          d="M5 5 19 19M19 5 5 19"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-        />
-      </symbol>
-      <symbol id="i-check" viewBox="0 0 24 24">
-        <path
-          d="m5 12 4 4L19 6"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </symbol>
-      <symbol id="i-search" viewBox="0 0 24 24">
-        <circle
-          cx="10.5"
-          cy="10.5"
-          r="6.5"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-        />
-        <path
-          d="m15.5 15.5 5 5"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-        />
-      </symbol>
-      <symbol id="i-heart" viewBox="0 0 24 24">
-        <path
-          d="M20.8 8.2c0 5-8.8 11-8.8 11s-8.8-6-8.8-11A5.1 5.1 0 0 1 12 5.8a5.1 5.1 0 0 1 8.8 2.4Z"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.7"
-        />
-      </symbol>
-    </svg>
-
-    <div class="first-fold" id="top">
-      <div class="topline">
-        <span>Thoughtful journeys, simpler planning.</span
-        ><a href="#destinations"
-          >Explore destinations <svg><use href="#i-arrow"></use></svg
-        ></a>
-      </div>
-      <header class="site-header">
-        <input class="mobile-menu-toggle" type="checkbox" id="mobileMenuToggle" />
-        <div class="container nav-inner">
-          <a href="#top" class="brand" aria-label="TravelDeals home"
-            ><img src="images/traveldeals-logo.png" alt="TravelDeals"
-          /></a>
-          <nav class="main-nav" aria-label="Main navigation">
-            <label for="serviceFlights">Flights</label>
-            <label for="serviceUmrah">Umrah</label>
-            <label for="serviceVisa">Visa</label>
-            <a href="#destinations">Destinations</a>
-            <a href="#offers">Offers</a>
-            <a href="#footer">Contact</a>
-          </nav>
-          <div class="header-right">
-            <label class="currency-control"
-              ><span class="sr-only">Currency</span
-              ><select aria-label="Currency">
-                <option>PKR</option>
-                <option>USD</option>
-                <option>AED</option></select
-              ><svg><use href="#i-chevron"></use></svg
-            ></label>
-            <a class="account-btn" href="#footer">
-              <svg><use href="#i-user"></use></svg><span>My account</span>
-            </a>
-            <label
-              class="mobile-menu-button"
-              for="mobileMenuToggle"
-              aria-label="Toggle navigation"
-            >
-              <svg><use href="#i-menu"></use></svg>
-            </label>
+    <header class="td-header">
+      <div class="container d-flex align-items-center">
+        <a class="td-logo" href="homepage.html" aria-label="TravelDeals home">
+          <img src="images/logo.png" alt="TravelDeals" />
+        </a>
+        <input type="checkbox" id="navtoggle" class="td-navcheck" hidden />
+        <nav class="td-nav" aria-label="Main navigation">
+          <a href="homepage.html" aria-current="page">Home</a>
+          <a href="#flight-deals">Flights</a>
+          <a href="#destinations">Hotels</a>
+          <a href="#help">Visa</a>
+          <a href="#help">Contact</a>
+          <div class="td-mobile-menu-actions">
+            <a class="btn-td btn-td-outline" href="#">Sign In</a>
+            <a class="btn-td btn-td-soft" href="#search">Get Started</a>
           </div>
-        </div>
-        <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
-          <label for="serviceFlights">Flights</label
-          ><label for="serviceUmrah">Umrah</label
-          ><label for="serviceVisa">Visa</label
-          ><a href="#destinations">Destinations</a><a href="#offers">Offers</a
-          ><a href="#footer">Contact</a>
         </nav>
-      </header>
-      <section class="hero" aria-label="Travel search">
-        <div class="hero-background"></div>
-        <div class="hero-inner container">
-          <h1 class="hero-tagline">Every journey starts with a little wonder.</h1>
-          <div class="booking" id="search">
-            <input class="service-switch" type="radio" name="service" id="serviceFlights" checked />
-            <input class="service-switch" type="radio" name="service" id="serviceUmrah" />
-            <input class="service-switch" type="radio" name="service" id="serviceVisa" />
-            <aside class="booking-rail">
-              <div class="rail-title">
-                <span>TRAVELDEALS PLANNER</span><strong>Let's begin.</strong>
-              </div>
-              <div
-                class="booking-tabs"
-                role="group"
-                aria-label="Choose a travel service"
-              >
-                <label
-                  class="service-tab"
-                  id="tab-flights"
-                  for="serviceFlights"
-                >
-                  <svg><use href="#i-plane"></use></svg><span>Flights</span
-                  ><svg class="tab-next"><use href="#i-arrow"></use></svg>
-                </label>
-                <label
-                  class="service-tab"
-                  id="tab-umrah"
-                  for="serviceUmrah"
-                >
-                  <svg><use href="#i-moon"></use></svg><span>Umrah</span
-                  ><svg class="tab-next"><use href="#i-arrow"></use></svg>
-                </label>
-                <label
-                  class="service-tab"
-                  id="tab-visa"
-                  for="serviceVisa"
-                >
-                  <svg><use href="#i-passport"></use></svg><span>Visa</span
-                  ><svg class="tab-next"><use href="#i-arrow"></use></svg>
-                </label>
-              </div>
-              <p class="rail-caption">
-                One place for the journeys that matter.
-              </p>
-            </aside>
-            <div class="booking-card">
-              <form
-                id="flightsForm"
-                class="booking-pane current"
-                role="tabpanel"
-                aria-labelledby="tab-flights"
-              >
-                <span class="mini-label">TRAVEL SEARCH</span>
-                <div class="booking-options">
-                  <fieldset class="trip-radios">
-                    <legend class="sr-only">Journey type</legend>
-                    <label
-                      ><input type="radio" name="trip" value="oneway" /><span
-                        >One way</span
-                      ></label
-                    >
-                    <label
-                      ><input
-                        type="radio"
-                        name="trip"
-                        value="roundtrip"
-                        checked
-                      /><span>Round trip</span></label
-                    >
-                    <label
-                      ><input type="radio" name="trip" value="multicity" /><span
-                        >Multi-city</span
-                      ></label
-                    >
-                  </fieldset>
-                  <p>Choose how you want to travel</p>
-                </div>
-                <div class="search-grid flight-grid">
-                  <div class="form-field city-field from-field">
-                    <label for="fromCity">From</label
-                    ><select id="fromCity" aria-label="Departure city">
-                      <option value="ISB" selected>Islamabad</option>
-                      <option value="KHI">Karachi</option>
-                      <option value="LHE">Lahore</option>
-                      <option value="PEW">Peshawar</option>
-                      <option value="UET">Quetta</option>
-                      <option value="MUX">Multan</option>
-                    </select>
-                    <small>ISB, Islamabad International Airport</small>
-                  </div>
-                  <div class="form-field city-field to-field">
-                    <label for="toCity">To</label
-                    ><select id="toCity" aria-label="Destination city">
-                      <option value="DXB" selected>Dubai</option>
-                      <option value="AUH">Abu Dhabi</option>
-                      <option value="SHJ">Sharjah</option>
-                      <option value="DOH">Doha</option>
-                      <option value="MCT">Muscat</option>
-                      <option value="IST">Istanbul</option>
-                    </select>
-                    <small>DXB, Dubai International Airport</small>
-                  </div>
-                  <div class="form-field date-field">
-                    <label for="departureDate">Departure</label
-                    ><input
-                      type="date"
-                      id="departureDate"
-                      aria-label="Departure date"
-                      value="2026-12-12"
-                      required
-                    /><small>Choose your date</small>
-                  </div>
-                  <div class="form-field date-field" id="returnField">
-                    <label for="returnDate">Return</label
-                    ><input
-                      type="date"
-                      id="returnDate"
-                      aria-label="Return date"
-                      value="2026-12-19"
-                    /><small id="returnHint">When you’ll be back</small>
-                  </div>
-                  <div class="form-field compact-field">
-                    <label for="travelers">Travellers</label
-                    ><select id="travelers" aria-label="Travellers">
-                      <option value="1" selected>1 adult</option>
-                      <option value="2">2 adults</option>
-                      <option value="3">3 adults</option>
-                      <option value="4">4 adults</option>
-                      <option value="5">5 adults</option></select
-                    ><small>Select passengers</small>
-                  </div>
-                  <div class="form-field compact-field">
-                    <label for="cabin">Cabin class</label
-                    ><select id="cabin" aria-label="Cabin class">
-                      <option selected>Economy</option>
-                      <option>Premium economy</option>
-                      <option>Business</option>
-                      <option>First class</option></select
-                    ><small>Travel your way</small>
-                  </div>
-                </div>
-                <div class="special-fares">
-                  <strong>Special fares</strong>
-                  <div
-                    class="fare-options"
-                    role="group"
-                    aria-label="Special fare"
-                  >
-                    <label class="fare-choice selected"><input class="fare-radio" type="radio" name="flightsForm-fare" checked>
-                      <b>Regular</b><span>Standard fares</span>
-                    </label>
-                    <label class="fare-choice"><input class="fare-radio" type="radio" name="flightsForm-fare">
-                      <b>Student</b><span>Student travel</span>
-                    </label>
-                    <label class="fare-choice"><input class="fare-radio" type="radio" name="flightsForm-fare">
-                      <b>Armed forces</b><span>Service personnel</span>
-                    </label>
-                    <label class="fare-choice"><input class="fare-radio" type="radio" name="flightsForm-fare">
-                      <b>Senior citizen</b><span>Senior travel</span>
-                    </label>
-                    <label class="fare-choice"><input class="fare-radio" type="radio" name="flightsForm-fare">
-                      <b>Doctors & nurses</b
-                      ><span>Healthcare professionals</span>
-                    </label>
-                  </div>
-                </div>
-                <div class="booking-bottom">
-                  <label class="nonstop"
-                    ><input id="nonstop" type="checkbox" /><span
-                      >Non-stop flights only</span
-                    ></label
-                  >
-                  <div class="bottom-note">
-                    <svg><use href="#i-shield"></use></svg> Clear choices,
-                    confident journeys
-                  </div>
-                  <button
-                    type="button"
-                    class="support-link"
-                   
-                  >
-                    <svg><use href="#i-headset"></use></svg> Flight support
-                  </button>
-                </div>
-                <button class="primary-search" type="button">
-                  <svg><use href="#i-search"></use></svg
-                  ><span>Search flights</span
-                  ><svg class="search-arrow"><use href="#i-arrow"></use></svg>
-                </button>
-              </form>
-
-              <form
-                id="umrahForm"
-                class="booking-pane"
-                role="tabpanel"
-                aria-labelledby="tab-umrah"
-              >
-                <span class="mini-label">TRAVEL SEARCH</span>
-                <div class="booking-options service-search-note">
-                  <span class="service-mode">Umrah package</span>
-                  <span class="service-note">Plan your pilgrimage with care</span>
-                </div>
-                <div class="search-grid alternate-grid">
-                  <div class="form-field city-field">
-                    <label for="umrahFrom">Departing from</label
-                    ><select id="umrahFrom">
-                      <option>Islamabad</option>
-                      <option>Karachi</option>
-                      <option>Lahore</option></select
-                    ><small>Pakistan</small>
-                  </div>
-                  <div class="form-field city-field">
-                    <label for="umrahCity">Destination</label
-                    ><select id="umrahCity">
-                      <option>Makkah & Madinah</option>
-                      <option>Makkah</option>
-                      <option>Madinah</option></select
-                    ><small>Saudi Arabia</small>
-                  </div>
-                  <div class="form-field date-field">
-                    <label for="umrahDate">Departure</label
-                    ><input id="umrahDate" type="date" value="2026-12-12" /><small
-                      >Preferred date</small
-                    >
-                  </div>
-                  <div class="form-field compact-field">
-                    <label for="umrahNights">Duration</label
-                    ><select id="umrahNights">
-                      <option>7 nights</option>
-                      <option selected>10 nights</option>
-                      <option>14 nights</option>
-                      <option>21 nights</option></select
-                    ><small>Length of stay</small>
-                  </div>
-                  <div class="form-field compact-field">
-                    <label for="umrahGuests">Travellers</label
-                    ><select id="umrahGuests">
-                      <option>1 traveller</option>
-                      <option selected>2 travellers</option>
-                      <option>3 travellers</option>
-                      <option>4 travellers</option></select
-                    ><small>Adults travelling</small>
-                  </div>
-                </div>
-                <div class="special-fares">
-                  <strong>Special fares</strong>
-                  <div class="fare-options" role="group" aria-label="Special fare">
-                    <label class="fare-choice selected"><input class="fare-radio" type="radio" name="umrahForm-fare" checked><b>Regular</b><span>Standard fares</span></label>
-                    <label class="fare-choice"><input class="fare-radio" type="radio" name="umrahForm-fare"><b>Student</b><span>Student travel</span></label>
-                    <label class="fare-choice"><input class="fare-radio" type="radio" name="umrahForm-fare"><b>Armed forces</b><span>Service personnel</span></label>
-                    <label class="fare-choice"><input class="fare-radio" type="radio" name="umrahForm-fare"><b>Senior citizen</b><span>Senior travel</span></label>
-                    <label class="fare-choice"><input class="fare-radio" type="radio" name="umrahForm-fare"><b>Doctors &amp; nurses</b><span>Healthcare professionals</span></label>
-                  </div>
-                </div>
-                <div class="booking-bottom alternate-bottom">
-                  <span
-                    ><svg><use href="#i-shield"></use></svg> Flexible planning
-                    with friendly support</span
-                  ><span>Packages tailored to your preferences</span>
-                </div>
-                <button class="primary-search" type="button">
-                  <svg><use href="#i-search"></use></svg
-                  ><span>Explore Umrah options</span
-                  ><svg class="search-arrow"><use href="#i-arrow"></use></svg>
-                </button>
-              </form>
-
-              <form
-                id="visaForm"
-                class="booking-pane"
-                role="tabpanel"
-                aria-labelledby="tab-visa"
-              >
-                <span class="mini-label">TRAVEL SEARCH</span>
-                <div class="booking-options service-search-note">
-                  <span class="service-mode">Visa assistance</span>
-                  <span class="service-note">Start with your destination and passport</span>
-                </div>
-                <div class="search-grid alternate-grid">
-                  <div class="form-field city-field">
-                    <label for="visaCountry">Destination country</label
-                    ><select id="visaCountry">
-                      <option>United Arab Emirates</option>
-                      <option>Saudi Arabia</option>
-                      <option>Türkiye</option>
-                      <option>Qatar</option>
-                      <option>United Kingdom</option></select
-                    ><small>Where you plan to travel</small>
-                  </div>
-                  <div class="form-field city-field">
-                    <label for="visaPassport">Passport</label
-                    ><select id="visaPassport">
-                      <option>Pakistan</option>
-                      <option>United Arab Emirates</option>
-                      <option>Other</option></select
-                    ><small>Country of citizenship</small>
-                  </div>
-                  <div class="form-field compact-field">
-                    <label for="visaPurpose">Purpose</label
-                    ><select id="visaPurpose">
-                      <option>Tourism</option>
-                      <option>Family visit</option>
-                      <option>Business</option></select
-                    ><small>Trip type</small>
-                  </div>
-                  <div class="form-field date-field">
-                    <label for="visaDate">Travel date</label
-                    ><input id="visaDate" type="date" value="2026-12-12" /><small
-                      >Approximate is fine</small
-                    >
-                  </div>
-                  <div class="form-field compact-field">
-                    <label for="visaGuests">Applicants</label
-                    ><select id="visaGuests">
-                      <option>1 applicant</option>
-                      <option>2 applicants</option>
-                      <option>3 applicants</option>
-                      <option>4 applicants</option></select
-                    ><small>Number of people</small>
-                  </div>
-                </div>
-                <div class="special-fares">
-                  <strong>Special fares</strong>
-                  <div class="fare-options" role="group" aria-label="Special fare">
-                    <label class="fare-choice selected"><input class="fare-radio" type="radio" name="visaForm-fare" checked><b>Regular</b><span>Standard fares</span></label>
-                    <label class="fare-choice"><input class="fare-radio" type="radio" name="visaForm-fare"><b>Student</b><span>Student travel</span></label>
-                    <label class="fare-choice"><input class="fare-radio" type="radio" name="visaForm-fare"><b>Armed forces</b><span>Service personnel</span></label>
-                    <label class="fare-choice"><input class="fare-radio" type="radio" name="visaForm-fare"><b>Senior citizen</b><span>Senior travel</span></label>
-                    <label class="fare-choice"><input class="fare-radio" type="radio" name="visaForm-fare"><b>Doctors &amp; nurses</b><span>Healthcare professionals</span></label>
-                  </div>
-                </div>
-                <div class="booking-bottom alternate-bottom">
-                  <span
-                    ><svg><use href="#i-shield"></use></svg> Clear information
-                    about requirements</span
-                  ><span>Support when you need it</span>
-                </div>
-                <button class="primary-search" type="button">
-                  <svg><use href="#i-arrow"></use></svg
-                  ><span>Check visa options</span>
-                </button>
-              </form>
-            </div>
-          </div>
+        <div class="ms-auto d-flex align-items-center gap-2">
+          <a class="btn-td btn-td-outline d-none d-md-inline-flex" href="#">Sign In</a>
+          <a class="btn-td btn-td-soft d-none d-md-inline-flex" href="#search">Get Started</a>
+          <label for="navtoggle" class="td-burger d-md-none" aria-label="Toggle navigation">
+            <i class="bi bi-list" aria-hidden="true"></i>
+          </label>
         </div>
-        <section class="quicklinks container" aria-label="Quick travel links">
-          <a href="#destinations"
-            ><span class="shortcut-icon"
-              ><svg><use href="#i-location"></use></svg></span
-            ><span class="shortcut-copy"
-              ><strong>Where to go</strong
-              ><small>Explore destinations</small></span
-            ><svg class="q-arrow"><use href="#i-arrow"></use></svg
-          ></a>
-          <a href="#travel-styles"
-            ><span class="shortcut-icon"
-              ><svg><use href="#i-bag"></use></svg></span
-            ><span class="shortcut-copy"
-              ><strong>Travel your way</strong
-              ><small>Find your style</small></span
-            ><svg class="q-arrow"><use href="#i-arrow"></use></svg
-          ></a>
-          <a href="#why"
-            ><span class="shortcut-icon"
-              ><svg><use href="#i-headset"></use></svg></span
-            ><span class="shortcut-copy"
-              ><strong>Travel assistance</strong
-              ><small>We're here to help</small></span
-            ><svg class="q-arrow"><use href="#i-arrow"></use></svg
-          ></a>
-          <a href="#offers"
-            ><span class="shortcut-icon"
-              ><svg><use href="#i-heart"></use></svg></span
-            ><span class="shortcut-copy"
-              ><strong>Latest inspiration</strong
-              ><small>Ideas for your trip</small></span
-            ><svg class="q-arrow"><use href="#i-arrow"></use></svg
-          ></a>
-        </section>
-      </section>
-    </div>
+      </div>
+    </header>
+
+    <nav class="td-mobile-bottom-nav" aria-label="Mobile navigation">
+      <a class="td-mobile-nav-item" href="homepage.html">
+        <i class="bi bi-house-door" aria-hidden="true"></i><span>Home</span>
+      </a>
+      <label class="td-mobile-nav-item" for="st-f">
+        <i class="bi bi-airplane" aria-hidden="true"></i><span>Flights</span>
+      </label>
+      <label class="td-mobile-nav-item" for="st-h">
+        <i class="bi bi-buildings" aria-hidden="true"></i><span>Hotels</span>
+      </label>
+      <label class="td-mobile-nav-item" for="st-v">
+        <i class="bi bi-person-vcard" aria-hidden="true"></i><span>Visa</span>
+      </label>
+      <a class="td-mobile-nav-item" href="#help">
+        <i class="bi bi-chat-dots" aria-hidden="true"></i><span>Contact</span>
+      </a>
+    </nav>
 
     <main>
-      <section class="section container destinations" id="destinations">
-        <div class="section-heading">
-          <div>
-            <span class="eyebrow">EXPLORE THE WORLD</span>
-            <h2>Popular destinations</h2>
-            <p>Places worth looking forward to, near and far.</p>
-          </div>
-          <a class="text-link" href="#search"
-            >Search flights <svg><use href="#i-arrow"></use></svg
-          ></a>
-        </div>
-        <div class="destination-grid">
-          <a href="#search" class="destination-card"
-            ><img
-              src="images/istanbul.webp"
-              alt="Istanbul skyline along the Bosphorus"
-              loading="lazy" />
-            <div class="dest-overlay">
-              <div>
-                <span>Türkiye</span>
-                <h3>Istanbul</h3>
-                <p>A meeting point of cultures</p>
+      <div class="td-first-screen">
+      <section class="td-hero" id="search">
+        <div class="container">
+          <h1 class="td-hero-copy">
+            Find flights, stays, and travel support for your next journey.
+          </h1>
+          <p class="td-hero-quote">“The journey is the destination.”</p>
+          <div class="td-search">
+            <input class="td-st" type="radio" name="st" id="st-f" checked /><input
+              class="td-st"
+              type="radio"
+              name="st"
+              id="st-h"
+            /><input class="td-st" type="radio" name="st" id="st-v" />
+            <div class="td-tabs">
+              <label for="st-f"><i class="bi bi-airplane"></i>Flights</label
+              ><label for="st-h"><i class="bi bi-buildings"></i>Hotels</label
+              ><label for="st-v"><i class="bi bi-person-vcard"></i>Visa</label>
+            </div>
+
+            <form class="td-pane td-pane-f" action="#">
+              <div class="td-opts">
+                <label class="td-rad"
+                  ><input type="radio" name="trip" id="t1" checked />One-way</label
+                >
+                <label class="td-rad"
+                  ><input type="radio" name="trip" id="t2" />Roundtrip</label
+                >
+                <label class="td-rad"
+                  ><input type="radio" name="trip" id="t3" />Multi-city</label
+                ><span class="vr"></span>
+                <div class="dd" tabindex="0">
+                  <div class="dd-t">
+                    <span class="v1">Economy</span
+                    ><span class="v2">Premium economy</span
+                    ><span class="v3">Business</span
+                    ><span class="v4">First</span
+                    ><i class="bi bi-chevron-down"></i>
+                  </div>
+                  <div class="dd-m">
+                    <label class="dd-o"
+                      ><input
+                        type="radio"
+                        name="cab"
+                        id="c1"
+                        checked
+                      />Economy</label
+                    >
+                    <label class="dd-o"
+                      ><input type="radio" name="cab" id="c2" />Premium
+                      economy</label
+                    >
+                    <label class="dd-o"
+                      ><input type="radio" name="cab" id="c3" />Business</label
+                    >
+                    <label class="dd-o"
+                      ><input type="radio" name="cab" id="c4" />First</label
+                    >
+                  </div>
+                </div>
               </div>
-              <span class="round-arrow"
-                ><svg><use href="#i-arrow"></use></svg
-              ></span></div
-          ></a>
-          <a href="#search" class="destination-card"
-            ><img
-              src="images/dubai.webp"
-              alt="Dubai skyline at golden hour"
-              loading="lazy" />
-            <div class="dest-overlay">
-              <div>
-                <span>United Arab Emirates</span>
-                <h3>Dubai</h3>
-                <p>Modern moments to discover</p>
+              <div class="td-sbar">
+                <input type="checkbox" id="sw" class="td-st" />
+                <div class="td-fld td-ff" tabindex="-1">
+                  <i class="bi bi-airplane"></i
+                  ><input aria-label="From" value="Islamabad (ISB)" />
+                  <div class="pop">
+                    <a class="td-sg" href="#"
+                      ><i class="bi bi-geo-alt"></i
+                      ><span
+                        ><b>Islamabad (ISB)</b
+                        ><small>Islamabad International</small></span
+                      ></a
+                    ><a class="td-sg" href="#"
+                      ><i class="bi bi-geo-alt"></i
+                      ><span
+                        ><b>Lahore (LHE)</b
+                        ><small>Allama Iqbal International</small></span
+                      ></a
+                    ><a class="td-sg" href="#"
+                      ><i class="bi bi-geo-alt"></i
+                      ><span
+                        ><b>Karachi (KHI)</b
+                        ><small>Jinnah International</small></span
+                      ></a
+                    >
+                  </div>
+                </div>
+                <label class="td-swap" for="sw" aria-label="Swap"
+                  ><i class="bi bi-arrow-left-right"></i
+                ></label>
+                <div class="td-fld td-fto" tabindex="-1">
+                  <i class="bi bi-airplane"></i
+                  ><input aria-label="To" value="Dubai (DXB)" />
+                  <div class="pop">
+                    <a class="td-sg" href="#"
+                      ><i class="bi bi-geo-alt"></i
+                      ><span
+                        ><b>Dubai (DXB)</b
+                        ><small>Dubai International</small></span
+                      ></a
+                    ><a class="td-sg" href="#"
+                      ><i class="bi bi-geo-alt"></i
+                      ><span
+                        ><b>Jeddah (JED)</b
+                        ><small>King Abdulaziz International</small></span
+                      ></a
+                    ><a class="td-sg" href="#"
+                      ><i class="bi bi-geo-alt"></i
+                      ><span
+                        ><b>Istanbul (IST)</b
+                        ><small>Istanbul Airport</small></span
+                      ></a
+                    >
+                  </div>
+                </div>
+                <div class="td-fld td-date" tabindex="0">
+                  <i class="bi bi-calendar3"></i><span>Sat, Nov 21</span>
+                  <div class="pop td-cal">
+                    <div class="td-cal-h">
+                      <i class="bi bi-chevron-left"></i><b>November 2026</b
+                      ><i class="bi bi-chevron-right"></i>
+                    </div>
+                    <div class="td-cal-g">
+                      <em>Su</em><em>Mo</em><em>Tu</em><em>We</em><em>Th</em
+                      ><em>Fr</em><em>Sa</em><i>1</i><i>2</i><i>3</i><i>4</i
+                      ><i>5</i><i>6</i><i>7</i><i>8</i><b>9</b><b>10</b><b>11</b
+                      ><b>12</b><b>13</b><b>14</b><b>15</b><b>16</b><b>17</b
+                      ><b>18</b><b>19</b><b>20</b><b class="on">21</b><b>22</b
+                      ><b>23</b><b>24</b><b>25</b><b>26</b><b>27</b><b>28</b
+                      ><b>29</b><b>30</b>
+                    </div>
+                  </div>
+                </div>
+                <div class="td-fld td-date td-fr" tabindex="0">
+                  <i class="bi bi-calendar3"></i><span>Sat, Nov 28</span>
+                  <div class="pop td-cal">
+                    <div class="td-cal-h">
+                      <i class="bi bi-chevron-left"></i><b>November 2026</b>
+                      <i class="bi bi-chevron-right"></i>
+                    </div>
+                    <div class="td-cal-g">
+                      <em>Su</em><em>Mo</em><em>Tu</em><em>We</em><em>Th</em><em>Fr</em><em>Sa</em>
+                      <i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i>
+                      <i>8</i><b>9</b><b>10</b><b>11</b><b>12</b><b>13</b><b>14</b>
+                      <b>15</b><b>16</b><b>17</b><b>18</b><b>19</b><b>20</b><b>21</b>
+                      <b>22</b><b>23</b><b>24</b><b>25</b><b>26</b><b>27</b><b class="on">28</b>
+                      <b>29</b><b>30</b>
+                    </div>
+                  </div>
+                </div>
+                <div class="td-fld td-ft" tabindex="0">
+                  <i class="bi bi-person"></i><span>1 traveler</span>
+                  <div class="pop">
+                    <label class="td-cnt"
+                      >Adults<input
+                        type="number"
+                        value="1"
+                        min="1"
+                        max="9" /></label
+                    ><label class="td-cnt"
+                      >Children<input type="number" value="0" min="0" max="9"
+                    /></label>
+                    <label class="td-cnt"
+                      >Infants<input type="number" value="0" min="0" max="9" aria-label="Infants"
+                    /></label>
+                  </div>
+                </div>
+                <button class="btn-search" type="submit">Search</button>
               </div>
-              <span class="round-arrow"
-                ><svg><use href="#i-arrow"></use></svg
-              ></span></div
-          ></a>
-          <a href="#search" class="destination-card"
-            ><img
-              src="images/hunza.webp"
-              alt="Hunza valley and Karakoram mountains"
-              loading="lazy" />
-            <div class="dest-overlay">
-              <div>
-                <span>Pakistan</span>
-                <h3>Hunza</h3>
-                <p>A breath of mountain air</p>
+              <div class="td-multi-controls" aria-label="Multi-city flights">
+                <div class="td-leg-control td-leg-2">
+                  <input class="td-toggle-input" type="checkbox" id="td-flight-leg-2" checked />
+                  <div class="td-multi-row td-flight-leg-2">
+                    <div class="td-multi-field td-multi-location"><i class="bi bi-airplane" aria-hidden="true"></i><span>Flight 2 · From</span><input value="Dubai (DXB)" aria-label="Flight 2 from" /></div>
+                    <div class="td-multi-field td-multi-location"><i class="bi bi-airplane" aria-hidden="true"></i><span>To</span><input placeholder="Going to" aria-label="Flight 2 to" /></div>
+                    <label class="td-multi-field"><i class="bi bi-calendar3" aria-hidden="true"></i><span>Date</span><input type="date" value="2026-11-25" aria-label="Flight 2 date" /></label>
+                    <div class="td-multi-actions">
+                      <label class="td-remove td-remove-icon" for="td-flight-leg-2" aria-label="Remove Flight 2" title="Remove flight"><i class="bi bi-x-lg" aria-hidden="true"></i></label>
+                    </div>
+                  </div>
+                </div>
+                <div class="td-leg-control td-leg-3">
+                  <input class="td-toggle-input" type="checkbox" id="td-flight-leg-3" />
+                  <div class="td-multi-row td-flight-leg-3">
+                    <div class="td-multi-field td-multi-location"><i class="bi bi-airplane" aria-hidden="true"></i><span>Flight 3 · From</span><input placeholder="Leaving from" aria-label="Flight 3 from" /></div>
+                    <div class="td-multi-field td-multi-location"><i class="bi bi-airplane" aria-hidden="true"></i><span>To</span><input placeholder="Going to" aria-label="Flight 3 to" /></div>
+                    <label class="td-multi-field"><i class="bi bi-calendar3" aria-hidden="true"></i><span>Date</span><input type="date" aria-label="Flight 3 date" /></label>
+                    <div class="td-multi-actions">
+                      <label class="td-remove td-remove-icon" for="td-flight-leg-3" aria-label="Remove Flight 3" title="Remove flight"><i class="bi bi-x-lg" aria-hidden="true"></i></label>
+                    </div>
+                  </div>
+                </div>
+                <div class="td-leg-control td-leg-4">
+                  <input class="td-toggle-input" type="checkbox" id="td-flight-leg-4" />
+                  <div class="td-multi-row td-flight-leg-4">
+                    <div class="td-multi-field td-multi-location"><i class="bi bi-airplane" aria-hidden="true"></i><span>Flight 4 · From</span><input placeholder="Leaving from" aria-label="Flight 4 from" /></div>
+                    <div class="td-multi-field td-multi-location"><i class="bi bi-airplane" aria-hidden="true"></i><span>To</span><input placeholder="Going to" aria-label="Flight 4 to" /></div>
+                    <label class="td-multi-field"><i class="bi bi-calendar3" aria-hidden="true"></i><span>Date</span><input type="date" aria-label="Flight 4 date" /></label>
+                    <div class="td-multi-actions">
+                      <label class="td-remove td-remove-icon" for="td-flight-leg-4" aria-label="Remove Flight 4" title="Remove flight"><i class="bi bi-x-lg" aria-hidden="true"></i></label>
+                    </div>
+                  </div>
+                </div>
+                <div class="td-leg-control td-leg-5">
+                  <input class="td-toggle-input" type="checkbox" id="td-flight-leg-5" />
+                  <div class="td-multi-row td-flight-leg-5">
+                    <div class="td-multi-field td-multi-location"><i class="bi bi-airplane" aria-hidden="true"></i><span>Flight 5 · From</span><input placeholder="Leaving from" aria-label="Flight 5 from" /></div>
+                    <div class="td-multi-field td-multi-location"><i class="bi bi-airplane" aria-hidden="true"></i><span>To</span><input placeholder="Going to" aria-label="Flight 5 to" /></div>
+                    <label class="td-multi-field"><i class="bi bi-calendar3" aria-hidden="true"></i><span>Date</span><input type="date" aria-label="Flight 5 date" /></label>
+                    <div class="td-multi-actions">
+                      <label class="td-remove td-remove-icon" for="td-flight-leg-5" aria-label="Remove Flight 5" title="Remove flight"><i class="bi bi-x-lg" aria-hidden="true"></i></label>
+                    </div>
+                  </div>
+                </div>
+                <div class="td-leg-control td-leg-6">
+                  <input class="td-toggle-input" type="checkbox" id="td-flight-leg-6" />
+                  <div class="td-multi-row td-flight-leg-6">
+                    <div class="td-multi-field td-multi-location"><i class="bi bi-airplane" aria-hidden="true"></i><span>Flight 6 · From</span><input placeholder="Leaving from" aria-label="Flight 6 from" /></div>
+                    <div class="td-multi-field td-multi-location"><i class="bi bi-airplane" aria-hidden="true"></i><span>To</span><input placeholder="Going to" aria-label="Flight 6 to" /></div>
+                    <label class="td-multi-field"><i class="bi bi-calendar3" aria-hidden="true"></i><span>Date</span><input type="date" aria-label="Flight 6 date" /></label>
+                    <div class="td-multi-actions">
+                      <label class="td-remove td-remove-icon" for="td-flight-leg-6" aria-label="Remove Flight 6" title="Remove flight"><i class="bi bi-x-lg" aria-hidden="true"></i></label>
+                    </div>
+                  </div>
+                </div>
+                <div class="td-multi-footer">
+                  <label class="td-add td-add-leg-2" for="td-flight-leg-2">+ Add another flight</label>
+                  <label class="td-add td-add-leg-3" for="td-flight-leg-3">+ Add another flight</label>
+                  <label class="td-add td-add-leg-4" for="td-flight-leg-4">+ Add another flight</label>
+                  <label class="td-add td-add-leg-5" for="td-flight-leg-5">+ Add another flight</label>
+                  <label class="td-add td-add-leg-6" for="td-flight-leg-6">+ Add another flight</label>
+                  <button class="btn-search td-multi-search" type="submit">Search</button>
+                </div>
               </div>
-              <span class="round-arrow"
-                ><svg><use href="#i-arrow"></use></svg
-              ></span></div
-          ></a>
-        </div>
-      </section>
+              <label class="td-bundle"
+                ><input type="checkbox" />Find flights with flexible fares</label
+              >
+            </form>
 
-      <section class="section container feature-panel" id="travel-styles">
-        <div class="section-heading">
-          <div>
-            <span class="eyebrow">TRAVEL YOUR WAY</span>
-            <h2>Every journey has its own story</h2>
-            <p>Start with the kind of trip you have in mind.</p>
+            <form class="td-pane td-pane-h" action="#">
+              <div class="td-opts td-service-options">
+                <label class="td-rad"><input type="radio" name="stay-type" checked />Hotel</label>
+                <label class="td-rad"><input type="radio" name="stay-type" />Apartment</label>
+                <label class="td-rad"><input type="radio" name="stay-type" />Resort</label>
+                <span class="td-option-chip"><i class="bi bi-people"></i> 2 guests · 1 room</span>
+              </div>
+              <div class="td-sbar">
+                <div class="td-fld" tabindex="-1">
+                  <i class="bi bi-geo-alt"></i
+                  ><input
+                    placeholder="Where are you going?"
+                    aria-label="Destination"
+                  />
+                </div>
+                <div class="td-fld td-date">
+                  <i class="bi bi-calendar3"></i
+                  ><input
+                    type="date"
+                    value="2026-11-21"
+                    aria-label="Check-in"
+                  />
+                </div>
+                <div class="td-fld td-date">
+                  <i class="bi bi-calendar3"></i
+                  ><input
+                    type="date"
+                    value="2026-11-25"
+                    aria-label="Check-out"
+                  />
+                </div>
+                <div class="td-fld td-ft">
+                  <i class="bi bi-person"></i
+                  ><input type="number" value="2" min="1" aria-label="Guests" />
+                </div>
+                <button class="btn-search" type="submit">Search</button>
+              </div>
+              <label class="td-bundle"><input type="checkbox" />Include flight options with my stay</label>
+            </form>
+
+            <form class="td-pane td-pane-v" action="#">
+              <div class="td-opts td-service-options">
+                <label class="td-rad"><input type="radio" name="visa-purpose" checked />Tourist</label>
+                <label class="td-rad"><input type="radio" name="visa-purpose" />Business</label>
+                <label class="td-rad"><input type="radio" name="visa-purpose" />Transit</label>
+                <span class="td-option-chip"><i class="bi bi-arrow-repeat"></i> Single entry</span>
+              </div>
+              <div class="td-sbar">
+                <div class="td-fld">
+                  <i class="bi bi-flag"></i
+                  ><input value="Pakistan" aria-label="Citizen of" />
+                </div>
+                <div class="td-fld">
+                  <i class="bi bi-geo-alt"></i
+                  ><input
+                    placeholder="Visiting which country?"
+                    aria-label="Destination"
+                  />
+                </div>
+                <div class="td-fld td-date">
+                  <i class="bi bi-person-vcard"></i
+                  ><input value="Tourist visa" aria-label="Visa type" />
+                </div>
+                <div class="td-fld td-date"><i class="bi bi-calendar3"></i><input type="date" value="2026-11-21" aria-label="Travel date" /></div>
+                <button class="btn-search" type="submit">Search</button>
+              </div>
+              <label class="td-bundle"><input type="checkbox" />Include visa guidance with my trip</label>
+            </form>
           </div>
         </div>
-        <div class="feature-grid">
-          <article class="feature-card">
-            <div class="feature-icon">
-              <svg><use href="#i-plane"></use></svg>
-            </div>
-            <h3>City discoveries</h3>
-            <p>
-              Find your next favourite place, from lively streets to
-              unforgettable landmarks.
-            </p>
-            <a href="#search"
-              >Find flights <svg><use href="#i-arrow"></use></svg
-            ></a>
-          </article>
-          <article class="feature-card">
-            <div class="feature-icon">
-              <svg><use href="#i-moon"></use></svg>
-            </div>
-            <h3>Meaningful journeys</h3>
-            <p>
-              Consider the little details that make your Umrah experience more
-              comfortable.
-            </p>
-            <a href="#search"
-              >Explore Umrah <svg><use href="#i-arrow"></use></svg
-            ></a>
-          </article>
-          <article class="feature-card">
-            <div class="feature-icon">
-              <svg><use href="#i-passport"></use></svg>
-            </div>
-            <h3>Smoother travel plans</h3>
-            <p>
-              Get a clearer starting point for visa requirements and travel
-              documents.
-            </p>
-            <a href="#search"
-              >Plan your visa <svg><use href="#i-arrow"></use></svg
-            ></a>
-          </article>
-        </div>
-      </section>
 
-      <section class="section container scenic-banner" id="journeys">
-        <div class="scenic-content">
-          <span class="eyebrow light">MAKE MEMORIES</span>
-          <h2>Make room for<br />more memorable journeys.</h2>
-          <p>
-            From a simple weekend away to a long-awaited adventure, let the
-            planning feel easy.
-          </p>
-          <a href="#search" class="white-button"
-            >Start planning <svg><use href="#i-arrow"></use></svg
-          ></a>
-        </div>
-      </section>
-
-      <section class="section container feature-panel reasons" id="why">
-        <div class="section-heading">
-          <div>
-            <span class="eyebrow">A BETTER WAY TO GO</span>
-            <h2>Thoughtful details, easier decisions</h2>
-            <p>
-              We believe planning should be as comfortable as the journey
-              itself.
-            </p>
-          </div>
-        </div>
-        <div class="feature-grid">
-          <article class="feature-card">
-            <div class="feature-icon">
-              <svg><use href="#i-search"></use></svg>
-            </div>
-            <h3>Choices made clear</h3>
-            <p>
-              See the travel details together and compare the options that suit
-              your plans.
-            </p>
-            <a href="#search"
-              >Search your journey <svg><use href="#i-arrow"></use></svg
-            ></a>
-          </article>
-          <article class="feature-card">
-            <div class="feature-icon">
-              <svg><use href="#i-shield"></use></svg>
-            </div>
-            <h3>Confidence in every plan</h3>
-            <p>
-              Helpful information, straightforward steps, and no unnecessary
-              complexity.
-            </p>
-            <a href="#questions"
-              >How it works <svg><use href="#i-arrow"></use></svg
-            ></a>
-          </article>
-          <article class="feature-card">
-            <div class="feature-icon">
-              <svg><use href="#i-headset"></use></svg>
-            </div>
-            <h3>Here when you need us</h3>
-            <p>
-              Find guidance when a question comes up before your next departure.
-            </p>
-            <a href="#footer"
-              >Get in touch <svg><use href="#i-arrow"></use></svg
-            ></a>
-          </article>
-        </div>
-      </section>
-
-      <section class="section container offers" id="offers">
-        <div class="section-heading">
-          <div>
-            <span class="eyebrow">SOMETHING TO LOOK FORWARD TO</span>
-            <h2>Inspiration for your next getaway</h2>
-            <p>A little inspiration can be the start of a great journey.</p>
-          </div>
-          <a class="text-link" href="#search"
-            >Plan a trip <svg><use href="#i-arrow"></use></svg
-          ></a>
-        </div>
-        <div class="offers-grid">
-          <article class="offer-card">
-            <img
-              src="images/hunza.webp"
-              alt="Mountain scenery in Hunza"
-              loading="lazy"
-            />
-            <div class="offer-copy">
-              <span class="offer-tag">FLIGHTS</span>
-              <h3>A new view is waiting</h3>
-              <p>Find the route that takes you somewhere wonderful.</p>
-              <a href="#search"
-                >Explore flights <svg><use href="#i-arrow"></use></svg
-              ></a>
-            </div>
-          </article>
-          <article class="offer-card">
-            <img
-              src="images/istanbul.webp"
-              alt="Waterside scenery in Istanbul"
-              loading="lazy"
-            />
-            <div class="offer-copy">
-              <span class="offer-tag">TRAVEL PLANNING</span>
-              <h3>Make the journey yours</h3>
-              <p>Start with your dates, preferences, and places in mind.</p>
-              <a href="#search"
-                >Discover travel options <svg><use href="#i-arrow"></use></svg
-              ></a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section container help-section" id="questions">
-        <div class="help-intro">
-          <span class="eyebrow">TRAVEL HELP</span>
-          <h2>A little help before you go</h2>
-          <p>Useful answers to common travel-planning questions.</p>
-          <a class="text-link" href="#search"
-            >Back to search <svg><use href="#i-arrow"></use></svg
-          ></a>
-        </div>
-        <div class="faq-list">
-          <details>
-            <summary>
-              Can I search one-way and round-trip flights?<svg>
-                <use href="#i-chevron"></use>
-              </svg>
-            </summary>
-            <p>
-              Yes. Choose One way or Round trip above, then enter your route and
-              travel dates. Multi-city planning is also available in the
-              homepage form concept.
-            </p>
-          </details>
-          <details>
-            <summary>
-              What can I explore in the Umrah tab?<svg>
-                <use href="#i-chevron"></use>
-              </svg>
-            </summary>
-            <p>
-              Start with your departure city, preferred dates, duration, and
-              number of travellers to outline your ideal Umrah journey.
-            </p>
-          </details>
-          <details>
-            <summary>
-              How do I begin a visa enquiry?<svg>
-                <use href="#i-chevron"></use>
-              </svg>
-            </summary>
-            <p>
-              Select your destination, passport country, travel purpose, and
-              approximate departure date. A future booking flow can continue
-              from there.
-            </p>
-          </details>
-          <details>
-            <summary>
-              Are the offers on this page live?<svg>
-                <use href="#i-chevron"></use>
-              </svg>
-            </summary>
-            <p>
-              This is a homepage design preview. The imagery and example
-              journeys are illustrative; live fares and applications require
-              your booking integrations.
-            </p>
-          </details>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer" id="footer">
       <div class="container">
-        <div class="newsletter">
-          <div>
-            <span class="eyebrow">STAY INSPIRED</span>
-            <h2>A little travel inspiration, delivered.</h2>
-            <p>Ideas for the destinations and journeys worth discovering.</p>
-          </div>
-          <div class="newsletter-form">
-            <label class="sr-only" for="newsletterEmail">Email address</label
-            ><input
-              id="newsletterEmail"
-              type="email"
-              placeholder="Your email address"
-              required
-            /><button type="button">
-              Subscribe <svg><use href="#i-arrow"></use></svg>
-            </button>
-          </div>
+        <div class="td-qg">
+          <a class="td-qc" href="#"
+            ><i class="bi bi-geo-alt"></i
+            ><span
+              ><b>Where to go</b><small>Find your next destination</small></span
+            ><i class="bi bi-chevron-right td-ch"></i
+          ></a>
+          <a class="td-qc" href="#"
+            ><i class="bi bi-tag"></i
+            ><span
+              ><b>Flight offers</b
+              ><small>Discover fares worth booking</small></span
+            ><i class="bi bi-chevron-right td-ch"></i
+          ></a>
+          <a class="td-qc" href="#"
+            ><i class="bi bi-moon"></i
+            ><span
+              ><b>Umrah journeys</b
+              ><small>Plan a meaningful pilgrimage</small></span
+            ><i class="bi bi-chevron-right td-ch"></i
+          ></a>
+          <a class="td-qc" href="#"
+            ><i class="bi bi-person-vcard"></i
+            ><span
+              ><b>Visa assistance</b
+              ><small>Guidance for every step</small></span
+            ><i class="bi bi-chevron-right td-ch"></i
+          ></a>
         </div>
-        <div class="footer-main">
-          <div class="footer-brand">
-            <img src="images/traveldeals-logo.png" alt="TravelDeals" />
-            <p>
-              Good journeys. Better choices.<br />Travel planning made a little
-              simpler.
-            </p>
-            <div class="socials">
-              <a
-                href="#footer"
-                aria-label="Facebook"
-               
-                >f</a
-              ><a
-                href="#footer"
-                aria-label="Instagram"
-               
-                >◎</a
-              ><a
-                href="#footer"
-                aria-label="LinkedIn"
-               
-                >in</a
+      </div>
+      </section>
+      </div>
+
+      <div class="container">
+        <section class="td-sec" id="destinations">
+          <h2>Explore inspiring destinations</h2>
+          <p class="td-sub">
+            Discover top destinations with great flights, culture, and
+            experiences.
+          </p>
+          <div class="td-dest">
+            <a class="td-dc td-dc-big" href="#"
+              ><img src="images/istanbul.jpg" alt="Istanbul" /><span class="td-cap"
+                ><span
+                  ><b>Istanbul</b
+                  ><small>Türkiye · Culture and discovery</small></span
+                ><i class="bi bi-chevron-right td-ch"></i></span
+            ></a>
+            <a class="td-dc" href="#"
+              ><img src="images/dubai.jpg" alt="Dubai" /><span class="td-cap"
+                ><span
+                  ><b>Dubai</b
+                  ><small>UAE · Modern city and attractions</small></span
+                ><i class="bi bi-chevron-right td-ch"></i></span
+            ></a>
+            <a class="td-dc" href="#"
+              ><img src="images/hunza.jpg" alt="Hunza" /><span class="td-cap"
+                ><span
+                  ><b>Hunza</b
+                  ><small>Pakistan · Breathtaking mountain views</small></span
+                ><i class="bi bi-chevron-right td-ch"></i></span
+            ></a>
+          </div>
+        </section>
+
+        <section class="td-sec" id="flight-deals">
+          <h2>Flight deals made for you</h2>
+          <p class="td-sub">
+            Great fares on popular routes, with convenient flights and trusted
+            airlines.
+          </p>
+          <div class="td-fdg">
+            <article class="td-fd">
+              <img src="images/burj.jpg" alt="Dubai" />
+              <div class="td-fd-c">
+                <div>
+                  <b class="td-rt"
+                    ><i class="bi bi-airplane"></i>Islamabad → Dubai</b
+                  ><br /><span class="td-chip"
+                    ><i class="bi bi-calendar3"></i>Nov 21 – Nov 25</span
+                  ><br /><span class="td-chip"
+                    ><i class="bi bi-airplane"></i>Emirates</span
+                  >
+                </div>
+                <div class="td-fd-p">
+                  <small>From</small> <b>$349</b
+                  ><a href="#"
+                    >View details <i class="bi bi-chevron-right"></i
+                  ></a>
+                </div>
+              </div>
+            </article>
+            <article class="td-fd">
+              <img src="images/mosque.jpg" alt="Jeddah" />
+              <div class="td-fd-c">
+                <div>
+                  <b class="td-rt"><i class="bi bi-airplane"></i>Lahore → Jeddah</b
+                  ><br /><span class="td-chip"
+                    ><i class="bi bi-calendar3"></i>Dec 3 – Dec 9</span
+                  ><br /><span class="td-chip"
+                    ><i class="bi bi-airplane"></i>Saudia</span
+                  >
+                </div>
+                <div class="td-fd-p">
+                  <small>From</small> <b>$429</b
+                  ><a href="#"
+                    >View details <i class="bi bi-chevron-right"></i
+                  ></a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="td-sec">
+          <h2>Plan the journey that suits you</h2>
+          <p class="td-sub">
+            Find the right trip for your style, from quick getaways to
+            meaningful journeys.
+          </p>
+          <input class="td-st" type="radio" name="jt" id="j1" checked /><input
+            class="td-st"
+            type="radio"
+            name="jt"
+            id="j2"
+          /><input class="td-st" type="radio" name="jt" id="j3" /><input
+            class="td-st"
+            type="radio"
+            name="jt"
+            id="j4"
+          />
+          <div class="td-jt-tabs">
+            <label for="j1">City escapes</label
+            ><label for="j2">Family holidays</label><label for="j3">Umrah</label
+            ><label for="j4">Adventure</label>
+          </div>
+          <div class="td-jp td-p1">
+            <a class="td-jc" href="#"
+              ><img src="images/city.jpg" alt="" /><span
+                ><b>Dubai city break</b
+                ><small
+                  >A vibrant mix of modern attractions, shopping, and
+                  world-class dining.</small
+                ></span
+              ><i class="bi bi-chevron-right td-ch"></i
+            ></a>
+            <a class="td-jc" href="#"
+              ><img src="images/family.jpg" alt="" /><span
+                ><b>Family getaway</b
+                ><small
+                  >Create lasting memories with family-friendly destinations and
+                  stays.</small
+                ></span
+              ><i class="bi bi-chevron-right td-ch"></i
+            ></a>
+            <a class="td-jc" href="#"
+              ><img src="images/adventure.jpg" alt="" /><span
+                ><b>Adventure escape</b
+                ><small
+                  >Explore stunning landscapes and outdoor experiences around
+                  the world.</small
+                ></span
+              ><i class="bi bi-chevron-right td-ch"></i
+            ></a>
+          </div>
+          <div class="td-jp td-p2">
+            <a class="td-jc" href="#"
+              ><img src="images/family.jpg" alt="" /><span
+                ><b>Family getaway</b
+                ><small
+                  >Create lasting memories with family-friendly destinations and
+                  stays.</small
+                ></span
+              ><i class="bi bi-chevron-right td-ch"></i
+            ></a>
+            <a class="td-jc" href="#"
+              ><img src="images/burj.jpg" alt="" /><span
+                ><b>Beach holiday</b
+                ><small
+                  >Sun, sand, and resorts with something for every age.</small
+                ></span
+              ><i class="bi bi-chevron-right td-ch"></i
+            ></a>
+            <a class="td-jc" href="#"
+              ><img src="images/istanbul.jpg" alt="" /><span
+                ><b>Istanbul together</b
+                ><small
+                  >Culture, food, and easy sightseeing for the whole
+                  family.</small
+                ></span
+              ><i class="bi bi-chevron-right td-ch"></i
+            ></a>
+          </div>
+          <div class="td-jp td-p3">
+            <a class="td-jc" href="#"
+              ><img src="images/kaaba.jpg" alt="" /><span
+                ><b>Umrah packages</b
+                ><small
+                  >Flights, stays, and visa support planned in one place.</small
+                ></span
+              ><i class="bi bi-chevron-right td-ch"></i
+            ></a>
+            <a class="td-jc" href="#"
+              ><img src="images/mosque.jpg" alt="" /><span
+                ><b>Jeddah stopover</b
+                ><small
+                  >Convenient routes with comfortable, well-located
+                  hotels.</small
+                ></span
+              ><i class="bi bi-chevron-right td-ch"></i
+            ></a>
+            <a class="td-jc" href="#"
+              ><img src="images/kaaba.jpg" alt="" /><span
+                ><b>Guided Umrah</b
+                ><small
+                  >Clear steps and expert guidance from start to finish.</small
+                ></span
+              ><i class="bi bi-chevron-right td-ch"></i
+            ></a>
+          </div>
+          <div class="td-jp td-p4">
+            <a class="td-jc" href="#"
+              ><img src="images/adventure.jpg" alt="" /><span
+                ><b>Adventure escape</b
+                ><small
+                  >Explore stunning landscapes and outdoor experiences around
+                  the world.</small
+                ></span
+              ><i class="bi bi-chevron-right td-ch"></i
+            ></a>
+            <a class="td-jc" href="#"
+              ><img src="images/hunza.jpg" alt="" /><span
+                ><b>Hunza valley</b
+                ><small
+                  >Green valleys and snow-capped peaks in northern
+                  Pakistan.</small
+                ></span
+              ><i class="bi bi-chevron-right td-ch"></i
+            ></a>
+            <a class="td-jc" href="#"
+              ><img src="images/adventure.jpg" alt="" /><span
+                ><b>Mountain trails</b
+                ><small
+                  >Hikes and viewpoints for every level of explorer.</small
+                ></span
+              ><i class="bi bi-chevron-right td-ch"></i
+            ></a>
+          </div>
+        </section>
+
+        <section class="td-ts">
+          <div class="td-ts-l">
+            <i class="bi bi-airplane"></i>
+            <div>
+              <h3>Travel smarter with TravelDeals</h3>
+              <p>
+                More choice, more flexibility, and more peace of mind – all in
+                one place for a smoother travel experience.
+              </p>
+              <a class="pill" href="#">Explore benefits</a>
+            </div>
+          </div>
+          <div class="td-ts-r">
+            <div class="td-ck">
+              <i class="bi bi-check-circle"></i
+              ><span
+                ><b>Compare flights</b
+                ><small
+                  >Find great fares from a wide range of airlines.</small
+                ></span
+              >
+            </div>
+            <div class="td-ck">
+              <i class="bi bi-check-circle"></i
+              ><span
+                ><b>Choose your extras</b
+                ><small
+                  >Add hotels, seats, and more to fit your trip.</small
+                ></span
+              >
+            </div>
+            <div class="td-ck">
+              <i class="bi bi-check-circle"></i
+              ><span
+                ><b>Travel with confidence</b
+                ><small
+                  >Get reliable support before, during, and after your
+                  trip.</small
+                ></span
               >
             </div>
           </div>
-          <div class="footer-column">
-            <h3>Explore</h3>
-            <a href="#search">Flights</a
-            ><a href="#search">Umrah</a
-            ><a href="#search">Visa assistance</a
-            ><a href="#destinations">Destinations</a>
-          </div>
-          <div class="footer-column">
-            <h3>TravelDeals</h3>
-            <a href="#why">Why TravelDeals</a
-            ><a href="#offers">Travel inspiration</a
-            ><a href="#questions">Travel help</a
-            ><a
-              href="#footer"
-             
-              >About us</a
-            >
-          </div>
-          <div class="footer-column">
-            <h3>Need assistance?</h3>
-            <p>Questions about planning your next journey?</p>
-            <a href="#questions">Frequently asked questions</a
-            ><a href="#search">Start a new search</a>
-            <p class="footer-note">
-              <svg><use href="#i-headset"></use></svg> Friendly travel guidance
+        </section>
+
+        <section class="td-um">
+          <img class="td-um-i" src="images/kaaba.jpg" alt="Umrah" />
+          <div class="td-um-t">
+            <h2>Umrah journeys, thoughtfully planned</h2>
+            <p class="td-sub">
+              Plan your Umrah with flights, stays, and visa support – all in one
+              place, with guidance from start to finish.
             </p>
           </div>
+          <div class="td-um-f">
+            <ul>
+              <li>
+                <i class="bi bi-airplane"></i
+                ><span
+                  ><b>Flights</b
+                  ><small>Convenient options and great fares</small></span
+                >
+              </li>
+              <li>
+                <i class="bi bi-house-door"></i
+                ><span
+                  ><b>Stays</b
+                  ><small>Comfortable and well-located hotels</small></span
+                >
+              </li>
+              <li>
+                <i class="bi bi-person-vcard"></i
+                ><span
+                  ><b>Visa guidance</b
+                  ><small>Clear steps and expert support</small></span
+                >
+              </li>
+            </ul>
+            <a class="pill" href="#">Explore Umrah</a>
+          </div>
+        </section>
+
+        <section class="td-sec" id="help">
+          <h2>Need a little help?</h2>
+          <p class="td-sub">
+            Find quick answers or get in touch with our travel experts.
+          </p>
+          <div class="td-help">
+            <div>
+              <details class="td-faq">
+                <summary>
+                  How do I book a flight on TravelDeals?<i
+                    class="bi bi-chevron-down"
+                  ></i>
+                </summary>
+                <p>
+                  Search your route, pick a flight, add traveler details, and
+                  pay securely. Your e-ticket arrives by email.
+                </p>
+              </details>
+              <details class="td-faq">
+                <summary>
+                  Can I change or cancel my booking?<i
+                    class="bi bi-chevron-down"
+                  ></i>
+                </summary>
+                <p>
+                  Most fares can be changed or cancelled from your trips page.
+                  Fees depend on the airline’s fare rules.
+                </p>
+              </details>
+              <details class="td-faq">
+                <summary>
+                  Do I need a visa for my trip?<i
+                    class="bi bi-chevron-down"
+                  ></i>
+                </summary>
+                <p>
+                  It depends on your passport and destination. Our visa team can
+                  guide you through each step.
+                </p>
+              </details>
+            </div>
+            <div class="td-help-c">
+              <i class="bi bi-headset"></i
+              ><span
+                ><b>Still have questions?</b
+                ><small
+                  >Our travel experts are here to help with flights, hotels,
+                  visas, Umrah, and more.</small
+                ><a class="pill pill-b" href="#"
+                  >Contact us <i class="bi bi-chevron-right"></i></a
+              ></span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="td-foot">
+      <div class="container">
+        <div class="nl">
+          <i class="bi bi-envelope"></i>
+          <div class="nl-t">
+            <b>Get travel inspiration in your inbox</b
+            ><small
+              >Receive travel ideas, fare alerts, and special offers from
+              TravelDeals.</small
+            >
+          </div>
+          <form class="nl-f" action="#">
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              aria-label="Email"
+            /><button class="btn-search" type="submit">Subscribe</button>
+          </form>
         </div>
-        <div class="footer-bottom">
-          <span>© 2026 TravelDeals. Homepage design preview.</span>
+        <hr />
+        <div class="fcols">
+          <div class="fb">
+            <a class="td-logo sm" href="index.html"
+              ><img src="images/logo.png" alt="TravelDeals" /></a
+            >
+            <p>
+              Your trusted travel partner for flights, hotels, Umrah, visa
+              support, and more — helping you explore the world with ease.
+            </p>
+            <div class="soc">
+              <a href="#" aria-label="Facebook"
+                ><i class="bi bi-facebook"></i></a
+              ><a href="#" aria-label="Instagram"
+                ><i class="bi bi-instagram"></i></a
+              ><a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a
+              ><a href="#" aria-label="LinkedIn"
+                ><i class="bi bi-linkedin"></i></a
+              ><a href="#" aria-label="X"><i class="bi bi-twitter-x"></i></a>
+            </div>
+          </div>
           <div>
-            <a
-              href="#footer"
-             
-              >Privacy</a
-            ><a
-              href="#footer"
-             
-              >Terms</a
-            ><span>Illustrative content</span>
+            <h4>Explore</h4>
+            <a href="#">Flights</a><a href="#">Hotels</a><a href="#">Visa</a>
+          </div>
+          <div>
+            <h4>TravelDeals</h4>
+            <a href="#">About us</a><a href="#">Careers</a><a href="#">Press</a
+            ><a href="#">Partners</a>
+          </div>
+          <div>
+            <h4>Support</h4>
+            <a href="#">Help center</a><a href="#">Contact us</a
+            ><a href="#">FAQs</a><a href="#">Travel advisories</a>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <a href="#">Terms of service</a><a href="#">Privacy policy</a
+            ><a href="#">Cookie policy</a>
+          </div>
+        </div>
+        <hr />
+        <div class="fbot">
+          <small>© 2025 TravelDeals. All rights reserved.</small>
+          <div class="d-flex align-items-center gap-2">
+            <div class="dd dd-up" tabindex="0">
+              <div class="dd-t">English <i class="bi bi-chevron-down"></i></div>
+              <div class="dd-m">
+                <span class="dd-o">English</span><span class="dd-o">اردو</span
+                ><span class="dd-o">العربية</span>
+              </div>
+            </div>
+            <span class="vr"></span>
+            <div class="dd dd-up" tabindex="0">
+              <div class="dd-t">USD <i class="bi bi-chevron-down"></i></div>
+              <div class="dd-m">
+                <span class="dd-o">USD</span><span class="dd-o">AED</span
+                ><span class="dd-o">PKR</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </footer>
+    <script>
+      (() => {
+        const airports = [
+          ["Islamabad (ISB)", "Islamabad International"],
+          ["Lahore (LHE)", "Allama Iqbal International"],
+          ["Karachi (KHI)", "Jinnah International"],
+          ["Dubai (DXB)", "Dubai International"],
+          ["Jeddah (JED)", "King Abdulaziz International"],
+        ];
+
+        document.querySelectorAll(".td-multi-location").forEach((field) => {
+          const input = field.querySelector("input");
+          const popup = document.createElement("div");
+          popup.className = "pop td-multi-airport-pop";
+          popup.setAttribute("role", "listbox");
+
+          airports.forEach(([city, airport]) => {
+            const option = document.createElement("button");
+            option.type = "button";
+            option.className = "td-sg td-multi-suggestion";
+            option.setAttribute("role", "option");
+            option.innerHTML = `<i class="bi bi-geo-alt" aria-hidden="true"></i><span><b>${city}</b><small>${airport}</small></span>`;
+            option.addEventListener("mousedown", (event) => event.preventDefault());
+            option.addEventListener("click", () => {
+              input.value = city;
+              input.dispatchEvent(new Event("input", { bubbles: true }));
+              input.blur();
+            });
+            popup.append(option);
+          });
+
+          const filterOptions = () => {
+            const query = input.value.trim().toLowerCase();
+            popup.querySelectorAll(".td-multi-suggestion").forEach((option) => {
+              option.hidden = query !== "" && !option.textContent.toLowerCase().includes(query);
+            });
+          };
+          input.addEventListener("input", filterOptions);
+          input.addEventListener("focus", filterOptions);
+          field.append(popup);
+        });
+      })();
+    </script>
   </body>
 </html>
