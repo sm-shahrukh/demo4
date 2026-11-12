@@ -3,7 +3,9 @@
 .td-foot {
   margin-top: var(--td-space-29);
   padding: var(--td-space-14) 0 var(--td-space-09);
-  background: var(--td-soft);
+  background: var(--td-footer-bg);
+  border-top: var(--td-border-width) solid var(--td-border);
+  box-shadow: var(--td-footer-top-shadow);
 }
 .td-foot hr {
   margin: var(--td-space-11) 0;

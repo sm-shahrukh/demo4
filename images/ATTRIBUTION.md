@@ -15,10 +15,10 @@ The local photos below were downloaded from Unsplash and are used under the [Uns
 
 ## Flight result airline marks
 
-The search results page references these SVG marks from Wikimedia Commons:
+The search results page stores these SVG marks locally:
 
 - Emirates: https://commons.wikimedia.org/wiki/File:Emirates_Logo.svg
 - flydubai: https://commons.wikimedia.org/wiki/File:Fly_Dubai_logo_2010_03.svg
-- Qatar Airways: https://commons.wikimedia.org/wiki/File:Qatar_Airways_logo.svg
+- Qatar Airways: https://cdnlogo.com/logo/qatar-airways_29806.html
 
-The Commons pages identify these as simple text or geometric logos in the public domain; the airline names and marks remain trademarks of their respective owners.
+The Emirates and flydubai marks are from Wikimedia Commons. The Qatar Airways mark is from the source page above. Airline names and logos remain trademarks of their respective owners and are included here for flight identification.

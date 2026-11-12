@@ -3,13 +3,41 @@
   --td-white: #fff;
   --td-white-rgb: 255, 255, 255;
   --td-page-bg: #fff;
+  --td-home-page-bg: #ffffff;
+  --td-footer-bg: var(--td-white);
+  --td-footer-top-shadow: 0 -3px 10px rgba(var(--td-text-rgb), 0.05);
+  --td-section-card-bg: var(--td-white);
+  --td-smart-panel-bg: linear-gradient(
+    135deg,
+    var(--td-brand-navy),
+    var(--td-brand-blue)
+  );
+  --td-smart-panel-copy: rgba(var(--td-white-rgb), 0.88);
+  --td-smart-mark-bg: rgba(var(--td-white-rgb), 0.14);
+  --td-smart-feature-bg: var(--td-hover);
+  --td-smart-feature-icon-bg: var(--td-blue-soft);
+  --td-destination-overlay: linear-gradient(
+    180deg,
+    rgba(var(--td-brand-navy-rgb), 0) 34%,
+    rgba(var(--td-brand-navy-rgb), 0.88) 100%
+  );
+  --td-destination-explore-bg: rgba(var(--td-brand-navy-rgb), 0.62);
+  --td-flight-deal-overlay: linear-gradient(
+    180deg,
+    rgba(var(--td-brand-navy-rgb), 0.58) 0%,
+    rgba(var(--td-brand-navy-rgb), 0.2) 44%,
+    rgba(var(--td-brand-navy-rgb), 0.92) 100%
+  );
   /* Shared left/right content spacing for headers, page sections, and footers. */
-  --td-content-max-width: 1140px;
+  /* Container includes 12px gutters on each side, leaving 1200px of content. */
+  --td-content-max-width: 1224px;
   --td-content-gutter: 12px;
   --td-size-full: 100%;
   --td-flex-full: 1 1 var(--td-size-full);
   --td-header-height: 64px;
   --td-header-height-mobile: 60px;
+  --td-header-shadow: none;
+  --td-header-stuck-shadow: 0 3px 10px rgba(var(--td-text-rgb), 0.12);
   --td-mobile-nav-height: 64px;
   --td-hidden-control-size: 1px;
   --td-hidden-control-clip: inset(50%);
@@ -17,22 +45,50 @@
   --td-blue: #2454d6;
   --td-blue-rgb: 36, 84, 214;
   --td-blue-dark: #1b3eaa;
+  --td-brand-navy: #0b2559;
+  --td-brand-navy-rgb: 11, 37, 89;
+  --td-brand-blue: #1e50d2;
+  --td-brand-blue-rgb: 30, 80, 210;
+  --td-brand-yellow: #ffc21c;
+  --td-brand-yellow-rgb: 255, 194, 28;
+  --td-search-gradient: linear-gradient(
+    110deg,
+    var(--td-brand-blue) 0%,
+    var(--td-brand-navy) 100%
+  );
+  --td-search-fill-corner: 12px;
+  --td-search-animation-duration: 350ms;
+  --td-search-animation-easing: cubic-bezier(0.65, 0, 0.35, 1);
+  --td-search-button-width: 116px;
+  --td-search-button-height: 48px;
+  --td-search-outline-width: 2px;
+  --td-search-outline: rgba(255, 255, 255, 0.6);
+  --td-announcement-bg: var(--td-brand-navy);
+  --td-announcement-color: var(--td-white);
+  --td-announcement-link: var(--td-brand-yellow);
+  --td-announcement-bar-height: 34px;
+  --td-announcement-loop-duration: 60s;
+  --td-announcement-item-space: 14rem;
   --td-blue-soft: #eaf0ff;
   --td-footer-link-hover: var(--td-blue);
   --td-gold: #ffc928;
   --td-gold-rgb: 255, 201, 40;
-  --td-text: #14213d;
-  --td-text-rgb: 20, 33, 61;
+  --td-text: var(--td-brand-navy);
+  --td-text-rgb: 11, 37, 89;
+  --td-heading-color: var(--td-brand-navy);
+  --td-active-color: var(--td-brand-blue);
+  --td-active-soft: rgba(var(--td-brand-blue-rgb), 0.12);
+  --td-active-text: var(--td-brand-navy);
   --td-muted: #56627a;
-  --td-border: #dde4ef;
+  --td-border: rgba(var(--td-brand-blue-rgb), 0.18);
   --td-soft: #eff3fa;
   --td-hover: #f2f6fd;
   --td-success-soft: #baf5c8;
   --td-success: #176a35;
-  --td-border-strong: #b9c4d6;
+  --td-border-strong: rgba(var(--td-brand-blue-rgb), 0.24);
   --td-control-soft: #e9edf4;
   --td-border-hover: #b9cdf3;
-  --td-border-light: #e7edf6;
+  --td-border-light: rgba(var(--td-brand-blue-rgb), 0.1);
   --td-border-accent: #d3dff2;
   --td-divider: #d5ddeb;
   --td-route-line: #aeb9cb;
@@ -52,15 +108,20 @@
   --td-font-heading-mobile: 1.35rem;
   --td-font-heading-small: 1.15rem;
   --td-font-price: 1.5rem;
-  --td-font-hero: clamp(1.75rem, 3.2vw, 2.45rem);
-  --td-font-hero-mobile: 1.65rem;
+  --td-font-hero: clamp(1.8rem, 3.4vw, 2.6rem);
+  --td-font-drawer-title: clamp(1.5rem, 2.1vw, 2rem);
+  --td-font-drawer-title-mobile: 1.45rem;
+  --td-font-hero-mobile: 1.7rem;
   --td-font-quote: 1.15rem;
   --td-font-tab: 1.05rem;
   --td-font-tab-mobile: 1rem;
   --td-font-card-title: 1.05rem;
+  --td-font-destination-title: 1.6rem;
+  --td-letter-spacing-destination-action: 0.08em;
   --td-weight-normal: 400;
   --td-weight-medium: 500;
   --td-weight-semibold: 600;
+  --td-weight-hero: 700;
   --td-weight-bold: 700;
   --td-weight-heavy: 800;
   --td-line-height-icon: 1;
@@ -81,6 +142,7 @@
   --td-icon-2xl: 1.8rem;
   --td-icon-feature: 1.3rem;
   --td-icon-feature-large: 1.4rem;
+  --td-icon-feature-card: 3rem;
   --td-icon-feature-mobile: 2.2rem;
   --td-icon-hero: 4rem;
   --td-icon-burger: 1.9rem;
@@ -114,6 +176,7 @@
   --td-space-11: 1.1rem;
   --td-space-115: 1.15rem;
   --td-space-012: 0.12rem;
+  --td-space-01: 0.1rem;
   --td-space-125: 1.25rem;
   --td-space-135: 1.35rem;
   --td-space-14: 1.4rem;
@@ -121,26 +184,62 @@
   --td-space-18: 1.8rem;
   --td-space-29: 2.9rem;
   --td-space-3rem: 3rem;
-  --td-space-hero-top: 62px;
+  --td-space-hero-top: 0px;
   --td-focus: 2px solid var(--td-blue);
   --td-focus-ring: 0 0 0 3px var(--td-blue-soft);
   --td-transition: 150ms ease;
   --td-transition-short: 120ms ease;
   --td-border-focus: #cfe0fb;
   --td-mask: #000;
-  --td-hero-overlay: rgba(10, 31, 58, 0.38);
+  --td-hero-overlay: linear-gradient(
+    110deg,
+    rgba(var(--td-brand-blue-rgb), 0.44),
+    rgba(var(--td-brand-navy-rgb), 0.42)
+  );
+  --td-hero-image-position: center 55%;
+  --td-hero-image-position-mobile: center 55%;
+  --td-hero-banner-top-space: 0.75rem;
+  --td-hero-banner-horizontal-inset: 2.5rem;
+  --td-hero-banner-radius: 2.5rem;
+  --td-hero-banner-height: 24rem;
+  --td-hero-banner-height-mobile: 24rem;
+  --td-hero-copy-top-space: 7rem;
+  --td-search-panel-max-width: 1200px;
+  --td-search-tabs-max-width: 38rem;
+  --td-tab-service-icon-size: 2.25rem;
+  --td-mobile-nav-service-icon-size: 1.25rem;
+  --td-search-panel-padding-top: 0.35rem;
+  --td-search-panel-padding-bottom: 1.75rem;
+  --td-search-overlap: 4.25rem;
+  --td-search-overlap-mobile: 1.25rem;
+  --td-mobile-search-input-height: 52px;
+  --td-mobile-swap-size: 32px;
+  --td-multi-search-offset: 0.45rem;
   --td-hero-text-shadow: 0 2px 16px rgba(10, 31, 58, 0.72);
+  --td-hero-copy-color: var(--td-white);
   --td-hero-quote-shadow: 0 1px 8px rgba(10, 31, 58, 0.72);
   --td-brand-glow: 0 4px 12px rgba(var(--td-gold-rgb), 0.28);
-  --td-brand-card-surface: linear-gradient(
-    115deg,
-    rgba(var(--td-blue-rgb), 0.08) 0%,
-    var(--td-white) 48%,
-    rgba(var(--td-gold-rgb), 0.18) 100%
-  );
+  --td-brand-card-surface: var(--td-white);
+  --td-quick-links-surface: var(--td-white);
+  --td-quick-links-border: transparent;
+  --td-quick-links-border-width: 0;
+  --td-quick-links-padding: 0;
+  --td-quick-links-gap: 0;
+  --td-quick-links-shadow: none;
+  --td-quick-link-card-border: transparent;
+  --td-quick-link-divider: rgba(var(--td-blue-rgb), 0.38);
+  --td-quick-link-hover: var(--td-hover);
+  --td-destinations-top-space: 1.2rem;
+  --td-destinations-mobile-gap: 0.5rem;
+  --td-home-feature-card-ratio: 0.76;
+  --td-home-feature-card-ratio-mobile: 0.82;
+  --td-mobile-slider-card-width: 100%;
+  --td-slider-cue-duration: 900ms ease-in-out;
   --td-logo-hover-shadow: 0 3px 5px rgba(var(--td-blue-rgb), 0.22);
   --td-mobile-nav-shadow: 0 -3px 12px rgba(var(--td-text-rgb), 0.08);
-  --td-search-card-shadow: 0 4px 14px rgba(var(--td-text-rgb), 0.08);
+  --td-search-card-shadow:
+    0 16px 32px -14px rgba(var(--td-text-rgb), 0.24),
+    0 2px 12px rgba(var(--td-text-rgb), 0.07);
   --td-font: "Plus Jakarta Sans", system-ui, sans-serif;
   --td-radius-xs: 6px;
   --td-radius-sm: 8px;
@@ -165,6 +264,7 @@
   --td-pop-offset: -4px;
   --td-focus-offset: 2px;
   --td-pill: 999px;
+  --td-button-radius: var(--td-pill);
   --td-transition-fast: 180ms ease;
   --td-transition-normal: 240ms ease;
   --td-transition-icon: 220ms ease;
@@ -172,11 +272,22 @@
   --td-transition-brand: 600ms cubic-bezier(0.2, 0.7, 0.3, 1);
   --td-shadow: 0 1px 4px rgba(var(--td-text-rgb), 0.04);
   --td-shadow-lg: 0 3px 10px rgba(var(--td-text-rgb), 0.06);
+  --td-flight-page-shadow: 0 2px 9px rgba(var(--td-text-rgb), 0.055);
   /* Flight results: shared card surfaces, typography, and responsive sizing. */
   --td-results-accent: #0348ff;
   --td-results-accent-soft: #edf2ff;
-  --td-itinerary-surface: linear-gradient(115deg, #fff4df 0%, #f9fbff 42%, #dfebff 100%);
-  --td-itinerary-surface-warm: linear-gradient(110deg, #f9fbff 0%, #e6efff 58%, #fff1d7 100%);
+  --td-itinerary-surface: linear-gradient(
+    115deg,
+    #fffaf0 0%,
+    #fcfdff 42%,
+    #eef4ff 100%
+  );
+  --td-itinerary-surface-warm: linear-gradient(
+    110deg,
+    #fcfdff 0%,
+    #f1f6ff 58%,
+    #fff9ed 100%
+  );
   --td-info-surface: linear-gradient(110deg, #edf3ff, #e8eeff);
   --td-fare-text: #101828;
   --td-font-result-title: 2rem;
@@ -185,10 +296,6 @@
   --td-font-result-time-mobile: 1.6rem;
   --td-font-result-fare-mobile: 1.5rem;
   --td-letter-spacing-tight: -0.04em;
-  --td-results-hero-height: 240px;
-  --td-results-hero-height-mobile: 124px;
-  --td-results-search-overlap: -104px;
-  --td-results-search-overlap-mobile: -54px;
   --td-results-sidebar-width: 260px;
   --td-results-fare-width: 168px;
   --td-results-airline-width: 128px;
@@ -207,6 +314,35 @@
   --td-results-route-min-width: 36px;
   --td-results-range-size: 18px;
   --td-results-filter-option-size: 16px;
+  --td-results-filter-button-width: 170px;
+  --td-results-filter-panel-max-height: 680px;
+  --td-results-filter-panel-width: min(80vw, 1000px);
+  --td-flight-drawer-width: 50vw;
+  --td-flight-drawer-min-width: 0;
+  --td-flight-drawer-mobile-height: 72svh;
+  --td-flight-drawer-mobile-radius: 2rem;
+  --td-flight-drawer-backdrop-z: 1000;
+  --td-flight-drawer-z: 1001;
+  --td-flight-drawer-content-width: 70rem;
+  --td-flight-drawer-logo-width: 7rem;
+  --td-flight-drawer-logo-height: 1.6rem;
+  --td-flight-drawer-summary-logo-width: 5rem;
+  --td-flight-drawer-summary-logo-height: 1.25rem;
+  --td-flight-drawer-ticket-logo-width: 9rem;
+  --td-flight-drawer-brand-mark-size: 1.1rem;
+  --td-flight-drawer-brand-logo-width: 10rem;
+  --td-flight-drawer-brand-logo-height: 2.5rem;
+  --td-flight-drawer-brand-logo-width-mobile: 8rem;
+  --td-flight-drawer-route-art: url("../images/hero-plane.png");
+  --td-flight-drawer-route-art-width: 100%;
+  --td-flight-drawer-route-art-width-mobile: 100%;
+  --td-flight-drawer-route-art-opacity: 0.48;
+  --td-flight-drawer-route-art-opacity-mobile: 0.28;
+  --td-flight-drawer-route-art-height: 17rem;
+  --td-flight-drawer-route-art-height-mobile: 9.8rem;
+  --td-flight-drawer-route-art-fade: linear-gradient(180deg, transparent 42%, var(--td-white) 100%);
+  --td-airline-emirates: #d71a21;
+  --td-results-chevron-size: 8px;
 }
 
 body {
@@ -216,9 +352,17 @@ body {
   background: var(--td-page-bg);
   -webkit-font-smoothing: antialiased;
 }
+body.search-flight-page {
+  --td-shadow: var(--td-flight-page-shadow);
+  --td-shadow-lg: var(--td-flight-page-shadow);
+  --td-search-card-shadow: var(--td-flight-page-shadow);
+}
 h1,
 h2,
-h3,
+h3 {
+  font-family: var(--td-font);
+  color: var(--td-heading-color);
+}
 p {
   font-family: var(--td-font);
 }
@@ -272,7 +416,7 @@ b {
   display: inline-block;
   padding: 0.45rem 1.3rem;
   border: 1px solid var(--td-border-strong);
-  border-radius: var(--td-pill);
+  border-radius: var(--td-button-radius);
   font-weight: 600;
   font-size: var(--td-font-button);
   background: var(--td-white);
@@ -296,20 +440,89 @@ b {
   margin-top: 0.7rem;
 }
 .btn-search {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   border: 0;
-  border-radius: var(--td-pill);
+  border-radius: var(--td-button-radius);
+  min-width: var(--td-search-button-width);
+  min-height: var(--td-search-button-height);
   padding: 0.75rem 1.7rem;
-  background: var(--td-blue);
+  background: var(--td-search-gradient);
   color: var(--td-white);
   font-weight: 700;
   transition:
-    background-color var(--td-transition-brand),
     color 300ms ease,
     box-shadow 300ms ease,
     transform 300ms ease;
 }
+.btn-search::before,
+.sf-primary-btn::before {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  border-radius: inherit;
+  background: var(--td-brand-yellow);
+  content: "";
+  pointer-events: none;
+  transition: width var(--td-search-animation-duration)
+    var(--td-search-animation-easing);
+}
+.btn-search:hover::before,
+.sf-primary-btn:hover::before,
+.btn-search:focus-visible::before,
+.sf-primary-btn:focus-visible::before {
+  width: var(--td-size-full);
+}
+.btn-search::after,
+.sf-primary-btn::after {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  border: var(--td-search-outline-width) solid var(--td-search-outline);
+  border-radius: inherit;
+  content: "";
+  pointer-events: none;
+}
+.td-search-label {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--td-search-animation-duration)
+    var(--td-search-animation-easing);
+}
+.sf-primary-btn .td-search-label {
+  display: flex;
+  font-size: inherit;
+}
+.td-search-label--out {
+  color: var(--td-white);
+  transform: translateX(0);
+}
+.td-search-label--in {
+  color: var(--td-text);
+  transform: translateX(-100%);
+}
+.btn-search:hover .td-search-label--out,
+.sf-primary-btn:hover .td-search-label--out,
+.btn-search:focus-visible .td-search-label--out,
+.sf-primary-btn:focus-visible .td-search-label--out {
+  transform: translateX(100%);
+}
+.btn-search:hover .td-search-label--in,
+.sf-primary-btn:hover .td-search-label--in,
+.btn-search:focus-visible .td-search-label--in,
+.sf-primary-btn:focus-visible .td-search-label--in {
+  transform: translateX(0);
+}
 .btn-search:hover {
-  background-color: var(--td-gold);
+  background: var(--td-search-gradient);
   color: var(--td-text);
   box-shadow: var(--td-brand-glow);
   transform: translateY(var(--td-hover-lift));
@@ -412,8 +625,8 @@ b {
   pointer-events: none;
 }
 .dd-o:has(:checked) {
-  background: var(--td-blue-soft);
-  color: var(--td-blue);
+  background: var(--td-active-soft);
+  color: var(--td-active-text);
   font-weight: 700;
 }
 .pop {

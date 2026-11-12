@@ -23,439 +23,743 @@
     <link href="components/footer.css" rel="stylesheet" />
     <script src="components/include.js" defer></script>
   </head>
-  <body>
+  <body class="td-home-page">
     <div data-component="header"></div>
 
     <div data-component="mobile-navigation"></div>
 
     <main>
       <div class="td-first-screen">
-      <section class="td-hero" id="search">
-        <div class="container">
-          <h1 class="td-hero-copy">
-            Find flights, stays, and travel support for your next journey.
-          </h1>
-          <p class="td-hero-quote">“The journey is the destination.”</p>
-          <div class="td-search">
-            <input class="td-st" type="radio" name="st" id="st-f" checked /><input
-              class="td-st"
-              type="radio"
-              name="st"
-              id="st-h"
-            /><input class="td-st" type="radio" name="st" id="st-v" />
-            <div class="td-tabs">
-              <label for="st-f"><i class="bi bi-airplane"></i>Flights</label
-              ><label for="st-h"><i class="bi bi-buildings"></i>Hotels</label
-              ><label for="st-v"><i class="bi bi-person-vcard"></i>Visa</label>
-            </div>
+        <section class="td-hero" id="search">
+          <div class="container">
+            <h1 class="td-hero-copy">One place to plan every journey.</h1>
+            <div class="td-search">
+              <input
+                class="td-st"
+                type="radio"
+                name="st"
+                id="st-f"
+                checked
+              /><input class="td-st" type="radio" name="st" id="st-h" /><input
+                class="td-st"
+                type="radio"
+                name="st"
+                id="st-v"
+              />
+              <div class="td-tabs">
+                <label for="st-f"
+                  ><img
+                    class="td-tab-icon"
+                    src="images/flights.png"
+                    alt=""
+                    aria-hidden="true"
+                  />Flights</label
+                ><label for="st-h"
+                  ><img
+                    class="td-tab-icon"
+                    src="images/hotel.png"
+                    alt=""
+                    aria-hidden="true"
+                  />Hotels</label
+                ><label for="st-v"
+                  ><img
+                    class="td-tab-icon"
+                    src="images/visa.png"
+                    alt=""
+                    aria-hidden="true"
+                  />Visa</label
+                >
+              </div>
 
-            <form class="td-pane td-pane-f" action="search-flight.html" method="get">
-              <div class="td-opts">
-                <label class="td-rad"
-                  ><input type="radio" name="trip" id="t1" checked />One-way</label
-                >
-                <label class="td-rad"
-                  ><input type="radio" name="trip" id="t2" />Roundtrip</label
-                >
-                <label class="td-rad"
-                  ><input type="radio" name="trip" id="t3" />Multi-city</label
-                ><span class="vr"></span>
-                <div class="dd" tabindex="0">
-                  <div class="dd-t">
-                    <span class="v1">Economy</span
-                    ><span class="v2">Premium economy</span
-                    ><span class="v3">Business</span
-                    ><span class="v4">First</span
-                    ><i class="bi bi-chevron-down"></i>
-                  </div>
-                  <div class="dd-m">
-                    <label class="dd-o"
-                      ><input
-                        type="radio"
-                        name="cab"
-                        id="c1"
-                        checked
-                      />Economy</label
-                    >
-                    <label class="dd-o"
-                      ><input type="radio" name="cab" id="c2" />Premium
-                      economy</label
-                    >
-                    <label class="dd-o"
-                      ><input type="radio" name="cab" id="c3" />Business</label
-                    >
-                    <label class="dd-o"
-                      ><input type="radio" name="cab" id="c4" />First</label
-                    >
-                  </div>
-                </div>
-              </div>
-              <div class="td-sbar">
-                <input type="checkbox" id="sw" class="td-st" />
-                <div class="td-fld td-ff" tabindex="-1">
-                  <i class="bi bi-airplane"></i
-                  ><input aria-label="From" value="Islamabad (ISB)" />
-                  <div class="pop">
-                    <a class="td-sg" href="#"
-                      ><i class="bi bi-geo-alt"></i
-                      ><span
-                        ><b>Islamabad (ISB)</b
-                        ><small>Islamabad International</small></span
-                      ></a
-                    ><a class="td-sg" href="#"
-                      ><i class="bi bi-geo-alt"></i
-                      ><span
-                        ><b>Lahore (LHE)</b
-                        ><small>Allama Iqbal International</small></span
-                      ></a
-                    ><a class="td-sg" href="#"
-                      ><i class="bi bi-geo-alt"></i
-                      ><span
-                        ><b>Karachi (KHI)</b
-                        ><small>Jinnah International</small></span
-                      ></a
-                    >
-                  </div>
-                </div>
-                <label class="td-swap" for="sw" aria-label="Swap"
-                  ><i class="bi bi-arrow-left-right"></i
-                ></label>
-                <div class="td-fld td-fto" tabindex="-1">
-                  <i class="bi bi-airplane"></i
-                  ><input aria-label="To" value="Dubai (DXB)" />
-                  <div class="pop">
-                    <a class="td-sg" href="#"
-                      ><i class="bi bi-geo-alt"></i
-                      ><span
-                        ><b>Dubai (DXB)</b
-                        ><small>Dubai International</small></span
-                      ></a
-                    ><a class="td-sg" href="#"
-                      ><i class="bi bi-geo-alt"></i
-                      ><span
-                        ><b>Jeddah (JED)</b
-                        ><small>King Abdulaziz International</small></span
-                      ></a
-                    ><a class="td-sg" href="#"
-                      ><i class="bi bi-geo-alt"></i
-                      ><span
-                        ><b>Istanbul (IST)</b
-                        ><small>Istanbul Airport</small></span
-                      ></a
-                    >
-                  </div>
-                </div>
-                <div class="td-fld td-date" tabindex="0">
-                  <i class="bi bi-calendar3"></i><span>Sat, Nov 21</span>
-                  <div class="pop td-cal">
-                    <div class="td-cal-h">
-                      <i class="bi bi-chevron-left"></i><b>November 2026</b
-                      ><i class="bi bi-chevron-right"></i>
-                    </div>
-                    <div class="td-cal-g">
-                      <em>Su</em><em>Mo</em><em>Tu</em><em>We</em><em>Th</em
-                      ><em>Fr</em><em>Sa</em><i>1</i><i>2</i><i>3</i><i>4</i
-                      ><i>5</i><i>6</i><i>7</i><i>8</i><b>9</b><b>10</b><b>11</b
-                      ><b>12</b><b>13</b><b>14</b><b>15</b><b>16</b><b>17</b
-                      ><b>18</b><b>19</b><b>20</b><b class="on">21</b><b>22</b
-                      ><b>23</b><b>24</b><b>25</b><b>26</b><b>27</b><b>28</b
-                      ><b>29</b><b>30</b>
-                    </div>
-                  </div>
-                </div>
-                <div class="td-fld td-date td-fr" tabindex="0">
-                  <i class="bi bi-calendar3"></i><span>Sat, Nov 28</span>
-                  <div class="pop td-cal">
-                    <div class="td-cal-h">
-                      <i class="bi bi-chevron-left"></i><b>November 2026</b>
-                      <i class="bi bi-chevron-right"></i>
-                    </div>
-                    <div class="td-cal-g">
-                      <em>Su</em><em>Mo</em><em>Tu</em><em>We</em><em>Th</em><em>Fr</em><em>Sa</em>
-                      <i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i>
-                      <i>8</i><b>9</b><b>10</b><b>11</b><b>12</b><b>13</b><b>14</b>
-                      <b>15</b><b>16</b><b>17</b><b>18</b><b>19</b><b>20</b><b>21</b>
-                      <b>22</b><b>23</b><b>24</b><b>25</b><b>26</b><b>27</b><b class="on">28</b>
-                      <b>29</b><b>30</b>
-                    </div>
-                  </div>
-                </div>
-                <div class="td-fld td-ft" tabindex="0">
-                  <i class="bi bi-person"></i><span>1 traveler</span>
-                  <div class="pop">
-                    <label class="td-cnt"
-                      >Adults<input
-                        type="number"
-                        value="1"
-                        min="1"
-                        max="9" /></label
-                    ><label class="td-cnt"
-                      >Children<input type="number" value="0" min="0" max="9"
-                    /></label>
-                    <label class="td-cnt"
-                      >Infants<input type="number" value="0" min="0" max="9" aria-label="Infants"
-                    /></label>
-                  </div>
-                </div>
-                <button class="btn-search" type="submit">Search</button>
-              </div>
-              <div class="td-multi-controls" aria-label="Multi-city flights">
-                <div class="td-leg-control td-leg-2">
-                  <input class="td-toggle-input" type="checkbox" id="td-flight-leg-2" checked />
-                  <div class="td-multi-row td-flight-leg-2">
-                    <div class="td-multi-field td-multi-location"><i class="bi bi-airplane" aria-hidden="true"></i><span>Flight 2 · From</span><input value="Dubai (DXB)" aria-label="Flight 2 from" /></div>
-                    <div class="td-multi-field td-multi-location"><i class="bi bi-airplane" aria-hidden="true"></i><span>To</span><input placeholder="Going to" aria-label="Flight 2 to" /></div>
-                    <label class="td-multi-field"><i class="bi bi-calendar3" aria-hidden="true"></i><span>Date</span><input type="date" value="2026-11-25" aria-label="Flight 2 date" /></label>
-                    <div class="td-multi-actions">
-                      <label class="td-remove td-remove-icon" for="td-flight-leg-2" aria-label="Remove Flight 2" title="Remove flight"><i class="bi bi-x-lg" aria-hidden="true"></i></label>
-                    </div>
-                  </div>
-                </div>
-                <div class="td-leg-control td-leg-3">
-                  <input class="td-toggle-input" type="checkbox" id="td-flight-leg-3" />
-                  <div class="td-multi-row td-flight-leg-3">
-                    <div class="td-multi-field td-multi-location"><i class="bi bi-airplane" aria-hidden="true"></i><span>Flight 3 · From</span><input placeholder="Leaving from" aria-label="Flight 3 from" /></div>
-                    <div class="td-multi-field td-multi-location"><i class="bi bi-airplane" aria-hidden="true"></i><span>To</span><input placeholder="Going to" aria-label="Flight 3 to" /></div>
-                    <label class="td-multi-field"><i class="bi bi-calendar3" aria-hidden="true"></i><span>Date</span><input type="date" aria-label="Flight 3 date" /></label>
-                    <div class="td-multi-actions">
-                      <label class="td-remove td-remove-icon" for="td-flight-leg-3" aria-label="Remove Flight 3" title="Remove flight"><i class="bi bi-x-lg" aria-hidden="true"></i></label>
-                    </div>
-                  </div>
-                </div>
-                <div class="td-leg-control td-leg-4">
-                  <input class="td-toggle-input" type="checkbox" id="td-flight-leg-4" />
-                  <div class="td-multi-row td-flight-leg-4">
-                    <div class="td-multi-field td-multi-location"><i class="bi bi-airplane" aria-hidden="true"></i><span>Flight 4 · From</span><input placeholder="Leaving from" aria-label="Flight 4 from" /></div>
-                    <div class="td-multi-field td-multi-location"><i class="bi bi-airplane" aria-hidden="true"></i><span>To</span><input placeholder="Going to" aria-label="Flight 4 to" /></div>
-                    <label class="td-multi-field"><i class="bi bi-calendar3" aria-hidden="true"></i><span>Date</span><input type="date" aria-label="Flight 4 date" /></label>
-                    <div class="td-multi-actions">
-                      <label class="td-remove td-remove-icon" for="td-flight-leg-4" aria-label="Remove Flight 4" title="Remove flight"><i class="bi bi-x-lg" aria-hidden="true"></i></label>
-                    </div>
-                  </div>
-                </div>
-                <div class="td-leg-control td-leg-5">
-                  <input class="td-toggle-input" type="checkbox" id="td-flight-leg-5" />
-                  <div class="td-multi-row td-flight-leg-5">
-                    <div class="td-multi-field td-multi-location"><i class="bi bi-airplane" aria-hidden="true"></i><span>Flight 5 · From</span><input placeholder="Leaving from" aria-label="Flight 5 from" /></div>
-                    <div class="td-multi-field td-multi-location"><i class="bi bi-airplane" aria-hidden="true"></i><span>To</span><input placeholder="Going to" aria-label="Flight 5 to" /></div>
-                    <label class="td-multi-field"><i class="bi bi-calendar3" aria-hidden="true"></i><span>Date</span><input type="date" aria-label="Flight 5 date" /></label>
-                    <div class="td-multi-actions">
-                      <label class="td-remove td-remove-icon" for="td-flight-leg-5" aria-label="Remove Flight 5" title="Remove flight"><i class="bi bi-x-lg" aria-hidden="true"></i></label>
-                    </div>
-                  </div>
-                </div>
-                <div class="td-leg-control td-leg-6">
-                  <input class="td-toggle-input" type="checkbox" id="td-flight-leg-6" />
-                  <div class="td-multi-row td-flight-leg-6">
-                    <div class="td-multi-field td-multi-location"><i class="bi bi-airplane" aria-hidden="true"></i><span>Flight 6 · From</span><input placeholder="Leaving from" aria-label="Flight 6 from" /></div>
-                    <div class="td-multi-field td-multi-location"><i class="bi bi-airplane" aria-hidden="true"></i><span>To</span><input placeholder="Going to" aria-label="Flight 6 to" /></div>
-                    <label class="td-multi-field"><i class="bi bi-calendar3" aria-hidden="true"></i><span>Date</span><input type="date" aria-label="Flight 6 date" /></label>
-                    <div class="td-multi-actions">
-                      <label class="td-remove td-remove-icon" for="td-flight-leg-6" aria-label="Remove Flight 6" title="Remove flight"><i class="bi bi-x-lg" aria-hidden="true"></i></label>
-                    </div>
-                  </div>
-                </div>
-                <div class="td-multi-footer">
-                  <label class="td-add td-add-leg-2" for="td-flight-leg-2">+ Add another flight</label>
-                  <label class="td-add td-add-leg-3" for="td-flight-leg-3">+ Add another flight</label>
-                  <label class="td-add td-add-leg-4" for="td-flight-leg-4">+ Add another flight</label>
-                  <label class="td-add td-add-leg-5" for="td-flight-leg-5">+ Add another flight</label>
-                  <label class="td-add td-add-leg-6" for="td-flight-leg-6">+ Add another flight</label>
-                  <button class="btn-search td-multi-search" type="submit">Search</button>
-                </div>
-              </div>
-              <label class="td-bundle"
-                ><input type="checkbox" />Find flights with flexible fares</label
+              <form
+                class="td-pane td-pane-f"
+                action="search-flight.html"
+                method="get"
               >
-            </form>
+                <div class="td-opts">
+                  <label class="td-rad"
+                    ><input
+                      type="radio"
+                      name="trip"
+                      id="t1"
+                      checked
+                    />One-way</label
+                  >
+                  <label class="td-rad"
+                    ><input type="radio" name="trip" id="t2" />Roundtrip</label
+                  >
+                  <label class="td-rad"
+                    ><input type="radio" name="trip" id="t3" />Multi-city</label
+                  ><span class="vr"></span>
+                  <div class="dd" tabindex="0">
+                    <div class="dd-t">
+                      <span class="v1">Economy</span
+                      ><span class="v2">Premium economy</span
+                      ><span class="v3">Business</span
+                      ><span class="v4">First</span
+                      ><i class="bi bi-chevron-down"></i>
+                    </div>
+                    <div class="dd-m">
+                      <label class="dd-o"
+                        ><input
+                          type="radio"
+                          name="cab"
+                          id="c1"
+                          checked
+                        />Economy</label
+                      >
+                      <label class="dd-o"
+                        ><input type="radio" name="cab" id="c2" />Premium
+                        economy</label
+                      >
+                      <label class="dd-o"
+                        ><input
+                          type="radio"
+                          name="cab"
+                          id="c3"
+                        />Business</label
+                      >
+                      <label class="dd-o"
+                        ><input type="radio" name="cab" id="c4" />First</label
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="td-sbar">
+                  <input type="checkbox" id="sw" class="td-st" />
+                  <div class="td-fld td-ff" tabindex="-1">
+                    <i class="bi bi-airplane"></i
+                    ><input aria-label="From" value="Islamabad (ISB)" />
+                    <div class="pop">
+                      <a class="td-sg" href="#"
+                        ><i class="bi bi-geo-alt"></i
+                        ><span
+                          ><b>Islamabad (ISB)</b
+                          ><small>Islamabad International</small></span
+                        ></a
+                      ><a class="td-sg" href="#"
+                        ><i class="bi bi-geo-alt"></i
+                        ><span
+                          ><b>Lahore (LHE)</b
+                          ><small>Allama Iqbal International</small></span
+                        ></a
+                      ><a class="td-sg" href="#"
+                        ><i class="bi bi-geo-alt"></i
+                        ><span
+                          ><b>Karachi (KHI)</b
+                          ><small>Jinnah International</small></span
+                        ></a
+                      >
+                    </div>
+                  </div>
+                  <label class="td-swap" for="sw" aria-label="Swap"
+                    ><i class="bi bi-arrow-left-right"></i
+                  ></label>
+                  <div class="td-fld td-fto" tabindex="-1">
+                    <i class="bi bi-airplane"></i
+                    ><input aria-label="To" value="Dubai (DXB)" />
+                    <div class="pop">
+                      <a class="td-sg" href="#"
+                        ><i class="bi bi-geo-alt"></i
+                        ><span
+                          ><b>Dubai (DXB)</b
+                          ><small>Dubai International</small></span
+                        ></a
+                      ><a class="td-sg" href="#"
+                        ><i class="bi bi-geo-alt"></i
+                        ><span
+                          ><b>Jeddah (JED)</b
+                          ><small>King Abdulaziz International</small></span
+                        ></a
+                      ><a class="td-sg" href="#"
+                        ><i class="bi bi-geo-alt"></i
+                        ><span
+                          ><b>Istanbul (IST)</b
+                          ><small>Istanbul Airport</small></span
+                        ></a
+                      >
+                    </div>
+                  </div>
+                  <div class="td-fld td-date" tabindex="0">
+                    <i class="bi bi-calendar3"></i><span>Sat, Nov 21</span>
+                    <div class="pop td-cal">
+                      <div class="td-cal-h">
+                        <i class="bi bi-chevron-left"></i><b>November 2026</b
+                        ><i class="bi bi-chevron-right"></i>
+                      </div>
+                      <div class="td-cal-g">
+                        <em>Su</em><em>Mo</em><em>Tu</em><em>We</em><em>Th</em
+                        ><em>Fr</em><em>Sa</em><i>1</i><i>2</i><i>3</i><i>4</i
+                        ><i>5</i><i>6</i><i>7</i><i>8</i><b>9</b><b>10</b
+                        ><b>11</b><b>12</b><b>13</b><b>14</b><b>15</b><b>16</b
+                        ><b>17</b><b>18</b><b>19</b><b>20</b><b class="on">21</b
+                        ><b>22</b><b>23</b><b>24</b><b>25</b><b>26</b><b>27</b
+                        ><b>28</b><b>29</b><b>30</b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="td-fld td-date td-fr" tabindex="0">
+                    <i class="bi bi-calendar3"></i><span>Sat, Nov 28</span>
+                    <div class="pop td-cal">
+                      <div class="td-cal-h">
+                        <i class="bi bi-chevron-left"></i><b>November 2026</b>
+                        <i class="bi bi-chevron-right"></i>
+                      </div>
+                      <div class="td-cal-g">
+                        <em>Su</em><em>Mo</em><em>Tu</em><em>We</em><em>Th</em
+                        ><em>Fr</em><em>Sa</em> <i>1</i><i>2</i><i>3</i><i>4</i
+                        ><i>5</i><i>6</i><i>7</i> <i>8</i><b>9</b><b>10</b
+                        ><b>11</b><b>12</b><b>13</b><b>14</b> <b>15</b><b>16</b
+                        ><b>17</b><b>18</b><b>19</b><b>20</b><b>21</b> <b>22</b
+                        ><b>23</b><b>24</b><b>25</b><b>26</b><b>27</b
+                        ><b class="on">28</b> <b>29</b><b>30</b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="td-fld td-ft" tabindex="0">
+                    <i class="bi bi-person"></i><span>1 traveler</span>
+                    <div class="pop">
+                      <label class="td-cnt"
+                        >Adults<input
+                          type="number"
+                          value="1"
+                          min="1"
+                          max="9" /></label
+                      ><label class="td-cnt"
+                        >Children<input type="number" value="0" min="0" max="9"
+                      /></label>
+                      <label class="td-cnt"
+                        >Infants<input
+                          type="number"
+                          value="0"
+                          min="0"
+                          max="9"
+                          aria-label="Infants"
+                      /></label>
+                    </div>
+                  </div>
+                  <button class="btn-search" type="submit">
+                    <span class="td-search-label td-search-label--out"
+                      >Search</span
+                    ><span
+                      class="td-search-label td-search-label--in"
+                      aria-hidden="true"
+                      >Search</span
+                    >
+                  </button>
+                </div>
+                <div class="td-multi-controls" aria-label="Multi-city flights">
+                  <div class="td-leg-control td-leg-2">
+                    <input
+                      class="td-toggle-input"
+                      type="checkbox"
+                      id="td-flight-leg-2"
+                      checked
+                    />
+                    <div class="td-multi-row td-flight-leg-2">
+                      <div class="td-multi-field td-multi-location">
+                        <i class="bi bi-airplane" aria-hidden="true"></i
+                        ><span>Flight 2 · From</span
+                        ><input
+                          value="Dubai (DXB)"
+                          aria-label="Flight 2 from"
+                        />
+                      </div>
+                      <div class="td-multi-field td-multi-location">
+                        <i class="bi bi-airplane" aria-hidden="true"></i
+                        ><span>To</span
+                        ><input
+                          placeholder="Going to"
+                          aria-label="Flight 2 to"
+                        />
+                      </div>
+                      <label class="td-multi-field"
+                        ><i class="bi bi-calendar3" aria-hidden="true"></i
+                        ><span>Date</span
+                        ><input
+                          type="date"
+                          value="2026-11-25"
+                          aria-label="Flight 2 date"
+                      /></label>
+                      <div class="td-multi-actions">
+                        <label
+                          class="td-remove td-remove-icon"
+                          for="td-flight-leg-2"
+                          aria-label="Remove Flight 2"
+                          title="Remove flight"
+                          ><i class="bi bi-x-lg" aria-hidden="true"></i
+                        ></label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="td-leg-control td-leg-3">
+                    <input
+                      class="td-toggle-input"
+                      type="checkbox"
+                      id="td-flight-leg-3"
+                    />
+                    <div class="td-multi-row td-flight-leg-3">
+                      <div class="td-multi-field td-multi-location">
+                        <i class="bi bi-airplane" aria-hidden="true"></i
+                        ><span>Flight 3 · From</span
+                        ><input
+                          placeholder="Leaving from"
+                          aria-label="Flight 3 from"
+                        />
+                      </div>
+                      <div class="td-multi-field td-multi-location">
+                        <i class="bi bi-airplane" aria-hidden="true"></i
+                        ><span>To</span
+                        ><input
+                          placeholder="Going to"
+                          aria-label="Flight 3 to"
+                        />
+                      </div>
+                      <label class="td-multi-field"
+                        ><i class="bi bi-calendar3" aria-hidden="true"></i
+                        ><span>Date</span
+                        ><input type="date" aria-label="Flight 3 date"
+                      /></label>
+                      <div class="td-multi-actions">
+                        <label
+                          class="td-remove td-remove-icon"
+                          for="td-flight-leg-3"
+                          aria-label="Remove Flight 3"
+                          title="Remove flight"
+                          ><i class="bi bi-x-lg" aria-hidden="true"></i
+                        ></label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="td-leg-control td-leg-4">
+                    <input
+                      class="td-toggle-input"
+                      type="checkbox"
+                      id="td-flight-leg-4"
+                    />
+                    <div class="td-multi-row td-flight-leg-4">
+                      <div class="td-multi-field td-multi-location">
+                        <i class="bi bi-airplane" aria-hidden="true"></i
+                        ><span>Flight 4 · From</span
+                        ><input
+                          placeholder="Leaving from"
+                          aria-label="Flight 4 from"
+                        />
+                      </div>
+                      <div class="td-multi-field td-multi-location">
+                        <i class="bi bi-airplane" aria-hidden="true"></i
+                        ><span>To</span
+                        ><input
+                          placeholder="Going to"
+                          aria-label="Flight 4 to"
+                        />
+                      </div>
+                      <label class="td-multi-field"
+                        ><i class="bi bi-calendar3" aria-hidden="true"></i
+                        ><span>Date</span
+                        ><input type="date" aria-label="Flight 4 date"
+                      /></label>
+                      <div class="td-multi-actions">
+                        <label
+                          class="td-remove td-remove-icon"
+                          for="td-flight-leg-4"
+                          aria-label="Remove Flight 4"
+                          title="Remove flight"
+                          ><i class="bi bi-x-lg" aria-hidden="true"></i
+                        ></label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="td-leg-control td-leg-5">
+                    <input
+                      class="td-toggle-input"
+                      type="checkbox"
+                      id="td-flight-leg-5"
+                    />
+                    <div class="td-multi-row td-flight-leg-5">
+                      <div class="td-multi-field td-multi-location">
+                        <i class="bi bi-airplane" aria-hidden="true"></i
+                        ><span>Flight 5 · From</span
+                        ><input
+                          placeholder="Leaving from"
+                          aria-label="Flight 5 from"
+                        />
+                      </div>
+                      <div class="td-multi-field td-multi-location">
+                        <i class="bi bi-airplane" aria-hidden="true"></i
+                        ><span>To</span
+                        ><input
+                          placeholder="Going to"
+                          aria-label="Flight 5 to"
+                        />
+                      </div>
+                      <label class="td-multi-field"
+                        ><i class="bi bi-calendar3" aria-hidden="true"></i
+                        ><span>Date</span
+                        ><input type="date" aria-label="Flight 5 date"
+                      /></label>
+                      <div class="td-multi-actions">
+                        <label
+                          class="td-remove td-remove-icon"
+                          for="td-flight-leg-5"
+                          aria-label="Remove Flight 5"
+                          title="Remove flight"
+                          ><i class="bi bi-x-lg" aria-hidden="true"></i
+                        ></label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="td-leg-control td-leg-6">
+                    <input
+                      class="td-toggle-input"
+                      type="checkbox"
+                      id="td-flight-leg-6"
+                    />
+                    <div class="td-multi-row td-flight-leg-6">
+                      <div class="td-multi-field td-multi-location">
+                        <i class="bi bi-airplane" aria-hidden="true"></i
+                        ><span>Flight 6 · From</span
+                        ><input
+                          placeholder="Leaving from"
+                          aria-label="Flight 6 from"
+                        />
+                      </div>
+                      <div class="td-multi-field td-multi-location">
+                        <i class="bi bi-airplane" aria-hidden="true"></i
+                        ><span>To</span
+                        ><input
+                          placeholder="Going to"
+                          aria-label="Flight 6 to"
+                        />
+                      </div>
+                      <label class="td-multi-field"
+                        ><i class="bi bi-calendar3" aria-hidden="true"></i
+                        ><span>Date</span
+                        ><input type="date" aria-label="Flight 6 date"
+                      /></label>
+                      <div class="td-multi-actions">
+                        <label
+                          class="td-remove td-remove-icon"
+                          for="td-flight-leg-6"
+                          aria-label="Remove Flight 6"
+                          title="Remove flight"
+                          ><i class="bi bi-x-lg" aria-hidden="true"></i
+                        ></label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="td-multi-footer">
+                    <label class="td-add td-add-leg-2" for="td-flight-leg-2"
+                      >+ Add another flight</label
+                    >
+                    <label class="td-add td-add-leg-3" for="td-flight-leg-3"
+                      >+ Add another flight</label
+                    >
+                    <label class="td-add td-add-leg-4" for="td-flight-leg-4"
+                      >+ Add another flight</label
+                    >
+                    <label class="td-add td-add-leg-5" for="td-flight-leg-5"
+                      >+ Add another flight</label
+                    >
+                    <label class="td-add td-add-leg-6" for="td-flight-leg-6"
+                      >+ Add another flight</label
+                    >
+                    <button class="btn-search td-multi-search" type="submit">
+                      <span class="td-search-label td-search-label--out"
+                        >Search</span
+                      ><span
+                        class="td-search-label td-search-label--in"
+                        aria-hidden="true"
+                        >Search</span
+                      >
+                    </button>
+                  </div>
+                </div>
+                <label class="td-bundle"
+                  ><input type="checkbox" />Find flights with flexible
+                  fares</label
+                >
+              </form>
 
-            <form class="td-pane td-pane-h" action="#">
-              <div class="td-opts td-service-options">
-                <label class="td-rad"><input type="radio" name="stay-type" checked />Hotel</label>
-                <label class="td-rad"><input type="radio" name="stay-type" />Apartment</label>
-                <label class="td-rad"><input type="radio" name="stay-type" />Resort</label>
-                <span class="td-option-chip"><i class="bi bi-people"></i> 2 guests · 1 room</span>
-              </div>
-              <div class="td-sbar">
-                <div class="td-fld" tabindex="-1">
-                  <i class="bi bi-geo-alt"></i
-                  ><input
-                    placeholder="Where are you going?"
-                    aria-label="Destination"
-                  />
+              <form class="td-pane td-pane-h" action="#">
+                <div class="td-opts td-service-options">
+                  <label class="td-rad"
+                    ><input type="radio" name="stay-type" checked />Hotel</label
+                  >
+                  <label class="td-rad"
+                    ><input type="radio" name="stay-type" />Apartment</label
+                  >
+                  <label class="td-rad"
+                    ><input type="radio" name="stay-type" />Resort</label
+                  >
+                  <span class="td-option-chip"
+                    ><i class="bi bi-people"></i> 2 guests · 1 room</span
+                  >
                 </div>
-                <div class="td-fld td-date">
-                  <i class="bi bi-calendar3"></i
-                  ><input
-                    type="date"
-                    value="2026-11-21"
-                    aria-label="Check-in"
-                  />
+                <div class="td-sbar">
+                  <div class="td-fld" tabindex="-1">
+                    <i class="bi bi-geo-alt"></i
+                    ><input
+                      placeholder="Where are you going?"
+                      aria-label="Destination"
+                    />
+                  </div>
+                  <div
+                    class="td-fld td-date"
+                    tabindex="0"
+                    aria-label="Check-in, Sat, Nov 21"
+                  >
+                    <i class="bi bi-calendar3"></i><span>Sat, Nov 21</span>
+                    <div class="pop td-cal">
+                      <div class="td-cal-h">
+                        <i class="bi bi-chevron-left"></i><b>November 2026</b
+                        ><i class="bi bi-chevron-right"></i>
+                      </div>
+                      <div class="td-cal-g">
+                        <em>Su</em><em>Mo</em><em>Tu</em><em>We</em><em>Th</em
+                        ><em>Fr</em><em>Sa</em> <i>1</i><i>2</i><i>3</i><i>4</i
+                        ><i>5</i><i>6</i><i>7</i><i>8</i><b>9</b><b>10</b
+                        ><b>11</b><b>12</b><b>13</b><b>14</b><b>15</b><b>16</b
+                        ><b>17</b><b>18</b><b>19</b><b>20</b><b class="on">21</b
+                        ><b>22</b><b>23</b><b>24</b><b>25</b><b>26</b><b>27</b
+                        ><b>28</b><b>29</b><b>30</b>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="td-fld td-date"
+                    tabindex="0"
+                    aria-label="Check-out, Wed, Nov 25"
+                  >
+                    <i class="bi bi-calendar3"></i><span>Wed, Nov 25</span>
+                    <div class="pop td-cal">
+                      <div class="td-cal-h">
+                        <i class="bi bi-chevron-left"></i><b>November 2026</b
+                        ><i class="bi bi-chevron-right"></i>
+                      </div>
+                      <div class="td-cal-g">
+                        <em>Su</em><em>Mo</em><em>Tu</em><em>We</em><em>Th</em
+                        ><em>Fr</em><em>Sa</em> <i>1</i><i>2</i><i>3</i><i>4</i
+                        ><i>5</i><i>6</i><i>7</i><i>8</i><b>9</b><b>10</b
+                        ><b>11</b><b>12</b><b>13</b><b>14</b><b>15</b><b>16</b
+                        ><b>17</b><b>18</b><b>19</b><b>20</b><b>21</b><b>22</b
+                        ><b>23</b><b>24</b><b class="on">25</b><b>26</b><b>27</b
+                        ><b>28</b><b>29</b><b>30</b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="td-fld td-ft">
+                    <i class="bi bi-person"></i
+                    ><input
+                      type="number"
+                      value="2"
+                      min="1"
+                      aria-label="Guests"
+                    />
+                  </div>
+                  <button class="btn-search" type="submit">
+                    <span class="td-search-label td-search-label--out"
+                      >Search</span
+                    ><span
+                      class="td-search-label td-search-label--in"
+                      aria-hidden="true"
+                      >Search</span
+                    >
+                  </button>
                 </div>
-                <div class="td-fld td-date">
-                  <i class="bi bi-calendar3"></i
-                  ><input
-                    type="date"
-                    value="2026-11-25"
-                    aria-label="Check-out"
-                  />
-                </div>
-                <div class="td-fld td-ft">
-                  <i class="bi bi-person"></i
-                  ><input type="number" value="2" min="1" aria-label="Guests" />
-                </div>
-                <button class="btn-search" type="submit">Search</button>
-              </div>
-              <label class="td-bundle"><input type="checkbox" />Include flight options with my stay</label>
-            </form>
+                <label class="td-bundle"
+                  ><input type="checkbox" />Include flight options with my
+                  stay</label
+                >
+              </form>
 
-            <form class="td-pane td-pane-v" action="#">
-              <div class="td-opts td-service-options">
-                <label class="td-rad"><input type="radio" name="visa-purpose" checked />Tourist</label>
-                <label class="td-rad"><input type="radio" name="visa-purpose" />Business</label>
-                <label class="td-rad"><input type="radio" name="visa-purpose" />Transit</label>
-                <span class="td-option-chip"><i class="bi bi-arrow-repeat"></i> Single entry</span>
-              </div>
-              <div class="td-sbar">
-                <div class="td-fld">
-                  <i class="bi bi-flag"></i
-                  ><input value="Pakistan" aria-label="Citizen of" />
+              <form class="td-pane td-pane-v" action="#">
+                <div class="td-opts td-service-options">
+                  <label class="td-rad"
+                    ><input
+                      type="radio"
+                      name="visa-purpose"
+                      checked
+                    />Tourist</label
+                  >
+                  <label class="td-rad"
+                    ><input type="radio" name="visa-purpose" />Business</label
+                  >
+                  <label class="td-rad"
+                    ><input type="radio" name="visa-purpose" />Transit</label
+                  >
+                  <span class="td-option-chip"
+                    ><i class="bi bi-arrow-repeat"></i> Single entry</span
+                  >
                 </div>
-                <div class="td-fld">
-                  <i class="bi bi-geo-alt"></i
-                  ><input
-                    placeholder="Visiting which country?"
-                    aria-label="Destination"
-                  />
+                <div class="td-sbar">
+                  <div class="td-fld">
+                    <i class="bi bi-flag"></i
+                    ><input value="Pakistan" aria-label="Citizen of" />
+                  </div>
+                  <div class="td-fld">
+                    <i class="bi bi-geo-alt"></i
+                    ><input
+                      placeholder="Visiting which country?"
+                      aria-label="Destination"
+                    />
+                  </div>
+                  <div class="td-fld td-date">
+                    <i class="bi bi-person-vcard"></i
+                    ><input value="Tourist visa" aria-label="Visa type" />
+                  </div>
+                  <div
+                    class="td-fld td-date"
+                    tabindex="0"
+                    aria-label="Travel date, Sat, Nov 21"
+                  >
+                    <i class="bi bi-calendar3"></i><span>Sat, Nov 21</span>
+                    <div class="pop td-cal">
+                      <div class="td-cal-h">
+                        <i class="bi bi-chevron-left"></i><b>November 2026</b
+                        ><i class="bi bi-chevron-right"></i>
+                      </div>
+                      <div class="td-cal-g">
+                        <em>Su</em><em>Mo</em><em>Tu</em><em>We</em><em>Th</em
+                        ><em>Fr</em><em>Sa</em> <i>1</i><i>2</i><i>3</i><i>4</i
+                        ><i>5</i><i>6</i><i>7</i><i>8</i><b>9</b><b>10</b
+                        ><b>11</b><b>12</b><b>13</b><b>14</b><b>15</b><b>16</b
+                        ><b>17</b><b>18</b><b>19</b><b>20</b><b class="on">21</b
+                        ><b>22</b><b>23</b><b>24</b><b>25</b><b>26</b><b>27</b
+                        ><b>28</b><b>29</b><b>30</b>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn-search" type="submit">
+                    <span class="td-search-label td-search-label--out"
+                      >Search</span
+                    ><span
+                      class="td-search-label td-search-label--in"
+                      aria-hidden="true"
+                      >Search</span
+                    >
+                  </button>
                 </div>
-                <div class="td-fld td-date">
-                  <i class="bi bi-person-vcard"></i
-                  ><input value="Tourist visa" aria-label="Visa type" />
-                </div>
-                <div class="td-fld td-date"><i class="bi bi-calendar3"></i><input type="date" value="2026-11-21" aria-label="Travel date" /></div>
-                <button class="btn-search" type="submit">Search</button>
-              </div>
-              <label class="td-bundle"><input type="checkbox" />Include visa guidance with my trip</label>
-            </form>
+                <label class="td-bundle"
+                  ><input type="checkbox" />Include visa guidance with my
+                  trip</label
+                >
+              </form>
+            </div>
           </div>
-        </div>
 
-      <div class="container">
-        <div class="td-qg">
-          <a class="td-qc" href="#"
-            ><i class="bi bi-geo-alt"></i
-            ><span
-              ><b>Where to go</b><small>Find your next destination</small></span
-            ><i class="bi bi-chevron-right td-ch"></i
-          ></a>
-          <a class="td-qc" href="#"
-            ><i class="bi bi-tag"></i
-            ><span
-              ><b>Flight offers</b
-              ><small>Discover fares worth booking</small></span
-            ><i class="bi bi-chevron-right td-ch"></i
-          ></a>
-          <a class="td-qc" href="#"
-            ><i class="bi bi-moon"></i
-            ><span
-              ><b>Umrah journeys</b
-              ><small>Plan a meaningful pilgrimage</small></span
-            ><i class="bi bi-chevron-right td-ch"></i
-          ></a>
-          <a class="td-qc" href="#"
-            ><i class="bi bi-person-vcard"></i
-            ><span
-              ><b>Visa assistance</b
-              ><small>Guidance for every step</small></span
-            ><i class="bi bi-chevron-right td-ch"></i
-          ></a>
-        </div>
-      </div>
-      </section>
+          <div class="container">
+            <div class="td-qg">
+              <a class="td-qc" href="#"
+                ><i class="bi bi-geo-alt"></i
+                ><span
+                  ><b>Where to go</b
+                  ><small>Find your next destination</small></span
+                ><i class="bi bi-chevron-right td-ch"></i
+              ></a>
+              <a class="td-qc" href="#"
+                ><i class="bi bi-tag"></i
+                ><span
+                  ><b>Flight offers</b
+                  ><small>Discover fares worth booking</small></span
+                ><i class="bi bi-chevron-right td-ch"></i
+              ></a>
+              <a class="td-qc" href="#"
+                ><i class="bi bi-moon"></i
+                ><span
+                  ><b>Umrah journeys</b
+                  ><small>Plan a meaningful pilgrimage</small></span
+                ><i class="bi bi-chevron-right td-ch"></i
+              ></a>
+              <a class="td-qc" href="#"
+                ><i class="bi bi-person-vcard"></i
+                ><span
+                  ><b>Visa assistance</b
+                  ><small>Guidance for every step</small></span
+                ><i class="bi bi-chevron-right td-ch"></i
+              ></a>
+            </div>
+          </div>
+        </section>
       </div>
 
       <div class="container">
         <section class="td-sec" id="destinations">
-          <h2>Explore inspiring destinations</h2>
+          <h2>Popular destinations</h2>
           <p class="td-sub">
-            Discover top destinations with great flights, culture, and
-            experiences.
+            Find places worth travelling for, from vibrant cities to quiet
+            escapes.
           </p>
           <div class="td-dest">
-            <a class="td-dc td-dc-big" href="#"
-              ><img src="images/istanbul.jpg" alt="Istanbul" /><span class="td-cap"
-                ><span
+            <a class="td-dc" href="#"
+              ><img
+                src="images/istanbul.jpg"
+                alt="Istanbul skyline and Hagia Sophia"
+              /><span class="td-dest-copy"
+                ><span class="td-dest-heading"
                   ><b>Istanbul</b
-                  ><small>Türkiye · Culture and discovery</small></span
-                ><i class="bi bi-chevron-right td-ch"></i></span
-            ></a>
+                  ><span class="td-dest-explore"
+                    >Explore <i class="bi bi-arrow-up-right"></i></span></span
+                ><small
+                  >Discover historic streets, lively bazaars, and a city
+                  connecting two continents.</small
+                ></span
+              ></a
+            >
             <a class="td-dc" href="#"
-              ><img src="images/dubai.jpg" alt="Dubai" /><span class="td-cap"
-                ><span
+              ><img src="images/dubai.jpg" alt="Dubai skyline" /><span
+                class="td-dest-copy"
+                ><span class="td-dest-heading"
                   ><b>Dubai</b
-                  ><small>UAE · Modern city and attractions</small></span
-                ><i class="bi bi-chevron-right td-ch"></i></span
-            ></a>
+                  ><span class="td-dest-explore"
+                    >Explore <i class="bi bi-arrow-up-right"></i></span></span
+                ><small
+                  >Iconic architecture, golden beaches, and unforgettable city
+                  experiences.</small
+                ></span
+              ></a
+            >
             <a class="td-dc" href="#"
-              ><img src="images/hunza.jpg" alt="Hunza" /><span class="td-cap"
-                ><span
+              ><img
+                src="images/hunza.jpg"
+                alt="Mountain landscape in Hunza"
+              /><span class="td-dest-copy"
+                ><span class="td-dest-heading"
                   ><b>Hunza</b
-                  ><small>Pakistan · Breathtaking mountain views</small></span
-                ><i class="bi bi-chevron-right td-ch"></i></span
-            ></a>
+                  ><span class="td-dest-explore"
+                    >Explore <i class="bi bi-arrow-up-right"></i></span></span
+                ><small
+                  >Take in dramatic peaks, turquoise lakes, and welcoming
+                  mountain villages.</small
+                ></span
+              ></a
+            >
+            <a class="td-dc" href="#"
+              ><img
+                src="images/mosque.jpg"
+                alt="Historic mosque in Jeddah"
+              /><span class="td-dest-copy"
+                ><span class="td-dest-heading"
+                  ><b>Jeddah</b
+                  ><span class="td-dest-explore"
+                    >Explore <i class="bi bi-arrow-up-right"></i></span></span
+                ><small
+                  >Explore Red Sea charm, historic streets, and Saudi Arabia’s
+                  coastal gateway.</small
+                ></span
+              ></a
+            >
+          </div>
+          <div class="td-slider-hint" aria-hidden="true">
+            <span>Swipe to explore</span
+            ><span class="td-slider-arrows"
+              ><i class="bi bi-chevron-left"></i
+              ><i class="bi bi-chevron-right"></i
+            ></span>
           </div>
         </section>
 
-        <section class="td-sec" id="flight-deals">
-          <h2>Flight deals made for you</h2>
-          <p class="td-sub">
-            Great fares on popular routes, with convenient flights and trusted
-            airlines.
-          </p>
-          <div class="td-fdg">
-            <article class="td-fd">
-              <img src="images/burj.jpg" alt="Dubai" />
-              <div class="td-fd-c">
-                <div>
-                  <b class="td-rt"
-                    ><i class="bi bi-airplane"></i>Islamabad → Dubai</b
-                  ><br /><span class="td-chip"
-                    ><i class="bi bi-calendar3"></i>Nov 21 – Nov 25</span
-                  ><br /><span class="td-chip"
-                    ><i class="bi bi-airplane"></i>Emirates</span
-                  >
-                </div>
-                <div class="td-fd-p">
-                  <small>From</small> <b>PKR 349</b
-                  ><a href="#"
-                    >View details <i class="bi bi-chevron-right"></i
-                  ></a>
-                </div>
-              </div>
-            </article>
-            <article class="td-fd">
-              <img src="images/mosque.jpg" alt="Jeddah" />
-              <div class="td-fd-c">
-                <div>
-                  <b class="td-rt"><i class="bi bi-airplane"></i>Lahore → Jeddah</b
-                  ><br /><span class="td-chip"
-                    ><i class="bi bi-calendar3"></i>Dec 3 – Dec 9</span
-                  ><br /><span class="td-chip"
-                    ><i class="bi bi-airplane"></i>Saudia</span
-                  >
-                </div>
-                <div class="td-fd-p">
-                  <small>From</small> <b>PKR 429</b
-                  ><a href="#"
-                    >View details <i class="bi bi-chevron-right"></i
-                  ></a>
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="td-sec">
+        <section class="td-sec td-panel-section td-card-section">
           <h2>Plan the journey that suits you</h2>
           <p class="td-sub">
             Find the right trip for your style, from quick getaways to
@@ -589,90 +893,218 @@
               ><i class="bi bi-chevron-right td-ch"></i
             ></a>
           </div>
+          <div class="td-slider-hint" aria-hidden="true">
+            <span>Swipe to explore</span
+            ><span class="td-slider-arrows"
+              ><i class="bi bi-chevron-left"></i
+              ><i class="bi bi-chevron-right"></i
+            ></span>
+          </div>
         </section>
 
-        <section class="td-ts">
+        <section class="td-sec" id="flight-deals">
+          <h2>Flight deals made for you</h2>
+          <p class="td-sub">
+            Great fares on popular routes, with convenient flights and trusted
+            airlines.
+          </p>
+          <div class="td-fdg">
+            <article class="td-fd">
+              <img src="images/burj.jpg" alt="Dubai" />
+              <div class="td-fd-c">
+                <div>
+                  <b class="td-rt"
+                    ><i class="bi bi-airplane"></i>Islamabad → Dubai</b
+                  ><br />
+                  <span class="td-chip"
+                    ><i class="bi bi-calendar3"></i>Nov 21 – Nov 25</span
+                  ><br />
+                  <span class="td-chip"
+                    ><i class="bi bi-airplane"></i>Emirates</span
+                  >
+                </div>
+                <div class="td-fd-p">
+                  <small>From</small> <b>PKR 349</b>
+                  <a href="#"
+                    >View details <i class="bi bi-chevron-right"></i
+                  ></a>
+                </div>
+              </div>
+            </article>
+            <article class="td-fd">
+              <img src="images/mosque.jpg" alt="Jeddah" />
+              <div class="td-fd-c">
+                <div>
+                  <b class="td-rt"
+                    ><i class="bi bi-airplane"></i>Lahore → Jeddah</b
+                  ><br />
+                  <span class="td-chip"
+                    ><i class="bi bi-calendar3"></i>Dec 3 – Dec 9</span
+                  ><br />
+                  <span class="td-chip"
+                    ><i class="bi bi-airplane"></i>Saudia</span
+                  >
+                </div>
+                <div class="td-fd-p">
+                  <small>From</small> <b>PKR 429</b>
+                  <a href="#"
+                    >View details <i class="bi bi-chevron-right"></i
+                  ></a>
+                </div>
+              </div>
+            </article>
+            <article class="td-fd">
+              <img src="images/istanbul.jpg" alt="Istanbul" />
+              <div class="td-fd-c">
+                <div>
+                  <b class="td-rt"
+                    ><i class="bi bi-airplane"></i>Karachi → Istanbul</b
+                  ><br />
+                  <span class="td-chip"
+                    ><i class="bi bi-calendar3"></i>Dec 12 – Dec 19</span
+                  ><br />
+                  <span class="td-chip"
+                    ><i class="bi bi-airplane"></i>Turkish Airlines</span
+                  >
+                </div>
+                <div class="td-fd-p">
+                  <small>From</small> <b>PKR 589</b>
+                  <a href="#"
+                    >View details <i class="bi bi-chevron-right"></i
+                  ></a>
+                </div>
+              </div>
+            </article>
+            <article class="td-fd">
+              <img src="images/hunza.jpg" alt="Hunza" />
+              <div class="td-fd-c">
+                <div>
+                  <b class="td-rt"
+                    ><i class="bi bi-airplane"></i>Islamabad → Gilgit</b
+                  ><br />
+                  <span class="td-chip"
+                    ><i class="bi bi-calendar3"></i>Jan 8 – Jan 12</span
+                  ><br />
+                  <span class="td-chip"><i class="bi bi-airplane"></i>PIA</span>
+                </div>
+                <div class="td-fd-p">
+                  <small>From</small> <b>PKR 189</b>
+                  <a href="#"
+                    >View details <i class="bi bi-chevron-right"></i
+                  ></a>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="td-slider-hint" aria-hidden="true">
+            <span>Swipe to explore</span
+            ><span class="td-slider-arrows"
+              ><i class="bi bi-chevron-left"></i
+              ><i class="bi bi-chevron-right"></i
+            ></span>
+          </div>
+        </section>
+
+        <section
+          class="td-ts td-card-section"
+          aria-labelledby="travel-smarter-heading"
+        >
           <div class="td-ts-l">
-            <i class="bi bi-airplane"></i>
-            <div>
-              <h3>Travel smarter with TravelDeals</h3>
-              <p>
-                More choice, more flexibility, and more peace of mind – all in
-                one place for a smoother travel experience.
-              </p>
-              <a class="pill" href="#">Explore benefits</a>
-            </div>
+            <span class="td-ts-mark"
+              ><i class="bi bi-compass" aria-hidden="true"></i
+            ></span>
+            <span class="td-ts-eyebrow">Why TravelDeals</span>
+            <h2 id="travel-smarter-heading">Travel smarter with TravelDeals</h2>
+            <p>
+              Compare more options, shape the trip around you, and travel with
+              support at every step.
+            </p>
+            <a class="pill td-ts-action" href="#flight-deals"
+              >Explore flight deals
+              <i class="bi bi-arrow-up-right" aria-hidden="true"></i
+            ></a>
           </div>
           <div class="td-ts-r">
-            <div class="td-ck">
-              <i class="bi bi-check-circle"></i
-              ><span
-                ><b>Compare flights</b
+            <article class="td-ck">
+              <span class="td-ck-icon"
+                ><i class="bi bi-airplane" aria-hidden="true"></i
+              ></span>
+              <div>
+                <b>More flights to compare</b
                 ><small
-                  >Find great fares from a wide range of airlines.</small
-                ></span
-              >
-            </div>
-            <div class="td-ck">
-              <i class="bi bi-check-circle"></i
-              ><span
-                ><b>Choose your extras</b
+                  >Find fares and schedules from a wide range of
+                  airlines.</small
+                >
+              </div>
+              <span class="td-ck-number" aria-hidden="true">01</span>
+            </article>
+            <article class="td-ck">
+              <span class="td-ck-icon"
+                ><i class="bi bi-sliders" aria-hidden="true"></i
+              ></span>
+              <div>
+                <b>Make the trip yours</b
                 ><small
-                  >Add hotels, seats, and more to fit your trip.</small
-                ></span
-              >
-            </div>
-            <div class="td-ck">
-              <i class="bi bi-check-circle"></i
-              ><span
-                ><b>Travel with confidence</b
+                  >Choose stays and extras that fit the way you travel.</small
+                >
+              </div>
+              <span class="td-ck-number" aria-hidden="true">02</span>
+            </article>
+            <article class="td-ck">
+              <span class="td-ck-icon"
+                ><i class="bi bi-headset" aria-hidden="true"></i
+              ></span>
+              <div>
+                <b>Help along the way</b
                 ><small
-                  >Get reliable support before, during, and after your
-                  trip.</small
-                ></span
-              >
-            </div>
+                  >Get guidance before, during, and after your journey.</small
+                >
+              </div>
+              <span class="td-ck-number" aria-hidden="true">03</span>
+            </article>
           </div>
         </section>
 
-        <section class="td-um">
+        <section class="td-um td-card-section">
           <img class="td-um-i" src="images/kaaba.jpg" alt="Umrah" />
-          <div class="td-um-t">
-            <h2>Umrah journeys, thoughtfully planned</h2>
-            <p class="td-sub">
-              Plan your Umrah with flights, stays, and visa support – all in one
-              place, with guidance from start to finish.
-            </p>
-          </div>
-          <div class="td-um-f">
-            <ul>
-              <li>
-                <i class="bi bi-airplane"></i
-                ><span
-                  ><b>Flights</b
-                  ><small>Convenient options and great fares</small></span
-                >
-              </li>
-              <li>
-                <i class="bi bi-house-door"></i
-                ><span
-                  ><b>Stays</b
-                  ><small>Comfortable and well-located hotels</small></span
-                >
-              </li>
-              <li>
-                <i class="bi bi-person-vcard"></i
-                ><span
-                  ><b>Visa guidance</b
-                  ><small>Clear steps and expert support</small></span
-                >
-              </li>
-            </ul>
-            <a class="pill" href="#">Explore Umrah</a>
+          <div class="td-um-card">
+            <div class="td-um-t">
+              <h2>Umrah journeys, thoughtfully planned</h2>
+              <p class="td-sub">
+                Plan your Umrah with flights, stays, and visa support – all in
+                one place, with guidance from start to finish.
+              </p>
+            </div>
+            <div class="td-um-f">
+              <ul>
+                <li>
+                  <i class="bi bi-airplane"></i
+                  ><span
+                    ><b>Flights</b
+                    ><small>Convenient options and great fares</small></span
+                  >
+                </li>
+                <li>
+                  <i class="bi bi-house-door"></i
+                  ><span
+                    ><b>Stays</b
+                    ><small>Comfortable and well-located hotels</small></span
+                  >
+                </li>
+                <li>
+                  <i class="bi bi-person-vcard"></i
+                  ><span
+                    ><b>Visa guidance</b
+                    ><small>Clear steps and expert support</small></span
+                  >
+                </li>
+              </ul>
+              <a class="pill" href="#">Explore Umrah</a>
+            </div>
           </div>
         </section>
 
-        <section class="td-sec" id="help">
+        <section class="td-sec td-card-section" id="help">
           <h2>Need a little help?</h2>
           <p class="td-sub">
             Find quick answers or get in touch with our travel experts.
@@ -751,7 +1183,9 @@
             option.className = "td-sg td-multi-suggestion";
             option.setAttribute("role", "option");
             option.innerHTML = `<i class="bi bi-geo-alt" aria-hidden="true"></i><span><b>${city}</b><small>${airport}</small></span>`;
-            option.addEventListener("mousedown", (event) => event.preventDefault());
+            option.addEventListener("mousedown", (event) =>
+              event.preventDefault(),
+            );
             option.addEventListener("click", () => {
               input.value = city;
               input.dispatchEvent(new Event("input", { bubbles: true }));
@@ -763,7 +1197,9 @@
           const filterOptions = () => {
             const query = input.value.trim().toLowerCase();
             popup.querySelectorAll(".td-multi-suggestion").forEach((option) => {
-              option.hidden = query !== "" && !option.textContent.toLowerCase().includes(query);
+              option.hidden =
+                query !== "" &&
+                !option.textContent.toLowerCase().includes(query);
             });
           };
           input.addEventListener("input", filterOptions);
