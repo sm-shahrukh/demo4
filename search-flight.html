@@ -34,12 +34,6 @@
       <div class="container sf-container">
         <section class="sf-search-hero" aria-label="Search flights">
           <section class="sf-search-card" aria-label="Your flight search">
-            <header class="sf-search-intro">
-              <div>
-                <h1>Refine your journey</h1>
-                <p>Find and compare the best flight options for your trip.</p>
-              </div>
-            </header>
             <form
               class="sf-search-form"
               action="search-flight.html"
@@ -242,7 +236,10 @@
                     /></label>
                   </div>
                 </div>
-                <button class="sf-primary-btn" type="submit">Search</button>
+                <button class="sf-primary-btn" type="submit">
+                  <span class="td-search-label td-search-label--out">Search</span>
+                  <span class="td-search-label td-search-label--in" aria-hidden="true">Search</span>
+                </button>
               </div>
               <div class="sf-multi-controls" aria-label="Multi-city flights">
                 <div class="sf-leg-control sf-leg-2">
@@ -539,7 +536,8 @@
                     >+ Add another flight</label
                   >
                   <button class="sf-primary-btn sf-multi-search" type="submit">
-                    Search
+                    <span class="td-search-label td-search-label--out">Search</span>
+                    <span class="td-search-label td-search-label--in" aria-hidden="true">Search</span>
                   </button>
                 </div>
               </div>
@@ -552,10 +550,6 @@
           ><span aria-hidden="true">/</span
           ><span aria-current="page">Search results</span>
         </nav>
-        <header class="sf-results-intro">
-          <h1>Flights for your next journey</h1>
-          <p>Explore fares from Islamabad to Dubai.</p>
-        </header>
         <nav
           class="sf-date-strip"
           id="flight-results"
@@ -577,8 +571,7 @@
             class="sf-date-card is-active"
             href="#flight-results"
             aria-current="date"
-            ><b>Sat, Nov 21</b><span>From PKR 275</span
-            ><small>Lowest fare</small></a
+            ><b>Sat, Nov 21</b><span>From PKR 275</span></a
           >
           <a class="sf-date-card" href="#flight-results"
             ><b>Sun, Nov 22</b><span class="sf-desktop-copy">From PKR 329</span
@@ -594,6 +587,22 @@
             ><i class="bi bi-chevron-right" aria-hidden="true"></i
           ></a>
         </nav>
+        <section class="sf-loading-status" role="status" aria-live="polite">
+          <div class="sf-loading-message">
+            <span class="sf-loading-spinner" aria-hidden="true"></span>
+            <span>Searching for best available Flights</span>
+          </div>
+          <div
+            class="sf-loading-track"
+            role="progressbar"
+            aria-label="Flight search progress"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuetext="Loading flight results"
+          >
+            <span class="sf-loading-fill" aria-hidden="true"></span>
+          </div>
+        </section>
         <p class="sf-results-count">28 flights found</p>
         <div class="sf-results-layout">
           <aside class="sf-filters" aria-label="Flight filters">
@@ -706,6 +715,7 @@
               </div>
             </div>
             <div class="sf-results-title">
+              <div class="sf-filter-backdrop" data-filter-close hidden></div>
               <details class="sf-filter-row">
                 <summary>
                   <i class="bi bi-sliders" aria-hidden="true"></i>
@@ -713,8 +723,9 @@
                 </summary>
                 <form class="sf-filter-panel">
                   <div class="sf-filter-heading">
-                    <h3>Filter results</h3>
+                    <h3>Filter flights</h3>
                     <button type="reset">Clear all</button>
+                    <button class="sf-filter-close" type="button" aria-label="Close filters"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
                   </div>
                   <fieldset class="sf-filter-group">
                     <legend>
@@ -810,24 +821,12 @@
                 </form>
               </details>
               <div class="sf-filter-chips" aria-label="Filter categories">
-                <button type="button">
-                  Stops <i class="bi bi-chevron-down" aria-hidden="true"></i>
-                </button>
-                <button type="button">
-                  Airlines <i class="bi bi-chevron-down" aria-hidden="true"></i>
-                </button>
-                <button type="button">
-                  Departure time
-                  <i class="bi bi-chevron-down" aria-hidden="true"></i>
-                </button>
-                <button type="button">
-                  Baggage <i class="bi bi-chevron-down" aria-hidden="true"></i>
-                </button>
-                <button type="button">
-                  Price range
-                  <i class="bi bi-chevron-down" aria-hidden="true"></i>
-                </button>
-                <button class="sf-clear-filters" type="reset">Clear all</button>
+                <details class="sf-chip-dropdown" data-filter="Stops"><summary>Stops<i class="bi bi-chevron-down" aria-hidden="true"></i></summary><div class="sf-chip-options"></div></details>
+                <details class="sf-chip-dropdown" data-filter="Airlines"><summary>Airlines<i class="bi bi-chevron-down" aria-hidden="true"></i></summary><div class="sf-chip-options"></div></details>
+                <details class="sf-chip-dropdown" data-filter="Departure time"><summary>Departure time<i class="bi bi-chevron-down" aria-hidden="true"></i></summary><div class="sf-chip-options"></div></details>
+                <details class="sf-chip-dropdown" data-filter="Baggage"><summary>Baggage<i class="bi bi-chevron-down" aria-hidden="true"></i></summary><div class="sf-chip-options"></div></details>
+                <details class="sf-chip-dropdown" data-filter="Price range"><summary>Price range<i class="bi bi-chevron-down" aria-hidden="true"></i></summary><div class="sf-chip-options"></div></details>
+                <button class="sf-clear-filters" type="button">Clear all</button>
               </div>
               <div class="sf-toolbar-sort sf-sort-select">
                 <select aria-label="Sort flights">
@@ -837,6 +836,26 @@
                 ><i class="bi bi-chevron-down" aria-hidden="true"></i>
               </div>
             </div>
+            <section class="sf-inline-ad-row" aria-label="Sponsored travel offers">
+              <article class="sf-inline-ad">
+                <span>Sponsored</span>
+                <img src="images/hero-coast-wing.png" alt="Passenger plane above the coast" />
+                <div><h3>Save on your next flight</h3><p>Great fares on top routes.</p></div>
+                <a href="homepage.html#search" aria-label="Explore flight deals"><i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+              </article>
+              <article class="sf-inline-ad">
+                <span>Sponsored</span>
+                <img src="images/burj.jpg" alt="Dubai landmark and skyline" />
+                <div><h3>Stay a little longer</h3><p>Discover more of your destination.</p></div>
+                <a href="homepage.html#hotels" aria-label="Explore hotels"><i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+              </article>
+              <article class="sf-inline-ad">
+                <span>Sponsored</span>
+                <img src="images/visa.png" alt="Travel visa document" />
+                <div><h3>Visa help made simple</h3><p>Guidance, support and updates.</p></div>
+                <a href="homepage.html#visa" aria-label="Explore visa support"><i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+              </article>
+            </section>
             <div class="sf-sort-tabs">
               <a class="is-active" href="#flight-results">Recommended</a
               ><a href="#flight-results">Cheapest</a
@@ -1034,7 +1053,7 @@
                 <header class="sf-card-heading">
                   <div class="sf-card-airline-mark">
                     <img
-                      src="images/airlines/qatar-drawer.svg"
+                      src="images/airlines/qatar.svg"
                       alt="Qatar Airways"
                     /><span class="sf-card-kind">MULTI-CITY</span>
                   </div>
@@ -1046,7 +1065,7 @@
                 <div class="sf-leg">
                   <div class="sf-airline sf-airline-qatar">
                     <img
-                      src="images/airlines/qatar-drawer.svg"
+                      src="images/airlines/qatar.svg"
                       alt="Qatar Airways"
                     />
                   </div>
@@ -1119,7 +1138,7 @@
                 <div class="sf-leg">
                   <div class="sf-airline sf-airline-qatar">
                     <img
-                      src="images/airlines/qatar-drawer.svg"
+                      src="images/airlines/qatar.svg"
                       alt="Qatar Airways"
                     />
                   </div>
@@ -1181,26 +1200,16 @@
           </section>
           <aside class="sf-ad-rail" aria-label="Travel offers">
             <article class="sf-ad-card sf-ad-protection">
-              <span class="sf-ad-label">TRAVEL WITH CONFIDENCE</span>
-              <i class="bi bi-shield-check" aria-hidden="true"></i>
-              <h2>Extra peace of mind</h2>
-              <p>
-                Explore flexible options and helpful support for your journey.
-              </p>
-              <a href="homepage.html#"
-                >Explore travel support
-                <i class="bi bi-arrow-right" aria-hidden="true"></i
-              ></a>
+              <span class="sf-ad-label">Sponsored</span>
+              <a class="sf-ad-banner" href="#" aria-label="J. Menswear sponsored advertisement">
+                <img class="sf-ad-image" src="images/j-menswear-ad-160x600.png" alt="J. Menswear wedding and festive collection, 40% off" />
+              </a>
             </article>
             <article class="sf-ad-card sf-ad-inspiration">
-              <span class="sf-ad-label">MAKE MORE OF YOUR TRIP</span>
-              <i class="bi bi-globe2" aria-hidden="true"></i>
-              <h2>Plan the whole journey</h2>
-              <p>Find a comfortable stay and travel guidance in one place.</p>
-              <a href="homepage.html#"
-                >Discover more
-                <i class="bi bi-arrow-right" aria-hidden="true"></i
-              ></a>
+              <span class="sf-ad-label">Sponsored</span>
+              <a class="sf-ad-banner" href="#" aria-label="Daraz sponsored advertisement">
+                <img class="sf-ad-image" src="images/daraz-ad-160x600.png" alt="Daraz mega sale, up to 70% off" />
+              </a>
             </article>
           </aside>
         </div>
@@ -1281,9 +1290,9 @@
           aria-label="TravelDeals home"
           ><img
             class="sf-drawer-brand-logo"
-            src="images/logo-dark-bg.png"
+            src="images/logo.png"
             alt="TravelDeals"
-          /><span class="sf-drawer-brand-context">· FLIGHT DETAILS</span></a
+          /><span class="sf-drawer-brand-context">Flight details</span></a
         >
         <button
           class="sf-drawer-close"
@@ -1296,15 +1305,15 @@
       </header>
       <nav class="sf-drawer-steps" aria-label="Flight details steps">
         <button type="button" class="is-active" data-drawer-step="0">
-          <span>01</span><b class="sf-step-long">Route &amp; timings</b
+          <span><i class="bi bi-airplane" aria-hidden="true"></i></span><b class="sf-step-long">Route &amp; timings</b
           ><b class="sf-step-short">Route</b></button
         ><i aria-hidden="true"></i>
         <button type="button" data-drawer-step="1">
-          <span>02</span><b class="sf-step-long">Price breakdown</b
+          <span><i class="bi bi-tag" aria-hidden="true"></i></span><b class="sf-step-long">Price breakdown</b
           ><b class="sf-step-short">Price</b></button
         ><i aria-hidden="true"></i>
         <button type="button" data-drawer-step="2">
-          <span>03</span><b class="sf-step-long">Choose your fare</b
+          <span><i class="bi bi-layers" aria-hidden="true"></i></span><b class="sf-step-long">Choose your fare</b
           ><b class="sf-step-short">Fare</b>
         </button>
       </nav>
@@ -1849,9 +1858,6 @@
             return;
           }
           if (event.target.closest("[data-flight-drawer-close]")) closeDrawer();
-          const filter = document.querySelector(".sf-filter-row");
-          if (filter?.open && !filter.contains(event.target))
-            filter.open = false;
         });
         drawer
           .querySelectorAll(".sf-drawer-steps [data-drawer-step]")
@@ -1880,18 +1886,78 @@
       })();
     </script>
     <script>
-      document.querySelectorAll(".sf-filter-chips button").forEach((button) => {
-        button.addEventListener("click", (event) => {
-          event.stopPropagation();
-          const filter = document.querySelector(".sf-filter-row");
-          if (button.classList.contains("sf-clear-filters")) {
-            document.querySelector(".sf-filter-panel")?.reset();
-            if (filter) filter.open = false;
-            return;
-          }
-          if (filter) filter.open = true;
+      (() => {
+        const filter = document.querySelector(".sf-filter-row");
+        const backdrop = document.querySelector(".sf-filter-backdrop");
+        const summary = filter?.querySelector(":scope > summary");
+        if (!filter || !backdrop || !summary) return;
+        let closeTimer;
+        const openFilters = () => {
+          window.clearTimeout(closeTimer);
+          filter.open = true;
+          filter.classList.remove("is-closing");
+          backdrop.hidden = false;
+          document.body.classList.add("sf-filter-open");
+          requestAnimationFrame(() => {
+            filter.classList.add("is-open");
+            backdrop.classList.add("is-open");
+          });
+        };
+        const closeFilters = () => {
+          if (!filter.open) return;
+          filter.classList.remove("is-open");
+          filter.classList.add("is-closing");
+          backdrop.classList.remove("is-open");
+          document.body.classList.remove("sf-filter-open");
+          closeTimer = window.setTimeout(() => {
+            filter.open = false;
+            filter.classList.remove("is-closing");
+            backdrop.hidden = true;
+            summary.focus();
+          }, 320);
+        };
+        summary.addEventListener("click", (event) => {
+          event.preventDefault();
+          filter.open ? closeFilters() : openFilters();
         });
-      });
+        backdrop.addEventListener("click", closeFilters);
+        filter.querySelector(".sf-filter-close")?.addEventListener("click", closeFilters);
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") closeFilters();
+        });
+        const panel = filter.querySelector(".sf-filter-panel");
+        const chipMenus = [...document.querySelectorAll(".sf-chip-dropdown")];
+        const findGroup = (name) => [...panel.querySelectorAll(".sf-filter-group")]
+          .find((group) => group.querySelector("legend")?.textContent.trim().toLowerCase().startsWith(name.toLowerCase()));
+        chipMenus.forEach((menu) => {
+          menu.addEventListener("toggle", () => {
+            if (!menu.open) return;
+            chipMenus.filter((other) => other !== menu).forEach((other) => { other.open = false; });
+            const source = findGroup(menu.dataset.filter);
+            const target = menu.querySelector(".sf-chip-options");
+            if (!source || !target) return;
+            const copy = source.cloneNode(true);
+            copy.addEventListener("change", (event) => {
+              const changed = event.target;
+              if (!(changed instanceof HTMLInputElement)) return;
+              source.querySelectorAll("input").forEach((original) => {
+                if (original.name === changed.name && (original.value === changed.value || changed.type === "range")) {
+                  if (changed.type === "checkbox" || changed.type === "radio") original.checked = changed.checked;
+                  else original.value = changed.value;
+                }
+              });
+            });
+            target.replaceChildren(copy);
+          });
+        });
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".sf-filter-chips")) chipMenus.forEach((menu) => { menu.open = false; });
+        });
+        document.querySelector(".sf-clear-filters")?.addEventListener("click", () => {
+          panel?.reset();
+          chipMenus.forEach((menu) => { menu.open = false; });
+        });
+      })();
     </script>
   </body>
 </html>
