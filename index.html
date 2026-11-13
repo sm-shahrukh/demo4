@@ -244,7 +244,7 @@
                     ><span
                       class="td-search-label td-search-label--in"
                       aria-hidden="true"
-                      >Search</span
+                      >Let’s go</span
                     >
                   </button>
                 </div>
@@ -470,7 +470,7 @@
                       ><span
                         class="td-search-label td-search-label--in"
                         aria-hidden="true"
-                        >Search</span
+                        >Let’s go</span
                       >
                     </button>
                   </div>
@@ -563,7 +563,7 @@
                     ><span
                       class="td-search-label td-search-label--in"
                       aria-hidden="true"
-                      >Search</span
+                      >Let’s go</span
                     >
                   </button>
                 </div>
@@ -636,7 +636,7 @@
                     ><span
                       class="td-search-label td-search-label--in"
                       aria-hidden="true"
-                      >Search</span
+                      >Let’s go</span
                     >
                   </button>
                 </div>
@@ -1205,6 +1205,83 @@
           input.addEventListener("input", filterOptions);
           input.addEventListener("focus", filterOptions);
           field.append(popup);
+        });
+      })();
+    </script>
+    <script>
+      (() => {
+        const mobileView = window.matchMedia("(max-width: 767.98px)");
+        const carousels = [
+          ...document.querySelectorAll("#destinations .td-dest, #flight-deals .td-fdg, .td-panel-section .td-jp"),
+        ];
+        const visibleCarousels = new Set();
+        const timers = new Map();
+
+        const stopTimer = (carousel) => {
+          window.clearTimeout(timers.get(carousel));
+          timers.delete(carousel);
+        };
+
+        const schedule = (carousel) => {
+          stopTimer(carousel);
+          if (!mobileView.matches || !visibleCarousels.has(carousel)) return;
+          timers.set(
+            carousel,
+            window.setTimeout(() => {
+              const cards = [...carousel.children].filter((card) => card.offsetWidth > 0);
+              if (cards.length > 1) {
+                const current = cards.reduce((nearest, card, index) =>
+                  Math.abs(card.offsetLeft - carousel.scrollLeft) <
+                  Math.abs(cards[nearest].offsetLeft - carousel.scrollLeft)
+                    ? index
+                    : nearest,
+                  0,
+                );
+                const next = (current + 1) % cards.length;
+                carousel.scrollTo({
+                  left: next === 0 ? 0 : cards[next].offsetLeft,
+                  behavior: "smooth",
+                });
+              }
+              schedule(carousel);
+            }, 5000),
+          );
+        };
+
+        carousels.forEach((carousel) => {
+          ["touchstart", "pointerdown", "wheel"].forEach((eventName) =>
+            carousel.addEventListener(eventName, () => schedule(carousel), { passive: true }),
+          );
+        });
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach(({ target, isIntersecting }) => {
+              if (isIntersecting) {
+                visibleCarousels.add(target);
+                schedule(target);
+              } else {
+                visibleCarousels.delete(target);
+                stopTimer(target);
+              }
+            });
+          },
+          { threshold: 0.15 },
+        );
+        carousels.forEach((carousel) => observer.observe(carousel));
+
+        const updateBreakpoint = () => {
+          carousels.forEach((carousel) => {
+            stopTimer(carousel);
+            if (!mobileView.matches) carousel.scrollLeft = 0;
+            else schedule(carousel);
+          });
+        };
+        mobileView.addEventListener("change", updateBreakpoint);
+        document.addEventListener("visibilitychange", () => {
+          carousels.forEach((carousel) =>
+            document.hidden ? stopTimer(carousel) : schedule(carousel),
+          );
         });
       })();
     </script>

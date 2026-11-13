@@ -19,8 +19,8 @@
 .td-header-links a:hover::after, .td-header-links a:focus-visible::after { width: 100%; }
 .td-header-actions { display: flex; align-items: center; justify-self: end; gap: 12px; }
 .td-header-actions a { box-sizing: border-box; height: 37px; display: inline-flex; align-items: center; justify-content: center; padding: 0 12px; border: 1px solid var(--td-border); border-radius: var(--td-button-radius); color: var(--td-text); font-size: 14px; font-weight: 600; text-decoration: none; white-space: nowrap; }
-.td-header-actions .td-sign-in { width: 82px; transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease; }
-.td-header-actions .td-sign-in:hover, .td-header-actions .td-sign-in:focus-visible { border-color: var(--td-brand-blue); background: var(--td-search-gradient); color: var(--td-white); }
+.td-header-actions .td-sign-in { width: 82px; transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform var(--td-transition), box-shadow var(--td-transition); }
+.td-header-actions .td-sign-in:hover, .td-header-actions .td-sign-in:focus-visible { border-color: var(--td-brand-blue); background: linear-gradient(145deg, var(--td-active-soft), var(--td-white) 72%); color: var(--td-brand-blue); box-shadow: var(--td-shadow); transform: translateY(var(--td-hover-lift-large)); }
 .td-header-actions .td-get-started { position: relative; isolation: isolate; overflow: hidden; width: 116px; border-color: #eab216; background: var(--td-brand-yellow); transition: color 300ms ease, box-shadow 300ms ease, transform 300ms ease; }
 .td-header-actions .td-get-started::before { position: absolute; z-index: 0; inset: 0 auto 0 0; width: 0; border-radius: inherit; background: var(--td-search-gradient); content: ""; pointer-events: none; transition: width var(--td-search-animation-duration) var(--td-search-animation-easing); }
 .td-header-actions .td-get-started::after { position: absolute; z-index: 2; inset: 0; border: var(--td-search-outline-width) solid var(--td-search-outline); border-radius: inherit; content: ""; pointer-events: none; }

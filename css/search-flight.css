@@ -993,7 +993,9 @@
   height: var(--td-flight-drawer-brand-logo-height);
   object-fit: contain;
 }
-.sf-drawer-brand-context { color: var(--td-brand-yellow); }
+.sf-drawer-brand-context {
+  color: var(--td-brand-yellow);
+}
 .sf-drawer-brand-mark {
   display: block;
   width: var(--td-flight-drawer-brand-mark-size);
@@ -1079,7 +1081,11 @@
   overflow: auto;
   padding: var(--td-space-5);
   background:
-    radial-gradient(ellipse at 100% 0%, rgba(var(--td-brand-blue-rgb), 0.07), transparent 34%),
+    radial-gradient(
+      ellipse at 100% 0%,
+      rgba(var(--td-brand-blue-rgb), 0.07),
+      transparent 34%
+    ),
     var(--td-white);
 }
 .sf-drawer-panel[hidden] {
@@ -1089,7 +1095,9 @@
   position: relative;
   isolation: isolate;
 }
-.sf-drawer-panel[data-drawer-panel="0"]::before {
+.sf-drawer-panel[data-drawer-panel="0"]::before,
+.sf-drawer-panel[data-drawer-panel="1"]::before,
+.sf-drawer-panel[data-drawer-panel="2"]::before {
   content: "";
   position: absolute;
   z-index: 0;
@@ -1097,9 +1105,14 @@
   right: calc(0px - var(--td-space-5));
   width: calc(var(--td-flight-drawer-route-art-width) + var(--td-space-5));
   height: calc(var(--td-flight-drawer-route-art-height) + var(--td-space-5));
-  background-image: var(--td-flight-drawer-route-art-fade), var(--td-flight-drawer-route-art);
-  background-position: center, right top;
-  background-size: 100% 100%, cover;
+  background-image:
+    var(--td-flight-drawer-route-art-fade), var(--td-flight-drawer-route-art);
+  background-position:
+    center,
+    right top;
+  background-size:
+    100% 100%,
+    cover;
   opacity: var(--td-flight-drawer-route-art-opacity);
   mask-image: linear-gradient(90deg, transparent 0%, var(--td-mask) 34%);
   pointer-events: none;
@@ -1146,10 +1159,6 @@
   max-height: var(--td-flight-drawer-summary-logo-height);
   object-fit: contain;
   object-position: left center;
-}
-.sf-drawer-leg-heading img[src*="qatar-drawer.svg"],
-.sf-drawer-route img[src*="qatar-drawer.svg"] {
-  object-fit: fill;
 }
 .sf-drawer-journeys {
   display: grid;
@@ -1233,6 +1242,7 @@
 .sf-drawer-duration i {
   grid-column: 2;
   grid-row: 1;
+  transform: rotate(90deg);
 }
 .sf-drawer-duration b,
 .sf-drawer-duration span {
@@ -1361,7 +1371,13 @@
 .sf-ticket-code {
   height: var(--td-space-4);
   margin: 0 var(--td-space-4) var(--td-space-4);
-  background: repeating-linear-gradient(90deg, var(--td-brand-navy) 0 var(--td-space-01), transparent var(--td-space-01) var(--td-space-03), var(--td-brand-navy) var(--td-space-03) var(--td-space-2), transparent var(--td-space-2) var(--td-space-3));
+  background: repeating-linear-gradient(
+    90deg,
+    var(--td-brand-navy) 0 var(--td-space-01),
+    transparent var(--td-space-01) var(--td-space-03),
+    var(--td-brand-navy) var(--td-space-03) var(--td-space-2),
+    transparent var(--td-space-2) var(--td-space-3)
+  );
 }
 .sf-fare-plans {
   display: grid;
@@ -1575,7 +1591,8 @@ body.sf-drawer-open {
     height: var(--td-flight-drawer-mobile-height);
     max-height: 100svh;
     padding-top: var(--td-space-5);
-    border-radius: var(--td-flight-drawer-mobile-radius) var(--td-flight-drawer-mobile-radius) 0 0;
+    border-radius: var(--td-flight-drawer-mobile-radius)
+      var(--td-flight-drawer-mobile-radius) 0 0;
     transform: translateY(100%);
   }
   .sf-flight-drawer::before {
@@ -1649,7 +1666,9 @@ body.sf-drawer-open {
   .sf-drawer-panel[data-drawer-panel="0"]::before {
     top: calc(0px - var(--td-space-3));
     right: calc(0px - var(--td-space-3));
-    width: calc(var(--td-flight-drawer-route-art-width-mobile) + var(--td-space-3));
+    width: calc(
+      var(--td-flight-drawer-route-art-width-mobile) + var(--td-space-3)
+    );
     height: var(--td-flight-drawer-route-art-height-mobile);
     opacity: var(--td-flight-drawer-route-art-opacity-mobile);
   }
@@ -1786,7 +1805,8 @@ body.sf-drawer-open {
     display: grid;
     grid-template-columns: var(--td-icon-feature-card) 1fr auto;
     gap: var(--td-space-2);
-    padding: var(--td-space-2) var(--td-space-3) calc(var(--td-space-2) + env(safe-area-inset-bottom));
+    padding: var(--td-space-2) var(--td-space-3)
+      calc(var(--td-space-2) + env(safe-area-inset-bottom));
   }
   .sf-drawer-footer-icon {
     width: var(--td-space-6);
@@ -1912,7 +1932,10 @@ body.sf-drawer-open {
   display: none;
 }
 .sf-flight-card .sf-route-times {
-  grid-template-columns: minmax(5rem, 0.65fr) minmax(5rem, 1.7fr) minmax(5rem, 0.65fr);
+  grid-template-columns: minmax(5rem, 0.65fr) minmax(5rem, 1.7fr) minmax(
+      5rem,
+      0.65fr
+    );
   gap: var(--td-space-3);
 }
 .sf-flight-card .sf-time {
@@ -2024,36 +2047,16 @@ body.sf-drawer-open {
 .sf-multicity-card .sf-leg:last-of-type .sf-leg-details li:last-child span {
   font-size: 0;
 }
-.sf-multicity-card .sf-leg:last-of-type .sf-leg-details li:last-child span::before {
+.sf-multicity-card
+  .sf-leg:last-of-type
+  .sf-leg-details
+  li:last-child
+  span::before {
   content: "30 kg checked baggage (per flight)";
   font-size: var(--td-font-sm);
 }
 .sf-flight-card .sf-leg-details i {
   color: var(--td-results-accent);
-}
-.sf-multicity-card .sf-card-itineraries {
-  padding-left: var(--td-space-4);
-  border-left: var(--td-border-width-selected) solid var(--td-border-hover);
-  counter-reset: sf-multi-leg;
-}
-.sf-multicity-card .sf-card-itineraries > .sf-leg {
-  counter-increment: sf-multi-leg;
-}
-.sf-multicity-card .sf-card-itineraries > .sf-leg::before {
-  content: counter(sf-multi-leg);
-  position: absolute;
-  left: calc(-1 * var(--td-space-5));
-  top: 50%;
-  display: grid;
-  width: var(--td-space-4);
-  height: var(--td-space-4);
-  place-items: center;
-  border-radius: var(--td-radius-circle);
-  background: var(--td-results-accent-soft);
-  color: var(--td-results-accent);
-  font-size: var(--td-font-xs);
-  font-weight: var(--td-weight-bold);
-  transform: translateY(-50%);
 }
 .sf-flight-card .sf-fare {
   justify-content: center;
@@ -2104,11 +2107,14 @@ body.sf-drawer-open {
   width: var(--td-icon-sm);
   height: var(--td-icon-sm);
   background-color: currentColor;
-  -webkit-mask: url("../images/icon-chevron-down.svg") center / contain no-repeat;
+  -webkit-mask: url("../images/icon-chevron-down.svg") center / contain
+    no-repeat;
   mask: url("../images/icon-chevron-down.svg") center / contain no-repeat;
   transition: transform var(--td-transition-normal);
 }
-.sf-flight-card .sf-fare-details-trigger i::before { content: none; }
+.sf-flight-card .sf-fare-details-trigger i::before {
+  content: none;
+}
 .sf-flight-card .sf-fare-details-trigger:hover i {
   transform: translateY(var(--td-space-01));
 }
@@ -2196,7 +2202,11 @@ body.sf-drawer-open {
   .sf-flight-card .sf-leg-details li:last-child span::after {
     font-size: var(--td-font-xs);
   }
-  .sf-multicity-card .sf-leg:last-of-type .sf-leg-details li:last-child span::before {
+  .sf-multicity-card
+    .sf-leg:last-of-type
+    .sf-leg-details
+    li:last-child
+    span::before {
     font-size: var(--td-font-xs);
   }
   .sf-flight-card .sf-fare {
@@ -3112,7 +3122,9 @@ body.sf-drawer-open {
   font-weight: var(--td-weight-semibold);
   list-style: none;
   cursor: pointer;
-  transition: border-color var(--td-transition-fast), background var(--td-transition-fast);
+  transition:
+    border-color var(--td-transition-fast),
+    background var(--td-transition-fast);
 }
 .sf-filter-row > summary::-webkit-details-marker {
   display: none;
@@ -3225,7 +3237,10 @@ body.sf-drawer-open {
   }
   .sf-filter-row .sf-filter-panel {
     position: fixed;
-    top: calc(var(--td-header-height-mobile) + var(--td-space-2) + var(--td-results-control-height) + var(--td-space-2));
+    top: calc(
+      var(--td-header-height-mobile) + var(--td-space-2) +
+        var(--td-results-control-height) + var(--td-space-2)
+    );
     right: var(--td-content-gutter);
     bottom: calc(var(--td-mobile-nav-height) + var(--td-space-2));
     left: var(--td-content-gutter);
@@ -3258,9 +3273,16 @@ body.sf-drawer-open {
 }
 
 /* Compact result cards and flight details matched to the supplied layouts. */
-.sf-flight-card .sf-card-itineraries { gap: var(--td-space-1); }
-.sf-flight-card .sf-trip-label { min-height: var(--td-space-6); gap: var(--td-space-3); }
-.sf-flight-card .sf-card-airline-mark { min-height: var(--td-space-5); }
+.sf-flight-card .sf-card-itineraries {
+  gap: var(--td-space-1);
+}
+.sf-flight-card .sf-trip-label {
+  min-height: var(--td-space-6);
+  gap: var(--td-space-3);
+}
+.sf-flight-card .sf-card-airline-mark {
+  min-height: var(--td-space-5);
+}
 .sf-flight-card .sf-leg {
   gap: var(--td-space-2);
   padding: var(--td-space-2) var(--td-space-3);
@@ -3268,24 +3290,64 @@ body.sf-drawer-open {
   border-bottom: var(--td-border-width) solid var(--td-border-light);
   border-radius: var(--td-radius-none);
 }
-.sf-flight-card .sf-leg + .sf-leg { margin-top: 0; }
-.sf-flight-card .sf-route-times { gap: var(--td-space-2); }
-.sf-flight-card .sf-time { min-height: var(--td-space-6); padding: var(--td-space-1) var(--td-space-2); }
+.sf-flight-card .sf-leg + .sf-leg {
+  margin-top: 0;
+}
+.sf-flight-card .sf-route-times {
+  gap: var(--td-space-2);
+}
+.sf-flight-card .sf-time {
+  min-height: var(--td-space-6);
+  padding: var(--td-space-1) var(--td-space-2);
+}
 .sf-flight-card .sf-leg-details {
   gap: var(--td-space-2);
   padding: var(--td-space-1) 0 0;
   border-top: 0;
   color: var(--td-muted);
 }
-.sf-flight-card .sf-leg-details li:last-child { margin-left: 0; }
-.sf-flight-card .sf-leg-details li:last-child span { font-size: 0; }
-.sf-flight-card .sf-leg-details li:last-child span::before { content: "30 kg checked baggage"; font-size: var(--td-font-sm); }
-.sf-flight-card .sf-leg-details li:last-child span::after { content: "  |  7 kg carry-on"; font-size: var(--td-font-sm); }
-.sf-roundtrip-card .sf-leg:last-of-type .sf-leg-details li:last-child span::before { content: "30 kg checked baggage (each way)"; }
-.sf-roundtrip-card .sf-leg:last-of-type .sf-leg-details li:last-child span::after { content: "  |  7 kg carry-on (each way)"; }
-.sf-multicity-card .sf-leg:last-of-type .sf-leg-details li:last-child span::after { content: "  |  7 kg carry-on (per flight)"; }
-.sf-flight-card .sf-fare { background: var(--td-blue-soft); }
-.sf-flight-card .sf-fare-details-trigger i::before { content: "⌄"; font-family: Arial, sans-serif; }
+.sf-flight-card .sf-leg-details li:last-child {
+  margin-left: 0;
+}
+.sf-flight-card .sf-leg-details li:last-child span {
+  font-size: 0;
+}
+.sf-flight-card .sf-leg-details li:last-child span::before {
+  content: "30 kg checked baggage";
+  font-size: var(--td-font-sm);
+}
+.sf-flight-card .sf-leg-details li:last-child span::after {
+  content: "  |  7 kg carry-on";
+  font-size: var(--td-font-sm);
+}
+.sf-roundtrip-card
+  .sf-leg:last-of-type
+  .sf-leg-details
+  li:last-child
+  span::before {
+  content: "30 kg checked baggage (each way)";
+}
+.sf-roundtrip-card
+  .sf-leg:last-of-type
+  .sf-leg-details
+  li:last-child
+  span::after {
+  content: "  |  7 kg carry-on (each way)";
+}
+.sf-multicity-card
+  .sf-leg:last-of-type
+  .sf-leg-details
+  li:last-child
+  span::after {
+  content: "  |  7 kg carry-on (per flight)";
+}
+.sf-flight-card .sf-fare {
+  background: var(--td-blue-soft);
+}
+.sf-flight-card .sf-fare-details-trigger i::before {
+  content: "⌄";
+  font-family: Arial, sans-serif;
+}
 .sf-drawer-route-layout {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(14rem, 0.96fr);
@@ -3293,20 +3355,57 @@ body.sf-drawer-open {
   align-items: start;
   max-width: var(--td-flight-drawer-content-width);
 }
-.sf-drawer-route-layout .sf-drawer-journeys { min-width: 0; }
-.sf-drawer-journeys { align-content: start; }
-.sf-drawer-duration { width: 100%; min-width: 0; }
-.sf-drawer-duration::before { grid-column: 1; grid-row: 1; }
-.sf-drawer-duration::after { grid-column: 3; grid-row: 1; }
-.sf-drawer-duration i { z-index: 1; font-size: var(--td-icon-xl); line-height: 1; }
-.sf-drawer-route > i:first-child { font-size: var(--td-icon-lg); }
-.sf-drawer-bags i { font-size: var(--td-icon-md); }
-.sf-drawer-bags { gap: var(--td-space-1); font-size: var(--td-font-xs); }
-.sf-drawer-bags span { max-width: calc(50% - var(--td-space-1)); white-space: nowrap; }
-.sf-drawer-snapshot li i { font-size: var(--td-icon-lg); }
-.sf-drawer-snapshot > p { white-space: nowrap; font-size: var(--td-font-sm); }
-.sf-drawer-footer-icon { font-size: var(--td-icon-2xl); }
-.sf-drawer-journeys { position: relative; padding-left: var(--td-space-6); }
+.sf-drawer-route-layout .sf-drawer-journeys {
+  min-width: 0;
+}
+.sf-drawer-journeys {
+  align-content: start;
+}
+.sf-drawer-duration {
+  width: 100%;
+  min-width: 0;
+}
+.sf-drawer-duration::before {
+  grid-column: 1;
+  grid-row: 1;
+}
+.sf-drawer-duration::after {
+  grid-column: 3;
+  grid-row: 1;
+}
+.sf-drawer-duration i {
+  z-index: 1;
+  font-size: var(--td-icon-xl);
+  line-height: 1;
+}
+.sf-drawer-route > i:first-child {
+  font-size: var(--td-icon-lg);
+}
+.sf-drawer-bags i {
+  font-size: var(--td-icon-md);
+}
+.sf-drawer-bags {
+  gap: var(--td-space-1);
+  font-size: var(--td-font-xs);
+}
+.sf-drawer-bags span {
+  max-width: calc(50% - var(--td-space-1));
+  white-space: nowrap;
+}
+.sf-drawer-snapshot li i {
+  font-size: var(--td-icon-lg);
+}
+.sf-drawer-snapshot > p {
+  white-space: nowrap;
+  font-size: var(--td-font-sm);
+}
+.sf-drawer-footer-icon {
+  font-size: var(--td-icon-2xl);
+}
+.sf-drawer-journeys {
+  position: relative;
+  padding-left: var(--td-space-6);
+}
 .sf-drawer-journeys::before {
   content: "";
   position: absolute;
@@ -3316,7 +3415,9 @@ body.sf-drawer-open {
   width: var(--td-border-width-emphasis);
   background: var(--td-border-hover);
 }
-.sf-drawer-leg { position: relative; }
+.sf-drawer-leg {
+  position: relative;
+}
 .sf-drawer-leg::before {
   content: "";
   position: absolute;
@@ -3333,8 +3434,14 @@ body.sf-drawer-open {
   position: absolute;
   top: calc(var(--td-space-4) + var(--td-border-width-emphasis));
   left: calc(0px - var(--td-space-6) + var(--td-border-width-emphasis));
-  width: calc(var(--td-space-5) - var(--td-border-width-emphasis) - var(--td-border-width-emphasis));
-  height: calc(var(--td-space-5) - var(--td-border-width-emphasis) - var(--td-border-width-emphasis));
+  width: calc(
+    var(--td-space-5) - var(--td-border-width-emphasis) -
+      var(--td-border-width-emphasis)
+  );
+  height: calc(
+    var(--td-space-5) - var(--td-border-width-emphasis) -
+      var(--td-border-width-emphasis)
+  );
   background-color: var(--td-results-accent);
   -webkit-mask: url("../images/icon-plane.svg") center / 60% no-repeat;
   mask: url("../images/icon-plane.svg") center / 60% no-repeat;
@@ -3353,26 +3460,73 @@ body.sf-drawer-open {
   mask-size: contain;
   vertical-align: -0.12em;
 }
-.sf-flight-drawer i.bi::before { content: none; }
-.sf-flight-drawer .bi-x-lg { -webkit-mask-image: url("../images/icon-close.svg"); mask-image: url("../images/icon-close.svg"); }
-.sf-flight-drawer .bi-geo-alt { -webkit-mask-image: url("../images/icon-pin.svg"); mask-image: url("../images/icon-pin.svg"); }
-.sf-flight-drawer .bi-arrow-left-right { -webkit-mask-image: url("../images/icon-exchange.svg"); mask-image: url("../images/icon-exchange.svg"); }
+.sf-flight-drawer i.bi::before {
+  content: none;
+}
+.sf-flight-drawer .bi-x-lg {
+  -webkit-mask-image: url("../images/icon-close.svg");
+  mask-image: url("../images/icon-close.svg");
+}
+.sf-flight-drawer .bi-geo-alt {
+  -webkit-mask-image: url("../images/icon-pin.svg");
+  mask-image: url("../images/icon-pin.svg");
+}
+.sf-flight-drawer .bi-arrow-left-right {
+  -webkit-mask-image: url("../images/icon-exchange.svg");
+  mask-image: url("../images/icon-exchange.svg");
+}
 .sf-flight-drawer .bi-airplane-fill,
 .sf-flight-drawer .bi-airplane,
-.sf-flight-drawer .bi-airplane-engines { -webkit-mask-image: url("../images/icon-plane.svg"); mask-image: url("../images/icon-plane.svg"); }
-.sf-flight-drawer .bi-person { -webkit-mask-image: url("../images/icon-person.svg"); mask-image: url("../images/icon-person.svg"); }
-.sf-flight-drawer .bi-arrow-repeat { -webkit-mask-image: url("../images/icon-repeat.svg"); mask-image: url("../images/icon-repeat.svg"); }
+.sf-flight-drawer .bi-airplane-engines {
+  -webkit-mask-image: url("../images/icon-plane.svg");
+  mask-image: url("../images/icon-plane.svg");
+}
+.sf-flight-drawer .bi-person {
+  -webkit-mask-image: url("../images/icon-person.svg");
+  mask-image: url("../images/icon-person.svg");
+}
+.sf-flight-drawer .bi-arrow-repeat {
+  -webkit-mask-image: url("../images/icon-repeat.svg");
+  mask-image: url("../images/icon-repeat.svg");
+}
 .sf-flight-drawer .bi-bag,
 .sf-flight-drawer .bi-luggage,
-.sf-flight-drawer .bi-handbag { -webkit-mask-image: url("../images/icon-bag.svg"); mask-image: url("../images/icon-bag.svg"); }
-.sf-flight-drawer .bi-calendar3 { -webkit-mask-image: url("../images/icon-calendar.svg"); mask-image: url("../images/icon-calendar.svg"); }
-.sf-flight-drawer .bi-check-lg { -webkit-mask-image: url("../images/icon-check.svg"); mask-image: url("../images/icon-check.svg"); }
-.sf-flight-drawer .bi-arrow-right { -webkit-mask-image: url("../images/icon-arrow.svg"); mask-image: url("../images/icon-arrow.svg"); }
-.sf-flight-drawer .bi-ticket-perforated { -webkit-mask-image: url("../images/icon-ticket.svg"); mask-image: url("../images/icon-ticket.svg"); }
-.sf-flight-drawer .bi-coin { -webkit-mask-image: url("../images/icon-coins.svg"); mask-image: url("../images/icon-coins.svg"); }
-.sf-flight-drawer .bi-star { -webkit-mask-image: url("../images/icon-star.svg"); mask-image: url("../images/icon-star.svg"); }
-.sf-flight-drawer .bi-arrows-angle-expand { -webkit-mask-image: url("../images/icon-expand.svg"); mask-image: url("../images/icon-expand.svg"); }
-.sf-plan-card li:nth-child(2) .bi-person { -webkit-mask-image: url("../images/icon-seat.svg"); mask-image: url("../images/icon-seat.svg"); }
+.sf-flight-drawer .bi-handbag {
+  -webkit-mask-image: url("../images/icon-bag.svg");
+  mask-image: url("../images/icon-bag.svg");
+}
+.sf-flight-drawer .bi-calendar3 {
+  -webkit-mask-image: url("../images/icon-calendar.svg");
+  mask-image: url("../images/icon-calendar.svg");
+}
+.sf-flight-drawer .bi-check-lg {
+  -webkit-mask-image: url("../images/icon-check.svg");
+  mask-image: url("../images/icon-check.svg");
+}
+.sf-flight-drawer .bi-arrow-right {
+  -webkit-mask-image: url("../images/icon-arrow.svg");
+  mask-image: url("../images/icon-arrow.svg");
+}
+.sf-flight-drawer .bi-ticket-perforated {
+  -webkit-mask-image: url("../images/icon-ticket.svg");
+  mask-image: url("../images/icon-ticket.svg");
+}
+.sf-flight-drawer .bi-coin {
+  -webkit-mask-image: url("../images/icon-coins.svg");
+  mask-image: url("../images/icon-coins.svg");
+}
+.sf-flight-drawer .bi-star {
+  -webkit-mask-image: url("../images/icon-star.svg");
+  mask-image: url("../images/icon-star.svg");
+}
+.sf-flight-drawer .bi-arrows-angle-expand {
+  -webkit-mask-image: url("../images/icon-expand.svg");
+  mask-image: url("../images/icon-expand.svg");
+}
+.sf-plan-card li:nth-child(2) .bi-person {
+  -webkit-mask-image: url("../images/icon-seat.svg");
+  mask-image: url("../images/icon-seat.svg");
+}
 .sf-drawer-snapshot {
   display: flex;
   flex-direction: column;
@@ -3381,67 +3535,233 @@ body.sf-drawer-open {
   background: var(--td-blue-soft);
   color: var(--td-heading-color);
 }
-.sf-drawer-snapshot h2 { margin: 0 0 var(--td-space-3); font-size: var(--td-font-heading-small); }
-.sf-drawer-snapshot ul { margin: 0; padding: 0; list-style: none; }
-.sf-drawer-snapshot li { display: flex; align-items: center; gap: var(--td-space-3); padding: var(--td-space-2) 0; border-bottom: var(--td-border-width) solid var(--td-border-hover); }
-.sf-drawer-snapshot li i { width: var(--td-space-5); color: var(--td-results-accent); font-size: var(--td-font-lg); }
-.sf-drawer-snapshot > strong { margin-top: var(--td-space-5); padding-top: var(--td-space-4); border-top: var(--td-border-width) dashed var(--td-border-hover); font-size: var(--td-font-price); }
-.sf-drawer-snapshot > p { width: max-content; max-width: 100%; margin: var(--td-space-3) 0 0; padding: var(--td-space-2) var(--td-space-3); border-radius: var(--td-pill); background: var(--td-results-accent-soft); color: var(--td-results-accent); font-weight: var(--td-weight-bold); }
-.sf-drawer-snapshot > p i { margin-right: var(--td-space-1); }
-.sf-drawer-leg { min-width: 0; }
-.sf-drawer-leg-heading { margin-bottom: var(--td-space-2); }
-.sf-drawer-times { gap: var(--td-space-2); }
-.sf-drawer-bags { justify-content: space-between; }
-.sf-drawer-steps > i { flex: 1; max-width: 8rem; }
-.sf-price-breakdown > small { margin-top: var(--td-space-4); }
-.sf-plan-main strong { margin-top: var(--td-space-3); font-size: var(--td-font-price); }
-.sf-plan-card li { padding: var(--td-space-2) 0; }
-
-@media (max-width: 767.98px) {
-  .sf-flight-card .sf-card-itineraries { gap: 0; }
-  .sf-flight-card .sf-trip-label { min-height: var(--td-space-5); gap: var(--td-space-2); padding: 0; }
-  .sf-flight-card .sf-card-airline-mark { min-height: var(--td-space-4); padding-right: var(--td-space-2); }
-  .sf-flight-card .sf-card-airline-mark img { max-height: var(--td-space-4); }
-  .sf-flight-card .sf-card-route-copy { flex-basis: 100%; }
-  .sf-flight-card .sf-leg { grid-template-columns: minmax(0, 1fr); gap: 0; padding: var(--td-space-1) 0; }
-  .sf-flight-card .sf-airline { grid-column: 1; grid-row: 1; }
-  .sf-flight-card .sf-airline img { height: var(--td-space-4); }
-  .sf-flight-card .sf-journey { grid-column: 1; grid-row: 1; padding: 0; }
-  .sf-roundtrip-card .sf-leg .sf-journey,
-  .sf-multicity-card .sf-leg .sf-journey { padding-left: var(--td-space-6); }
-  .sf-flight-card .sf-leg-caption { position: absolute; top: var(--td-space-1); left: 0; margin: 0; padding: var(--td-space-01) var(--td-space-2); }
-  .sf-flight-card .sf-route-times { grid-template-columns: minmax(0, 1fr) minmax(3.5rem, .8fr) minmax(0, 1fr); gap: var(--td-space-1); }
-  .sf-flight-card .sf-time { min-height: 0; padding: var(--td-space-01) var(--td-space-1); }
-  .sf-flight-card .sf-time span { font-size: var(--td-font-sm); }
-  .sf-flight-card .sf-time strong { font-size: var(--td-font-md); }
-  .sf-flight-card .sf-time small { font-size: var(--td-font-xs); }
-  .sf-flight-card .sf-flight-path i { width: var(--td-space-4); height: var(--td-space-4); }
-  .sf-flight-card .sf-flight-duration { font-size: var(--td-font-xs); }
-  .sf-flight-card .sf-flight-duration small { font-size: var(--td-font-xs); }
-  .sf-flight-card .sf-leg-details { padding: var(--td-space-1) 0; font-size: var(--td-font-xs); }
-  .sf-flight-card .sf-leg-details li:last-child span::before,
-  .sf-flight-card .sf-leg-details li:last-child span::after { font-size: var(--td-font-xs); }
-  .sf-flight-card .sf-fare { align-items: center; gap: var(--td-space-2); margin: var(--td-space-1) 0 0; padding: var(--td-space-2); }
-  .sf-flight-card .sf-fare > div { flex-direction: row; align-items: center; gap: var(--td-space-2); }
-  .sf-flight-card .sf-fare > div strong { font-size: var(--td-font-lg); }
-  .sf-flight-card .sf-fare .sf-primary-btn { min-width: 35%; min-height: var(--td-space-5); padding: var(--td-space-1) var(--td-space-2); font-size: var(--td-font-xs); }
-  .sf-flight-card .sf-fare-details-trigger { display: none; }
-  .sf-drawer-route-layout { display: block; }
-  .sf-drawer-snapshot { display: none; }
+.sf-drawer-snapshot h2 {
+  margin: 0 0 var(--td-space-3);
+  font-size: var(--td-font-heading-small);
+}
+.sf-drawer-snapshot ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sf-drawer-snapshot li {
+  display: flex;
+  align-items: center;
+  gap: var(--td-space-3);
+  padding: var(--td-space-2) 0;
+  border-bottom: var(--td-border-width) solid var(--td-border-hover);
+}
+.sf-drawer-snapshot li i {
+  width: var(--td-space-5);
+  color: var(--td-results-accent);
+  font-size: var(--td-font-lg);
+}
+.sf-drawer-snapshot > strong {
+  margin-top: var(--td-space-5);
+  padding-top: var(--td-space-4);
+  border-top: var(--td-border-width) dashed var(--td-border-hover);
+  font-size: var(--td-font-price);
+}
+.sf-drawer-snapshot > p {
+  width: max-content;
+  max-width: 100%;
+  margin: var(--td-space-3) 0 0;
+  padding: var(--td-space-2) var(--td-space-3);
+  border-radius: var(--td-pill);
+  background: var(--td-results-accent-soft);
+  color: var(--td-results-accent);
+  font-weight: var(--td-weight-bold);
+}
+.sf-drawer-snapshot > p i {
+  margin-right: var(--td-space-1);
+}
+.sf-drawer-leg {
+  min-width: 0;
+}
+.sf-drawer-leg-heading {
+  margin-bottom: var(--td-space-2);
+}
+.sf-drawer-times {
+  gap: var(--td-space-2);
+}
+.sf-drawer-bags {
+  justify-content: space-between;
+}
+.sf-drawer-steps > i {
+  flex: 1;
+  max-width: 8rem;
+}
+.sf-price-breakdown > small {
+  margin-top: var(--td-space-4);
+}
+.sf-plan-main strong {
+  margin-top: var(--td-space-3);
+  font-size: var(--td-font-price);
+}
+.sf-plan-card li {
+  padding: var(--td-space-2) 0;
 }
 
 @media (max-width: 767.98px) {
-  .sf-flight-card .sf-leg { grid-template-columns: var(--td-results-mobile-logo-width) minmax(0, 1fr); align-items: center; gap: var(--td-space-2); }
-  .sf-flight-card .sf-airline { grid-column: 1; grid-row: 1; }
-  .sf-flight-card .sf-journey { grid-column: 2; grid-row: 1; margin: 0; padding: 0; }
-  .sf-oneway-card .sf-leg .sf-journey { grid-column: 1 / -1; }
-  .sf-flight-card .sf-leg-caption { position: static; display: table; width: auto; margin: 0 0 var(--td-space-1); }
+  .sf-flight-card .sf-card-itineraries {
+    gap: 0;
+  }
+  .sf-flight-card .sf-trip-label {
+    min-height: var(--td-space-5);
+    gap: var(--td-space-2);
+    padding: 0;
+  }
+  .sf-flight-card .sf-card-airline-mark {
+    min-height: var(--td-space-4);
+    padding-right: var(--td-space-2);
+  }
+  .sf-flight-card .sf-card-airline-mark img {
+    max-height: var(--td-space-4);
+  }
+  .sf-flight-card .sf-card-route-copy {
+    flex-basis: 100%;
+  }
+  .sf-flight-card .sf-leg {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    padding: var(--td-space-1) 0;
+  }
+  .sf-flight-card .sf-airline {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .sf-flight-card .sf-airline img {
+    height: var(--td-space-4);
+  }
+  .sf-flight-card .sf-journey {
+    grid-column: 1;
+    grid-row: 1;
+    padding: 0;
+  }
+  .sf-roundtrip-card .sf-leg .sf-journey,
+  .sf-multicity-card .sf-leg .sf-journey {
+    padding-left: var(--td-space-6);
+  }
+  .sf-flight-card .sf-leg-caption {
+    position: absolute;
+    top: var(--td-space-1);
+    left: 0;
+    margin: 0;
+    padding: var(--td-space-01) var(--td-space-2);
+  }
+  .sf-flight-card .sf-route-times {
+    grid-template-columns: minmax(0, 1fr) minmax(3.5rem, 0.8fr) minmax(0, 1fr);
+    gap: var(--td-space-1);
+  }
+  .sf-flight-card .sf-time {
+    min-height: 0;
+    padding: var(--td-space-01) var(--td-space-1);
+  }
+  .sf-flight-card .sf-time span {
+    font-size: var(--td-font-sm);
+  }
+  .sf-flight-card .sf-time strong {
+    font-size: var(--td-font-md);
+  }
+  .sf-flight-card .sf-time small {
+    font-size: var(--td-font-xs);
+  }
+  .sf-flight-card .sf-flight-path i {
+    width: var(--td-space-4);
+    height: var(--td-space-4);
+  }
+  .sf-flight-card .sf-flight-duration {
+    font-size: var(--td-font-xs);
+  }
+  .sf-flight-card .sf-flight-duration small {
+    font-size: var(--td-font-xs);
+  }
+  .sf-flight-card .sf-leg-details {
+    padding: var(--td-space-1) 0;
+    font-size: var(--td-font-xs);
+  }
+  .sf-flight-card .sf-leg-details li:last-child span::before,
+  .sf-flight-card .sf-leg-details li:last-child span::after {
+    font-size: var(--td-font-xs);
+  }
+  .sf-flight-card .sf-fare {
+    align-items: center;
+    gap: var(--td-space-2);
+    margin: var(--td-space-1) 0 0;
+    padding: var(--td-space-2);
+  }
+  .sf-flight-card .sf-fare > div {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--td-space-2);
+  }
+  .sf-flight-card .sf-fare > div strong {
+    font-size: var(--td-font-lg);
+  }
+  .sf-flight-card .sf-fare .sf-primary-btn {
+    min-width: 35%;
+    min-height: var(--td-space-5);
+    padding: var(--td-space-1) var(--td-space-2);
+    font-size: var(--td-font-xs);
+  }
+  .sf-flight-card .sf-fare-details-trigger {
+    display: none;
+  }
+  .sf-drawer-route-layout {
+    display: block;
+  }
+  .sf-drawer-snapshot {
+    display: none;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .sf-flight-card .sf-leg {
+    grid-template-columns: var(--td-results-mobile-logo-width) minmax(0, 1fr);
+    align-items: center;
+    gap: var(--td-space-2);
+  }
+  .sf-flight-card .sf-airline {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .sf-flight-card .sf-journey {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    padding: 0;
+  }
+  .sf-oneway-card .sf-leg .sf-journey {
+    grid-column: 1 / -1;
+  }
+  .sf-flight-card .sf-leg-caption {
+    position: static;
+    display: table;
+    width: auto;
+    margin: 0 0 var(--td-space-1);
+  }
   .sf-oneway-card .sf-leg-caption,
-  .sf-multicity-card .sf-leg-caption { display: none; }
-  .sf-flight-card .sf-route-times { grid-template-columns: minmax(3.2rem, .85fr) minmax(3.5rem, 1fr) minmax(3.2rem, .85fr); }
-  .sf-flight-card .sf-leg-details { grid-column: 1 / -1; }
-  .sf-flight-card .sf-card-route-copy { flex-basis: 100%; line-height: var(--td-line-height-snug); }
-  .sf-flight-card .sf-fare > div { flex-direction: column; align-items: flex-start; gap: 0; }
+  .sf-multicity-card .sf-leg-caption {
+    display: none;
+  }
+  .sf-flight-card .sf-route-times {
+    grid-template-columns: minmax(3.2rem, 0.85fr) minmax(3.5rem, 1fr) minmax(
+        3.2rem,
+        0.85fr
+      );
+  }
+  .sf-flight-card .sf-leg-details {
+    grid-column: 1 / -1;
+  }
+  .sf-flight-card .sf-card-route-copy {
+    flex-basis: 100%;
+    line-height: var(--td-line-height-snug);
+  }
+  .sf-flight-card .sf-fare > div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
 }
 
 .sf-card-airline-mark:has(img[src*="emirates.svg"])::after,
@@ -3454,10 +3774,20 @@ body.sf-drawer-open {
   white-space: nowrap;
 }
 .sf-card-airline-mark:has(img[src*="emirates.svg"]) img,
-.sf-airline-emirates img { width: var(--td-space-5); max-width: var(--td-space-5); max-height: var(--td-space-5); }
-.sf-airline-emirates { display: flex; align-items: center; gap: var(--td-space-1); }
+.sf-airline-emirates img {
+  width: var(--td-space-5);
+  max-width: var(--td-space-5);
+  max-height: var(--td-space-5);
+}
+.sf-airline-emirates {
+  display: flex;
+  align-items: center;
+  gap: var(--td-space-1);
+}
 .sf-drawer-leg-heading:has(img[src*="emirates.svg"])::after,
-.sf-drawer-route:has([data-flight-summary-primary][src*="emirates.svg"])::after {
+.sf-drawer-route:has(
+    [data-flight-summary-primary][src*="emirates.svg"]
+  )::after {
   content: "Emirates";
   color: var(--td-airline-emirates);
   font-family: Georgia, serif;
@@ -3466,11 +3796,20 @@ body.sf-drawer-open {
   white-space: nowrap;
 }
 .sf-drawer-leg-heading img[src*="emirates.svg"],
-.sf-drawer-route img[src*="emirates.svg"] { width: var(--td-space-5); max-width: var(--td-space-5); height: var(--td-space-5); }
-.sf-oneway-card .sf-card-airline-mark { gap: var(--td-space-1); }
+.sf-drawer-route img[src*="emirates.svg"] {
+  width: var(--td-space-5);
+  max-width: var(--td-space-5);
+  height: var(--td-space-5);
+}
+.sf-oneway-card .sf-card-airline-mark {
+  gap: var(--td-space-1);
+}
 
 /* Flight search reference layout */
-.sf-container { width: calc(100% - 48px); max-width: 1440px; }
+.sf-container {
+  width: calc(100% - 48px);
+  max-width: 1440px;
+}
 .sf-search-hero {
   position: relative;
   width: 100vw;
@@ -3488,9 +3827,18 @@ body.sf-drawer-open {
   padding: var(--td-space-4) var(--td-space-5) var(--td-space-3);
   transform: translateX(-50%);
 }
-.sf-search-intro { min-height: 56px; margin: 0; }
-.sf-search-intro h1 { margin: 0 0 var(--td-space-01); font-size: var(--td-font-heading); }
-.sf-search-intro > div > p:last-child { margin: 0; font-size: var(--td-font-sm); }
+.sf-search-intro {
+  min-height: 56px;
+  margin: 0;
+}
+.sf-search-intro h1 {
+  margin: 0 0 var(--td-space-01);
+  font-size: var(--td-font-heading);
+}
+.sf-search-intro > div > p:last-child {
+  margin: 0;
+  font-size: var(--td-font-sm);
+}
 .sf-search-options {
   position: absolute;
   top: var(--td-space-4);
@@ -3505,21 +3853,64 @@ body.sf-drawer-open {
   border-radius: var(--td-pill);
   background: var(--td-white);
 }
-.sf-search-options .sf-choice:has(input:checked) { border-color: var(--td-active-color); background: var(--td-active-color); color: var(--td-white); }
-.sf-search-options .sf-choice input { display: none; }
-.sf-search-options .sf-class .dd-t { min-height: 38px; padding: var(--td-space-1) var(--td-space-3); }
-.sf-breadcrumb { display: none; }
-.sf-results-intro { display: block; margin: var(--td-space-5) 0 var(--td-space-3); }
-.sf-results-intro h1 { font-size: var(--td-font-display-small); }
-.sf-results-intro p { margin: var(--td-space-1) 0 0; font-size: var(--td-font-default); }
-.sf-date-strip { margin-bottom: var(--td-space-3); }
-.sf-results-count { display: block; width: max-content; margin: 0 0 var(--td-space-2); padding: 0; background: transparent; color: var(--td-heading-color); font-size: var(--td-font-sm); }
+.sf-search-options .sf-choice:has(input:checked) {
+  border-color: var(--td-active-color);
+  background: var(--td-active-color);
+  color: var(--td-white);
+}
+.sf-search-options .sf-choice input {
+  display: none;
+}
+.sf-search-options .sf-class .dd-t {
+  min-height: 38px;
+  padding: var(--td-space-1) var(--td-space-3);
+}
+.sf-breadcrumb {
+  display: none;
+}
+.sf-results-intro {
+  display: block;
+  margin: var(--td-space-5) 0 var(--td-space-3);
+}
+.sf-results-intro h1 {
+  font-size: var(--td-font-display-small);
+}
+.sf-results-intro p {
+  margin: var(--td-space-1) 0 0;
+  font-size: var(--td-font-default);
+}
+.sf-date-strip {
+  margin-bottom: var(--td-space-3);
+}
+.sf-results-count {
+  display: block;
+  width: max-content;
+  margin: 0 0 var(--td-space-2);
+  padding: 0;
+  background: transparent;
+  color: var(--td-heading-color);
+  font-size: var(--td-font-sm);
+}
 
 /* Filters stay in the results toolbar; the right rail is reserved for ads. */
-.sf-results-layout { display: grid; grid-template-columns: minmax(0, 1fr) var(--td-results-sidebar-width); gap: var(--td-space-4); }
-.sf-results-layout > .sf-filters { display: none; }
-.sf-results-layout > .sf-flight-results { width: auto; min-width: 0; }
-.sf-ad-rail { position: sticky; top: calc(var(--td-header-height) + var(--td-space-4)); display: grid; gap: var(--td-space-4); }
+.sf-results-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--td-results-sidebar-width);
+  gap: var(--td-space-4);
+}
+.sf-results-layout > .sf-filters {
+  display: none;
+}
+.sf-results-layout > .sf-flight-results {
+  width: auto;
+  min-width: 0;
+}
+.sf-ad-rail {
+  position: sticky;
+  top: calc(var(--td-header-height) + var(--td-space-4));
+  display: grid;
+  gap: var(--td-space-4);
+}
 .sf-results-title {
   display: flex;
   align-items: center;
@@ -3531,10 +3922,28 @@ body.sf-drawer-open {
   border-radius: var(--td-radius-sm);
   background: var(--td-white);
 }
-.sf-filter-row { flex: none; margin: 0; }
-.sf-filter-row > summary { min-width: 0; min-height: 0; padding: var(--td-space-1) var(--td-space-2); border: 0; box-shadow: none; background: transparent; }
-.sf-filter-row > summary::after { display: none; }
-.sf-filter-chips { display: flex; flex: 1; align-items: center; gap: var(--td-space-1); min-width: 0; }
+.sf-filter-row {
+  flex: none;
+  margin: 0;
+}
+.sf-filter-row > summary {
+  min-width: 0;
+  min-height: 0;
+  padding: var(--td-space-1) var(--td-space-2);
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+.sf-filter-row > summary::after {
+  display: none;
+}
+.sf-filter-chips {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: var(--td-space-1);
+  min-width: 0;
+}
 .sf-filter-chips button,
 .sf-toolbar-sort select {
   display: inline-flex;
@@ -3550,110 +3959,436 @@ body.sf-drawer-open {
   font-size: var(--td-font-xs);
   white-space: nowrap;
 }
-.sf-filter-chips .sf-clear-filters { border: 0; color: var(--td-active-color); text-decoration: underline; }
-.sf-toolbar-sort { position: relative; flex: none; width: auto; margin-left: auto; }
-.sf-toolbar-sort select { appearance: none; padding-right: var(--td-space-5); }
-.sf-toolbar-sort > i { position: absolute; top: 50%; right: var(--td-space-2); transform: translateY(-50%); pointer-events: none; }
-.sf-mobile-tools, .sf-sort-tabs { display: none; }
+.sf-filter-chips .sf-clear-filters {
+  border: 0;
+  color: var(--td-active-color);
+  text-decoration: underline;
+}
+.sf-toolbar-sort {
+  position: relative;
+  flex: none;
+  width: auto;
+  margin-left: auto;
+}
+.sf-toolbar-sort select {
+  appearance: none;
+  padding-right: var(--td-space-5);
+}
+.sf-toolbar-sort > i {
+  position: absolute;
+  top: 50%;
+  right: var(--td-space-2);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.sf-mobile-tools,
+.sf-sort-tabs {
+  display: none;
+}
 
 /* Airline, route, timing, baggage, and fare hierarchy from the reference cards. */
-.sf-flight-card { margin-bottom: var(--td-space-3); padding: var(--td-space-3); border-radius: var(--td-radius-sm); box-shadow: var(--td-shadow); }
-.sf-flight-card.sf-oneway-card { background: var(--td-white); }
-.sf-flight-card .sf-card-itineraries { gap: var(--td-space-1); }
-.sf-card-heading { display: flex; flex-direction: column; align-items: flex-start; gap: var(--td-space-1); min-width: 0; }
-.sf-flight-card .sf-card-airline-mark { min-height: 30px; gap: var(--td-space-3); border: 0; }
-.sf-flight-card .sf-card-airline-mark img { width: auto; max-width: 138px; max-height: 30px; object-fit: contain; }
-.sf-flight-card .sf-card-airline-mark img[src*="qatar"] { width: 138px; height: 30px; }
-.sf-flight-card .sf-card-kind { padding: var(--td-space-01) var(--td-space-3); font-size: var(--td-font-xs); }
-.sf-flight-card .sf-card-route-copy { flex-basis: auto; margin: 0; font-size: var(--td-font-sm); }
-.sf-flight-card .sf-leg { grid-template-columns: minmax(0, 1fr); gap: 0; padding: 0; border: 0; border-radius: 0; background: transparent; }
-.sf-flight-card .sf-airline { display: none; }
-.sf-flight-card .sf-journey { grid-column: 1; padding: 0; }
-.sf-flight-card .sf-leg-caption { display: none; }
-.sf-flight-card .sf-route-times { grid-template-columns: minmax(5rem, .7fr) minmax(4rem, 1.5fr) minmax(5rem, .7fr); gap: var(--td-space-4); }
-.sf-flight-card .sf-time { min-height: 70px; padding: var(--td-space-1); }
-.sf-flight-card .sf-time span { color: var(--td-muted); font-size: var(--td-font-xs); font-weight: var(--td-weight-medium); }
-.sf-flight-card .sf-time small { color: var(--td-heading-color); font-size: var(--td-font-xs); }
-.sf-flight-card .sf-time strong { font-size: var(--td-font-lg); }
-.sf-flight-card .sf-leg-details { gap: var(--td-space-2) var(--td-space-4); padding-top: var(--td-space-2); }
-.sf-flight-card .sf-leg-details li:nth-child(1), .sf-flight-card .sf-leg-details li:nth-child(2) { display: none; }
-.sf-flight-card .sf-fare { justify-content: center; padding: var(--td-space-4) var(--td-space-3) var(--td-space-6); background: var(--td-active-soft); }
-.sf-flight-card .sf-fare > div { align-items: center; margin: 0 0 var(--td-space-2); }
-.sf-flight-card .sf-fare > div span { order: -1; color: var(--td-muted); font-size: var(--td-font-xs); white-space: nowrap; }
-.sf-flight-card .sf-fare > div strong { font-size: var(--td-font-result-fare); }
-.sf-flight-card .sf-fare .sf-primary-btn { position: relative; width: 100%; min-height: 42px; border-radius: var(--td-pill); }
-.sf-flight-card .sf-fare-details summary { font-size: var(--td-font-xs); }
+.sf-flight-card {
+  margin-bottom: var(--td-space-3);
+  padding: var(--td-space-3);
+  border-radius: var(--td-radius-sm);
+  box-shadow: var(--td-shadow);
+}
+.sf-flight-card.sf-oneway-card {
+  background: var(--td-white);
+}
+.sf-flight-card .sf-card-itineraries {
+  gap: var(--td-space-1);
+}
+.sf-card-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--td-space-1);
+  min-width: 0;
+}
+.sf-flight-card .sf-card-airline-mark {
+  min-height: 30px;
+  gap: var(--td-space-3);
+  border: 0;
+}
+.sf-flight-card .sf-card-airline-mark img {
+  width: auto;
+  max-width: 138px;
+  max-height: 30px;
+  object-fit: contain;
+}
+.sf-flight-card .sf-card-airline-mark img[src*="qatar"] {
+  width: 138px;
+  height: 30px;
+}
+.sf-flight-card .sf-card-kind {
+  padding: var(--td-space-01) var(--td-space-3);
+  font-size: var(--td-font-xs);
+}
+.sf-flight-card .sf-card-route-copy {
+  flex-basis: auto;
+  margin: 0;
+  font-size: var(--td-font-sm);
+}
+.sf-flight-card .sf-leg {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.sf-flight-card .sf-airline {
+  display: none;
+}
+.sf-flight-card .sf-journey {
+  grid-column: 1;
+  padding: 0;
+}
+.sf-flight-card .sf-leg-caption {
+  display: none;
+}
+.sf-flight-card .sf-route-times {
+  grid-template-columns: minmax(5rem, 0.7fr) minmax(4rem, 1.5fr) minmax(
+      5rem,
+      0.7fr
+    );
+  gap: var(--td-space-4);
+}
+.sf-flight-card .sf-time {
+  min-height: 70px;
+  padding: var(--td-space-1);
+}
+.sf-flight-card .sf-time span {
+  color: var(--td-muted);
+  font-size: var(--td-font-xs);
+  font-weight: var(--td-weight-medium);
+}
+.sf-flight-card .sf-time small {
+  color: var(--td-heading-color);
+  font-size: var(--td-font-xs);
+}
+.sf-flight-card .sf-time strong {
+  font-size: var(--td-font-lg);
+}
+.sf-flight-card .sf-leg-details {
+  gap: var(--td-space-2) var(--td-space-4);
+  padding-top: var(--td-space-2);
+}
+.sf-flight-card .sf-leg-details li:nth-child(1),
+.sf-flight-card .sf-leg-details li:nth-child(2) {
+  display: none;
+}
+.sf-flight-card .sf-fare {
+  justify-content: center;
+  padding: var(--td-space-4) var(--td-space-3) var(--td-space-6);
+  background: var(--td-active-soft);
+}
+.sf-flight-card .sf-fare > div {
+  align-items: center;
+  margin: 0 0 var(--td-space-2);
+}
+.sf-flight-card .sf-fare > div span {
+  order: -1;
+  color: var(--td-muted);
+  font-size: var(--td-font-xs);
+  white-space: nowrap;
+}
+.sf-flight-card .sf-fare > div strong {
+  font-size: var(--td-font-result-fare);
+}
+.sf-flight-card .sf-fare .sf-primary-btn {
+  position: relative;
+  width: 100%;
+  min-height: 42px;
+  border-radius: var(--td-pill);
+}
+.sf-flight-card .sf-fare-details summary {
+  font-size: var(--td-font-xs);
+}
 .sf-roundtrip-card .sf-leg,
-.sf-multicity-card .sf-leg { grid-template-columns: minmax(82px, .25fr) minmax(0, 1fr); gap: var(--td-space-3); align-items: center; }
+.sf-multicity-card .sf-leg {
+  grid-template-columns: minmax(82px, 0.25fr) minmax(0, 1fr);
+  gap: var(--td-space-3);
+  align-items: center;
+}
 .sf-roundtrip-card .sf-leg .sf-airline,
-.sf-multicity-card .sf-leg .sf-airline { display: flex; grid-column: 1; grid-row: 1; align-items: center; }
+.sf-multicity-card .sf-leg .sf-airline {
+  display: flex;
+  grid-column: 1;
+  grid-row: 1;
+  align-items: center;
+}
 .sf-roundtrip-card .sf-leg .sf-journey,
-.sf-multicity-card .sf-leg .sf-journey { grid-column: 2; grid-row: 1; }
-.sf-confidence { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: var(--td-space-4); border: 0; background: transparent; box-shadow: none; }
-.sf-confidence > h2 { display: none; }
-.sf-confidence article { align-items: center; padding: var(--td-space-2) var(--td-space-4); }
-.sf-confidence article > i { display: grid; width: 52px; height: 52px; flex: none; place-items: center; border-radius: var(--td-radius-sm); background: var(--td-active-soft); color: var(--td-active-color); }
+.sf-multicity-card .sf-leg .sf-journey {
+  grid-column: 2;
+  grid-row: 1;
+}
+.sf-confidence {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: var(--td-space-4);
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.sf-confidence > h2 {
+  display: none;
+}
+.sf-confidence article {
+  align-items: center;
+  padding: var(--td-space-2) var(--td-space-4);
+}
+.sf-confidence article > i {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  flex: none;
+  place-items: center;
+  border-radius: var(--td-radius-sm);
+  background: var(--td-active-soft);
+  color: var(--td-active-color);
+}
 
 @media (max-width: 1199.98px) {
-  .sf-results-layout { grid-template-columns: minmax(0, 1fr) minmax(220px, 27%); }
+  .sf-results-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 27%);
+  }
 }
 @media (max-width: 767.98px) {
-  .sf-container { width: 100%; }
-  .sf-search-hero { height: auto; margin-left: calc((100% - 100vw) / 2); padding: 54px var(--td-content-gutter) 0; }
-  .sf-search-card { position: relative; top: auto; left: auto; width: 100%; margin: 0; padding: var(--td-space-3); transform: none; }
-  .sf-search-intro { min-height: 0; margin: 0 0 var(--td-space-2); }
-  .sf-search-intro h1, .sf-results-intro h1 { font-size: var(--td-font-heading-mobile); }
-  .sf-search-intro > div > p:last-child { margin: 0; font-size: var(--td-font-xs); }
-  .sf-search-options { position: static; display: flex; flex-wrap: nowrap; gap: var(--td-space-1); margin: 0 0 var(--td-space-3); font-size: var(--td-font-xs); }
-  .sf-search-options .sf-choice { flex: 0 1 auto; justify-content: center; padding: var(--td-space-1); }
-  .sf-search-options .sf-class { flex: 0 0 auto; }
-  .sf-search-options .sf-class .dd-t { min-width: 84px; padding: var(--td-space-1) var(--td-space-2); }
-  .sf-search-card { padding: var(--td-space-3); }
-  .sf-search-intro { margin-bottom: var(--td-space-1); }
-  .sf-search-options { margin-bottom: var(--td-space-2); }
-  .sf-route-bar { gap: var(--td-space-03); }
-  .sf-route-bar .sf-fld { min-height: 44px; padding: var(--td-space-1) var(--td-space-3); }
-  .sf-route-bar .sf-swap { top: calc(44px + var(--td-space-03) / 2 - 16px); }
-  .sf-route-bar > .sf-primary-btn { min-height: 44px; }
-  .sf-results-intro { margin: var(--td-space-4) 0 var(--td-space-3); }
-  .sf-results-intro p { font-size: var(--td-font-sm); }
-  .sf-results-layout { display: block; }
-  .sf-results-layout > .sf-flight-results { width: 100%; }
-  .sf-ad-rail { display: none; }
-  .sf-results-title { display: grid; grid-template-columns: 1fr auto; gap: var(--td-space-2); padding: var(--td-space-2); }
-  .sf-filter-row { grid-column: 1; }
-  .sf-filter-chips { grid-column: 1 / -1; width: 100%; overflow-x: auto; scrollbar-width: none; }
-  .sf-filter-chips::-webkit-scrollbar { display: none; }
-  .sf-filter-chips button { flex: none; }
-  .sf-toolbar-sort { grid-column: 1 / -1; width: 100%; margin: 0; }
-  .sf-toolbar-sort select { width: 100%; justify-content: flex-start; }
-  .sf-flight-card { display: block; padding: var(--td-space-3); }
-  .sf-flight-card .sf-card-heading { flex-direction: row; align-items: center; flex-wrap: wrap; }
-  .sf-flight-card .sf-card-airline-mark { width: 100%; min-height: 30px; padding: 0; }
-  .sf-flight-card .sf-card-airline-mark img { max-width: 115px; max-height: 27px; }
-  .sf-flight-card .sf-card-airline-mark img[src*="qatar"] { width: 115px; height: 27px; }
-  .sf-flight-card .sf-card-route-copy { flex-basis: 100%; }
-  .sf-flight-card .sf-leg { padding: var(--td-space-1) 0; }
-  .sf-flight-card .sf-route-times { grid-template-columns: minmax(3.8rem, .8fr) minmax(3.8rem, 1fr) minmax(3.8rem, .8fr); gap: var(--td-space-2); }
-  .sf-flight-card .sf-time { min-height: 64px; }
-  .sf-roundtrip-card .sf-leg, .sf-multicity-card .sf-leg { grid-template-columns: minmax(58px, .25fr) minmax(0, 1fr); gap: var(--td-space-2); }
-  .sf-flight-card .sf-fare { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1fr) minmax(0, 1.2fr); align-items: center; gap: var(--td-space-1); margin: var(--td-space-2) calc(-1 * var(--td-space-3)) calc(-1 * var(--td-space-3)); padding: var(--td-space-2); border-radius: 0 0 var(--td-radius-sm) var(--td-radius-sm); text-align: left; }
-  .sf-flight-card .sf-fare > div { display: contents; }
-  .sf-flight-card .sf-fare > div span { grid-column: 1; grid-row: 1; white-space: normal; font-size: var(--td-font-xxs); }
-  .sf-flight-card .sf-fare > div strong { grid-column: 2; grid-row: 1; font-size: var(--td-font-result-fare-mobile); white-space: nowrap; }
-  .sf-flight-card .sf-fare .sf-primary-btn { grid-column: 3; grid-row: 1; min-width: 0; min-height: 40px; margin: 0; padding: var(--td-space-1); font-size: var(--td-font-xxs); }
-  .sf-flight-card .sf-fare-details { grid-column: 1 / -1; margin: 0; }
-  .sf-flight-card .sf-fare-details summary { justify-content: center; }
-  .sf-date-strip { grid-template-columns: var(--td-space-6) repeat(3, minmax(0, 1fr)) var(--td-space-6); }
-  .sf-confidence { grid-template-columns: 1fr; padding: var(--td-space-2) 0; }
-  .sf-confidence article { display: flex; }
+  .sf-container {
+    width: 100%;
+  }
+  .sf-search-hero {
+    height: auto;
+    margin-left: calc((100% - 100vw) / 2);
+    padding: 54px var(--td-content-gutter) 0;
+  }
+  .sf-search-card {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    margin: 0;
+    padding: var(--td-space-3);
+    transform: none;
+  }
+  .sf-search-intro {
+    min-height: 0;
+    margin: 0 0 var(--td-space-2);
+  }
+  .sf-search-intro h1,
+  .sf-results-intro h1 {
+    font-size: var(--td-font-heading-mobile);
+  }
+  .sf-search-intro > div > p:last-child {
+    margin: 0;
+    font-size: var(--td-font-xs);
+  }
+  .sf-search-options {
+    position: static;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: var(--td-space-1);
+    margin: 0 0 var(--td-space-3);
+    font-size: var(--td-font-xs);
+  }
+  .sf-search-options .sf-choice {
+    flex: 0 1 auto;
+    justify-content: center;
+    padding: var(--td-space-1);
+  }
+  .sf-search-options .sf-class {
+    flex: 0 0 auto;
+  }
+  .sf-search-options .sf-class .dd-t {
+    min-width: 84px;
+    padding: var(--td-space-1) var(--td-space-2);
+  }
+  .sf-search-card {
+    padding: var(--td-space-3);
+  }
+  .sf-search-intro {
+    margin-bottom: var(--td-space-1);
+  }
+  .sf-search-options {
+    margin-bottom: var(--td-space-2);
+  }
+  .sf-route-bar {
+    gap: var(--td-space-03);
+  }
+  .sf-route-bar .sf-fld {
+    min-height: 44px;
+    padding: var(--td-space-1) var(--td-space-3);
+  }
+  .sf-route-bar .sf-swap {
+    top: calc(44px + var(--td-space-03) / 2 - 16px);
+  }
+  .sf-route-bar > .sf-primary-btn {
+    min-height: 44px;
+  }
+  .sf-results-intro {
+    margin: var(--td-space-4) 0 var(--td-space-3);
+  }
+  .sf-results-intro p {
+    font-size: var(--td-font-sm);
+  }
+  .sf-results-layout {
+    display: block;
+  }
+  .sf-results-layout > .sf-flight-results {
+    width: 100%;
+  }
+  .sf-ad-rail {
+    display: none;
+  }
+  .sf-results-title {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--td-space-2);
+    padding: var(--td-space-2);
+  }
+  .sf-filter-row {
+    grid-column: 1;
+  }
+  .sf-filter-chips {
+    grid-column: 1 / -1;
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .sf-filter-chips::-webkit-scrollbar {
+    display: none;
+  }
+  .sf-filter-chips button {
+    flex: none;
+  }
+  .sf-toolbar-sort {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin: 0;
+  }
+  .sf-toolbar-sort select {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .sf-flight-card {
+    display: block;
+    padding: var(--td-space-3);
+  }
+  .sf-flight-card .sf-card-heading {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .sf-flight-card .sf-card-airline-mark {
+    width: 100%;
+    min-height: 30px;
+    padding: 0;
+  }
+  .sf-flight-card .sf-card-airline-mark img {
+    max-width: 115px;
+    max-height: 27px;
+  }
+  .sf-flight-card .sf-card-airline-mark img[src*="qatar"] {
+    width: 115px;
+    height: 27px;
+  }
+  .sf-flight-card .sf-card-route-copy {
+    flex-basis: 100%;
+  }
+  .sf-flight-card .sf-leg {
+    padding: var(--td-space-1) 0;
+  }
+  .sf-flight-card .sf-route-times {
+    grid-template-columns: minmax(3.8rem, 0.8fr) minmax(3.8rem, 1fr) minmax(
+        3.8rem,
+        0.8fr
+      );
+    gap: var(--td-space-2);
+  }
+  .sf-flight-card .sf-time {
+    min-height: 64px;
+  }
+  .sf-roundtrip-card .sf-leg,
+  .sf-multicity-card .sf-leg {
+    grid-template-columns: minmax(58px, 0.25fr) minmax(0, 1fr);
+    gap: var(--td-space-2);
+  }
+  .sf-flight-card .sf-fare {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr) minmax(0, 1.2fr);
+    align-items: center;
+    gap: var(--td-space-1);
+    margin: var(--td-space-2) calc(-1 * var(--td-space-3))
+      calc(-1 * var(--td-space-3));
+    padding: var(--td-space-2);
+    border-radius: 0 0 var(--td-radius-sm) var(--td-radius-sm);
+    text-align: left;
+  }
+  .sf-flight-card .sf-fare > div {
+    display: contents;
+  }
+  .sf-flight-card .sf-fare > div span {
+    grid-column: 1;
+    grid-row: 1;
+    white-space: normal;
+    font-size: var(--td-font-xxs);
+  }
+  .sf-flight-card .sf-fare > div strong {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: var(--td-font-result-fare-mobile);
+    white-space: nowrap;
+  }
+  .sf-flight-card .sf-fare .sf-primary-btn {
+    grid-column: 3;
+    grid-row: 1;
+    min-width: 0;
+    min-height: 40px;
+    margin: 0;
+    padding: var(--td-space-1);
+    font-size: var(--td-font-xxs);
+  }
+  .sf-flight-card .sf-fare-details {
+    grid-column: 1 / -1;
+    margin: 0;
+  }
+  .sf-flight-card .sf-fare-details summary {
+    justify-content: center;
+  }
+  .sf-date-strip {
+    grid-template-columns: var(--td-space-6) repeat(3, minmax(0, 1fr)) var(
+        --td-space-6
+      );
+  }
+  .sf-confidence {
+    grid-template-columns: 1fr;
+    padding: var(--td-space-2) 0;
+  }
+  .sf-confidence article {
+    display: flex;
+  }
 }
 @media (min-width: 520px) and (max-width: 767.98px) {
-  .sf-date-strip { grid-template-columns: var(--td-space-6) repeat(4, minmax(0, 1fr)) var(--td-space-6); }
-  .sf-date-extra:nth-child(2) { display: flex; }
+  .sf-date-strip {
+    grid-template-columns: var(--td-space-6) repeat(4, minmax(0, 1fr)) var(
+        --td-space-6
+      );
+  }
+  .sf-date-extra:nth-child(2) {
+    display: flex;
+  }
 }
-.sf-results-intro h1 { font-size: var(--td-font-heading); }
-.sf-flight-card .sf-airline img { width: auto; max-width: 82px; height: 28px; object-fit: contain; }
+.sf-results-intro h1 {
+  font-size: var(--td-font-heading);
+}
+.sf-flight-card .sf-airline img {
+  width: auto;
+  max-width: 82px;
+  height: 28px;
+  object-fit: contain;
+}
 .sf-ad-card {
   position: relative;
   min-height: 230px;
@@ -3661,32 +4396,92 @@ body.sf-drawer-open {
   overflow: hidden;
   border: var(--td-border-width) solid var(--td-border);
   border-radius: var(--td-radius-lg);
-  background: linear-gradient(145deg, var(--td-active-soft), var(--td-white) 72%);
+  background: linear-gradient(
+    145deg,
+    var(--td-active-soft),
+    var(--td-white) 72%
+  );
   box-shadow: var(--td-shadow);
 }
-.sf-ad-card::after { position: absolute; right: -35px; bottom: -50px; width: 150px; height: 150px; border-radius: var(--td-radius-circle); background: rgba(30,80,210,.08); content: ""; }
-.sf-ad-label { display: block; color: var(--td-results-accent); font-size: var(--td-font-xs); font-weight: var(--td-weight-bold); letter-spacing: .06em; }
-.sf-ad-card > i { display: block; margin: var(--td-space-3) 0; color: var(--td-active-color); font-size: var(--td-icon-xl); }
-.sf-ad-card h2 { margin: 0 0 var(--td-space-2); color: var(--td-heading-color); font-size: var(--td-font-heading-small); font-weight: var(--td-weight-bold); }
-.sf-ad-card p { margin: 0 0 var(--td-space-3); color: var(--td-muted); line-height: var(--td-line-height-relaxed); }
-.sf-ad-card a { display: inline-flex; align-items: center; gap: var(--td-space-2); color: var(--td-results-accent); font-weight: var(--td-weight-bold); }
-.sf-date-card { min-height: 58px; border-radius: var(--td-radius-none); }
-.sf-date-card:not(.is-active) { border-color: transparent; border-right: var(--td-border-width) solid var(--td-border); }
-.sf-date-card.is-active { border-radius: var(--td-radius-sm); }
+.sf-ad-card::after {
+  position: absolute;
+  right: -35px;
+  bottom: -50px;
+  width: 150px;
+  height: 150px;
+  border-radius: var(--td-radius-circle);
+  background: rgba(30, 80, 210, 0.08);
+  content: "";
+}
+.sf-ad-label {
+  display: block;
+  color: var(--td-results-accent);
+  font-size: var(--td-font-xs);
+  font-weight: var(--td-weight-bold);
+  letter-spacing: 0.06em;
+}
+.sf-ad-card > i {
+  display: block;
+  margin: var(--td-space-3) 0;
+  color: var(--td-active-color);
+  font-size: var(--td-icon-xl);
+}
+.sf-ad-card h2 {
+  margin: 0 0 var(--td-space-2);
+  color: var(--td-heading-color);
+  font-size: var(--td-font-heading-small);
+  font-weight: var(--td-weight-bold);
+}
+.sf-ad-card p {
+  margin: 0 0 var(--td-space-3);
+  color: var(--td-muted);
+  line-height: var(--td-line-height-relaxed);
+}
+.sf-ad-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--td-space-2);
+  color: var(--td-results-accent);
+  font-weight: var(--td-weight-bold);
+}
+.sf-date-card {
+  min-height: 58px;
+  border-radius: var(--td-radius-none);
+}
+.sf-date-card:not(.is-active) {
+  border-color: transparent;
+  border-right: var(--td-border-width) solid var(--td-border);
+}
+.sf-date-card.is-active {
+  border-radius: var(--td-radius-sm);
+}
 @media (max-width: 767.98px) {
-  .sf-results-intro h1 { font-size: var(--td-font-heading-mobile); }
-  .sf-flight-card .sf-airline img { max-width: 64px; height: 24px; }
-  .sf-date-card { min-height: var(--td-results-date-height-mobile); }
+  .sf-results-intro h1 {
+    font-size: var(--td-font-heading-mobile);
+  }
+  .sf-flight-card .sf-airline img {
+    max-width: 64px;
+    height: 24px;
+  }
+  .sf-date-card {
+    min-height: var(--td-results-date-height-mobile);
+  }
 }
 
-/* Final sizing and responsive composition from images/demo/01-Search-Flight.png. */
+/* Final sizing and responsive composition from images/demo/01-Flight-Results-Web-Mobile.png. */
 .sf-container {
-  width: min(calc(var(--td-content-max-width) - 24px), calc(100% - 2 * var(--td-content-gutter)));
+  width: min(
+    calc(var(--td-content-max-width) - 24px),
+    calc(100% - 2 * var(--td-content-gutter))
+  );
   max-width: none;
   padding-inline: 0;
 }
 .sf-loading-status {
-  width: min(calc(var(--td-content-max-width) - 24px), calc(100vw - 2 * var(--td-content-gutter)));
+  width: min(
+    calc(var(--td-content-max-width) - 24px),
+    calc(100vw - 2 * var(--td-content-gutter))
+  );
   max-width: none;
   max-height: 100px;
   margin: 0 auto var(--td-space-4);
@@ -3695,6 +4490,9 @@ body.sf-drawer-open {
   border-radius: var(--td-radius-sm);
   background: transparent;
   animation: sf-loading-dismiss 3.5s ease forwards;
+}
+.sf-results-intro {
+  display: none !important;
 }
 .sf-loading-message {
   display: flex;
@@ -3709,11 +4507,11 @@ body.sf-drawer-open {
   width: 30px;
   height: 30px;
   flex: none;
-  border: 3px solid rgba(var(--td-brand-blue-rgb), .16);
+  border: 3px solid rgba(var(--td-brand-blue-rgb), 0.16);
   border-top-color: var(--td-brand-blue);
   border-right-color: var(--td-brand-navy);
   border-radius: var(--td-radius-circle);
-  animation: sf-loading-spin .9s linear infinite;
+  animation: sf-loading-spin 0.9s linear infinite;
 }
 .sf-loading-track {
   width: 100%;
@@ -3728,23 +4526,68 @@ body.sf-drawer-open {
   width: 100%;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, var(--td-brand-blue), var(--td-brand-navy));
+  background: linear-gradient(
+    90deg,
+    var(--td-brand-blue),
+    var(--td-brand-navy)
+  );
   transform-origin: left center;
-  animation: sf-loading-arrive 2.8s cubic-bezier(.2,.7,.2,1) both;
+  animation: sf-loading-arrive 2.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
-@keyframes sf-loading-spin { to { transform: rotate(360deg); } }
-@keyframes sf-loading-arrive { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes sf-loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes sf-loading-arrive {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
 @keyframes sf-loading-dismiss {
-  0%, 86% { max-height: 100px; margin-bottom: var(--td-space-4); padding-block: var(--td-space-3) var(--td-space-2); opacity: 1; }
-  100% { max-height: 0; margin-bottom: 0; padding-block: 0; opacity: 0; visibility: hidden; }
+  0%,
+  86% {
+    max-height: 100px;
+    margin-bottom: var(--td-space-4);
+    padding-block: var(--td-space-3) var(--td-space-2);
+    opacity: 1;
+  }
+  100% {
+    max-height: 0;
+    margin-bottom: 0;
+    padding-block: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 @keyframes sf-loading-dismiss-mobile {
-  0%, 86% { max-height: 100px; margin-bottom: var(--td-space-3); padding-block: var(--td-space-2); opacity: 1; }
-  100% { max-height: 0; margin-bottom: 0; padding-block: 0; opacity: 0; visibility: hidden; }
+  0%,
+  86% {
+    max-height: 100px;
+    margin-bottom: var(--td-space-3);
+    padding-block: var(--td-space-2);
+    opacity: 1;
+  }
+  100% {
+    max-height: 0;
+    margin-bottom: 0;
+    padding-block: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .sf-loading-status { display: none; animation: none; }
-  .sf-loading-spinner, .sf-loading-fill { animation: none; }
+  .sf-loading-status {
+    display: none;
+    animation: none;
+  }
+  .sf-loading-spinner,
+  .sf-loading-fill {
+    animation: none;
+  }
 }
 .sf-search-hero {
   height: auto;
@@ -3756,103 +4599,409 @@ body.sf-drawer-open {
   position: relative;
   top: auto;
   left: auto;
-  width: min(calc(100vw - 2 * var(--td-content-gutter)), calc(var(--td-content-max-width) - 24px));
+  width: min(
+    calc(100vw - 2 * var(--td-content-gutter)),
+    calc(var(--td-content-max-width) - 24px)
+  );
   margin: 0 auto;
-  padding: var(--td-search-panel-padding-top) var(--td-space-5) var(--td-search-panel-padding-bottom);
+  padding: var(--td-search-panel-padding-top) var(--td-space-5)
+    var(--td-search-panel-padding-bottom);
   border-radius: var(--td-hero-banner-radius);
   box-shadow: var(--td-shadow-lg);
   transform: none;
 }
-.sf-search-intro { min-height: 42px; }
-.sf-search-intro h1 { font-size: var(--td-font-heading-small); }
-.sf-search-intro > div > p:last-child { font-size: var(--td-font-xs); }
-.sf-search-options { top: var(--td-space-3); right: var(--td-space-4); }
-.sf-search-card .sf-route-bar { margin-top: var(--td-space-2); }
-.sf-breadcrumb { display: none; }
-.sf-results-intro { margin: var(--td-space-4) 0 var(--td-space-2); }
-.sf-results-intro h1 { margin-bottom: 0; font-size: var(--td-font-heading-small); }
-.sf-results-intro p { font-size: var(--td-font-sm); }
-.sf-date-strip { margin-bottom: var(--td-space-2); }
-.sf-results-count { display: none; }
-.sf-results-layout { grid-template-columns: minmax(0, 1fr) var(--td-results-sidebar-width); gap: var(--td-space-3); }
-.sf-results-title { min-height: 38px; margin-bottom: var(--td-space-2); box-shadow: none; }
-.sf-filter-chips button, .sf-toolbar-sort select { min-height: 28px; }
-.sf-flight-card { margin-bottom: var(--td-space-2); padding: var(--td-space-2); }
-.sf-ad-card { min-height: 220px; padding: var(--td-space-3); overflow: hidden; border: 0; color: var(--td-white); }
-.sf-ad-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.sf-ad-card::after { inset: 0; width: auto; height: auto; border-radius: inherit; background: linear-gradient(180deg, rgba(8, 39, 82, .24), rgba(8, 39, 82, .86)); }
-.sf-ad-label, .sf-ad-card > i, .sf-ad-card h2, .sf-ad-card p, .sf-ad-card a { position: relative; z-index: 1; color: var(--td-white); }
-.sf-ad-label { width: max-content; padding: var(--td-space-01) var(--td-space-2); border-radius: var(--td-pill); background: rgba(255,255,255,.94); color: var(--td-brand-navy); font-size: 9px; letter-spacing: 0; }
-.sf-ad-card > i { margin: var(--td-space-5) 0 var(--td-space-3); }
-.sf-ad-card h2 { font-size: var(--td-font-heading); }
-.sf-ad-card p { color: rgba(255,255,255,.92); }
-.sf-ad-card a { padding: var(--td-space-1) var(--td-space-2); border-radius: var(--td-pill); background: var(--td-white); color: var(--td-brand-navy); font-size: var(--td-font-xs); }
-.sf-confidence { gap: var(--td-space-2); padding: var(--td-space-3) 0; }
-.sf-confidence article { gap: var(--td-space-2); padding: var(--td-space-1) var(--td-space-2); }
-.sf-confidence article > i { width: 38px; height: 38px; }
-.sf-help-banner { margin-bottom: var(--td-space-3); }
-.sf-drawer-header { min-height: 64px; background: var(--td-white); color: var(--td-heading-color); box-shadow: var(--td-shadow); }
-.sf-drawer-brand { color: var(--td-heading-color); text-transform: none; }
-.sf-drawer-brand-context { margin-left: var(--td-space-3); padding-left: var(--td-space-3); border-left: var(--td-border-width) solid var(--td-border-hover); color: var(--td-heading-color); font-size: var(--td-font-md); font-weight: var(--td-weight-bold); text-transform: none; }
-.sf-drawer-close { color: var(--td-heading-color); }
-.sf-drawer-close:hover { background: var(--td-hover); }
-.sf-drawer-steps button.is-active { background: var(--td-results-accent-soft); color: var(--td-results-accent); }
-.sf-drawer-steps button > span { width: auto; height: auto; border: 0; border-radius: 0; font-size: var(--td-icon-md); }
-.sf-drawer-steps button.is-active > span { border: 0; background: transparent; color: var(--td-white); }
+.sf-search-intro {
+  min-height: 42px;
+}
+.sf-search-intro h1 {
+  font-size: var(--td-font-heading-small);
+}
+.sf-search-intro > div > p:last-child {
+  font-size: var(--td-font-xs);
+}
+.sf-search-options {
+  top: var(--td-space-3);
+  right: var(--td-space-4);
+}
+.sf-search-card .sf-route-bar {
+  margin-top: var(--td-space-2);
+}
+.sf-breadcrumb {
+  display: none;
+}
+.sf-results-intro {
+  margin: var(--td-space-4) 0 var(--td-space-2);
+}
+.sf-results-intro h1 {
+  margin-bottom: 0;
+  font-size: var(--td-font-heading-small);
+}
+.sf-results-intro p {
+  font-size: var(--td-font-sm);
+}
+.sf-date-strip {
+  margin-bottom: var(--td-space-2);
+}
+.sf-results-count {
+  display: none;
+}
+.sf-results-layout {
+  grid-template-columns: minmax(0, 1fr) var(--td-results-sidebar-width);
+  gap: var(--td-space-3);
+}
+.sf-results-title {
+  min-height: 38px;
+  margin-bottom: var(--td-space-2);
+  box-shadow: none;
+}
+.sf-filter-chips button,
+.sf-toolbar-sort select {
+  min-height: 28px;
+}
+.sf-flight-card {
+  margin-bottom: var(--td-space-2);
+  padding: var(--td-space-2);
+}
+.sf-ad-card {
+  min-height: 220px;
+  padding: var(--td-space-3);
+  overflow: hidden;
+  border: 0;
+  color: var(--td-white);
+}
+.sf-ad-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sf-ad-card::after {
+  inset: 0;
+  width: auto;
+  height: auto;
+  border-radius: inherit;
+  background: linear-gradient(
+    180deg,
+    rgba(8, 39, 82, 0.24),
+    rgba(8, 39, 82, 0.86)
+  );
+}
+.sf-ad-label,
+.sf-ad-card > i,
+.sf-ad-card h2,
+.sf-ad-card p,
+.sf-ad-card a {
+  position: relative;
+  z-index: 1;
+  color: var(--td-white);
+}
+.sf-ad-label {
+  width: max-content;
+  padding: var(--td-space-01) var(--td-space-2);
+  border-radius: var(--td-pill);
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--td-brand-navy);
+  font-size: 9px;
+  letter-spacing: 0;
+}
+.sf-ad-card > i {
+  margin: var(--td-space-5) 0 var(--td-space-3);
+}
+.sf-ad-card h2 {
+  font-size: var(--td-font-heading);
+}
+.sf-ad-card p {
+  color: rgba(255, 255, 255, 0.92);
+}
+.sf-ad-card a {
+  padding: var(--td-space-1) var(--td-space-2);
+  border-radius: var(--td-pill);
+  background: var(--td-white);
+  color: var(--td-brand-navy);
+  font-size: var(--td-font-xs);
+}
+.sf-confidence {
+  gap: var(--td-space-2);
+  padding: var(--td-space-3) 0;
+}
+.sf-confidence article {
+  gap: var(--td-space-2);
+  padding: var(--td-space-1) var(--td-space-2);
+}
+.sf-confidence article > i {
+  width: 38px;
+  height: 38px;
+}
+.sf-help-banner {
+  margin-bottom: var(--td-space-3);
+}
+.sf-drawer-header {
+  min-height: 64px;
+  background: var(--td-white);
+  color: var(--td-heading-color);
+  box-shadow: var(--td-shadow);
+}
+.sf-drawer-brand {
+  color: var(--td-heading-color);
+  text-transform: none;
+}
+.sf-drawer-brand-context {
+  margin-left: var(--td-space-3);
+  padding-left: var(--td-space-3);
+  border-left: var(--td-border-width) solid var(--td-border-hover);
+  color: var(--td-heading-color);
+  font-size: var(--td-font-md);
+  font-weight: var(--td-weight-bold);
+  text-transform: none;
+}
+.sf-drawer-close {
+  color: var(--td-heading-color);
+}
+.sf-drawer-close:hover {
+  background: var(--td-hover);
+}
+.sf-drawer-steps button.is-active {
+  background: var(--td-results-accent-soft);
+  color: var(--td-results-accent);
+}
+.sf-drawer-steps button > span {
+  width: auto;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  font-size: var(--td-icon-md);
+}
+.sf-drawer-steps button.is-active > span {
+  border: 0;
+  background: transparent;
+  color: var(--td-white);
+}
 @media (max-width: 1199.98px) {
-  .sf-results-layout { grid-template-columns: minmax(0, 1fr) minmax(210px, 26%); }
+  .sf-results-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(210px, 26%);
+  }
 }
 @media (max-width: 767.98px) {
-  .sf-container { width: calc(100% - 2 * var(--td-content-gutter)); }
-  .sf-loading-status { width: calc(100vw - 2 * var(--td-content-gutter)); margin: 0 auto var(--td-space-3); padding: var(--td-space-2) 0; animation-name: sf-loading-dismiss-mobile; }
-  .sf-loading-message { gap: var(--td-space-2); margin-bottom: var(--td-space-2); font-size: var(--td-font-sm); }
-  .sf-loading-spinner { width: 24px; height: 24px; border-width: 2px; }
-  .sf-loading-track { height: 8px; }
+  .sf-container {
+    width: calc(100% - 2 * var(--td-content-gutter));
+  }
+  .sf-loading-status {
+    width: calc(100vw - 2 * var(--td-content-gutter));
+    margin: 0 auto var(--td-space-3);
+    padding: var(--td-space-2) 0;
+    animation-name: sf-loading-dismiss-mobile;
+  }
+  .sf-loading-message {
+    gap: var(--td-space-2);
+    margin-bottom: var(--td-space-2);
+    font-size: var(--td-font-sm);
+  }
+  .sf-loading-spinner {
+    width: 24px;
+    height: 24px;
+    border-width: 2px;
+  }
+  .sf-loading-track {
+    height: 8px;
+  }
   .sf-search-hero {
     height: auto;
     min-height: 0;
     padding: var(--td-space-2) var(--td-content-gutter) 0;
     background: transparent;
   }
-  .sf-search-card { top: auto; width: 100%; padding: var(--td-space-2) var(--td-space-4) var(--td-space-4); border-radius: var(--td-radius-xl); }
-  .sf-search-intro { min-height: 0; margin-bottom: var(--td-space-2); }
-  .sf-search-intro h1 { font-size: var(--td-font-heading-mobile); }
-  .sf-search-intro > div > p:last-child { font-size: var(--td-font-xs); }
-  .sf-search-options { position: static; display: flex; flex-wrap: nowrap; gap: var(--td-space-1); margin: 0 0 var(--td-space-2); font-size: var(--td-font-xs); }
-  .sf-search-options .sf-choice { flex: 1 1 auto; justify-content: center; padding: var(--td-space-1) var(--td-space-2); }
-  .sf-search-options .sf-class { flex: 0 0 auto; }
-  .sf-search-options .sf-class .dd-t { min-width: 82px; }
-  .sf-search-card .sf-route-bar { margin-top: 0; }
-  .sf-results-intro { margin: var(--td-space-3) 0 var(--td-space-2); }
-  .sf-results-intro h1 { font-size: var(--td-font-heading-mobile); }
-  .sf-results-intro p { margin-top: var(--td-space-01); font-size: var(--td-font-xs); }
-  .sf-date-strip { margin-bottom: var(--td-space-2); }
-  .sf-results-layout { display: block; }
-  .sf-ad-rail { position: static; display: grid; gap: var(--td-space-2); margin: var(--td-space-2) 0; }
-  .sf-ad-card { display: grid; min-height: 74px; grid-template-columns: 86px minmax(0, 1fr) auto; grid-template-rows: auto 1fr auto; align-items: center; gap: 0 var(--td-space-2); padding: var(--td-space-2); border: var(--td-border-width) solid var(--td-border); border-radius: var(--td-radius-sm); box-shadow: var(--td-shadow); }
-  .sf-ad-image { grid-column: 1; grid-row: 1 / 4; border-radius: var(--td-radius-xs); }
-  .sf-ad-card::after { inset: 0; border-radius: inherit; background: linear-gradient(90deg, transparent 0 86px, rgba(255,255,255,.98) 86px); }
-  .sf-ad-label { grid-column: 2; grid-row: 1; color: var(--td-muted); font-size: 8px; }
-  .sf-ad-card > i { display: none; }
-  .sf-ad-card h2 { grid-column: 2; grid-row: 2; margin: 0; color: var(--td-heading-color); font-size: var(--td-font-xs); }
-  .sf-ad-card p { grid-column: 2; grid-row: 3; margin: 0; overflow: hidden; color: var(--td-muted); font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
-  .sf-ad-card a { grid-column: 3; grid-row: 1 / 4; width: 28px; height: 28px; justify-content: center; padding: 0; border: var(--td-border-width) solid var(--td-border); border-radius: var(--td-radius-circle); background: var(--td-white); color: var(--td-results-accent); font-size: 0; }
-  .sf-ad-card a i { font-size: var(--td-font-sm); }
-  .sf-confidence { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; padding: var(--td-space-2) 0; border-top: var(--td-border-width) solid var(--td-border); border-bottom: var(--td-border-width) solid var(--td-border); }
-  .sf-confidence article { display: grid; justify-items: center; gap: var(--td-space-1); padding: var(--td-space-1); text-align: center; }
-  .sf-confidence article > i { width: 32px; height: 32px; }
-  .sf-confidence h3 { margin: 0; font-size: 10px; }
-  .sf-confidence p { display: none; }
-  .sf-drawer-header { min-height: var(--td-header-height-mobile); }
-  .sf-drawer-brand-context { margin-left: var(--td-space-2); padding-left: var(--td-space-2); font-size: var(--td-font-sm); }
-  .sf-flight-drawer { inset: 0; width: 100%; height: 100%; max-height: none; padding-top: 0; border-radius: 0; transform: translateX(100%); }
-  .sf-flight-drawer::before { display: none; }
-  .sf-flight-drawer.is-open { transform: translateX(0); }
+  .sf-search-card {
+    top: auto;
+    width: 100%;
+    padding: var(--td-space-2) var(--td-space-4) var(--td-space-4);
+    border-radius: var(--td-radius-xl);
+  }
+  .sf-search-intro {
+    min-height: 0;
+    margin-bottom: var(--td-space-2);
+  }
+  .sf-search-intro h1 {
+    font-size: var(--td-font-heading-mobile);
+  }
+  .sf-search-intro > div > p:last-child {
+    font-size: var(--td-font-xs);
+  }
+  .sf-search-options {
+    position: static;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: var(--td-space-1);
+    margin: 0 0 var(--td-space-2);
+    font-size: var(--td-font-xs);
+  }
+  .sf-search-options .sf-choice {
+    flex: 1 1 auto;
+    justify-content: center;
+    padding: var(--td-space-1) var(--td-space-2);
+  }
+  .sf-search-options .sf-class {
+    flex: 0 0 auto;
+  }
+  .sf-search-options .sf-class .dd-t {
+    min-width: 82px;
+  }
+  .sf-search-card .sf-route-bar {
+    margin-top: 0;
+  }
+  .sf-results-intro {
+    margin: var(--td-space-3) 0 var(--td-space-2);
+  }
+  .sf-results-intro h1 {
+    font-size: var(--td-font-heading-mobile);
+  }
+  .sf-results-intro p {
+    margin-top: var(--td-space-01);
+    font-size: var(--td-font-xs);
+  }
+  .sf-date-strip {
+    margin-bottom: var(--td-space-2);
+  }
+  .sf-results-layout {
+    display: block;
+  }
+  .sf-ad-rail {
+    position: static;
+    display: grid;
+    gap: var(--td-space-2);
+    margin: var(--td-space-2) 0;
+  }
+  .sf-ad-card {
+    display: grid;
+    min-height: 74px;
+    grid-template-columns: 86px minmax(0, 1fr) auto;
+    grid-template-rows: auto 1fr auto;
+    align-items: center;
+    gap: 0 var(--td-space-2);
+    padding: var(--td-space-2);
+    border: var(--td-border-width) solid var(--td-border);
+    border-radius: var(--td-radius-sm);
+    box-shadow: var(--td-shadow);
+  }
+  .sf-ad-image {
+    grid-column: 1;
+    grid-row: 1 / 4;
+    border-radius: var(--td-radius-xs);
+  }
+  .sf-ad-card::after {
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      90deg,
+      transparent 0 86px,
+      rgba(255, 255, 255, 0.98) 86px
+    );
+  }
+  .sf-ad-label {
+    grid-column: 2;
+    grid-row: 1;
+    color: var(--td-muted);
+    font-size: 8px;
+  }
+  .sf-ad-card > i {
+    display: none;
+  }
+  .sf-ad-card h2 {
+    grid-column: 2;
+    grid-row: 2;
+    margin: 0;
+    color: var(--td-heading-color);
+    font-size: var(--td-font-xs);
+  }
+  .sf-ad-card p {
+    grid-column: 2;
+    grid-row: 3;
+    margin: 0;
+    overflow: hidden;
+    color: var(--td-muted);
+    font-size: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .sf-ad-card a {
+    grid-column: 3;
+    grid-row: 1 / 4;
+    width: 28px;
+    height: 28px;
+    justify-content: center;
+    padding: 0;
+    border: var(--td-border-width) solid var(--td-border);
+    border-radius: var(--td-radius-circle);
+    background: var(--td-white);
+    color: var(--td-results-accent);
+    font-size: 0;
+  }
+  .sf-ad-card a i {
+    font-size: var(--td-font-sm);
+  }
+  .sf-confidence {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    padding: var(--td-space-2) 0;
+    border-top: var(--td-border-width) solid var(--td-border);
+    border-bottom: var(--td-border-width) solid var(--td-border);
+  }
+  .sf-confidence article {
+    display: grid;
+    justify-items: center;
+    gap: var(--td-space-1);
+    padding: var(--td-space-1);
+    text-align: center;
+  }
+  .sf-confidence article > i {
+    width: 32px;
+    height: 32px;
+  }
+  .sf-confidence h3 {
+    margin: 0;
+    font-size: 10px;
+  }
+  .sf-confidence p {
+    display: none;
+  }
+  .sf-drawer-header {
+    min-height: var(--td-header-height-mobile);
+  }
+  .sf-drawer-brand-context {
+    margin-left: var(--td-space-2);
+    padding-left: var(--td-space-2);
+    font-size: var(--td-font-sm);
+  }
+  .sf-flight-drawer {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    padding-top: 0;
+    border-radius: 0;
+    transform: translateX(100%);
+  }
+  .sf-flight-drawer::before {
+    display: none;
+  }
+  .sf-flight-drawer.is-open {
+    transform: translateX(0);
+  }
 }
 @media (max-width: 380px) {
-  .sf-search-options .sf-choice { padding-inline: var(--td-space-1); }
-  .sf-flight-card .sf-route-times { grid-template-columns: minmax(2.8rem, .8fr) minmax(3rem, .8fr) minmax(2.8rem, .8fr); }
-  .sf-confidence article { padding-inline: 2px; }
+  .sf-search-options .sf-choice {
+    padding-inline: var(--td-space-1);
+  }
+  .sf-flight-card .sf-route-times {
+    grid-template-columns: minmax(2.8rem, 0.8fr) minmax(3rem, 0.8fr) minmax(
+        2.8rem,
+        0.8fr
+      );
+  }
+  .sf-confidence article {
+    padding-inline: 2px;
+  }
 }
 
 /* Keep the flight search controls consistent with the homepage form. */
@@ -3862,7 +5011,11 @@ body.sf-drawer-open {
   border: var(--td-border-width) solid var(--td-border-hover);
   border-radius: var(--td-radius-sm);
   box-shadow: none;
-  background: linear-gradient(145deg, var(--td-active-soft), var(--td-white) 72%);
+  background: linear-gradient(
+    145deg,
+    var(--td-active-soft),
+    var(--td-white) 72%
+  );
 }
 .sf-date-card.is-active::after {
   position: absolute;
@@ -3872,7 +5025,9 @@ body.sf-drawer-open {
   content: "";
   pointer-events: none;
 }
-.sf-date-strip { margin-top: var(--td-space-2); }
+.sf-date-strip {
+  margin-top: var(--td-space-2);
+}
 .sf-search-options {
   position: static;
   display: flex;
@@ -3917,7 +5072,9 @@ body.sf-drawer-open {
   padding: var(--td-space-04);
   border-radius: var(--td-pill);
 }
-.sf-search-card .sf-primary-btn .td-search-label { display: flex; }
+.sf-search-card .sf-primary-btn .td-search-label {
+  display: flex;
+}
 @media (max-width: 767.98px) {
   .sf-search-options {
     flex-wrap: wrap;
@@ -3925,16 +5082,24 @@ body.sf-drawer-open {
     margin-bottom: var(--td-space-4);
     font-size: var(--td-font-default);
   }
-  .sf-search-options .sf-choice { padding: 0; }
-  .sf-search-options .sf-search-divider { display: none; }
-  .sf-search-options .sf-class { flex: 1 0 100%; }
+  .sf-search-options .sf-choice {
+    padding: 0;
+  }
+  .sf-search-options .sf-search-divider {
+    display: none;
+  }
+  .sf-search-options .sf-class {
+    flex: 1 0 100%;
+  }
   .sf-search-options .sf-class .dd-t {
     width: 100%;
     min-width: 0;
     padding: var(--td-space-06) var(--td-space-09);
     border-radius: var(--td-button-radius);
   }
-  .sf-search-card .sf-route-bar { border-radius: 0; }
+  .sf-search-card .sf-route-bar {
+    border-radius: 0;
+  }
 }
 
 /* Use the supplied airline SVG viewboxes directly instead of cropping/scaling them. */
@@ -3947,7 +5112,9 @@ body.sf-drawer-open {
   transform: none;
   object-fit: contain;
 }
-.sf-flight-card .sf-airline-qatar { overflow: visible; }
+.sf-flight-card .sf-airline-qatar {
+  overflow: visible;
+}
 .sf-flight-card .sf-card-airline-mark img[src*="emirates.svg"],
 .sf-flight-card .sf-airline-emirates img {
   width: auto;
@@ -3977,14 +5144,18 @@ body.sf-drawer-open {
 }
 
 /* Keep the multi-city action the same size as Search and trim panel whitespace. */
-.sf-search-card { padding-bottom: var(--td-space-2); }
+.sf-search-card {
+  padding-bottom: var(--td-space-2);
+}
 .sf-multi-footer > .sf-primary-btn {
   width: var(--td-results-search-button-width);
   min-width: var(--td-results-search-button-width);
   min-height: var(--td-search-button-height);
 }
 @media (max-width: 767.98px) {
-  .sf-search-card { padding-bottom: var(--td-space-2); }
+  .sf-search-card {
+    padding-bottom: var(--td-space-2);
+  }
   .sf-multi-footer > .sf-primary-btn {
     width: 100%;
     min-width: 0;
@@ -4000,12 +5171,17 @@ body.sf-drawer-open {
   position: fixed;
   inset: 0;
   z-index: 1299;
-  background: rgba(8, 22, 52, .36);
+  background: rgba(var(--td-brand-navy-rgb), 0.48);
+  backdrop-filter: blur(var(--td-space-1));
   opacity: 0;
-  transition: opacity 320ms ease;
+  transition: opacity var(--td-transition-brand);
 }
-.sf-filter-backdrop.is-open { opacity: 1; }
-.sf-filter-backdrop[hidden] { display: none; }
+.sf-filter-backdrop.is-open {
+  opacity: 1;
+}
+.sf-filter-backdrop[hidden] {
+  display: none;
+}
 .sf-filter-row[open],
 .sf-filter-row.is-closing {
   position: fixed;
@@ -4023,11 +5199,15 @@ body.sf-drawer-open {
   background: var(--td-white);
   box-shadow: var(--td-shadow-lg);
   transform: translateX(-100%);
-  transition: transform 320ms cubic-bezier(.22,.8,.25,1);
+  transition: transform var(--td-transition-brand);
   overscroll-behavior: contain;
 }
-.sf-filter-row.is-open { transform: translateX(0); }
-.sf-filter-row.is-closing { pointer-events: none; }
+.sf-filter-row.is-open {
+  transform: translateX(0);
+}
+.sf-filter-row.is-closing {
+  pointer-events: none;
+}
 .sf-filter-row[open] > summary,
 .sf-filter-row.is-closing > summary {
   position: absolute;
@@ -4040,7 +5220,9 @@ body.sf-drawer-open {
   white-space: nowrap;
 }
 .sf-filter-row[open] > summary::after,
-.sf-filter-row.is-closing > summary::after { display: none; }
+.sf-filter-row.is-closing > summary::after {
+  display: none;
+}
 .sf-filter-row[open] .sf-filter-panel,
 .sf-filter-row.is-closing .sf-filter-panel {
   position: static;
@@ -4068,7 +5250,9 @@ body.sf-drawer-open {
   background: var(--td-white);
 }
 .sf-filter-row[open] .sf-filter-heading h3,
-.sf-filter-row.is-closing .sf-filter-heading h3 { flex: 1; }
+.sf-filter-row.is-closing .sf-filter-heading h3 {
+  flex: 1;
+}
 .sf-filter-row[open] .sf-filter-heading .sf-filter-close,
 .sf-filter-row.is-closing .sf-filter-heading .sf-filter-close {
   display: grid;
@@ -4081,15 +5265,23 @@ body.sf-drawer-open {
   color: var(--td-heading-color);
 }
 .sf-filter-row[open] .sf-filter-heading .sf-filter-close:hover,
-.sf-filter-row.is-closing .sf-filter-heading .sf-filter-close:hover { border-color: var(--td-brand-blue); background: var(--td-hover); color: var(--td-brand-blue); }
+.sf-filter-row.is-closing .sf-filter-heading .sf-filter-close:hover {
+  border-color: var(--td-brand-blue);
+  background: var(--td-hover);
+  color: var(--td-brand-blue);
+}
 .sf-filter-row[open] .sf-filter-group,
 .sf-filter-row.is-closing .sf-filter-group {
   margin: 14px 0 0;
   padding: 15px 16px;
   border: 1px solid var(--td-border-light);
   border-radius: 12px;
-  background: linear-gradient(145deg, var(--td-active-soft), var(--td-white) 68%);
-  box-shadow: 0 2px 8px rgba(var(--td-text-rgb), .04);
+  background: linear-gradient(
+    145deg,
+    var(--td-active-soft),
+    var(--td-white) 68%
+  );
+  box-shadow: 0 2px 8px rgba(var(--td-text-rgb), 0.04);
 }
 .sf-filter-row[open] .sf-filter-group legend,
 .sf-filter-row.is-closing .sf-filter-group legend {
@@ -4106,9 +5298,13 @@ body.sf-drawer-open {
   transition: background-color 160ms ease;
 }
 .sf-filter-row[open] .sf-filter-group label:hover,
-.sf-filter-row.is-closing .sf-filter-group label:hover { background: var(--td-hover); }
+.sf-filter-row.is-closing .sf-filter-group label:hover {
+  background: var(--td-hover);
+}
 .sf-filter-row[open] .sf-filter-group input,
-.sf-filter-row.is-closing .sf-filter-group input { accent-color: var(--td-brand-blue); }
+.sf-filter-row.is-closing .sf-filter-group input {
+  accent-color: var(--td-brand-blue);
+}
 .sf-filter-row[open] .sf-filter-group p,
 .sf-filter-row.is-closing .sf-filter-group p {
   margin: 0 0 10px;
@@ -4120,9 +5316,17 @@ body.sf-drawer-open {
   padding-bottom: 15px;
   border-bottom: 1px solid var(--td-border-light);
 }
-.sf-filter-chips { align-items: center; }
-.sf-results-title .sf-filter-row > summary { min-height: 36px; padding: 6px 10px; }
-.sf-chip-dropdown { position: relative; flex: none; }
+.sf-filter-chips {
+  align-items: center;
+}
+.sf-results-title .sf-filter-row > summary {
+  min-height: 36px;
+  padding: 6px 10px;
+}
+.sf-chip-dropdown {
+  position: relative;
+  flex: none;
+}
 .sf-chip-dropdown > summary {
   display: inline-flex;
   min-height: 36px;
@@ -4132,16 +5336,38 @@ body.sf-drawer-open {
   padding: 6px 12px;
   border: 1px solid var(--td-border);
   border-radius: var(--td-pill);
-  background: linear-gradient(145deg, var(--td-active-soft), var(--td-white) 72%);
+  background: linear-gradient(
+    145deg,
+    var(--td-active-soft),
+    var(--td-white) 72%
+  );
   box-shadow: var(--td-shadow);
   color: var(--td-heading-color);
   cursor: pointer;
   list-style: none;
   white-space: nowrap;
 }
-.sf-chip-dropdown > summary::-webkit-details-marker { display: none; }
-.sf-chip-dropdown > summary i { color: var(--td-results-accent); font-size: 11px; }
-.sf-chip-dropdown[open] { z-index: 40; }
+.sf-chip-dropdown > summary::-webkit-details-marker {
+  display: none;
+}
+.sf-chip-dropdown > summary i {
+  color: var(--td-results-accent);
+  font-size: 11px;
+}
+.sf-chip-dropdown > summary:hover,
+.sf-chip-dropdown > summary:focus-visible,
+.sf-chip-dropdown[open] > summary {
+  border-color: var(--td-brand-blue);
+  background: linear-gradient(
+    145deg,
+    var(--td-active-soft),
+    var(--td-white) 72%
+  );
+  color: var(--td-brand-blue);
+}
+.sf-chip-dropdown[open] {
+  z-index: 40;
+}
 .sf-chip-options {
   position: absolute;
   top: calc(100% + 8px);
@@ -4156,13 +5382,29 @@ body.sf-drawer-open {
   background: var(--td-white);
   box-shadow: var(--td-shadow-lg);
 }
-.sf-chip-options .sf-filter-group { padding: 0; border: 0; }
-.sf-chip-options .sf-filter-group legend { margin-bottom: 10px; }
-.sf-chip-options .sf-filter-group legend i { display: none; }
-.sf-chip-options .sf-time-options { grid-template-columns: 1fr; }
-.sf-clear-filters { min-height: 36px; padding: 6px 10px; }
-body.sf-filter-open { overflow: hidden; }
-.sf-results-title { padding-block: var(--td-space-2); }
+.sf-chip-options .sf-filter-group {
+  padding: 0;
+  border: 0;
+}
+.sf-chip-options .sf-filter-group legend {
+  margin-bottom: 10px;
+}
+.sf-chip-options .sf-filter-group legend i {
+  display: none;
+}
+.sf-chip-options .sf-time-options {
+  grid-template-columns: 1fr;
+}
+.sf-clear-filters {
+  min-height: 36px;
+  padding: 6px 10px;
+}
+body.sf-filter-open {
+  overflow: hidden;
+}
+.sf-results-title {
+  padding-block: var(--td-space-2);
+}
 .sf-inline-ad-row {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -4183,22 +5425,111 @@ body.sf-filter-open { overflow: hidden; }
   background: var(--td-white);
   box-shadow: var(--td-shadow);
 }
-.sf-inline-ad > span { position: absolute; top: 7px; left: 9px; z-index: 1; padding: 1px 5px; border-radius: var(--td-pill); background: rgba(255,255,255,.95); color: var(--td-brand-navy); font-size: 9px; font-weight: var(--td-weight-bold); }
-.sf-inline-ad > img { grid-column: 1; grid-row: 1; width: 70px; height: 46px; border-radius: var(--td-radius-xs); object-fit: cover; }
-.sf-inline-ad:nth-child(3) > img { object-fit: contain; background: var(--td-blue-soft); }
-.sf-inline-ad > div { grid-column: 2; grid-row: 1; min-width: 0; }
-.sf-inline-ad h3 { margin: 0; overflow: hidden; color: var(--td-heading-color); font-size: var(--td-font-sm); font-weight: var(--td-weight-bold); text-overflow: ellipsis; white-space: nowrap; }
-.sf-inline-ad p { margin: 1px 0 0; overflow: hidden; color: var(--td-muted); font-size: var(--td-font-xs); text-overflow: ellipsis; white-space: nowrap; }
-.sf-inline-ad > a { display: grid; grid-column: 3; grid-row: 1; width: 28px; height: 28px; place-items: center; border: 1px solid var(--td-border); border-radius: 50%; color: var(--td-results-accent); }
+.sf-inline-ad > span {
+  position: absolute;
+  top: 7px;
+  left: 9px;
+  z-index: 1;
+  padding: 1px 5px;
+  border-radius: var(--td-pill);
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--td-brand-navy);
+  font-size: 9px;
+  font-weight: var(--td-weight-bold);
+}
+.sf-inline-ad > img {
+  grid-column: 1;
+  grid-row: 1;
+  width: 70px;
+  height: 46px;
+  border-radius: var(--td-radius-xs);
+  object-fit: cover;
+}
+.sf-inline-ad:nth-child(3) > img {
+  object-fit: contain;
+  background: var(--td-blue-soft);
+}
+.sf-inline-ad > div {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+}
+.sf-inline-ad h3 {
+  margin: 0;
+  overflow: hidden;
+  color: var(--td-heading-color);
+  font-size: var(--td-font-sm);
+  font-weight: var(--td-weight-bold);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sf-inline-ad p {
+  margin: 1px 0 0;
+  overflow: hidden;
+  color: var(--td-muted);
+  font-size: var(--td-font-xs);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sf-inline-ad > a {
+  display: grid;
+  grid-column: 3;
+  grid-row: 1;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 1px solid var(--td-border);
+  border-radius: 50%;
+  color: var(--td-results-accent);
+}
 /* Use subtle airline-tinted rows and keep airport details free of inner boxes. */
 .sf-flight-card .sf-leg {
-  border: 0;
+  align-content: center;
+  align-items: center;
+  border: var(--td-border-width) solid var(--td-border);
   border-radius: var(--td-radius-lg);
-  background: linear-gradient(115deg, #fff8f4, #fdf0ee);
+  background: linear-gradient(
+    145deg,
+    var(--td-active-soft),
+    var(--td-white) 72%
+  );
 }
-.sf-flight-card .sf-leg:has(.sf-airline-emirates) { background: linear-gradient(115deg, #fff8f3, #ffefed); }
-.sf-flight-card .sf-leg:has(.sf-airline-flydubai) { background: linear-gradient(115deg, #fff7ed, #eef5ff); }
-.sf-flight-card .sf-leg:has(.sf-airline-qatar) { background: linear-gradient(115deg, #fff1f4, #f6f0fa); }
+.sf-flight-card .sf-airline,
+.sf-flight-card .sf-journey,
+.sf-flight-card .sf-leg-details {
+  align-self: center;
+}
+.sf-flight-card .sf-route-times {
+  align-items: center;
+}
+.sf-flight-card .sf-leg .sf-journey {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.sf-roundtrip-card .sf-leg:nth-of-type(even),
+.sf-multicity-card .sf-leg:nth-of-type(even) {
+  background: linear-gradient(
+    225deg,
+    rgba(var(--td-brand-yellow-rgb), 0.18),
+    var(--td-white)
+  );
+}
+.sf-roundtrip-card .sf-leg:nth-of-type(even) .sf-route-times,
+.sf-multicity-card
+  .sf-card-itineraries
+  > .sf-leg:nth-of-type(even)
+  .sf-route-times {
+  direction: rtl;
+}
+.sf-roundtrip-card .sf-leg:nth-of-type(even) .sf-time,
+.sf-multicity-card .sf-card-itineraries > .sf-leg:nth-of-type(even) .sf-time {
+  direction: ltr;
+}
+.sf-flight-card img[hidden] {
+  display: none !important;
+}
 .sf-flight-card .sf-time {
   min-width: 0;
   padding: 0;
@@ -4206,19 +5537,93 @@ body.sf-filter-open { overflow: hidden; }
   border-radius: 0;
   background: transparent;
 }
-.sf-flight-card .sf-flight-path i::before {
+.sf-airline-mark-fallback {
+  display: inline-flex;
+  align-items: center;
+  color: var(--td-brand-navy);
+  font-size: var(--td-font-sm);
+  font-weight: var(--td-weight-bold);
+  white-space: nowrap;
+}
+.sf-airline-mark-fallback::before {
+  margin-right: 5px;
+  color: var(--td-brand-blue);
   content: "\2708";
   font-family: Arial, sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  line-height: 1;
+  font-size: 16px;
+  font-weight: 400;
+}
+.sf-airline-flydubai .sf-airline-mark-fallback {
+  color: #006496;
+}
+.sf-airline-emirates .sf-airline-mark-fallback {
+  color: #c82027;
+}
+.sf-airline-qatar .sf-airline-mark-fallback {
+  color: #5c0632;
+}
+/* The supplied SVGs include their complete airline marks. */
+.sf-flight-card .sf-card-airline-mark:has(img[src*="emirates.svg"])::after,
+.sf-flight-card .sf-airline-emirates::after {
+  content: none;
+}
+.sf-flight-card .sf-airline-emirates img,
+.sf-flight-card .sf-card-airline-mark img[src*="emirates.svg"] {
+  width: auto;
+  max-width: 82px;
+  max-height: 30px;
+}
+@media (min-width: 768px) {
+  .sf-flight-card .sf-leg {
+    position: relative;
+    min-height: 92px;
+  }
+  .sf-flight-card .sf-leg .sf-leg-details {
+    position: absolute;
+    right: var(--td-space-3);
+    bottom: var(--td-space-2);
+    left: var(--td-space-3);
+    padding: 0;
+  }
+}
+.sf-search-card .sf-class:hover .dd-t,
+.sf-search-card .sf-class:focus-within .dd-t {
+  border-color: var(--td-border);
+  background: linear-gradient(
+    145deg,
+    var(--td-active-soft),
+    var(--td-white) 72%
+  );
+  color: var(--td-heading-color);
+}
+@media (min-width: 768px) {
+  .sf-search-card .sf-route-bar {
+    box-sizing: border-box;
+    height: 58px;
+    min-height: 58px;
+  }
+  .sf-search-card .sf-route-bar .sf-fld {
+    box-sizing: border-box;
+    height: 48px;
+    min-height: 0;
+    padding-block: 0;
+  }
+  .sf-search-card .sf-route-bar > .sf-primary-btn {
+    box-sizing: border-box;
+    height: 48px;
+    min-height: 48px;
+    padding-block: 0;
+  }
 }
 /* Sidebar sponsor creatives use their supplied 160 x 600 banner proportions. */
 .sf-results-layout {
   grid-template-columns: minmax(0, 1fr) 160px;
   gap: var(--td-space-3);
 }
-.sf-ad-rail { grid-template-columns: 160px; justify-content: end; }
+.sf-ad-rail {
+  grid-template-columns: 160px;
+  justify-content: end;
+}
 .sf-ad-card {
   width: 160px;
   min-height: 600px;
@@ -4228,8 +5633,12 @@ body.sf-filter-open { overflow: hidden; }
   background: transparent;
   box-shadow: none;
 }
-.sf-ad-card::after { display: none; }
+.sf-ad-card::after {
+  display: none;
+}
 .sf-ad-card > .sf-ad-banner {
+  position: relative;
+  isolation: isolate;
   display: block;
   width: 160px;
   height: 600px;
@@ -4240,21 +5649,2344 @@ body.sf-filter-open { overflow: hidden; }
   background: transparent;
   line-height: 0;
 }
-.sf-ad-image { position: static; display: block; width: 160px; height: 600px; object-fit: contain; }
-.sf-ad-label { position: absolute; top: var(--td-space-2); left: var(--td-space-2); z-index: 1; }
+.sf-ad-image {
+  position: static;
+  display: block;
+  width: 160px;
+  height: 600px;
+  object-fit: contain;
+}
+.sf-ad-label {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  min-height: 20px;
+  padding: 2px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: var(--td-pill);
+  background: #fff;
+  color: #102957;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1;
+  box-shadow: 0 1px 4px rgba(8, 22, 52, 0.28);
+}
 @media (max-width: 767.98px) {
   .sf-filter-row[open],
-  .sf-filter-row.is-closing { width: 90vw; padding: 14px 18px 20px; }
-  .sf-chip-dropdown > summary { min-height: 34px; padding-inline: 9px; }
-  .sf-inline-ad-row { display: flex; gap: var(--td-space-2); margin-bottom: var(--td-space-2); overflow-x: auto; scrollbar-width: none; }
-  .sf-inline-ad-row::-webkit-scrollbar { display: none; }
-  .sf-inline-ad { flex: 0 0 min(82vw, 360px); grid-template-columns: 70px minmax(0, 1fr) 28px; }
-  .sf-inline-ad > img { width: 70px; height: 44px; }
-  .sf-results-layout { display: block; }
-  .sf-ad-rail { grid-template-columns: 1fr; justify-items: center; }
-  .sf-ad-card { display: block; width: min(160px, 100%); min-height: 0; }
-  .sf-ad-banner { width: 100%; height: auto; }
-  .sf-ad-image { width: 100%; height: auto; aspect-ratio: 4 / 15; object-fit: contain; }
+  .sf-filter-row.is-closing {
+    width: 90vw;
+    padding: 14px 18px 20px;
+  }
+  .sf-chip-dropdown > summary {
+    min-height: 34px;
+    padding-inline: 9px;
+  }
+  .sf-inline-ad-row {
+    display: flex;
+    gap: var(--td-space-2);
+    margin-bottom: var(--td-space-2);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .sf-inline-ad-row::-webkit-scrollbar {
+    display: none;
+  }
+  .sf-inline-ad {
+    flex: 0 0 min(82vw, 360px);
+    grid-template-columns: 70px minmax(0, 1fr) 28px;
+  }
+  .sf-inline-ad > img {
+    width: 70px;
+    height: 44px;
+  }
+  .sf-results-layout {
+    display: block;
+  }
+  .sf-ad-rail {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  .sf-ad-card {
+    display: block;
+    width: min(160px, 100%);
+    min-height: 0;
+  }
+  .sf-ad-banner {
+    width: 100%;
+    height: auto;
+  }
+  .sf-ad-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 15;
+    object-fit: contain;
+  }
 }
 
-\n
+\n+/* Match the three flight detail drawer views to the supplied 02–04 references. */
+.sf-drawer-header {
+  min-height: 64px;
+  background: var(--td-white);
+  color: var(--td-heading-color);
+  border-bottom: 1px solid var(--td-border);
+}
+.sf-drawer-brand {
+  color: var(--td-heading-color);
+  text-transform: none;
+}
+.sf-drawer-brand-context {
+  padding-left: var(--td-space-4);
+  border-left: 1px solid var(--td-border);
+  color: var(--td-heading-color);
+}
+.sf-drawer-close {
+  color: var(--td-heading-color);
+  border: 1px solid var(--td-border);
+}
+.sf-drawer-steps {
+  justify-content: space-between;
+  padding-block: var(--td-space-2);
+}
+.sf-drawer-steps > i {
+  flex: 1;
+}
+.sf-drawer-steps button {
+  font-weight: var(--td-weight-bold);
+}
+.sf-drawer-steps button:not(.is-active):hover {
+  background: var(--td-active-soft);
+}
+.sf-drawer-scroll {
+  background: var(--td-white);
+}
+.sf-drawer-panel[data-drawer-panel="0"]::before {
+  opacity: 0.45;
+}
+.sf-drawer-panel h1 {
+  margin-bottom: var(--td-space-1);
+}
+.sf-drawer-route {
+  border-radius: var(--td-pill);
+}
+.sf-drawer-route-layout {
+  grid-template-columns: minmax(0, 1fr) minmax(190px, 0.34fr);
+  gap: var(--td-space-4);
+}
+.sf-drawer-journeys {
+  gap: var(--td-space-3);
+}
+.sf-drawer-leg {
+  border-radius: var(--td-radius-lg);
+}
+.sf-drawer-leg-heading {
+  justify-content: space-between;
+  margin-bottom: var(--td-space-2);
+}
+.sf-drawer-leg-heading img {
+  width: 124px;
+  height: 30px;
+}
+.sf-drawer-times {
+  grid-template-columns: 1fr minmax(7rem, 1.1fr) 1fr;
+  padding-bottom: var(--td-space-2);
+}
+.sf-drawer-snapshot {
+  align-self: stretch;
+  padding: var(--td-space-4);
+  border-radius: var(--td-radius-lg);
+  background: var(--td-active-soft);
+}
+.sf-price-layout {
+  grid-template-columns: minmax(0, 1.1fr) minmax(15rem, 0.9fr);
+}
+.sf-price-breakdown,
+.sf-ticket,
+.sf-plan-card {
+  border-radius: var(--td-radius-lg);
+}
+.sf-ticket header {
+  min-height: 48px;
+}
+.sf-ticket header img {
+  width: min(82%, 210px);
+}
+.sf-plan-card {
+  padding: var(--td-space-4);
+}
+.sf-plan-main {
+  align-items: flex-start;
+}
+.sf-plan-card > button {
+  min-height: 40px;
+  margin-top: auto;
+  border-radius: var(--td-pill);
+}
+.sf-drawer-footer {
+  min-height: 78px;
+  padding: var(--td-space-3) var(--td-space-5);
+}
+.sf-fare-route,
+.sf-included-benefits,
+.sf-fare-conditions {
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius-lg);
+  background: var(--td-white);
+  box-shadow: var(--td-shadow);
+}
+.sf-fare-route {
+  display: flex;
+  align-items: center;
+  gap: var(--td-space-3);
+  margin: var(--td-space-4) 0 var(--td-space-5);
+  padding: var(--td-space-3) var(--td-space-4);
+}
+.sf-fare-route i,
+.sf-included-benefits i,
+.sf-fare-conditions i {
+  color: var(--td-brand-blue);
+  font-size: var(--td-icon-lg);
+}
+.sf-fare-route b {
+  white-space: nowrap;
+}
+.sf-drawer-route:has([data-route-codes]) {
+  font-size: 0;
+  gap: 8px;
+}
+.sf-drawer-route:has([data-route-codes])
+  > :not(:first-child):not(.sf-drawer-route-codes):not(.sf-price-route-meta) {
+  display: none;
+}
+.sf-drawer-route:has([data-route-codes]) > i:first-child {
+  display: inline-block;
+  font-size: 16px;
+}
+.sf-drawer-route-codes {
+  display: inline-block;
+  font-size: var(--td-font-sm);
+  font-weight: var(--td-weight-bold);
+  color: var(--td-heading-color);
+}
+.sf-flight-card .sf-fare .sf-primary-btn .sf-select-label,
+.sf-flight-card .sf-fare .sf-primary-btn .sf-select-hover-label {
+  z-index: 1;
+  color: inherit;
+  transition: opacity 180ms ease;
+}
+.sf-flight-card .sf-fare .sf-primary-btn .sf-select-hover-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 22px;
+  opacity: 0;
+  pointer-events: none;
+  font-size: var(--td-font-sm);
+}
+.sf-flight-card .sf-fare .sf-primary-btn:hover .sf-select-label,
+.sf-flight-card .sf-fare .sf-primary-btn:focus-visible .sf-select-label {
+  opacity: 0;
+}
+.sf-flight-card .sf-fare .sf-primary-btn:hover .sf-select-hover-label,
+.sf-flight-card .sf-fare .sf-primary-btn:focus-visible .sf-select-hover-label {
+  opacity: 1;
+  color: var(--td-heading-color);
+}
+.sf-flight-card .sf-fare .sf-primary-btn > i {
+  position: relative;
+  z-index: 2;
+}
+.sf-price-route-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--td-space-1);
+  color: var(--td-muted);
+  font-size: var(--td-font-sm);
+}
+.sf-price-route-meta .sf-drawer-type {
+  color: var(--td-heading-color);
+  font-weight: var(--td-weight-semibold);
+}
+.sf-ticket-route {
+  font-weight: var(--td-weight-bold);
+}
+.sf-fare-route span {
+  margin-left: auto;
+  padding-left: var(--td-space-3);
+  border-left: 1px solid var(--td-border);
+  white-space: nowrap;
+}
+.sf-included-benefits {
+  display: grid;
+  grid-template-columns: 0.65fr repeat(3, 1fr);
+  align-items: center;
+  gap: var(--td-space-2);
+  margin-top: var(--td-space-5);
+  padding: var(--td-space-4);
+}
+.sf-included-benefits span {
+  display: flex;
+  align-items: center;
+  gap: var(--td-space-2);
+  min-width: 0;
+  padding-left: var(--td-space-3);
+  border-left: 1px solid var(--td-border);
+  font-size: var(--td-font-sm);
+}
+.sf-plan-card ul {
+  flex: 1;
+  padding: 0;
+  list-style: none;
+}
+.sf-plan-card li {
+  display: flex;
+  align-items: center;
+  gap: var(--td-space-2);
+  min-height: 36px;
+  border-top: 1px solid var(--td-border-light);
+  font-size: var(--td-font-sm);
+}
+.sf-plan-card li i {
+  flex: none;
+  color: var(--td-brand-blue);
+}
+.sf-plan-card.is-current {
+  box-shadow:
+    0 0 0 1px var(--td-brand-blue),
+    var(--td-shadow);
+}
+.sf-plan-badge {
+  background: var(--td-active-soft);
+  color: var(--td-brand-blue);
+  border-radius: var(--td-pill);
+}
+.sf-fare-conditions {
+  margin-top: var(--td-space-5);
+}
+.sf-fare-conditions summary {
+  display: flex;
+  align-items: center;
+  gap: var(--td-space-3);
+  padding: var(--td-space-4);
+  cursor: pointer;
+  list-style: none;
+}
+.sf-fare-conditions summary::-webkit-details-marker {
+  display: none;
+}
+.sf-fare-conditions summary span {
+  display: grid;
+  gap: 2px;
+}
+.sf-fare-conditions small {
+  color: var(--td-muted);
+}
+.sf-fare-conditions summary > i:last-child {
+  margin-left: auto;
+}
+.sf-fare-conditions p {
+  padding: 0 var(--td-space-4) var(--td-space-4);
+}
+.sf-fare-terms {
+  display: flex;
+  gap: var(--td-space-5);
+  color: var(--td-muted);
+  font-size: var(--td-font-sm);
+}
+.sf-fare-terms a {
+  color: var(--td-brand-blue);
+  text-decoration: underline;
+}
+/* Refined route panel composition matching the supplied drawer reference. */
+.sf-drawer-panel[data-drawer-panel="0"]::before {
+  top: 0;
+  right: calc(0px - var(--td-space-5));
+  left: calc(0px - var(--td-space-5));
+  width: auto;
+  height: 230px;
+  opacity: 0.62;
+  background-position:
+    center,
+    right center;
+  mask-image: linear-gradient(180deg, #000 0%, transparent 100%);
+}
+.sf-drawer-panel[data-drawer-panel="1"],
+.sf-drawer-panel[data-drawer-panel="2"] {
+  position: relative;
+  isolation: isolate;
+}
+.sf-drawer-panel[data-drawer-panel="1"]::before,
+.sf-drawer-panel[data-drawer-panel="2"]::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: calc(-1 * var(--td-space-5));
+  height: 230px;
+  background-image:
+    var(--td-flight-drawer-route-art-fade), var(--td-flight-drawer-route-art);
+  background-position:
+    center,
+    right center;
+  background-size:
+    100% 100%,
+    cover;
+  opacity: 0.62;
+  mask-image: linear-gradient(180deg, #000 0%, transparent 100%);
+  pointer-events: none;
+}
+.sf-drawer-panel[data-drawer-panel="1"]::before,
+.sf-drawer-panel[data-drawer-panel="2"]::before {
+  right: calc(-1 * var(--td-space-5) - 14px);
+}
+.sf-drawer-panel[data-drawer-panel="1"]::before,
+.sf-drawer-panel[data-drawer-panel="2"]::before {
+  left: calc(-1 * var(--td-space-5));
+  right: -60px;
+  width: auto;
+}
+.sf-drawer-scroll {
+  overflow-y: overlay;
+}
+.sf-drawer-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--td-brand-blue) transparent;
+}
+.sf-drawer-scroll::-webkit-scrollbar {
+  width: 9px;
+}
+.sf-drawer-scroll::-webkit-scrollbar-track {
+  background-color: #dcecff;
+  background-image:
+    var(--td-flight-drawer-route-art-fade), var(--td-flight-drawer-route-art);
+  background-position:
+    center top,
+    right top;
+  background-size:
+    100% 230px,
+    auto 230px;
+  background-repeat: no-repeat;
+}
+.sf-drawer-scroll::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: var(--td-pill);
+  background: linear-gradient(
+      180deg,
+      var(--td-brand-blue),
+      var(--td-brand-navy)
+    )
+    padding-box;
+}
+.sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-route-layout {
+  padding-left: 0;
+}
+.sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-route-layout::before {
+  content: none;
+}
+.sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-leg::before {
+  content: none;
+}
+.sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-route-layout {
+  grid-template-columns: minmax(0, 1fr) 238px;
+  gap: var(--td-space-3);
+}
+.sf-drawer-local-time {
+  display: none;
+}
+.sf-drawer-scroll {
+  padding-top: 0;
+}
+.sf-drawer-panel[data-drawer-panel="0"] {
+  padding-top: var(--td-space-4);
+}
+.sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-duration i {
+  z-index: 1;
+  display: grid;
+  width: 26px;
+  height: 26px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--td-white);
+  color: var(--td-brand-blue);
+}
+.sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-journeys {
+  position: relative;
+  padding-left: 34px;
+}
+.sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-journeys::before {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: 22px;
+  bottom: 22px;
+  width: 2px;
+  background: var(--td-border-hover);
+}
+.sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-leg {
+  position: relative;
+  padding: var(--td-space-3) var(--td-space-4);
+  border-radius: var(--td-radius-lg);
+}
+.sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-leg::before {
+  content: "";
+  position: absolute;
+  left: -34px;
+  top: 22px;
+  display: block;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--td-brand-blue);
+  border-radius: 50%;
+  background: #fff;
+}
+.sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-leg::after {
+  content: "";
+  position: absolute;
+  left: -28px;
+  top: 28px;
+  width: 12px;
+  height: 12px;
+  background: var(--td-brand-blue);
+  -webkit-mask: url("../images/icon-plane.svg") center/contain no-repeat;
+  mask: url("../images/icon-plane.svg") center/contain no-repeat;
+}
+.sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-route {
+  margin-top: var(--td-space-3);
+}
+.sf-drawer-steps button > span {
+  border: 0;
+  background: transparent;
+}
+.sf-drawer-steps button.is-active {
+  border: 0;
+  background: #0757ff;
+  box-shadow: 0 4px 12px rgba(var(--td-brand-blue-rgb), 0.2);
+}
+.sf-drawer-steps button.is-active > span {
+  border: 0;
+  background: transparent;
+  color: #fff;
+}
+.sf-flight-drawer .sf-drawer-steps .bi-tag::before,
+.sf-flight-drawer .sf-drawer-steps .bi-layers::before {
+  content: initial;
+}
+.sf-drawer-steps button.is-active,
+.sf-drawer-steps button.is-active b,
+.sf-drawer-steps button.is-active > span,
+.sf-drawer-steps button.is-active i {
+  color: #fff !important;
+}
+.sf-drawer-steps button:not(.is-active) {
+  color: var(--td-heading-color);
+}
+.sf-drawer-steps button:not(.is-active) > span {
+  background: transparent !important;
+}
+.sf-drawer-steps button > span > i {
+  display: block;
+  width: 18px;
+  height: 18px;
+  background: currentColor;
+}
+.sf-drawer-steps button .bi-airplane::before,
+.sf-drawer-steps button .bi-tag::before,
+.sf-drawer-steps button .bi-layers::before {
+  content: "" !important;
+}
+.sf-drawer-steps button .bi-airplane {
+  -webkit-mask: url("../images/icon-plane.svg") center/contain no-repeat;
+  mask: url("../images/icon-plane.svg") center/contain no-repeat;
+}
+.sf-drawer-steps button .bi-tag {
+  -webkit-mask: url("../images/icon-ticket.svg") center/contain no-repeat;
+  mask: url("../images/icon-ticket.svg") center/contain no-repeat;
+}
+.sf-drawer-steps button .bi-layers {
+  -webkit-mask: url("../images/icon-expand.svg") center/contain no-repeat;
+  mask: url("../images/icon-expand.svg") center/contain no-repeat;
+}
+@media (max-width: 767.98px) {
+  .sf-drawer-header {
+    min-height: 64px;
+  }
+  .sf-drawer-steps {
+    gap: var(--td-space-1);
+    padding-inline: var(--td-space-2);
+  }
+  .sf-drawer-steps > i {
+    width: auto;
+    min-width: var(--td-space-2);
+  }
+  .sf-drawer-steps button {
+    justify-content: center;
+    gap: var(--td-space-1);
+    min-width: 0;
+    padding-inline: var(--td-space-2);
+    font-size: var(--td-font-sm);
+  }
+  .sf-drawer-route-layout,
+  .sf-price-layout,
+  .sf-fare-plans {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-journeys {
+    padding-left: 0;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-journeys::before,
+  .sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-leg::before {
+    display: none;
+  }
+  .sf-drawer-snapshot {
+    display: none;
+  }
+  .sf-drawer-leg {
+    padding: var(--td-space-3);
+  }
+  .sf-drawer-leg-heading img {
+    width: 92px;
+    height: 26px;
+  }
+  .sf-drawer-footer {
+    min-height: 72px;
+  }
+  .sf-fare-route {
+    flex-wrap: wrap;
+    font-size: var(--td-font-sm);
+  }
+  .sf-fare-route span {
+    margin-left: 0;
+  }
+  .sf-included-benefits {
+    grid-template-columns: 1fr;
+  }
+  .sf-included-benefits span {
+    border-left: 0;
+    padding-left: 0;
+  }
+  .sf-fare-terms {
+    flex-direction: column;
+    gap: var(--td-space-2);
+  }
+}
+
+/* Filter controls follow the off-canvas sidebar reference. */
+.sf-results-layout {
+  grid-template-columns: minmax(0, 1fr) 160px;
+  align-items: start;
+  gap: var(--td-space-4);
+}
+.sf-filter-form .sf-filter-heading {
+  align-items: flex-start;
+  padding: 0 0 var(--td-space-3);
+}
+.sf-filter-heading h3 {
+  color: var(--td-heading-color);
+  font-size: var(--td-font-heading);
+}
+.sf-filter-heading p {
+  margin: var(--td-space-1) 0 0;
+  color: var(--td-muted);
+  font-size: var(--td-font-sm);
+}
+.sf-active-filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--td-space-1);
+  padding: var(--td-space-3) 0;
+  border-bottom: 1px solid var(--td-border-light);
+}
+.sf-active-filter-chips button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--td-space-2);
+  min-height: 28px;
+  padding: 3px 10px;
+  border: 0;
+  border-radius: var(--td-pill);
+  background: var(--td-active-soft);
+  color: var(--td-active-text);
+  font-size: var(--td-font-xs);
+  box-shadow: var(--td-shadow);
+  cursor: pointer;
+}
+.sf-active-filter-chips button span {
+  font-size: 15px;
+  line-height: 1;
+}
+.sf-active-filter-chips button[hidden],
+.sf-active-filter-chips[hidden] {
+  display: none;
+}
+.sf-filter-form .sf-filter-group {
+  padding: var(--td-space-3) 0;
+  border-bottom: 1px solid var(--td-border-light);
+}
+.sf-filter-form .sf-filter-group legend {
+  margin-bottom: var(--td-space-2);
+  color: var(--td-heading-color);
+  font-size: var(--td-font-md);
+}
+.sf-filter-form .sf-filter-group legend i {
+  color: var(--td-brand-blue);
+}
+.sf-filter-form .sf-filter-group > label:not(.sf-switch) {
+  min-height: 34px;
+  margin: 4px 0;
+  padding: 5px 8px;
+  border: 1px solid var(--td-border);
+  border-radius: 8px;
+  background: var(--td-white);
+  font-size: var(--td-font-sm);
+}
+.sf-filter-form .sf-filter-group > label:has(input:checked) {
+  border-color: var(--td-brand-blue);
+  background: var(--td-active-soft);
+  color: var(--td-heading-color);
+}
+.sf-filter-form .sf-filter-group input:not([type="range"]) {
+  accent-color: var(--td-brand-blue);
+}
+.sf-filter-form .sf-time-options {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+}
+.sf-filter-form .sf-time-options label {
+  min-width: 0;
+}
+.sf-filter-form .sf-time-options span {
+  display: flex;
+  min-height: 66px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 6px 2px;
+  border-radius: 8px;
+  box-shadow: var(--td-shadow);
+  color: var(--td-heading-color);
+  line-height: 1.15;
+}
+.sf-filter-form .sf-time-options span i {
+  color: var(--td-brand-blue);
+  font-size: 15px;
+}
+.sf-filter-form .sf-time-options span b {
+  font-size: var(--td-font-xs);
+}
+.sf-filter-form .sf-time-options span small {
+  font-size: 9px;
+  white-space: nowrap;
+}
+.sf-filter-form .sf-time-options input:checked + span {
+  border-color: var(--td-brand-blue);
+  background: var(--td-active-soft);
+  color: var(--td-active-text);
+}
+.sf-filter-form .sf-airline-filter {
+  display: grid !important;
+  grid-template-columns: 18px 54px minmax(0, 1fr) auto;
+  gap: var(--td-space-2) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 3px 0 !important;
+  background: transparent !important;
+}
+.sf-filter-form .sf-airline-filter img {
+  width: 52px;
+  height: 22px;
+  object-fit: contain;
+  object-position: left center;
+}
+.sf-filter-form .sf-airline-filter > i {
+  color: #16735a;
+  font-size: 20px;
+}
+.sf-filter-form .sf-airline-filter small {
+  color: var(--td-muted);
+  font-size: var(--td-font-sm);
+}
+.sf-filter-form .sf-range-dual {
+  height: 20px;
+  margin: 2px 4px 8px;
+}
+.sf-filter-form .sf-range-dual::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  right: 0;
+  left: 0;
+  height: 4px;
+  border-radius: var(--td-pill);
+  background: linear-gradient(
+    to right,
+    var(--td-border) 0%,
+    var(--td-border) var(--sf-range-start, 2%),
+    var(--td-brand-blue) var(--sf-range-start, 2%) var(--sf-range-end, 82%),
+    var(--td-border) var(--sf-range-end, 82%) 100%
+  );
+}
+.sf-filter-form .sf-range-dual input[type="range"] {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  height: 20px;
+  margin: 0;
+  pointer-events: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.sf-filter-form
+  .sf-range-dual
+  input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  background: transparent;
+}
+.sf-filter-form .sf-range-dual input[type="range"]::-moz-range-track {
+  height: 4px;
+  background: transparent;
+}
+.sf-filter-form .sf-range-dual input[type="range"]::-webkit-slider-thumb {
+  width: 16px;
+  height: 16px;
+  margin-top: -6px;
+  border: 1px solid var(--td-brand-blue);
+  border-radius: 50%;
+  background: var(--td-white);
+  pointer-events: auto;
+  -webkit-appearance: none;
+}
+.sf-filter-form .sf-range-dual input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--td-brand-blue);
+  border-radius: 50%;
+  background: var(--td-white);
+  pointer-events: auto;
+}
+.sf-price-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--td-space-3);
+}
+.sf-price-inputs label {
+  display: grid;
+  gap: 1px;
+  margin: 0;
+  padding: 5px 9px;
+  border: 1px solid var(--td-border);
+  border-radius: 8px;
+  background: var(--td-white);
+  box-shadow: var(--td-shadow);
+}
+.sf-price-inputs label span {
+  color: var(--td-muted);
+  font-size: var(--td-font-xs);
+}
+.sf-price-inputs input {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--td-heading-color);
+  font-size: var(--td-font-sm);
+  font-weight: var(--td-weight-semibold);
+}
+.sf-price-inputs .sf-price-value {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  min-width: 0;
+  color: var(--td-heading-color);
+  font-size: var(--td-font-sm);
+}
+.sf-price-inputs .sf-price-value b {
+  flex: none;
+  font-weight: var(--td-weight-semibold);
+}
+.sf-filter-form .sf-baggage-option {
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 3px 0 !important;
+  background: transparent !important;
+}
+.sf-filter-form .sf-baggage-option i {
+  width: 20px;
+  color: var(--td-heading-color);
+  font-size: 16px;
+}
+.sf-filter-form .sf-refundable-group {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.sf-filter-form .sf-refundable-group legend {
+  margin: 0;
+}
+.sf-filter-form .sf-switch {
+  display: inline-flex;
+  position: relative;
+  width: 42px;
+  height: 24px;
+  flex: none;
+  margin: 0;
+  cursor: pointer;
+}
+.sf-filter-form .sf-switch input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.sf-filter-form .sf-switch span {
+  width: 100%;
+  border-radius: var(--td-pill);
+  background: #d3d5d9;
+  transition: background-color 160ms ease;
+}
+.sf-filter-form .sf-switch span::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--td-white);
+  box-shadow: var(--td-shadow);
+  transition: transform 160ms ease;
+}
+.sf-filter-form .sf-switch input:checked + span {
+  background: var(--td-brand-blue);
+}
+.sf-filter-form .sf-switch input:checked + span::after {
+  transform: translateX(18px);
+}
+.sf-filter-drawer-footer {
+  display: none;
+}
+.sf-filter-row[open],
+.sf-filter-row.is-closing {
+  inset: 0 auto 0 0;
+  width: min(390px, 33vw);
+  min-width: 320px;
+  height: 100dvh;
+  padding: 18px 20px 0;
+  border-radius: 0 12px 12px 0;
+  transform: translateX(-100%);
+}
+.sf-filter-row.is-open {
+  transform: translateX(0);
+}
+.sf-filter-row[open] .sf-filter-panel,
+.sf-filter-row.is-closing .sf-filter-panel {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+.sf-filter-row[open] .sf-filter-heading,
+.sf-filter-row.is-closing .sf-filter-heading {
+  position: sticky;
+  top: 0;
+  flex: none;
+  padding: 4px 0 14px;
+}
+.sf-filter-row[open] .sf-filter-heading p,
+.sf-filter-row.is-closing .sf-filter-heading p {
+  margin-top: 3px;
+}
+.sf-filter-row[open] .sf-active-filter-chips,
+.sf-filter-row.is-closing .sf-active-filter-chips {
+  flex: none;
+}
+.sf-filter-row[open] .sf-filter-group,
+.sf-filter-row.is-closing .sf-filter-group {
+  flex: none;
+  margin: 0;
+  padding: 11px 0;
+  border: 0;
+  border-bottom: 1px solid var(--td-border-light);
+  border-radius: 0;
+  background: var(--td-white);
+  box-shadow: none;
+}
+.sf-filter-row[open] .sf-filter-group legend,
+.sf-filter-row.is-closing .sf-filter-group legend {
+  margin-bottom: 8px;
+}
+.sf-filter-row[open] .sf-filter-group > label:not(.sf-switch),
+.sf-filter-row.is-closing .sf-filter-group > label:not(.sf-switch) {
+  min-height: 34px;
+  margin: 3px 0;
+}
+.sf-filter-row[open] .sf-filter-group .sf-time-options span,
+.sf-filter-row.is-closing .sf-filter-group .sf-time-options span {
+  min-height: 70px;
+}
+.sf-filter-row[open] .sf-filter-drawer-footer,
+.sf-filter-row.is-closing .sf-filter-drawer-footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  min-height: 62px;
+  align-items: center;
+  gap: 12px;
+  margin: auto -20px 0;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--td-border);
+  background: var(--td-white);
+}
+.sf-filter-drawer-footer b {
+  margin-right: auto;
+  color: var(--td-heading-color);
+  font-size: var(--td-font-sm);
+  white-space: nowrap;
+}
+.sf-filter-drawer-footer button {
+  min-height: 40px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: var(--td-pill);
+  background: transparent;
+  color: var(--td-brand-blue);
+  font-size: var(--td-font-sm);
+  white-space: nowrap;
+}
+.sf-filter-drawer-footer .sf-apply-filters {
+  padding: 0 16px;
+  background: linear-gradient(110deg, #0757ff, #082e82);
+  box-shadow: var(--td-shadow);
+  color: var(--td-white);
+  font-weight: var(--td-weight-bold);
+}
+.sf-results-layout > .sf-flight-results {
+  min-width: 0;
+}
+@media (max-width: 991.98px) and (min-width: 768px) {
+  .sf-results-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sf-results-layout > .sf-ad-rail {
+    display: none;
+  }
+}
+@media (max-width: 767.98px) {
+  .sf-results-layout {
+    display: block;
+  }
+  .sf-filter-row[open],
+  .sf-filter-row.is-closing {
+    right: auto;
+    left: 0;
+    width: min(100vw, 430px);
+    min-width: 0;
+    padding: 14px 18px 0;
+    border-radius: 0 12px 12px 0;
+  }
+  .sf-filter-row[open] .sf-filter-drawer-footer,
+  .sf-filter-row.is-closing .sf-filter-drawer-footer {
+    margin-right: -18px;
+    margin-left: -18px;
+  }
+  .sf-filter-row[open] .sf-filter-heading,
+  .sf-filter-row.is-closing .sf-filter-heading {
+    padding-top: 0;
+  }
+}
+.sf-ticket header .sf-ticket-airlines {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--td-space-3);
+  width: 100%;
+}
+.sf-ticket header .sf-ticket-airlines img {
+  width: auto;
+  max-width: 42%;
+  max-height: 28px;
+  object-fit: contain;
+}
+.sf-ticket-airlines [data-ticket-divider] {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: var(--td-weight-bold);
+}
+.sf-flight-drawer .sf-plan-main {
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: var(--td-space-3);
+}
+.sf-flight-drawer .sf-plan-main[role="radio"] {
+  cursor: pointer;
+}
+.sf-flight-drawer .sf-plan-main[role="radio"]:focus-visible {
+  outline: var(--td-focus);
+  outline-offset: var(--td-focus-offset);
+}
+.sf-flight-drawer .sf-plan-main > i {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--td-border-hover);
+  border-radius: 50%;
+  background-color: var(--td-white);
+  color: transparent;
+  font-size: 0;
+  -webkit-mask: none;
+  mask: none;
+}
+.sf-flight-drawer .sf-plan-card.is-current .sf-plan-main > i {
+  border: 2px solid var(--td-brand-blue);
+  background-color: var(--td-brand-blue);
+  box-shadow: inset 0 0 0 4px var(--td-white);
+}
+/* Keep the filter drawer on the left and animate it in and out smoothly. */
+.sf-filter-row[open],
+.sf-filter-row.is-closing {
+  inset: 0 auto 0 0;
+  border-radius: 0 12px 12px 0;
+  transform: translateX(calc(-100% - 2px));
+  transition: transform var(--td-transition-brand);
+  will-change: transform;
+}
+.sf-filter-row.is-open {
+  transform: translateX(0);
+}
+@media (max-width: 767.98px) {
+  .sf-filter-row[open],
+  .sf-filter-row.is-closing {
+    right: auto;
+    left: 0;
+    width: min(100vw, 430px);
+    border-radius: 0 12px 12px 0;
+    transform: translateX(-100%);
+  }
+  .sf-filter-row.is-open {
+    transform: translateX(0);
+  }
+}
+/* Apply the homepage’s subtle card shadow to bordered search content. */
+.sf-search-card,
+.sf-results-title,
+.sf-date-card.is-active,
+.sf-inline-ad,
+.sf-flight-card,
+.sf-fare,
+.sf-drawer-leg,
+.sf-drawer-snapshot,
+.sf-price-breakdown,
+.sf-ticket,
+.sf-plan-card,
+.sf-filter-row[open] .sf-filter-group,
+.sf-filter-row.is-closing .sf-filter-group,
+.sf-compare,
+.sf-confidence article {
+  box-shadow: var(--td-shadow);
+}
+@media (min-width: 768px) {
+  .sf-loading-status {
+    width: 100%;
+  }
+}
+.sf-filter-row[open] .sf-filter-group legend,
+.sf-filter-row.is-closing .sf-filter-group legend {
+  font-size: var(--td-font-md);
+}
+.sf-filter-row[open] .sf-filter-group label,
+.sf-filter-row.is-closing .sf-filter-group label,
+.sf-filter-row[open] .sf-filter-group .sf-time-options span,
+.sf-filter-row.is-closing .sf-filter-group .sf-time-options span {
+  font-size: var(--td-font-md);
+}
+.sf-filter-row[open] .sf-filter-heading h3,
+.sf-filter-row.is-closing .sf-filter-heading h3 {
+  font-size: var(--td-font-lg);
+}
+.sf-filter-row[open] .sf-filter-heading,
+.sf-filter-row.is-closing .sf-filter-heading {
+  position: relative;
+  top: auto;
+}
+.sf-filter-row[open],
+.sf-filter-row.is-closing {
+  scrollbar-width: thin;
+  scrollbar-color: var(--td-brand-blue) transparent;
+}
+.sf-filter-row[open]::-webkit-scrollbar,
+.sf-filter-row.is-closing::-webkit-scrollbar {
+  width: 8px;
+}
+.sf-filter-row[open]::-webkit-scrollbar-track,
+.sf-filter-row.is-closing::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sf-filter-row[open]::-webkit-scrollbar-thumb,
+.sf-filter-row.is-closing::-webkit-scrollbar-thumb {
+  border-radius: var(--td-pill);
+  background: linear-gradient(
+    180deg,
+    var(--td-brand-blue),
+    var(--td-brand-navy)
+  );
+}
+.sf-filter-row[open] .sf-active-filter-chips button,
+.sf-filter-row.is-closing .sf-active-filter-chips button {
+  font-size: var(--td-font-sm);
+}
+@media (max-width: 767.98px) {
+  .sf-price-layout .sf-ticket {
+    order: -1;
+  }
+  .sf-plan-card:not(.is-current) {
+    display: block;
+    padding: var(--td-space-3);
+  }
+  .sf-plan-card .sf-plan-main {
+    grid-template-columns: 20px minmax(0, 1fr) 12px;
+    align-items: center;
+  }
+  .sf-plan-card .sf-plan-main > div {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0 var(--td-space-2);
+  }
+  .sf-plan-card .sf-plan-main div > b,
+  .sf-plan-card .sf-plan-main span {
+    grid-column: 1;
+  }
+  .sf-plan-card .sf-plan-main div > b {
+    grid-row: 1;
+  }
+  .sf-plan-card .sf-plan-main span {
+    grid-row: 2;
+    margin: 0;
+    font-size: var(--td-font-xs);
+  }
+  .sf-plan-card .sf-plan-main strong {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    margin: 0;
+    font-size: var(--td-font-default);
+    white-space: nowrap;
+  }
+  .sf-plan-card .sf-plan-main::after {
+    content: "";
+    grid-column: 3;
+    grid-row: 1;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid var(--td-brand-blue);
+    border-bottom: 2px solid var(--td-brand-blue);
+    transform: rotate(45deg) translateY(-2px);
+  }
+  .sf-plan-card.is-current .sf-plan-main::after {
+    transform: rotate(225deg) translateY(-2px);
+  }
+  .sf-plan-card:not(.is-current) ul,
+  .sf-plan-card:not(.is-current) > button {
+    display: none;
+  }
+  .sf-plan-card.sf-plan-popular:not(.is-current) .sf-plan-badge {
+    top: 8px;
+    right: 104px;
+  }
+}
+.sf-flight-card .sf-time span,
+.sf-flight-card .sf-time small {
+  font-size: 16px;
+}
+
+/* Mobile search form and flight detail layouts follow the homepage geometry. */
+@media (max-width: 767.98px) {
+  .sf-container {
+    width: calc(100% - 2 * var(--td-content-gutter));
+    max-width: none;
+  }
+
+  .sf-search-hero {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sf-search-card {
+    width: 100%;
+    padding: var(--td-space-2) var(--td-space-3) var(--td-space-3);
+    border-radius: var(--td-radius-xl);
+  }
+
+  .sf-search-options {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: center;
+    gap: var(--td-space-2) var(--td-space-1);
+    margin: 0 0 var(--td-space-3);
+    font-size: var(--td-font-sm);
+  }
+
+  .sf-search-options .sf-choice {
+    min-width: 0;
+    justify-content: center;
+    gap: var(--td-space-1);
+    white-space: nowrap;
+  }
+
+  .sf-search-options .sf-choice input {
+    width: 16px;
+    height: 16px;
+    flex: none;
+  }
+
+  .sf-search-options .sf-class {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .sf-search-options .sf-class .dd-t {
+    min-height: var(--td-mobile-search-input-height);
+    width: 100%;
+    padding: var(--td-space-2) var(--td-space-3);
+    border: var(--td-border-width) solid var(--td-border);
+    border-radius: var(--td-button-radius);
+  }
+
+  .sf-search-card .sf-route-bar {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: var(--td-space-2);
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .sf-search-card .sf-route-bar > .sf-fld {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    min-height: var(--td-mobile-search-input-height);
+    align-items: center;
+    gap: var(--td-space-2);
+    padding: var(--td-space-2) var(--td-space-3);
+    border: var(--td-border-width) solid var(--td-border);
+    border-radius: var(--td-button-radius);
+    background: var(--td-white);
+    box-shadow: var(--td-shadow);
+    font-size: var(--td-font-sm);
+  }
+
+  .sf-route-bar .sf-ff,
+  .sf-route-bar .sf-fto {
+    grid-column: 1 / -1;
+  }
+
+  .sf-route-bar .sf-ff {
+    grid-row: 1;
+  }
+  .sf-route-bar .sf-fto {
+    grid-row: 2;
+  }
+  .sf-route-bar .sf-date {
+    grid-row: 3;
+    grid-column: 1;
+  }
+  .sf-route-bar .sf-fr {
+    grid-row: 3;
+    grid-column: 2;
+  }
+  .sf-route-bar .sf-ft {
+    grid-row: 4;
+    grid-column: 1 / -1;
+  }
+
+  .sf-route-bar .sf-date::before,
+  .sf-route-bar .sf-ft::before {
+    display: none;
+  }
+
+  .sf-route-bar .sf-swap {
+    position: absolute;
+    z-index: 2;
+    top: calc(var(--td-mobile-search-input-height) + var(--td-space-1));
+    right: var(--td-space-3);
+    width: var(--td-mobile-swap-size);
+    height: var(--td-mobile-swap-size);
+    margin: 0;
+    background: var(--td-white);
+  }
+
+  .sf-route-bar > .sf-primary-btn {
+    grid-row: 5;
+    grid-column: 1 / -1;
+    width: 100%;
+    min-height: var(--td-mobile-search-input-height);
+    margin: 0;
+    border-radius: var(--td-button-radius);
+  }
+
+  .sf-search-card:has(#sf-t3:checked) .sf-route-bar > .sf-primary-btn {
+    display: none;
+  }
+
+  .sf-search-card .sf-multi-controls {
+    margin-top: var(--td-space-2);
+  }
+
+  .sf-multi-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    margin: var(--td-space-2) 0;
+    padding: var(--td-space-1);
+    border-radius: var(--td-radius-lg);
+  }
+
+  .sf-multi-field {
+    min-height: var(--td-mobile-search-input-height);
+    padding: var(--td-space-2) var(--td-space-3);
+    border-right: 0 !important;
+    border-bottom: var(--td-border-width) solid var(--td-border-light);
+    font-size: var(--td-font-sm);
+  }
+
+  .sf-multi-field:last-of-type {
+    border-bottom: 0;
+  }
+  .sf-multi-actions {
+    justify-content: flex-end;
+    padding: var(--td-space-1);
+  }
+  .sf-multi-footer {
+    align-items: stretch;
+    flex-direction: column;
+    gap: var(--td-space-2);
+  }
+  .sf-multi-footer > .sf-primary-btn {
+    width: 100%;
+    min-height: var(--td-mobile-search-input-height);
+  }
+
+  .sf-results-layout {
+    min-width: 0;
+  }
+  .sf-flight-card {
+    min-width: 0;
+  }
+  .sf-flight-card .sf-card-airline-mark {
+    min-width: 0;
+  }
+  .sf-date-strip {
+    min-width: 0;
+  }
+
+  .sf-drawer-scroll {
+    padding: var(--td-space-3);
+    overflow-x: hidden;
+    background-color: var(--td-white);
+    background-image:
+      var(--td-flight-drawer-route-art-fade), var(--td-flight-drawer-route-art);
+    background-repeat: no-repeat;
+    background-position:
+      center top,
+      center top;
+    background-size:
+      100% 220px,
+      100% 220px;
+  }
+
+  .sf-drawer-panel {
+    min-width: 0;
+  }
+  .sf-drawer-panel h1,
+  .sf-drawer-panel > p,
+  .sf-drawer-route,
+  .sf-price-layout,
+  .sf-fare-plans,
+  .sf-fare-conditions,
+  .sf-fare-terms,
+  .sf-included-benefits {
+    max-width: 100%;
+  }
+
+  .sf-drawer-route {
+    width: 100%;
+    min-width: 0;
+    flex-wrap: wrap;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .sf-drawer-route-layout,
+  .sf-price-layout,
+  .sf-fare-plans {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    min-width: 0;
+    gap: var(--td-space-3);
+  }
+
+  .sf-drawer-journeys,
+  .sf-drawer-leg,
+  .sf-price-breakdown,
+  .sf-ticket,
+  .sf-plan-card {
+    min-width: 0;
+  }
+  .sf-drawer-snapshot {
+    display: none;
+  }
+
+  .sf-drawer-leg {
+    padding: var(--td-space-3);
+  }
+  .sf-drawer-leg-heading {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .sf-drawer-leg-heading img {
+    width: auto;
+    max-width: min(42%, 112px);
+    object-fit: contain;
+  }
+  .sf-drawer-times {
+    grid-template-columns: minmax(0, 1fr) minmax(3.5rem, 0.9fr) minmax(0, 1fr);
+    gap: var(--td-space-1);
+  }
+  .sf-drawer-times > div:not(.sf-drawer-duration) {
+    min-width: 0;
+  }
+  .sf-drawer-times strong {
+    font-size: var(--td-font-heading-small);
+  }
+  .sf-drawer-times b {
+    font-size: var(--td-font-sm);
+  }
+  .sf-drawer-times span {
+    font-size: var(--td-font-xs);
+    overflow-wrap: anywhere;
+  }
+  .sf-drawer-bags {
+    justify-content: space-between;
+    gap: var(--td-space-2);
+    font-size: var(--td-font-xs);
+  }
+
+  .sf-price-layout .sf-ticket {
+    order: -1;
+  }
+  .sf-price-breakdown {
+    padding: var(--td-space-3);
+  }
+  .sf-price-breakdown > div:not(.sf-price-total) {
+    grid-template-columns: 24px minmax(0, 1fr) auto;
+  }
+  .sf-price-breakdown > div b {
+    text-align: right;
+  }
+  .sf-ticket header {
+    min-height: 48px;
+  }
+  .sf-ticket header .sf-ticket-airlines {
+    gap: var(--td-space-2);
+  }
+  .sf-ticket header .sf-ticket-airlines img {
+    max-width: 40%;
+    max-height: 24px;
+  }
+  .sf-ticket-route {
+    gap: var(--td-space-3);
+  }
+
+  .sf-plan-card,
+  .sf-plan-card:not(.is-current) {
+    display: block;
+    padding: var(--td-space-3);
+  }
+  .sf-plan-card .sf-plan-main {
+    grid-template-columns: 20px minmax(0, 1fr) 12px;
+  }
+  .sf-plan-card:not(.is-current) ul,
+  .sf-plan-card:not(.is-current) > button {
+    display: none;
+  }
+  .sf-plan-card.is-current ul,
+  .sf-plan-card.is-current > button {
+    display: block;
+  }
+
+  .sf-filter-row[open],
+  .sf-filter-row.is-closing {
+    width: min(88vw, 380px);
+    max-width: 100vw;
+    height: 100dvh;
+    border-radius: 0 12px 12px 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .sf-search-card {
+    padding-right: var(--td-space-2);
+    padding-left: var(--td-space-2);
+  }
+  .sf-search-options {
+    gap: var(--td-space-1) 2px;
+    font-size: var(--td-font-xs);
+  }
+  .sf-search-options .sf-choice {
+    gap: 3px;
+  }
+  .sf-search-options .sf-choice input {
+    width: 14px;
+    height: 14px;
+  }
+  .sf-drawer-scroll {
+    padding: var(--td-space-2);
+  }
+  .sf-drawer-times {
+    grid-template-columns: minmax(0, 1fr) minmax(2.8rem, 0.8fr) minmax(0, 1fr);
+  }
+  .sf-drawer-bags {
+    flex-direction: column;
+  }
+}
+.sf-flight-card .sf-time strong {
+  font-size: 28px;
+}
+.sf-flight-card .sf-leg-details,
+.sf-flight-card .sf-leg-details li {
+  font-size: 15px;
+}
+.sf-flight-card .sf-leg {
+  min-height: 118px;
+  padding-bottom: 32px;
+}
+.sf-flight-card .sf-leg .sf-journey {
+  padding-bottom: 18px;
+}
+.sf-flight-card .sf-leg .sf-leg-details {
+  bottom: 8px;
+}
+/* Match the drawer references: one sky background fills the complete panel. */
+.sf-drawer-scroll {
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+  background-color: #fff;
+  background-image:
+    var(--td-flight-drawer-route-art-fade), var(--td-flight-drawer-route-art);
+  background-repeat: no-repeat;
+  background-position:
+    center top,
+    right top;
+  background-size:
+    100% 260px,
+    auto 260px;
+}
+.sf-drawer-scroll::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+.sf-drawer-panel[data-drawer-panel="0"]::before,
+.sf-drawer-panel[data-drawer-panel="1"]::before,
+.sf-drawer-panel[data-drawer-panel="2"]::before {
+  content: none;
+  display: none;
+}
+@media (max-width: 767.98px) {
+  .sf-drawer-scroll {
+    background-position:
+      center top,
+      center top;
+    background-size:
+      100% 220px,
+      100% 220px;
+  }
+}
+.sf-results-title .sf-filter-row > summary {
+  border: var(--td-border-width) solid var(--td-border);
+  border-radius: var(--td-button-radius);
+}
+@media (max-width: 767.98px) {
+  .sf-container {
+    width: calc(100% - 2 * var(--td-content-gutter));
+    max-width: none;
+    padding-right: var(--td-content-gutter);
+    padding-left: var(--td-content-gutter);
+  }
+  .sf-search-hero {
+    width: calc(100% + 42px);
+    margin-left: -21px;
+    padding: 0 3px;
+  }
+  .sf-search-card {
+    padding: 10px 16px 16px;
+    border-radius: 18px;
+  }
+  .sf-search-options {
+    grid-template-columns: 133px minmax(0, 1fr);
+    justify-items: stretch;
+    row-gap: 8px;
+    margin-bottom: 12px;
+    font-size: var(--td-font-default);
+  }
+  .sf-search-options .sf-choice {
+    min-height: 24px;
+    justify-content: flex-start;
+    gap: 10px;
+    font-size: var(--td-font-default);
+  }
+  .sf-search-options .sf-choice input {
+    width: 20px;
+    height: 20px;
+  }
+  .sf-search-options .sf-class {
+    grid-column: 1 / -1;
+    margin-top: 0;
+  }
+  .sf-search-options .sf-class .dd-t {
+    height: var(--td-mobile-search-input-height);
+    min-height: var(--td-mobile-search-input-height);
+    padding: 0 14px;
+    border-radius: var(--td-pill);
+    box-shadow: none;
+  }
+  .sf-search-card .sf-route-bar {
+    gap: 8px;
+  }
+  .sf-search-card .sf-route-bar > .sf-fld {
+    height: var(--td-mobile-search-input-height);
+    min-height: var(--td-mobile-search-input-height);
+    padding: 0 14px;
+    border-radius: var(--td-pill);
+    box-shadow: none;
+    font-size: var(--td-font-default);
+  }
+  .sf-route-bar .sf-ff {
+    grid-row: 1;
+    grid-column: 1 / -1;
+  }
+  .sf-route-bar .sf-fto {
+    grid-row: 2;
+    grid-column: 1 / -1;
+  }
+  .sf-route-bar .sf-date {
+    grid-row: 3;
+    grid-column: 1;
+  }
+  .sf-route-bar .sf-fr {
+    grid-row: 3;
+    grid-column: 2;
+  }
+  .sf-route-bar .sf-ft {
+    grid-row: 4;
+    grid-column: 1 / -1;
+  }
+  .sf-route-bar .sf-swap {
+    top: 40px;
+    right: calc(50% - 19px);
+    width: 38px;
+    height: 38px;
+  }
+  .sf-route-bar > .sf-primary-btn {
+    grid-row: 5;
+    height: var(--td-mobile-search-input-height);
+    min-height: var(--td-mobile-search-input-height);
+    margin-top: 0;
+    border-radius: var(--td-pill);
+    font-weight: var(--td-weight-bold);
+  }
+  .sf-search-card:has(#sf-t1:checked) .sf-route-bar .sf-ft {
+    grid-row: 3;
+    grid-column: 2;
+  }
+  .sf-search-card:has(#sf-t1:checked) .sf-route-bar > .sf-primary-btn {
+    grid-row: 4;
+  }
+  .sf-bundle {
+    display: flex;
+    align-items: center;
+    gap: var(--td-space-2);
+    min-height: 24px;
+    margin-top: 12px;
+    margin-bottom: 0;
+    color: var(--td-text);
+    font-size: 16px;
+    font-weight: var(--td-weight-medium);
+  }
+  .sf-bundle input {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    accent-color: var(--td-active-color);
+  }
+}
+@media (max-width: 767.98px) {
+  .sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-route-layout {
+    display: block;
+    width: 100%;
+    padding-left: 0;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-journeys {
+    width: 100%;
+    max-width: none;
+    padding-left: 0;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-leg {
+    width: 100%;
+    min-width: 0;
+    padding: 14px;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-leg-heading {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-leg-heading > span {
+    white-space: nowrap;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-times {
+    grid-template-columns: minmax(0, 1fr) minmax(76px, 1fr) minmax(0, 1fr);
+    gap: 4px;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-times span {
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+  .sf-drawer-local-time {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: -4px 0 12px;
+    color: var(--td-heading-color);
+    font-size: 12px;
+  }
+  .sf-drawer-local-time i {
+    color: var(--td-brand-blue);
+  }
+  .sf-flight-drawer[data-trip-type="Multi-city"] .sf-drawer-leg {
+    min-height: 0;
+    padding: 10px 12px;
+    border-radius: 12px;
+  }
+  .sf-flight-drawer[data-trip-type="Multi-city"] .sf-drawer-journeys {
+    gap: 10px;
+  }
+  .sf-flight-drawer[data-trip-type="Multi-city"] .sf-drawer-leg-heading {
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+  .sf-flight-drawer[data-trip-type="Multi-city"] .sf-drawer-leg-heading > span {
+    padding: 5px 8px;
+    font-size: 0;
+  }
+  .sf-flight-drawer[data-trip-type="Multi-city"]
+    .sf-drawer-leg-heading
+    > span::after {
+    font-size: 11px;
+  }
+  .sf-flight-drawer[data-trip-type="Multi-city"]
+    .sf-drawer-leg-outbound
+    .sf-drawer-leg-heading
+    > span::after {
+    content: "▦  SAT, 21 NOV";
+  }
+  .sf-flight-drawer[data-trip-type="Multi-city"]
+    .sf-drawer-leg-multi-second
+    .sf-drawer-leg-heading
+    > span::after {
+    content: "▦  MON, 23 NOV";
+  }
+  .sf-flight-drawer[data-trip-type="Multi-city"]
+    .sf-drawer-leg-third
+    .sf-drawer-leg-heading
+    > span::after {
+    content: "▦  FRI, 27 NOV";
+  }
+  .sf-flight-drawer[data-trip-type="Multi-city"] .sf-drawer-leg-heading img {
+    max-width: 36%;
+    height: 22px;
+  }
+  .sf-flight-drawer[data-trip-type="Multi-city"] .sf-drawer-times {
+    grid-template-columns: minmax(0, 1fr) 90px minmax(0, 1fr);
+    padding: 0 0 8px;
+  }
+  .sf-flight-drawer[data-trip-type="Multi-city"] .sf-drawer-times strong {
+    font-size: 20px;
+  }
+  .sf-flight-drawer[data-trip-type="Multi-city"] .sf-drawer-times b {
+    font-size: 15px;
+  }
+  .sf-flight-drawer[data-trip-type="Multi-city"] .sf-drawer-times span {
+    font-size: 13px;
+  }
+  .sf-flight-drawer[data-trip-type="Multi-city"] .sf-drawer-duration i {
+    width: 24px;
+    height: 24px;
+  }
+  .sf-flight-drawer[data-trip-type="Multi-city"] .sf-drawer-duration i::before {
+    width: 18px;
+    height: 18px;
+  }
+  .sf-flight-drawer[data-trip-type="Multi-city"] .sf-drawer-bags {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 4px;
+    padding-top: 7px;
+    font-size: 10px;
+  }
+  .sf-flight-drawer[data-trip-type="Multi-city"] .sf-drawer-bags > span {
+    max-width: none;
+    font-size: 0;
+  }
+  .sf-flight-drawer[data-trip-type="Multi-city"] .sf-drawer-bags > span::after {
+    content: "7 kg cabin";
+    font-size: 10px;
+  }
+  .sf-flight-drawer[data-trip-type="Multi-city"]
+    .sf-drawer-bags
+    > span:last-child::after {
+    content: "23 kg checked";
+  }
+}
+@media (max-width: 767.98px) {
+  .sf-filter-row[open],
+  .sf-filter-row.is-closing {
+    width: min(100vw, 400px);
+    max-width: 100vw;
+    padding: 18px 20px 0;
+    font-size: 14px;
+  }
+  .sf-filter-row[open] .sf-filter-heading h3,
+  .sf-filter-row.is-closing .sf-filter-heading h3 {
+    font-size: 22px;
+  }
+  .sf-filter-row[open] .sf-filter-group legend,
+  .sf-filter-row.is-closing .sf-filter-group legend {
+    font-size: 15px;
+  }
+  .sf-filter-row[open] .sf-filter-group label,
+  .sf-filter-row.is-closing .sf-filter-group label,
+  .sf-filter-row[open] .sf-filter-group .sf-time-options span,
+  .sf-filter-row.is-closing .sf-filter-group .sf-time-options span {
+    font-size: 14px;
+  }
+  .sf-filter-row[open] .sf-filter-group,
+  .sf-filter-row.is-closing .sf-filter-group {
+    padding: 12px 0;
+  }
+  .sf-filter-row[open] .sf-filter-group > label:not(.sf-switch),
+  .sf-filter-row.is-closing .sf-filter-group > label:not(.sf-switch) {
+    min-height: 32px;
+  }
+  .sf-filter-form .sf-airline-filter {
+    grid-template-columns: 18px 54px minmax(0, 1fr) auto;
+  }
+  .sf-filter-row[open] .sf-filter-form .sf-time-options,
+  .sf-filter-row.is-closing .sf-filter-form .sf-time-options {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
+    max-width: none;
+    gap: 6px;
+  }
+  .sf-filter-row[open] .sf-filter-form .sf-time-options label,
+  .sf-filter-row.is-closing .sf-filter-form .sf-time-options label {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+  }
+  .sf-filter-form .sf-time-options span {
+    min-width: 0;
+    min-height: 56px;
+    justify-content: center;
+    gap: 0;
+    padding: 4px 2px;
+    border-radius: 8px;
+  }
+  .sf-filter-form .sf-time-options span i {
+    font-size: 14px;
+  }
+  .sf-filter-form .sf-time-options span b {
+    font-size: 11px;
+  }
+  .sf-filter-form .sf-time-options span small {
+    font-size: 9px;
+  }
+  .sf-filter-row[open] .sf-filter-group .sf-time-options span,
+  .sf-filter-row.is-closing .sf-filter-group .sf-time-options span {
+    min-height: 56px;
+  }
+  .sf-price-inputs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .sf-price-inputs label {
+    min-width: 0;
+  }
+  .sf-price-inputs input {
+    min-width: 0;
+    width: 100%;
+    font-size: 14px;
+  }
+  .sf-price-inputs input::-webkit-inner-spin-button,
+  .sf-price-inputs input::-webkit-outer-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+  }
+  .sf-price-inputs input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+  }
+  .sf-filter-form .sf-switch {
+    width: 36px;
+    height: 20px;
+  }
+  .sf-filter-form .sf-switch span::after {
+    width: 16px;
+    height: 16px;
+    top: 2px;
+    left: 2px;
+  }
+  .sf-filter-form .sf-switch input:checked + span::after {
+    transform: translateX(16px);
+  }
+  .sf-filter-row[open] .sf-filter-drawer-footer,
+  .sf-filter-row.is-closing .sf-filter-drawer-footer {
+    margin-right: -20px;
+    margin-left: -20px;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  }
+  .sf-filter-drawer-footer b,
+  .sf-filter-drawer-footer button {
+    font-size: 13px;
+  }
+  .sf-filter-form .sf-filter-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    align-items: center;
+    gap: 10px;
+  }
+  .sf-filter-form .sf-filter-heading > div {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .sf-filter-form .sf-filter-heading > button[type="reset"] {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    white-space: nowrap;
+  }
+  .sf-filter-form .sf-filter-heading .sf-filter-close {
+    grid-column: 3;
+    grid-row: 1;
+  }
+  .sf-filter-form .sf-filter-group legend {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+  }
+  .sf-filter-form .sf-filter-group legend:focus-visible {
+    outline: 2px solid var(--td-brand-blue);
+    outline-offset: 2px;
+  }
+  .sf-filter-form .sf-filter-group.is-collapsed > :not(legend) {
+    display: none !important;
+  }
+  .sf-filter-form .sf-filter-group.is-collapsed legend {
+    margin-bottom: 0;
+  }
+  .sf-filter-form .sf-filter-group legend i {
+    transition: transform 160ms ease;
+  }
+  .sf-filter-form .sf-filter-group.is-collapsed legend i {
+    transform: rotate(180deg);
+  }
+}
+
+/* Keep the four departure tiles adjacent at every drawer viewport width. */
+.sf-filter-row[open] .sf-filter-group .sf-time-options,
+.sf-filter-row.is-closing .sf-filter-group .sf-time-options {
+  display: flex !important;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 4px !important;
+  width: 100%;
+  max-width: none;
+}
+.sf-filter-row[open] .sf-filter-group .sf-time-options label,
+.sf-filter-row.is-closing .sf-filter-group .sf-time-options label {
+  display: block;
+  flex: 1 1 0 !important;
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0;
+  margin: 0;
+}
+.sf-filter-row[open] .sf-filter-group .sf-time-options label > span,
+.sf-filter-row.is-closing .sf-filter-group .sf-time-options label > span {
+  width: 100%;
+  min-width: 0;
+}
+@media (max-width: 767.98px) {
+  html:has(body.sf-drawer-open),
+  body.sf-drawer-open {
+    width: 100%;
+    overflow: hidden !important;
+  }
+  .sf-flight-drawer {
+    width: 100vw;
+    max-width: 100vw;
+    overflow: hidden;
+  }
+  .sf-drawer-scroll {
+    width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+    overscroll-behavior-x: none;
+    scrollbar-width: none;
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.18) 0%,
+        rgba(255, 255, 255, 0.12) 36%,
+        rgba(255, 255, 255, 0.76) 82%,
+        #fff 100%
+      ),
+      var(--td-flight-drawer-route-art);
+    background-repeat: no-repeat;
+    background-position:
+      center top,
+      right top;
+    background-size:
+      100% 260px,
+      auto 260px;
+  }
+  .sf-drawer-panel {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  .sf-drawer-footer {
+    display: flex;
+    flex-wrap: nowrap;
+    min-height: 78px;
+    gap: 12px;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+  }
+  .sf-drawer-footer-icon,
+  .sf-drawer-footer > p {
+    display: none;
+  }
+  .sf-drawer-footer-price {
+    min-width: 0;
+    flex: 1 1 0;
+    padding: 0 10px 0 0;
+    border: 0;
+    border-right: 1px solid var(--td-border);
+    line-height: 1.2;
+  }
+  .sf-drawer-footer-price small {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .sf-drawer-footer-price b {
+    font-size: 18px;
+    white-space: nowrap;
+  }
+  .sf-drawer-footer-price::after {
+    content: "Illustrative fares";
+    margin-top: 2px;
+    color: var(--td-muted);
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .sf-drawer-continue {
+    width: 120px;
+    min-width: 120px;
+    min-height: 38px;
+    flex: 0 0 120px;
+    justify-content: center;
+    gap: 6px;
+    padding: 0 10px;
+    border-radius: var(--td-pill);
+    font-size: 0;
+  }
+  .sf-drawer-continue-label {
+    font-size: 0;
+  }
+  .sf-drawer-continue-label::before {
+    content: "Continue";
+    font-size: 14px;
+  }
+  .sf-drawer-continue > i {
+    font-size: 14px;
+  }
+  .sf-drawer-scroll::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+/* Draw route planes independently of the drawer's Bootstrap icon mask. */
+.sf-flight-drawer .sf-drawer-duration i {
+  display: grid;
+  width: 20px;
+  height: 20px;
+  place-items: center;
+  background: transparent;
+  -webkit-mask-image: none;
+  mask-image: none;
+  transform: none;
+}
+.sf-flight-drawer .sf-drawer-duration i::before {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  background: currentColor;
+  -webkit-mask: url("../images/icon-plane.svg") center / contain no-repeat;
+  mask: url("../images/icon-plane.svg") center / contain no-repeat;
+  transform: rotate(90deg);
+}
+@media (max-width: 767.98px) {
+  .sf-flight-drawer .sf-drawer-duration i {
+    width: 22px;
+    height: 22px;
+  }
+  .sf-flight-drawer .sf-drawer-duration i::before {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .sf-drawer-header {
+    min-height: 50px;
+    padding: 6px 12px;
+  }
+  .sf-drawer-scroll {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .sf-drawer-brand {
+    gap: 8px;
+    font-size: 12px;
+  }
+  .sf-drawer-brand-logo {
+    width: 96px;
+    height: 28px;
+  }
+  .sf-drawer-brand-context {
+    margin-left: 4px;
+    padding-left: 10px;
+    font-size: 12px;
+  }
+  .sf-drawer-close {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+  .sf-drawer-steps {
+    min-height: 44px;
+    gap: 5px;
+    padding: 5px 10px;
+  }
+  .sf-drawer-steps > i {
+    flex: 1 1 auto;
+    min-width: 10px;
+    height: 2px;
+  }
+  .sf-drawer-steps button {
+    min-height: 30px;
+    padding: 0 10px;
+    gap: 5px;
+    border-radius: 20px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .sf-drawer-steps button > span,
+  .sf-drawer-steps button > span > i {
+    width: 14px;
+    height: 14px;
+  }
+  .sf-drawer-steps button.is-active {
+    background: #0757ff;
+    box-shadow: 0 3px 8px rgba(7, 87, 255, 0.2);
+  }
+  .sf-drawer-scroll {
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.28) 0%,
+        rgba(255, 255, 255, 0.4) 38%,
+        rgba(255, 255, 255, 0.8) 76%,
+        #fff 100%
+      ),
+      var(--td-flight-drawer-route-art);
+    background-position:
+      center top,
+      right top;
+    background-size:
+      100% 215px,
+      auto 215px;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] {
+    padding: 10px 12px 12px;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"]::before {
+    opacity: 0.18;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] h1 {
+    margin: 0 0 7px;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-route {
+    display: flex;
+    width: max-content;
+    max-width: 100%;
+    flex-wrap: nowrap;
+    gap: 8px;
+    margin: 0 0 6px;
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0.96);
+    white-space: nowrap;
+  }
+  .sf-drawer-route-codes {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+  }
+  .sf-drawer-route-codes .sf-route-arrow {
+    color: #1472ff;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-local-time {
+    width: max-content;
+    max-width: 100%;
+    margin: 0 0 9px;
+    padding: 3px 5px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.76);
+    color: #526683;
+    font-size: 11px;
+  }
+}

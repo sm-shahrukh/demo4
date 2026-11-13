@@ -1683,3 +1683,28 @@
     animation: none;
   }
 }
+
+.td-pane-f .td-opts .dd:hover .dd-t,
+.td-pane-f .td-opts .dd:focus-within .dd-t {
+  border-color: var(--td-brand-blue);
+  background: linear-gradient(145deg, var(--td-active-soft), var(--td-white) 72%);
+  color: var(--td-brand-blue);
+}
+.td-pane-h .td-option-chip,
+.td-pane-v .td-option-chip {
+  background: linear-gradient(145deg, var(--td-active-soft), var(--td-white) 72%);
+}
+.td-um-card .pill,
+.td-help-c .pill {
+  border-color: var(--td-border);
+  background: var(--td-white);
+  color: var(--td-heading-color);
+}
+.td-um-card .pill:hover,
+.td-um-card .pill:focus-visible,
+.td-help-c .pill:hover,
+.td-help-c .pill:focus-visible {
+  border-color: var(--td-brand-blue);
+  background: linear-gradient(145deg, var(--td-active-soft), var(--td-white) 72%);
+  color: var(--td-brand-blue);
+}
