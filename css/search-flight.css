@@ -3405,6 +3405,29 @@ body.sf-drawer-open {
   -webkit-mask-image: url("../images/icon-close.svg");
   mask-image: url("../images/icon-close.svg");
 }
+.sf-flight-drawer .sf-fare-conditions .bi-info-circle {
+  -webkit-mask-image: url("../images/icon-info.svg");
+  mask-image: url("../images/icon-info.svg");
+}
+.sf-flight-drawer .sf-fare-conditions .bi-chevron-down {
+  -webkit-mask-image: url("../images/icon-chevron-down.svg");
+  mask-image: url("../images/icon-chevron-down.svg");
+}
+.sf-flight-drawer .sf-included-benefits .bi-suitcase {
+  -webkit-mask-image: url("../images/icon-suitcase.svg");
+  mask-image: url("../images/icon-suitcase.svg");
+}
+.sf-flight-drawer .sf-included-benefits .bi-layers {
+  -webkit-mask-image: url("../images/icon-seat.svg");
+  mask-image: url("../images/icon-seat.svg");
+}
+.sf-flight-drawer .sf-plan-card .bi-x-circle {
+  -webkit-mask-image: url("../images/icon-non-refundable.svg");
+  mask-image: url("../images/icon-non-refundable.svg");
+}
+.sf-fare-conditions[open] summary .bi-chevron-down {
+  transform: rotate(180deg);
+}
 .sf-flight-drawer .bi-geo-alt {
   -webkit-mask-image: url("../images/icon-pin.svg");
   mask-image: url("../images/icon-pin.svg");
@@ -3727,12 +3750,7 @@ body.sf-drawer-open {
 .sf-drawer-route:has(
     [data-flight-summary-primary][src*="emirates.svg"]
   )::after {
-  content: "Emirates";
-  color: var(--td-airline-emirates);
-  font-family: Georgia, serif;
-  font-size: var(--td-font-lg);
-  font-weight: var(--td-weight-bold);
-  white-space: nowrap;
+  content: none;
 }
 .sf-drawer-leg-heading img[src*="emirates.svg"],
 .sf-drawer-route img[src*="emirates.svg"] {
@@ -6637,7 +6655,7 @@ body.sf-filter-open {
   background-color: var(--td-brand-blue);
   box-shadow: inset 0 0 0 4px var(--td-white);
 }
-/* Keep the filter drawer on the left and animate it in and out smoothly. */
+/* Match the flight details drawer's slide-in timing from the left side. */
 .sf-filter-row[open],
 .sf-filter-row.is-closing {
   inset: 0 auto 0 0;
@@ -7308,12 +7326,15 @@ body.sf-filter-open {
   .sf-search-card:has(#sf-t1:checked) .sf-route-bar > .sf-primary-btn {
     grid-row: 4;
   }
+.sf-bundle {
+  margin-top: 12px;
+}
   .sf-bundle {
     display: flex;
     align-items: center;
     gap: var(--td-space-2);
     min-height: 24px;
-    margin-top: 12px;
+    margin-top: 18px;
     margin-bottom: 0;
     color: var(--td-text);
     font-size: 16px;
@@ -7383,30 +7404,30 @@ body.sf-filter-open {
   }
   .sf-flight-drawer[data-trip-type="Multi-city"] .sf-drawer-leg-heading > span {
     padding: 5px 8px;
-    font-size: 0;
+    font-size: 11px;
   }
   .sf-flight-drawer[data-trip-type="Multi-city"]
     .sf-drawer-leg-heading
     > span::after {
-    font-size: 11px;
+    content: none;
   }
   .sf-flight-drawer[data-trip-type="Multi-city"]
     .sf-drawer-leg-outbound
     .sf-drawer-leg-heading
     > span::after {
-    content: "SAT, 21 NOV";
+    content: none;
   }
   .sf-flight-drawer[data-trip-type="Multi-city"]
     .sf-drawer-leg-multi-second
     .sf-drawer-leg-heading
     > span::after {
-    content: "MON, 23 NOV";
+    content: none;
   }
   .sf-flight-drawer[data-trip-type="Multi-city"]
     .sf-drawer-leg-third
     .sf-drawer-leg-heading
     > span::after {
-    content: "FRI, 27 NOV";
+    content: none;
   }
   .sf-flight-drawer[data-trip-type="Multi-city"] .sf-drawer-leg-heading img {
     max-width: 36%;
@@ -7892,4 +7913,1832 @@ body.sf-filter-open {
     color: #526683;
     font-size: 11px;
   }
+}
+
+/* Price breakdown drawer, matching the desktop and mobile reference. */
+.sf-drawer-panel[data-drawer-panel="1"] h1 {
+  font-size: 32px;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+}
+.sf-drawer-panel[data-drawer-panel="1"] .sf-drawer-subtitle {
+  margin: 5px 0 20px;
+  font-size: 18px;
+}
+.sf-price-route {
+  margin-bottom: 30px;
+}
+.sf-price-layout {
+  grid-template-columns: minmax(0, 1.13fr) minmax(0, 1fr);
+  gap: 16px;
+}
+.sf-price-breakdown,
+.sf-ticket,
+.sf-included-benefits {
+  border: 1px solid #d1dfff;
+  border-radius: 15px;
+  box-shadow: 0 5px 14px rgba(13, 51, 130, 0.04);
+}
+.sf-price-breakdown {
+  padding: 15px;
+}
+.sf-price-breakdown h2 {
+  margin: 0 0 16px;
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+.sf-price-breakdown > div:not(.sf-price-total) {
+  grid-template-columns: 24px minmax(0, 1fr) auto;
+  gap: 14px;
+  min-height: 38px;
+  padding: 7px 0;
+  font-size: 15px;
+}
+.sf-price-total {
+  margin-top: 16px;
+  padding: 12px 15px;
+  background: #e7efff;
+  font-size: 19px;
+}
+.sf-price-breakdown > small {
+  margin-top: 9px;
+  font-size: 13px;
+}
+.sf-ticket {
+  background: #eff4ff;
+}
+.sf-ticket header {
+  min-height: 50px;
+  background: linear-gradient(110deg, #034ef5, #092b9f);
+}
+.sf-ticket-airlines [data-ticket-divider] {
+  font-size: 0;
+  width: 1px;
+  height: 23px;
+  background: rgba(255, 255, 255, 0.55);
+}
+.sf-ticket-route {
+  gap: 10px;
+  padding: 14px 8px 4px;
+  font-size: 19px;
+}
+.sf-ticket p {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 9px 12%;
+  text-align: left;
+  font-size: 14px;
+}
+.sf-ticket > strong {
+  margin: 12px 12px 0;
+  padding-top: 10px;
+  font-size: 25px;
+}
+.sf-ticket > small {
+  margin: 3px 0 16px;
+  font-size: 14px;
+}
+.sf-ticket-code {
+  height: 19px;
+  margin: 0 28px 20px;
+  background: repeating-linear-gradient(
+    90deg,
+    #081d69 0 2px,
+    transparent 2px 4px,
+    #081d69 4px 7px,
+    transparent 7px 9px,
+    #081d69 9px 10px,
+    transparent 10px 12px
+  );
+}
+.sf-included-benefits {
+  grid-template-columns: 0.7fr repeat(3, 1fr);
+  gap: 0;
+  margin-top: 35px;
+  padding: 20px;
+}
+.sf-included-benefits > b {
+  font-size: 17px;
+  line-height: 1.2;
+}
+.sf-included-benefits > span {
+  gap: 14px;
+  padding: 0 12px;
+}
+.sf-included-benefits > span:first-of-type {
+  border-left: 0;
+}
+.sf-included-benefits > span > span {
+  display: block;
+  padding: 0;
+  border: 0;
+  line-height: 1.3;
+}
+.sf-included-benefits > span > span b,
+.sf-included-benefits small {
+  display: block;
+}
+.sf-included-benefits small {
+  color: var(--td-muted);
+  font-size: 13px;
+}
+@media (max-width: 767.98px) {
+  .sf-drawer-panel[data-drawer-panel="1"] h1 {
+    font-size: 22px;
+  }
+  .sf-drawer-panel[data-drawer-panel="1"] .sf-drawer-subtitle {
+    margin: 3px 0 12px;
+    font-size: 14px;
+  }
+  .sf-price-route {
+    margin-bottom: 16px;
+  }
+  .sf-price-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 15px;
+  }
+  .sf-price-breakdown {
+    padding: 12px;
+  }
+  .sf-price-breakdown h2 {
+    margin-bottom: 8px;
+    font-size: 20px;
+  }
+  .sf-price-breakdown > div:not(.sf-price-total) {
+    min-height: 29px;
+    padding: 4px 0;
+    font-size: 13px;
+  }
+  .sf-price-total {
+    margin-top: 10px;
+    padding: 9px 12px;
+    font-size: 17px;
+  }
+  .sf-ticket header {
+    min-height: 40px;
+  }
+  .sf-ticket-route {
+    padding-top: 10px;
+    font-size: 17px;
+  }
+  .sf-ticket p {
+    margin: 6px 16%;
+    font-size: 13px;
+  }
+  .sf-ticket > strong {
+    margin-top: 8px;
+    padding-top: 6px;
+    font-size: 23px;
+  }
+  .sf-ticket > small {
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+  .sf-ticket-code {
+    height: 16px;
+    margin-bottom: 12px;
+  }
+  .sf-included-benefits {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px 0;
+    margin-top: 16px;
+    padding: 12px;
+  }
+  .sf-included-benefits > b {
+    grid-column: 1 / -1;
+    font-size: 16px;
+  }
+  .sf-included-benefits > span {
+    gap: 8px;
+    padding: 0 8px;
+    font-size: 12px;
+  }
+  .sf-included-benefits > span > span b {
+    font-weight: 400;
+  }
+  .sf-included-benefits small {
+    display: none;
+  }
+}
+
+/* Choose your fare: desktop cards and compact mobile selection. */
+.sf-drawer-panel[data-drawer-panel="2"] h1 {
+  margin: 0;
+  font-size: 32px;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+}
+.sf-drawer-panel[data-drawer-panel="2"] .sf-drawer-subtitle {
+  margin: 5px 0 20px;
+  font-size: 18px;
+}
+.sf-fare-route {
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 54px;
+  margin: 0 0 26px;
+  padding: 12px 20px;
+  border: 1px solid #d4e0ff;
+  border-radius: 14px;
+  box-shadow: 0 3px 8px rgba(13, 51, 130, 0.05);
+  font-size: 15px;
+}
+.sf-fare-route > i {
+  font-size: 22px;
+}
+.sf-fare-route span {
+  margin-left: 8px;
+  padding-left: 24px;
+  font-weight: 400;
+}
+.sf-fare-route span::before {
+  content: "\f5d6";
+  font-family: bootstrap-icons;
+  margin-right: 14px;
+  color: #0054ff;
+  font-size: 20px;
+  vertical-align: middle;
+}
+.sf-fare-plans {
+  gap: 10px;
+}
+.sf-plan-card {
+  gap: 12px;
+  min-width: 0;
+  padding: 16px 14px;
+  border: 1px solid #d2dfff;
+  border-radius: 14px;
+  box-shadow: 0 3px 8px rgba(13, 51, 130, 0.06);
+}
+.sf-plan-card.is-current {
+  border-color: #0754ff;
+  box-shadow:
+    0 0 0 1px #0754ff,
+    0 3px 8px rgba(13, 51, 130, 0.06);
+}
+.sf-plan-card.sf-plan-popular {
+  background: #eef4ff;
+}
+.sf-plan-badge {
+  top: 12px;
+  right: 12px;
+  padding: 3px 9px;
+  background: #c9dcff;
+  color: #0045e8;
+  font-size: 10px;
+  line-height: 1.2;
+}
+.sf-flight-drawer .sf-plan-main {
+  gap: 16px;
+}
+.sf-plan-main div > b {
+  font-size: 16px;
+}
+.sf-plan-main span {
+  margin: 5px 0 8px;
+  font-size: 13px;
+}
+.sf-plan-main strong {
+  font-size: 23px;
+  line-height: 1.2;
+}
+.sf-plan-card ul {
+  gap: 0;
+}
+.sf-plan-card li {
+  gap: 16px;
+  min-height: 37px;
+  padding: 7px 5px;
+  font-size: 13px;
+  line-height: 1.25;
+}
+.sf-plan-card li i {
+  width: 21px;
+  font-size: 19px;
+}
+.sf-plan-card > button {
+  min-height: 36px;
+  padding: 7px 12px;
+  font-size: 13px;
+}
+.sf-fare-conditions {
+  margin-top: 36px;
+  border: 1px solid #d4e0ff;
+  border-radius: 14px;
+  background: #f9fbff;
+}
+.sf-fare-conditions summary {
+  gap: 20px;
+  padding: 12px 20px;
+}
+.sf-fare-conditions summary > i:first-child {
+  font-size: 23px;
+}
+.sf-fare-conditions summary b {
+  font-size: 15px;
+}
+.sf-fare-conditions small {
+  font-size: 12px;
+}
+.sf-fare-terms {
+  align-items: center;
+  gap: 28px;
+  margin: 22px 16px;
+  font-size: 12px;
+}
+.sf-fare-terms a::before {
+  content: "\f392";
+  font-family: bootstrap-icons;
+  margin-right: 12px;
+  font-size: 18px;
+  vertical-align: middle;
+}
+.sf-fare-terms span {
+  padding-left: 28px;
+  border-left: 1px solid #d4e0ff;
+}
+.sf-fare-terms span::before {
+  content: "\f431";
+  font-family: bootstrap-icons;
+  margin-right: 10px;
+  color: #0045e8;
+  font-size: 17px;
+  vertical-align: middle;
+}
+@media (max-width: 767.98px) {
+  .sf-drawer-panel[data-drawer-panel="2"] h1 {
+    font-size: 23px;
+  }
+  .sf-drawer-panel[data-drawer-panel="2"] .sf-drawer-subtitle {
+    margin: 3px 0 14px;
+    font-size: 14px;
+  }
+  .sf-fare-route {
+    flex-wrap: nowrap;
+    gap: 8px;
+    min-height: 38px;
+    margin-bottom: 18px;
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+  .sf-fare-route > i {
+    font-size: 17px;
+  }
+  .sf-fare-route b {
+    min-width: 0;
+    font-size: 11px;
+  }
+  .sf-fare-route span {
+    margin-left: auto;
+    padding-left: 10px;
+    font-size: 11px;
+  }
+  .sf-fare-route span::before {
+    margin-right: 6px;
+    font-size: 15px;
+  }
+  .sf-fare-plans {
+    gap: 12px;
+  }
+  .sf-plan-card,
+  .sf-plan-card:not(.is-current) {
+    padding: 12px 15px;
+  }
+  .sf-flight-drawer .sf-plan-main {
+    gap: 12px;
+  }
+  .sf-plan-main div > b {
+    font-size: 14px;
+  }
+  .sf-plan-card .sf-plan-main span {
+    font-size: 12px;
+  }
+  .sf-plan-card .sf-plan-main strong {
+    font-size: 15px;
+  }
+  .sf-plan-card ul {
+    margin-top: 8px;
+  }
+  .sf-plan-card li {
+    min-height: 30px;
+    padding: 5px;
+    font-size: 12px;
+  }
+  .sf-plan-card li i {
+    font-size: 18px;
+  }
+  .sf-plan-card > button {
+    min-height: 31px;
+    margin-top: 10px;
+  }
+  .sf-plan-card.sf-plan-popular:not(.is-current) .sf-plan-badge {
+    top: 9px;
+    right: 45%;
+  }
+  .sf-fare-conditions {
+    margin-top: 20px;
+  }
+  .sf-fare-conditions summary {
+    gap: 16px;
+    padding: 10px 15px;
+  }
+  .sf-fare-terms {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 16px 8px;
+  }
+  .sf-fare-terms span {
+    padding: 0;
+    border: 0;
+  }
+}
+
+/* Mobile price and fare panels follow the clean reference drawer. */
+@media (max-width: 767.98px) {
+  .sf-flight-drawer:has([data-drawer-panel="1"].is-active) .sf-drawer-scroll,
+  .sf-flight-drawer:has([data-drawer-panel="2"].is-active) .sf-drawer-scroll {
+    background: #fff;
+  }
+  .sf-drawer-panel[data-drawer-panel="1"],
+  .sf-drawer-panel[data-drawer-panel="2"] {
+    padding: 18px 16px 24px;
+  }
+  .sf-drawer-panel[data-drawer-panel="1"]::before,
+  .sf-drawer-panel[data-drawer-panel="2"]::before {
+    display: none;
+  }
+  .sf-flight-drawer:has([data-drawer-panel="1"].is-active) .sf-drawer-steps,
+  .sf-flight-drawer:has([data-drawer-panel="2"].is-active) .sf-drawer-steps {
+    justify-content: space-between;
+    gap: 0;
+    padding: 9px 14px;
+    min-height: 57px;
+  }
+  .sf-flight-drawer:has([data-drawer-panel="1"].is-active) .sf-drawer-steps > i,
+  .sf-flight-drawer:has([data-drawer-panel="2"].is-active)
+    .sf-drawer-steps
+    > i {
+    flex: 0 0 1px;
+    min-width: 1px;
+    height: 14px;
+    background: #e5edff;
+  }
+  .sf-flight-drawer:has([data-drawer-panel="1"].is-active)
+    .sf-drawer-steps
+    button,
+  .sf-flight-drawer:has([data-drawer-panel="2"].is-active)
+    .sf-drawer-steps
+    button {
+    justify-content: center;
+    min-width: 92px;
+    gap: 9px;
+    padding: 0 12px;
+    color: #071d61;
+  }
+  .sf-flight-drawer:has([data-drawer-panel="1"].is-active)
+    .sf-drawer-steps
+    button.is-active,
+  .sf-flight-drawer:has([data-drawer-panel="2"].is-active)
+    .sf-drawer-steps
+    button.is-active {
+    background: #e4edff;
+    box-shadow: none;
+    color: #003bc7 !important;
+  }
+  .sf-flight-drawer:has([data-drawer-panel="1"].is-active)
+    .sf-drawer-steps
+    button.is-active
+    b,
+  .sf-flight-drawer:has([data-drawer-panel="1"].is-active)
+    .sf-drawer-steps
+    button.is-active
+    i,
+  .sf-flight-drawer:has([data-drawer-panel="2"].is-active)
+    .sf-drawer-steps
+    button.is-active
+    b,
+  .sf-flight-drawer:has([data-drawer-panel="2"].is-active)
+    .sf-drawer-steps
+    button.is-active
+    i {
+    color: #004dff !important;
+  }
+  .sf-drawer-panel[data-drawer-panel="1"] h1,
+  .sf-drawer-panel[data-drawer-panel="2"] h1 {
+    margin-top: 0;
+    font-size: 22px;
+    line-height: 1.15;
+  }
+  .sf-drawer-panel[data-drawer-panel="1"] .sf-drawer-subtitle,
+  .sf-drawer-panel[data-drawer-panel="2"] .sf-drawer-subtitle {
+    margin: 3px 0 12px;
+    font-size: 14px;
+    line-height: 1.3;
+  }
+  .sf-drawer-panel[data-drawer-panel="1"] .sf-price-route {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    min-height: 34px;
+    gap: 6px;
+    margin: 0 0 16px;
+    padding: 7px 10px;
+    white-space: nowrap;
+  }
+  .sf-price-route .sf-drawer-route-codes {
+    gap: 5px;
+    font-size: 11px;
+  }
+  .sf-price-route .sf-drawer-route-codes .sf-route-arrow {
+    font-size: 12px;
+  }
+  .sf-price-route .sf-price-route-meta {
+    gap: 4px;
+    font-size: 11px;
+  }
+  .sf-price-route .sf-price-route-meta .sf-drawer-type {
+    font-weight: 400;
+  }
+  .sf-price-layout {
+    gap: 15px;
+  }
+  .sf-ticket {
+    border-radius: 15px;
+  }
+  .sf-ticket header {
+    min-height: 40px;
+  }
+  .sf-ticket header .sf-ticket-airlines img {
+    max-height: 23px;
+  }
+  .sf-ticket-route {
+    padding: 10px 6px 3px;
+    font-size: 17px;
+  }
+  .sf-ticket p {
+    justify-content: flex-start;
+    margin: 6px 17%;
+    font-size: 13px;
+  }
+  .sf-ticket > strong {
+    margin: 9px 12px 0;
+    padding-top: 6px;
+    font-size: 23px;
+  }
+  .sf-price-breakdown {
+    padding: 12px;
+  }
+  .sf-price-breakdown > div:not(.sf-price-total) {
+    gap: 10px;
+  }
+  .sf-included-benefits {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px 0;
+    padding: 12px;
+  }
+  .sf-included-benefits > span {
+    padding: 0 8px;
+    border-left: 1px solid #d4e0ff;
+  }
+  .sf-included-benefits > span:first-of-type {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .sf-included-benefits > span > span {
+    padding: 0;
+    border: 0;
+  }
+  .sf-drawer-panel[data-drawer-panel="2"] .sf-fare-route {
+    margin: 0 0 18px;
+  }
+  .sf-fare-plans {
+    gap: 12px;
+  }
+  .sf-plan-card.is-current {
+    padding: 12px 15px;
+  }
+  .sf-plan-card.is-current ul {
+    margin-top: 8px;
+  }
+  .sf-flight-drawer:has([data-drawer-panel="1"].is-active) .sf-drawer-footer,
+  .sf-flight-drawer:has([data-drawer-panel="2"].is-active) .sf-drawer-footer {
+    min-height: 92px;
+    padding: 12px 20px calc(12px + env(safe-area-inset-bottom));
+  }
+  .sf-flight-drawer:has([data-drawer-panel="1"].is-active) .sf-drawer-continue,
+  .sf-flight-drawer:has([data-drawer-panel="2"].is-active) .sf-drawer-continue {
+    flex-basis: 48%;
+    width: 48%;
+    min-height: 42px;
+  }
+}
+
+/* Mobile route drawer, based on the route and timings reference. */
+@media (max-width: 767.98px) {
+  .sf-flight-drawer:has([data-drawer-panel="0"].is-active) .sf-drawer-header {
+    min-height: 62px;
+    padding: 10px 16px;
+  }
+  .sf-flight-drawer:has([data-drawer-panel="0"].is-active)
+    .sf-drawer-brand-logo {
+    width: 128px;
+    height: 32px;
+  }
+  .sf-flight-drawer:has([data-drawer-panel="0"].is-active)
+    .sf-drawer-brand-context {
+    margin-left: 8px;
+    padding-left: 16px;
+    font-size: 15px;
+  }
+  .sf-flight-drawer:has([data-drawer-panel="0"].is-active) .sf-drawer-close {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #e3ebfa;
+    border-radius: 50%;
+  }
+  .sf-flight-drawer:has([data-drawer-panel="0"].is-active) .sf-drawer-steps {
+    justify-content: space-between;
+    min-height: 58px;
+    gap: 0;
+    padding: 8px 12px;
+  }
+  .sf-flight-drawer:has([data-drawer-panel="0"].is-active)
+    .sf-drawer-steps
+    > i {
+    flex: 0 0 1px;
+    min-width: 1px;
+    height: 18px;
+    background: #dbe5fa;
+  }
+  .sf-flight-drawer:has([data-drawer-panel="0"].is-active)
+    .sf-drawer-steps
+    button {
+    justify-content: center;
+    min-width: 90px;
+    min-height: 34px;
+    gap: 8px;
+    padding: 0 12px;
+    font-size: 13px;
+  }
+  .sf-flight-drawer:has([data-drawer-panel="0"].is-active)
+    .sf-drawer-steps
+    button.is-active {
+    background: linear-gradient(110deg, #147dff, #0046f5);
+    box-shadow: none;
+  }
+  .sf-flight-drawer:has([data-drawer-panel="0"].is-active) .sf-drawer-scroll {
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.08) 0,
+        rgba(255, 255, 255, 0.12) 45%,
+        #fff 100%
+      ),
+      var(--td-flight-drawer-route-art);
+    background-position:
+      center top,
+      center top;
+    background-size:
+      100% 150px,
+      100% 150px;
+    background-repeat: no-repeat;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] {
+    padding: 16px 16px 24px;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] h1 {
+    margin: 0 0 10px;
+    font-size: 26px;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-route {
+    gap: 9px;
+    min-height: 40px;
+    margin: 0 0 14px;
+    padding: 8px 14px;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-route-codes {
+    gap: 9px;
+    font-size: 14px;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-local-time {
+    gap: 9px;
+    margin: 0 0 14px;
+    padding: 0 4px;
+    background: transparent;
+    color: #071d61;
+    font-size: 13px;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-journeys {
+    gap: 12px;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-leg,
+  .sf-flight-drawer[data-trip-type="Multi-city"]
+    .sf-drawer-panel[data-drawer-panel="0"]
+    .sf-drawer-leg {
+    padding: 11px 13px;
+    border: 1px solid #d9e5ff;
+    border-radius: 15px;
+    box-shadow: 0 3px 9px rgba(14, 47, 115, 0.05);
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-leg-heading {
+    justify-content: flex-start;
+    gap: 26px;
+    margin-bottom: 10px;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-leg-heading > span {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-leg-heading img {
+    width: 110px;
+    max-width: 40%;
+    height: 24px;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-times,
+  .sf-flight-drawer[data-trip-type="Multi-city"]
+    .sf-drawer-panel[data-drawer-panel="0"]
+    .sf-drawer-times {
+    grid-template-columns: minmax(0, 1fr) minmax(90px, 1.3fr) minmax(0, 1fr);
+    gap: 5px;
+    padding: 0 7px 10px;
+    border-bottom: 1px solid #eaf0fc;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-times strong {
+    font-size: 21px;
+    line-height: 1.1;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-times b {
+    font-size: 15px;
+    line-height: 1.3;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-times span {
+    font-size: 13px;
+    line-height: 1.3;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] .sf-drawer-bags,
+  .sf-flight-drawer[data-trip-type="Multi-city"]
+    .sf-drawer-panel[data-drawer-panel="0"]
+    .sf-drawer-bags {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 9px 7px 0;
+    font-size: 11px;
+  }
+  .sf-flight-drawer[data-trip-type="Multi-city"] .sf-drawer-bags > span::after {
+    font-size: 11px;
+  }
+  .sf-flight-drawer:has([data-drawer-panel="0"].is-active) .sf-drawer-footer {
+    min-height: 92px;
+    padding: 12px 20px calc(12px + env(safe-area-inset-bottom));
+  }
+  .sf-flight-drawer:has([data-drawer-panel="0"].is-active) .sf-drawer-continue {
+    flex-basis: 48%;
+    width: 48%;
+    min-height: 44px;
+  }
+}
+
+/* Keep the route tab aligned with the other mobile drawer tabs. */
+@media (max-width: 767.98px) {
+  .sf-flight-drawer:has([data-drawer-panel="0"].is-active) .sf-drawer-header {
+    min-height: 50px;
+    padding: 6px 12px;
+  }
+  .sf-flight-drawer:has([data-drawer-panel="0"].is-active)
+    .sf-drawer-brand-logo {
+    width: 96px;
+    height: 28px;
+  }
+  .sf-flight-drawer:has([data-drawer-panel="0"].is-active)
+    .sf-drawer-brand-context {
+    margin-left: 4px;
+    padding-left: 10px;
+    font-size: 12px;
+  }
+  .sf-flight-drawer:has([data-drawer-panel="0"].is-active) .sf-drawer-close {
+    width: 32px;
+    height: 32px;
+    border: 0;
+  }
+  .sf-flight-drawer:has([data-drawer-panel="0"].is-active) .sf-drawer-steps {
+    justify-content: space-between;
+    min-height: 57px;
+    gap: 0;
+    padding: 9px 14px;
+  }
+  .sf-flight-drawer:has([data-drawer-panel="0"].is-active)
+    .sf-drawer-steps
+    > i {
+    height: 14px;
+    background: #e5edff;
+  }
+  .sf-flight-drawer:has([data-drawer-panel="0"].is-active)
+    .sf-drawer-steps
+    button {
+    min-width: 92px;
+    min-height: 30px;
+    gap: 9px;
+    font-size: 12px;
+  }
+  .sf-flight-drawer:has([data-drawer-panel="0"].is-active)
+    .sf-drawer-steps
+    button.is-active {
+    background: #e4edff;
+    box-shadow: none;
+    color: #003bc7 !important;
+  }
+  .sf-flight-drawer:has([data-drawer-panel="0"].is-active)
+    .sf-drawer-steps
+    button.is-active
+    b,
+  .sf-flight-drawer:has([data-drawer-panel="0"].is-active)
+    .sf-drawer-steps
+    button.is-active
+    i {
+    color: #004dff !important;
+  }
+  .sf-flight-drawer:has([data-drawer-panel="0"].is-active) .sf-drawer-scroll {
+    background: #fff;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] {
+    padding: 18px 16px 24px;
+  }
+  .sf-drawer-panel[data-drawer-panel="0"] h1 {
+    font-size: 22px;
+    line-height: 1.15;
+  }
+  .sf-flight-drawer:has([data-drawer-panel="0"].is-active) .sf-drawer-continue {
+    min-height: 42px;
+  }
+}
+
+/* Use the same faded sky behind each mobile drawer tab. */
+@media (max-width: 767.98px) {
+  .sf-flight-drawer:has(.sf-drawer-panel.is-active) .sf-drawer-scroll {
+    background-color: #fff;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.58)),
+      var(--td-flight-drawer-route-art-fade), var(--td-flight-drawer-route-art);
+    background-position:
+      center top,
+      center top,
+      right top;
+    background-size:
+      100% 260px,
+      100% 260px,
+      100% 260px;
+    background-repeat: no-repeat;
+  }
+}
+
+/* Provide clear space above the price and fare titles. */
+.sf-drawer-panel[data-drawer-panel='1'],
+.sf-drawer-panel[data-drawer-panel='2'] { padding-top: 18px; }
+@media (max-width: 767.98px) {
+  .sf-drawer-panel[data-drawer-panel='1'],
+  .sf-drawer-panel[data-drawer-panel='2'] { padding-top: 28px; }
+}
+
+/* Filter drawer layout from the desktop and mobile reference. */
+.sf-filter-row[open], .sf-filter-row.is-closing {
+  width: min(390px, 100vw);
+  min-width: 0;
+  padding: 22px 20px 0;
+  background: #fff;
+  color: #071d61;
+  box-shadow: 4px 0 24px rgba(10, 30, 75, .12);
+}
+.sf-filter-row[open] .sf-filter-heading, .sf-filter-row.is-closing .sf-filter-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: start;
+  gap: 12px;
+  padding: 3px 0 0;
+  background: #fff;
+}
+.sf-filter-heading h3 { margin: 0; font-size: 22px; line-height: 1.2; letter-spacing: -.03em; }
+.sf-filter-heading p { margin: 3px 0 0; font-size: 14px; }
+.sf-filter-heading button[type='reset'] { margin: 5px 0 0; color: #0051ff; font-size: 13px; white-space: nowrap; }
+.sf-filter-heading .sf-filter-close { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid #d9e4fa; border-radius: 50%; background: #fff; color: #071d61; }
+.sf-filter-row[open] .sf-active-filter-chips, .sf-filter-row.is-closing .sf-active-filter-chips { gap: 6px; padding: 15px 0; }
+.sf-active-filter-chips button { min-height: 29px; padding: 5px 12px; background: #e7efff; color: #0041cf; box-shadow: none; font-size: 12px; }
+.sf-filter-row[open] .sf-filter-group, .sf-filter-row.is-closing .sf-filter-group { padding: 13px 0; border-bottom: 1px solid #e4ebfa; }
+.sf-filter-row[open] .sf-filter-group legend, .sf-filter-row.is-closing .sf-filter-group legend { display: flex; align-items: center; justify-content: space-between; width: 100%; margin-bottom: 8px; color: #071d61; font-size: 15px; font-weight: 700; }
+.sf-filter-row[open] .sf-filter-group > label:not(.sf-switch), .sf-filter-row.is-closing .sf-filter-group > label:not(.sf-switch) { min-height: 34px; margin: 4px 0; font-size: 13px; }
+.sf-filter-form .sf-filter-group > label:has(input[type='radio']) { padding: 6px 10px; border: 1px solid #d6e1f8; border-radius: 7px; }
+.sf-filter-form .sf-filter-group > label:has(input[type='radio']:checked) { border-color: #145aff; background: #e5eeff; }
+.sf-filter-row[open] .sf-filter-group .sf-time-options, .sf-filter-row.is-closing .sf-filter-group .sf-time-options { gap: 7px !important; }
+.sf-filter-row[open] .sf-filter-group .sf-time-options span, .sf-filter-row.is-closing .sf-filter-group .sf-time-options span { min-height: 70px; border: 1px solid #d9e4fa; border-radius: 8px; background: #fff; }
+.sf-filter-row[open] .sf-filter-group .sf-time-options input:checked + span, .sf-filter-row.is-closing .sf-filter-group .sf-time-options input:checked + span { border-color: #145aff; background: #e5eeff; }
+.sf-filter-form .sf-time-options span i { font-size: 18px; }
+.sf-filter-form .sf-time-options span b { font-size: 12px; }
+.sf-filter-form .sf-time-options span small { font-size: 10px; }
+.sf-filter-row[open] .sf-filter-group .sf-airline-filter, .sf-filter-row.is-closing .sf-filter-group .sf-airline-filter, .sf-filter-row[open] .sf-filter-group .sf-baggage-option, .sf-filter-row.is-closing .sf-filter-group .sf-baggage-option { min-height: 28px; margin: 0; }
+.sf-filter-form .sf-airline-filter { grid-template-columns: 18px 66px minmax(0, 1fr) auto; gap: 8px !important; }
+.sf-filter-form .sf-airline-filter img { width: 60px; height: 22px; }
+.sf-filter-form .sf-price-inputs { gap: 20px; }
+.sf-filter-form .sf-price-inputs label { min-height: 42px; border-color: #d6e1f8; }
+.sf-filter-row[open] .sf-refundable-group, .sf-filter-row.is-closing .sf-refundable-group { border-bottom: 0; }
+.sf-filter-row[open] .sf-filter-drawer-footer, .sf-filter-row.is-closing .sf-filter-drawer-footer { min-height: 64px; gap: 10px; margin: auto -20px 0; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); border: 1px solid #dfe7f8; border-radius: 10px 10px 0 0; box-shadow: 0 -3px 12px rgba(10,30,75,.04); }
+.sf-filter-drawer-footer b { font-size: 13px; }
+.sf-filter-drawer-footer button { font-size: 12px; }
+.sf-filter-drawer-footer .sf-apply-filters { min-height: 38px; padding: 0 16px; }
+@media (max-width: 767.98px) {
+  .sf-filter-row[open], .sf-filter-row.is-closing { width: min(400px, 100vw); max-width: 100vw; padding: 22px 20px 0; }
+  .sf-filter-row[open] .sf-filter-heading h3, .sf-filter-row.is-closing .sf-filter-heading h3 { font-size: 22px; }
+  .sf-filter-row[open] .sf-filter-group .sf-time-options span, .sf-filter-row.is-closing .sf-filter-group .sf-time-options span { min-height: 70px; }
+  .sf-filter-row[open] .sf-filter-drawer-footer, .sf-filter-row.is-closing .sf-filter-drawer-footer { margin-left: -20px; margin-right: -20px; }
+}
+
+/* Keep departure time cards close together. */
+.sf-filter-row[open] .sf-filter-group .sf-time-options,
+.sf-filter-row.is-closing .sf-filter-group .sf-time-options { gap: 3px !important; }
+.sf-filter-row[open] .sf-filter-group .sf-time-options label,
+.sf-filter-row.is-closing .sf-filter-group .sf-time-options label { margin: 0 !important; padding: 0 !important; }
+
+/* Keep the filter drawer surface continuous and the refundable switch visible. */
+.sf-filter-row[open], .sf-filter-row.is-closing,
+.sf-filter-row[open] .sf-filter-panel, .sf-filter-row.is-closing .sf-filter-panel,
+.sf-filter-row[open] .sf-filter-group, .sf-filter-row.is-closing .sf-filter-group {
+  background: #fff;
+}
+.sf-filter-row[open] .sf-filter-panel, .sf-filter-row.is-closing .sf-filter-panel,
+.sf-filter-row[open] .sf-filter-group, .sf-filter-row.is-closing .sf-filter-group {
+  border-left: 0;
+  border-right: 0;
+  box-shadow: none;
+}
+.sf-filter-row[open], .sf-filter-row.is-closing { scrollbar-width: none; }
+.sf-filter-row[open]::-webkit-scrollbar, .sf-filter-row.is-closing::-webkit-scrollbar { display: none; width: 0; }
+.sf-filter-row .sf-refundable-group legend { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.sf-filter-row .sf-refundable-group .sf-switch { position: relative; display: inline-flex; flex: 0 0 44px; width: 44px; height: 24px; padding: 0; border: 0; }
+.sf-filter-row .sf-refundable-group .sf-switch span { display: block; width: 44px; height: 24px; border: 1px solid #a8b3c6; border-radius: 999px; background: #c8ced8; }
+.sf-filter-row .sf-refundable-group .sf-switch span::after { top: 3px; left: 3px; width: 18px; height: 18px; background: #fff; }
+.sf-filter-row .sf-refundable-group .sf-switch input:checked + span { border-color: #0757ff; background: #0757ff; }
+.sf-filter-row .sf-refundable-group .sf-switch input:checked + span::after { transform: translateX(20px); }
+.sf-filter-row .sf-refundable-group .sf-switch input:focus-visible + span { outline: 2px solid #0757ff; outline-offset: 3px; }
+
+/* The open attribute remains set during the exit animation. */
+.sf-filter-row[open] {
+  transform: translateX(-100%);
+  transition: transform var(--td-transition-brand);
+}
+.sf-filter-row[open].is-open {
+  transform: translateX(0);
+}
+.sf-filter-row[open].is-closing {
+  transform: translateX(-100%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .sf-filter-row[open] { transition-duration: 0.01ms; }
+}
+@media (min-width: 768px) {
+  .sf-search-card .sf-bundle { margin-top: 8px; margin-bottom: 0; }
+}
+
+/* Desktop flight cards follow the supplied aaaa reference. */
+@media (min-width: 768px) {
+  .sf-flight-card { display: flex; flex-direction: column; gap: 10px; padding: 12px; border: 1px solid #dce7fa; border-radius: 13px; background: #fff; box-shadow: 0 3px 9px rgba(8, 36, 93, .07); }
+  .sf-flight-card .sf-card-itineraries { display: flex; flex-direction: column; gap: 6px; width: 100%; }
+  .sf-flight-card .sf-card-heading { display: flex; flex-direction: row; align-items: center; gap: 18px; min-height: 30px; }
+  .sf-flight-card .sf-card-airline-mark { display: flex; align-items: center; gap: 12px; }
+  .sf-flight-card .sf-card-route-copy { font-weight: 600; color: #081e5d; }
+  .sf-flight-card .sf-leg { position: relative; display: grid; grid-template-columns: minmax(105px, .8fr) minmax(0, 3fr) minmax(120px, 1fr); align-items: center; gap: 12px; min-height: 68px; padding: 8px 14px; border: 0; border-radius: 10px; background: #edf4ff; }
+  .sf-flight-card .sf-leg.sf-leg-warm { background: #fff8e9; }
+  .sf-flight-card .sf-airline { display: none; }
+  .sf-flight-card .sf-journey { display: contents; }
+  .sf-flight-card .sf-leg-caption { display: block; grid-column: 1; position: static; padding-right: 12px; border-right: 1px solid #bfd1f3; color: #073da8; font-size: 12px; font-weight: 700; }
+  .sf-flight-card .sf-route-times { grid-column: 2; display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center; gap: 12px; }
+  .sf-flight-card .sf-time, .sf-flight-card .sf-time.sf-time-arrival { display: flex; flex-direction: column; align-items: center; min-height: 0; padding: 0; text-align: center; line-height: 1.15; }
+  .sf-flight-card .sf-time span { order: 0; color: #081e5d; font-weight: 600; }
+  .sf-flight-card .sf-time small { order: 1; }
+  .sf-flight-card .sf-time strong { order: 2; font-size: 19px; }
+  .sf-flight-card .sf-leg-details { position: static; grid-column: 3; display: flex; flex-direction: column; align-items: center; gap: 4px; padding-left: 12px; border-left: 1px solid #bfd1f3; }
+  .sf-flight-card .sf-leg-details li { font-size: 11px; }
+  .sf-flight-card .sf-fare { display: grid; grid-template-columns: 1fr 1fr minmax(150px, 180px); align-items: center; gap: 14px; width: 100%; padding: 8px 12px; border: 1px solid #edf1f8; border-radius: 9px; background: #fff; }
+  .sf-flight-card .sf-fare > div { display: flex; flex-direction: column; align-items: flex-start; }
+  .sf-flight-card .sf-fare strong { font-size: 24px; line-height: 1; }
+  .sf-flight-card .sf-fare-details { grid-column: 2; grid-row: 1; padding-left: 20px; border-left: 1px solid #d4dff2; }
+  .sf-flight-card .sf-fare > .sf-primary-btn { grid-column: 3; grid-row: 1; width: 100%; min-height: 38px; border-radius: 999px; }
+}
+
+/* Desktop itinerary card details shown in the supplied reference. */
+@media (min-width: 768px) {
+  .sf-flight-card .sf-card-heading { position: relative; padding: 2px 105px 8px 8px; }
+  .sf-flight-card .sf-card-heading::after { position: absolute; right: 6px; top: 5px; padding: 4px 10px; border-radius: 999px; background: #e7efff; color: #103782; font-size: 11px; font-weight: 600; }
+  .sf-oneway-card .sf-card-heading::after { content: 'Non-stop'; }
+  .sf-roundtrip-card .sf-card-heading::after { content: '2 flights'; }
+  .sf-multicity-card .sf-card-heading::after { content: '3 flights'; }
+  .sf-roundtrip-card .sf-card-airline-mark::before, .sf-multicity-card .sf-card-airline-mark::before { content: ''; display: block; width: 72px; height: 24px; flex: none; background: url('../images/airlines/emirates.svg') center / contain no-repeat; order: 1; }
+  .sf-roundtrip-card .sf-card-airline-mark::after, .sf-multicity-card .sf-card-airline-mark::after { content: '+'; display: block; order: 0; color: #071d61; font-weight: 700; }
+  .sf-multicity-card .sf-card-airline-mark::before { background-image: url('../images/airlines/flydubai.svg'); }
+  .sf-multicity-card .sf-card-airline-mark::after { content: '/'; }
+  .sf-flight-card .sf-card-kind { order: 2; white-space: nowrap; }
+  .sf-flight-card .sf-leg .sf-leg-details { position: static; inset: auto; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 0 0 0 12px; border-left: 1px solid #bfd1f3; }
+  .sf-flight-card .sf-leg-details li { display: none; }
+  .sf-flight-card .sf-leg-details li:last-child { display: flex; align-items: center; gap: 5px; padding: 2px 9px; border: 1px solid #cfdefa; border-radius: 999px; background: rgba(255,255,255,.7); white-space: nowrap; }
+  .sf-flight-card .sf-leg-details::after { content: '?  7 kg carry-on'; padding: 2px 9px; border: 1px solid #cfdefa; border-radius: 999px; background: rgba(255,255,255,.7); color: #0b2862; font-size: 11px; white-space: nowrap; }
+  .sf-flight-card .sf-flight-path { position: relative; align-self: center; margin-bottom: 16px; }
+  .sf-flight-card .sf-flight-path::after { content: '3h 15m'; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); color: #081e5d; font-size: 11px; white-space: nowrap; }
+  .sf-roundtrip-card .sf-leg-warm .sf-flight-path::after { content: '4h 05m'; }
+  .sf-multicity-card .sf-leg-warm .sf-flight-path::after { content: '1h 30m'; }
+  .sf-multicity-card .sf-leg:last-child .sf-flight-path::after { content: '3h 35m'; }
+  .sf-flight-card .sf-leg-caption { line-height: 1.35; }
+  .sf-flight-card .sf-fare-details summary::before { content: '?'; margin-right: 8px; color: #0757ff; font-size: 16px; }
+}
+
+/* Desktop cards: compact horizontal rows with no inherited mobile layout. */
+@media (min-width: 768px) {
+  .sf-flight-card .sf-card-itineraries .sf-leg { display: grid; grid-template-columns: minmax(110px, 18%) minmax(0, 1fr) minmax(140px, 21%); grid-template-rows: auto; min-height: 68px; padding: 8px 14px; gap: 10px; overflow: hidden; }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-airline { display: none; }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-journey { display: contents; padding: 0; }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-leg-caption { display: flex; align-items: flex-start; justify-content: center; flex-direction: column; grid-column: 1; grid-row: 1; width: auto; min-height: 38px; padding: 0 10px 0 0; border: 0; border-right: 1px solid #bfd1f3; border-radius: 0; background: transparent; font-size: 11px; line-height: 1.3; }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-route-times { grid-column: 2; grid-row: 1; width: 100%; min-width: 0; margin: 0; padding: 0; border: 0; }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-leg-details { grid-column: 3; grid-row: 1; width: auto; min-width: 0; margin: 0; padding: 0 0 0 8px; }
+  .sf-flight-card .sf-leg-details li:last-child span { font-size: 0; }
+  .sf-flight-card .sf-leg-details li:last-child span::after { content: '30 kg checked'; font-size: 10px; }
+  .sf-flight-card .sf-leg-details::after { content: '7 kg carry-on'; font-size: 10px; }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-time strong { font-size: 19px; }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-time span, .sf-flight-card .sf-card-itineraries .sf-leg .sf-time small { font-size: 11px; }
+  .sf-flight-card .sf-leg-caption::after { content: '✈  OUTBOUND'; display: block; color: #0757ff; font-size: 10px; }
+  .sf-roundtrip-card .sf-leg-warm .sf-leg-caption::after { content: '✈  RETURN'; color: #b47a00; }
+  .sf-multicity-card .sf-leg-caption::after { content: '✈ FLIGHT 01'; }
+  .sf-multicity-card .sf-leg-warm .sf-leg-caption::after { content: '✈ FLIGHT 02'; color: #b47a00; }
+  .sf-multicity-card .sf-leg:last-child .sf-leg-caption::after { content: '✈ FLIGHT 03'; }
+  .sf-flight-card .sf-fare { min-height: 58px; }
+  .sf-flight-card .sf-fare-details summary::before { content: 'i'; display: inline-grid; width: 14px; height: 14px; place-items: center; border: 1px solid #0757ff; border-radius: 50%; font-size: 10px; }
+}
+
+@media (min-width: 768px) {
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-route-times { direction: ltr !important; }
+  .sf-flight-card .sf-card-itineraries > .sf-leg { grid-template-columns: 18% minmax(0, 1fr) 22%; min-height: 58px; padding: 6px 12px; }
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-details { position: static !important; display: flex !important; visibility: visible !important; flex-direction: column; justify-content: center; align-items: center; overflow: visible; }
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-details li { display: none !important; }
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-details li:last-child { display: flex !important; width: max-content; max-width: 100%; overflow: hidden; }
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-details li:last-child span { font-size: 0 !important; }
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-details li:last-child span::after { content: '30 kg checked'; font-size: 10px; }
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-details::after { content: '7 kg carry-on'; display: block; width: max-content; max-width: 100%; }
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-caption { font-size: 0; }
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-caption::before { content: 'Sat, Nov 21'; color: #081e5d; font-size: 11px; font-weight: 700; }
+  .sf-roundtrip-card .sf-leg-warm .sf-leg-caption::before, .sf-multicity-card .sf-leg:last-child .sf-leg-caption::before { content: 'Fri, Nov 27'; }
+  .sf-multicity-card .sf-leg-warm .sf-leg-caption::before { content: 'Mon, Nov 23'; }
+  .sf-multicity-card .sf-card-airline-mark { position: relative; padding-right: 80px; }
+  .sf-multicity-card .sf-card-airline-mark .sf-card-kind { position: relative; left: 80px; }
+  .sf-multicity-card .sf-card-airline-mark { margin-right: 80px; }
+  .sf-multicity-card .sf-card-airline-mark { background: url('../images/airlines/qatar.svg') right center / 70px 24px no-repeat; }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-flight-path { width: 100%; max-width: 120px; justify-self: center; }
+  .sf-flight-card .sf-fare { grid-template-columns: 32% minmax(0, 1fr) minmax(150px, 180px); }
+  .sf-flight-card .sf-fare-details { justify-self: start; }
+}
+
+/* Keep the flight selection label and arrow clearly separated. */
+.sf-flight-card .sf-fare .sf-primary-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.sf-flight-card .sf-fare .sf-primary-btn > i {
+  position: static;
+  flex: none;
+  margin: 0;
+}
+.sf-flight-card .sf-fare .sf-primary-btn .sf-select-hover-label {
+  justify-content: center;
+  padding: 0 32px 0 12px;
+}
+
+@media (min-width: 768px) {
+  .sf-flight-card {
+    gap: 7px;
+    padding: 10px;
+  }
+  .sf-flight-card .sf-card-itineraries {
+    gap: 5px;
+  }
+  .sf-flight-card .sf-card-itineraries > .sf-leg {
+    min-height: 50px;
+    padding: 4px 8px;
+  }
+  .sf-flight-card .sf-fare {
+    min-height: 50px;
+    padding: 6px 10px;
+  }
+  .sf-flight-card .sf-fare-details {
+    position: static;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    grid-column: 2;
+    grid-row: 1;
+    padding-left: 12px;
+  }
+  .sf-flight-card .sf-fare > .sf-primary-btn {
+    grid-column: 3;
+    grid-row: 1;
+    min-width: 0;
+  }
+}
+
+.sf-flight-card .sf-leg-details li:last-child span {
+  font-size: 0 !important;
+}
+.sf-flight-card .sf-leg-details li:last-child span::before {
+  content: "30 kg checked";
+  font-size: 10px;
+}
+.sf-flight-card .sf-leg-details li:last-child span::after {
+  content: none !important;
+}
+.sf-flight-card.sf-roundtrip-card .sf-leg:last-of-type .sf-leg-details li:last-child span::before,
+.sf-flight-card.sf-multicity-card .sf-leg:last-of-type .sf-leg-details li:last-child span::before {
+  content: "30 kg checked";
+}
+.sf-flight-card.sf-roundtrip-card .sf-leg:last-of-type .sf-leg-details li:last-child span::after,
+.sf-flight-card.sf-multicity-card .sf-leg:last-of-type .sf-leg-details li:last-child span::after {
+  content: none;
+}
+
+@media (max-width: 767.98px) {
+  .sf-flight-card {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 8px;
+  }
+  .sf-flight-card .sf-card-itineraries {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .sf-flight-card .sf-card-heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    min-height: 22px;
+    padding: 0 48px 2px 2px;
+  }
+  .sf-flight-card .sf-card-airline-mark {
+    min-width: 0;
+    min-height: 20px;
+    gap: 5px;
+    padding: 0;
+    border: 0;
+  }
+  .sf-flight-card .sf-card-airline-mark img {
+    width: auto;
+    max-width: 70px;
+    max-height: 20px;
+  }
+  .sf-flight-card .sf-card-airline-mark img[src*="qatar"] {
+    width: 66px;
+    height: 20px;
+  }
+  .sf-roundtrip-card .sf-card-airline-mark::before,
+  .sf-multicity-card .sf-card-airline-mark::before {
+    content: "";
+    display: block;
+    width: 44px;
+    height: 17px;
+    flex: none;
+    order: 1;
+  }
+  .sf-roundtrip-card .sf-card-airline-mark::after,
+  .sf-multicity-card .sf-card-airline-mark::after {
+    display: block;
+    order: 0;
+    color: #071d61;
+    font-weight: 700;
+  }
+  .sf-roundtrip-card .sf-card-airline-mark::before {
+    background-image: url("../images/airlines/emirates.svg");
+  }
+  .sf-roundtrip-card .sf-card-airline-mark::after {
+    content: "+";
+  }
+  .sf-multicity-card .sf-card-airline-mark::before {
+    background-image: url("../images/airlines/flydubai.svg");
+  }
+  .sf-multicity-card .sf-card-airline-mark::after {
+    content: "/";
+  }
+  .sf-multicity-card .sf-card-airline-mark {
+    margin-right: 0;
+    padding-right: 48px;
+    background: url("../images/airlines/qatar.svg") right center / 44px 18px
+      no-repeat;
+  }
+  .sf-flight-card .sf-card-kind {
+    order: 2;
+    padding: 2px 5px;
+    font-size: 8px;
+  }
+  .sf-flight-card .sf-card-route-copy {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    font-size: 9px;
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .sf-flight-card .sf-card-heading::after {
+    top: 0;
+    right: 2px;
+    padding: 3px 6px;
+    font-size: 9px;
+  }
+  .sf-oneway-card .sf-card-heading::after {
+    content: "Non-stop";
+  }
+  .sf-roundtrip-card .sf-card-heading::after {
+    content: "2 flights";
+  }
+  .sf-multicity-card .sf-card-heading::after {
+    content: "3 flights";
+  }
+  .sf-flight-card .sf-card-itineraries .sf-leg {
+    display: grid;
+    grid-template-columns: minmax(62px, 18%) minmax(0, 1fr) minmax(82px, 22%);
+    grid-template-rows: auto;
+    align-items: center;
+    gap: 5px;
+    min-height: 44px;
+    padding: 4px 6px;
+    overflow: hidden;
+  }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-airline {
+    display: none;
+  }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-journey {
+    display: contents;
+    padding: 0;
+  }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-leg-caption {
+    display: flex;
+    grid-column: 1;
+    grid-row: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 34px;
+    padding: 0 5px 0 0;
+    border: 0;
+    border-right: 1px solid #bfd1f3;
+    border-radius: 0;
+    background: transparent;
+    font-size: 0;
+    line-height: 1.25;
+  }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-leg-caption::before {
+    content: "Sat, Nov 21";
+    color: #081e5d;
+    font-size: 9px;
+    font-weight: 700;
+  }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-leg-caption::after {
+    content: "✈ OUTBOUND";
+    color: #0757ff;
+    font-size: 8px;
+    white-space: nowrap;
+  }
+  .sf-roundtrip-card .sf-leg-warm .sf-leg-caption::before,
+  .sf-multicity-card .sf-leg:last-child .sf-leg-caption::before {
+    content: "Fri, Nov 27";
+  }
+  .sf-multicity-card .sf-leg-warm .sf-leg-caption::before {
+    content: "Mon, Nov 23";
+  }
+  .sf-roundtrip-card .sf-leg-warm .sf-leg-caption::after {
+    content: "✈ RETURN";
+    color: #b47a00;
+  }
+  .sf-multicity-card .sf-leg-caption::after {
+    content: "✈ FLIGHT 01";
+  }
+  .sf-multicity-card .sf-leg-warm .sf-leg-caption::after {
+    content: "✈ FLIGHT 02";
+    color: #b47a00;
+  }
+  .sf-multicity-card .sf-leg:last-child .sf-leg-caption::after {
+    content: "✈ FLIGHT 03";
+  }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-route-times {
+    grid-column: 2;
+    grid-row: 1;
+    grid-template-columns: minmax(0, 1fr) minmax(28px, 0.75fr) minmax(0, 1fr);
+    gap: 3px;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-time,
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-time.sf-time-arrival {
+    display: flex;
+    min-width: 0;
+    min-height: 0;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    text-align: center;
+    line-height: 1.1;
+  }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-time span,
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-time small {
+    font-size: 8px;
+  }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-time strong {
+    font-size: 14px;
+  }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-flight-path {
+    position: relative;
+    width: 100%;
+    max-width: 80px;
+    justify-self: center;
+    margin: 0 0 13px;
+  }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-flight-path i {
+    width: 14px;
+    height: 14px;
+    font-size: 9px;
+  }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-flight-path::after {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #081e5d;
+    font-size: 8px;
+    white-space: nowrap;
+  }
+  .sf-flight-card .sf-leg-warm .sf-flight-path::after {
+    content: "4h 05m";
+  }
+  .sf-multicity-card .sf-leg-warm .sf-flight-path::after {
+    content: "1h 30m";
+  }
+  .sf-multicity-card .sf-leg:last-child .sf-flight-path::after {
+    content: "3h 35m";
+  }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-leg-details {
+    position: static;
+    grid-column: 3;
+    grid-row: 1;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    min-width: 0;
+    margin: 0;
+    padding: 0 0 0 5px;
+    overflow: visible;
+    border: 0;
+    border-left: 1px solid #bfd1f3;
+    visibility: visible;
+  }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-leg-details li {
+    display: none !important;
+  }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-leg-details li:last-child {
+    display: flex !important;
+    width: max-content;
+    max-width: 100%;
+    align-items: center;
+    gap: 3px;
+    padding: 2px 5px;
+    overflow: hidden;
+    border: 1px solid #cfdefa;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.8);
+    white-space: nowrap;
+  }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-leg-details li:last-child i {
+    font-size: 8px;
+  }
+  .sf-flight-card .sf-leg-details li:last-child span::before {
+    font-size: 8px;
+  }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-leg-details::after {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    padding: 2px 5px;
+    border: 1px solid #cfdefa;
+    border-radius: 999px;
+    background: #fff;
+    color: #0b2862;
+    font-size: 8px;
+    white-space: nowrap;
+  }
+  .sf-flight-card .sf-fare {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(96px, 31%);
+    align-items: center;
+    gap: 5px;
+    min-height: 42px;
+    margin: 0;
+    padding: 5px 7px;
+  }
+  .sf-flight-card .sf-fare > div {
+    grid-column: 1;
+    grid-row: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1px;
+    margin: 0;
+    text-align: left;
+  }
+  .sf-flight-card .sf-fare > div span {
+    font-size: 8px;
+    line-height: 1.1;
+  }
+  .sf-flight-card .sf-fare > div strong {
+    font-size: 17px;
+    line-height: 1;
+  }
+  .sf-flight-card .sf-fare-details {
+    position: static;
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    padding-left: 6px;
+    border-left: 1px solid #d4dff2;
+    text-align: center;
+  }
+  .sf-flight-card .sf-fare-details summary {
+    justify-content: center;
+    gap: 3px;
+    font-size: 9px;
+  }
+  .sf-flight-card .sf-fare-details summary::before {
+    content: "i";
+    display: inline-grid;
+    width: 12px;
+    height: 12px;
+    place-items: center;
+    border: 1px solid #0757ff;
+    border-radius: 50%;
+    font-size: 8px;
+  }
+  .sf-flight-card .sf-fare-details summary i {
+    font-size: 8px;
+  }
+  .sf-flight-card .sf-fare > .sf-primary-btn {
+    grid-column: 3;
+    grid-row: 1;
+    width: 100%;
+    min-width: 0;
+    min-height: 30px;
+    padding: 4px 8px;
+    font-size: 9px;
+  }
+  .sf-flight-card .sf-fare .sf-primary-btn .sf-select-hover-label {
+    padding: 0 18px 0 6px;
+    font-size: 8px;
+  }
+}
+
+/* Mobile search results layout, based on bbb.png. */
+@media (max-width: 767.98px) {
+  .sf-search-card .sf-bundle { display: none; }
+  .sf-flight-card { display: block; margin: 0 0 12px; padding: 12px; border: 1px solid #d9e5fa; border-radius: 15px; background: #fff; box-shadow: 0 2px 5px rgba(6,32,85,.08); }
+  .sf-flight-card .sf-card-itineraries { display: flex; flex-direction: column; gap: 5px; }
+  .sf-flight-card .sf-card-heading { display: flex; flex-direction: row; flex-wrap: nowrap; align-items: center; gap: 8px; min-height: 28px; padding: 0 3px 4px; overflow: hidden; }
+  .sf-flight-card .sf-card-airline-mark { display: flex; width: auto; min-width: 0; min-height: 0; gap: 6px; flex: 0 1 auto; }
+  .sf-flight-card .sf-card-airline-mark img { width: auto; max-width: 75px; max-height: 24px; }
+  .sf-flight-card .sf-card-airline-mark img[src*='qatar'] { width: 65px; height: 24px; }
+  .sf-flight-card .sf-card-kind { padding: 3px 7px; font-size: 9px; white-space: nowrap; }
+  .sf-flight-card .sf-card-route-copy { flex: 1 1 auto; min-width: 0; margin: 0; overflow: hidden; font-size: 10px; white-space: nowrap; }
+  .sf-flight-card .sf-card-itineraries .sf-leg { display: grid; grid-template-columns: minmax(76px, 27%) minmax(0, 1fr); grid-template-rows: auto; min-height: 58px; padding: 5px 10px; gap: 8px; border: 0; border-radius: 9px; background: #eaf3ff; }
+  .sf-flight-card .sf-card-itineraries .sf-leg.sf-leg-warm { background: #fff6e5; }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-airline { display: none; }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-journey { display: contents; padding: 0; }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-leg-caption { display: flex; flex-direction: column; justify-content: center; grid-column: 1; grid-row: 1; width: auto; min-height: 38px; padding: 0 6px 0 0; border: 0; border-right: 1px solid #c9d8f3; border-radius: 0; background: none; color: #081d5b; font-size: 10px; font-weight: 700; }
+  .sf-flight-card .sf-leg-caption::after { content: 'OUTBOUND'; color: #0757ff; font-size: 10px; }
+  .sf-roundtrip-card .sf-leg-warm .sf-leg-caption::after { content: 'RETURN'; color: #d58b00; }
+  .sf-multicity-card .sf-leg-caption::after { content: 'LEG 01'; }
+  .sf-multicity-card .sf-leg-warm .sf-leg-caption::after { content: 'LEG 02'; color: #d58b00; }
+  .sf-multicity-card .sf-leg:last-child .sf-leg-caption::after { content: 'LEG 03'; }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-route-times { display: grid; grid-column: 2; grid-row: 1; grid-template-columns: 1fr .8fr 1fr; direction: ltr; align-items: center; gap: 4px; width: 100%; min-width: 0; padding: 0; border: 0; }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-time { display: flex; flex-direction: column; align-items: center; min-height: 0; padding: 0; text-align: center; line-height: 1.1; }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-time span { order: 0; font-size: 10px; color: #081d5b; }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-time small { order: 1; font-size: 10px; }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-time strong { order: 2; font-size: 18px; }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-leg-details { display: none; }
+  .sf-flight-card .sf-card-itineraries::after { content: '30 kg checked    |    7 kg carry-on'; display: block; padding: 6px 10px; border: 1px solid #dbe6fa; border-radius: 9px; color: #0b2862; font-size: 11px; }
+  .sf-flight-card .sf-fare { display: grid; grid-template-columns: 1fr minmax(130px, 38%); gap: 4px 10px; margin: 8px 0 0; padding: 0 4px; border: 0; background: #fff; }
+  .sf-flight-card .sf-fare > div { display: flex; flex-direction: column; align-items: flex-start; grid-column: 1; grid-row: 1; }
+  .sf-flight-card .sf-fare > div span { font-size: 11px; }
+  .sf-flight-card .sf-fare > div strong { font-size: 24px; line-height: 1.1; }
+  .sf-flight-card .sf-fare .sf-primary-btn { grid-column: 2; grid-row: 1; width: 100%; min-height: 38px; border-radius: 999px; font-size: 12px; }
+  .sf-flight-card .sf-fare-details { grid-column: 1 / -1; grid-row: 2; margin: 0; }
+  .sf-flight-card .sf-fare-details summary { justify-content: center; font-size: 11px; }
+  .sf-flight-card .sf-fare-details summary::before { content: 'i'; display: inline-grid; width: 14px; height: 14px; margin-right: 6px; place-items: center; border: 1px solid #0757ff; border-radius: 50%; font-size: 10px; }
+}
+
+/* Remaining mobile search page sections from bbb.png. */
+@media (max-width: 767.98px) {
+  .sf-results-intro, .sf-breadcrumb, .sf-mobile-tools, .sf-sort-tabs { display: none; }
+  .sf-search-card { border: 1px solid #dce7fa; border-radius: 16px; box-shadow: 0 2px 6px rgba(8,35,90,.08); }
+  .sf-search-options .sf-choice:has(input:checked) { border-radius: 9px; background: #e9f3ff; }
+  .sf-search-card .sf-route-bar > .sf-fld, .sf-search-options .sf-class .dd-t { border: 1px solid #ceddf8; border-radius: 9px; }
+  .sf-search-card .sf-route-bar > .sf-primary-btn { border-radius: 999px; }
+  .sf-date-strip { margin: 10px 0 4px; }
+  .sf-date-strip .sf-date-card { border-radius: 0; border-right: 1px solid #dce7fa; }
+  .sf-date-strip .sf-date-card.is-active { border: 1px solid #c9dafa; border-radius: 9px; background: #e4eeff; }
+  .sf-results-title { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; padding: 4px 0 12px; border: 0; background: transparent; box-shadow: none; }
+  .sf-results-title > .sf-filter-row:not([open]) { grid-column: 1; grid-row: 1; justify-self: start; }
+  .sf-results-title > .sf-toolbar-sort { display: block; grid-column: 2; grid-row: 1; width: auto; margin: 0; }
+  .sf-results-title > .sf-toolbar-sort select { min-height: 36px; padding: 6px 32px 6px 14px; border: 1px solid #d7e3fa; border-radius: 999px; background: #fff; font-size: 12px; font-weight: 700; }
+  .sf-results-title .sf-filter-row > summary, .sf-chip-dropdown > summary { border: 1px solid #d7e3fa; border-radius: 999px; background: #fff; box-shadow: 0 2px 4px rgba(8,35,90,.08); }
+  .sf-filter-chips { display: flex; grid-column: 1 / -1; grid-row: 2; gap: 8px; width: 100%; padding: 0 0 3px; overflow-x: auto; }
+  .sf-filter-chips .sf-clear-filters { display: none; }
+  .sf-inline-ad-row { display: block; margin: 0 0 14px; overflow: hidden; }
+  .sf-inline-ad-row .sf-inline-ad { display: none; }
+  .sf-inline-ad-row .sf-inline-ad:first-child { display: grid; grid-template-columns: minmax(90px, 34%) minmax(0, 1fr) 30px; gap: 10px; min-height: 76px; padding: 5px; border-radius: 14px; }
+  .sf-inline-ad-row .sf-inline-ad:first-child > img { width: 100%; height: 66px; border-radius: 10px; object-fit: cover; }
+  .sf-inline-ad h3 { font-size: 13px; }
+  .sf-inline-ad p { font-size: 11px; }
+  .sf-inline-ad > span { top: 9px; left: 10px; }
+  .sf-compare { display: flex; width: fit-content; min-height: 38px; margin: 14px auto; padding: 7px 20px; border: 1px solid #d7e3fa; border-radius: 999px; background: #fff; box-shadow: 0 2px 4px rgba(8,35,90,.08); }
+  .sf-confidence { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; padding: 8px 0 16px; border: 0; }
+  .sf-confidence article { display: flex; align-items: flex-start; gap: 8px; padding: 0 8px; border-right: 1px solid #dce6f8; text-align: left; }
+  .sf-confidence article:last-child { border-right: 0; }
+  .sf-confidence article > i { flex: none; width: 30px; height: 30px; }
+  .sf-confidence h3 { font-size: 10px; line-height: 1.2; }
+  .sf-confidence p { display: block; margin: 3px 0 0; font-size: 9px; line-height: 1.25; }
+  .sf-help-banner { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; background: #e8f0ff; }
+  .sf-help-banner > div { flex: 1; min-width: 0; }
+  .sf-help-banner h2 { margin: 0; font-size: 11px; }
+  .sf-help-banner p { display: block; margin: 2px 0 0; font-size: 10px; }
+  .sf-help-banner > a { flex: none; padding: 7px 10px; border: 1px solid #0757ff; border-radius: 999px; background: #fff; font-size: 10px; }
+}
+
+/* Final mobile page alignment from demo/bbb.png. */
+@media (max-width: 767.98px) {
+  .sf-container { width: calc(100% - 24px); padding-inline: 0; }
+  .sf-search-hero { width: 100%; margin: 0; padding: 0; }
+  .sf-date-strip { display: grid; grid-template-columns: 34px repeat(3, minmax(0, 1fr)) 34px; gap: 0; align-items: stretch; }
+  .sf-date-strip .sf-date-card { min-width: 0; padding: 6px 2px; text-align: center; }
+  .sf-date-strip .sf-date-card b, .sf-date-strip .sf-date-card span { display: block; font-size: 11px; white-space: nowrap; }
+  .sf-results-title { grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 8px; }
+  .sf-results-title > .sf-filter-row { position: relative; width: auto; min-width: 0; height: auto; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; transform: none; }
+  .sf-results-title > .sf-filter-row > summary { min-height: 36px; }
+  .sf-filter-chips { flex-wrap: nowrap; }
+  .sf-inline-ad-row .sf-inline-ad:first-child { grid-template-columns: 38% minmax(0,1fr) 28px; }
+  .sf-ad-rail { display: block; margin: 10px 0; }
+  .sf-ad-rail .sf-ad-card { display: block; width: 100%; min-height: 58px; padding: 0; border: 0; box-shadow: none; }
+  .sf-ad-rail .sf-ad-banner { display: block; position: relative; height: 58px; overflow: hidden; border-radius: 12px; background: linear-gradient(100deg,#ff4b12,#ff7900); }
+  .sf-ad-rail .sf-ad-banner > * { display: none !important; }
+  .sf-ad-rail .sf-ad-image { display: none; }
+  .sf-ad-rail .sf-ad-banner::after { content: 'daraz  ·  MEGA SALE     UP TO 70% OFF       SHOP NOW  →'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: space-around; padding: 0 12px; color: #fff; font-weight: 800; font-size: clamp(12px,3.6vw,20px); }
+  .sf-ad-rail .sf-ad-card + .sf-ad-card .sf-ad-banner { background: linear-gradient(100deg,#09245e,#0757ff); }
+  .sf-ad-rail .sf-ad-card + .sf-ad-card .sf-ad-banner::after { content: 'Sponsored    J.  ·  WEDDING & FESTIVE     40% OFF       SHOP NOW  →'; }
+  .sf-ad-rail .sf-ad-label { display: none; }
+  .sf-confidence { margin-top: 8px; }
+  .sf-help-banner { margin: 0 0 12px; }
+  .td-site-footer { margin-top: 10px; }
+  .td-footer-main { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+  .td-footer-about { grid-column: 1 / -1; grid-row: auto; }
+  .td-footer-column:nth-child(n) { grid-column: auto; grid-row: auto; }
+  .td-footer-column:last-child { display: none; }
+}
+
+/* Mobile cards: prevent desktop row badges and route direction from leaking in. */
+@media (max-width: 767.98px) {
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-details { display: none !important; }
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-route-times { direction: ltr !important; grid-template-columns: 1fr .7fr 1fr; }
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-caption { font-size: 0 !important; }
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-caption::before { content: 'Sat, Nov 21'; display: block; font-size: 10px; color: #071d61; }
+  .sf-flight-card.sf-roundtrip-card .sf-leg-warm .sf-leg-caption::before, .sf-flight-card.sf-multicity-card .sf-leg:last-child .sf-leg-caption::before { content: 'Fri, Nov 27'; }
+  .sf-flight-card.sf-multicity-card .sf-leg-warm .sf-leg-caption::before { content: 'Mon, Nov 23'; }
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-caption::after { content: 'OUTBOUND'; font-size: 10px; color: #0757ff; }
+  .sf-flight-card.sf-roundtrip-card .sf-leg-warm .sf-leg-caption::after { content: 'RETURN'; color: #c58100; }
+  .sf-flight-card.sf-multicity-card .sf-leg .sf-leg-caption::after { content: 'FLIGHT 01'; }
+  .sf-flight-card.sf-multicity-card .sf-leg-warm .sf-leg-caption::after { content: 'FLIGHT 02'; color: #c58100; }
+  .sf-flight-card.sf-multicity-card .sf-leg:last-child .sf-leg-caption::after { content: 'FLIGHT 03'; }
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-flight-path::after { content: none; }
+  .sf-flight-card .sf-card-heading { overflow: hidden; gap: 4px; padding-right: 0; }
+  .sf-multicity-card .sf-card-airline-mark { flex: 0 0 auto; margin: 0; padding-right: 0; background: none; }
+  .sf-multicity-card .sf-card-airline-mark .sf-card-kind { position: static; left: auto; }
+  .sf-flight-card .sf-card-route-copy { font-size: 9px; line-height: 1.2; white-space: normal; }
+  .sf-flight-card .sf-card-itineraries::after { content: '30 kg checked  |  7 kg carry-on'; }
+}
+
+/* Compact three-day mobile date strip from the reference. */
+@media (max-width: 767.98px) {
+  .sf-date-strip { grid-template-columns: 28px repeat(3, minmax(0, 1fr)) 28px; gap: 0; align-items: center; margin: 8px 0 6px; }
+  .sf-date-strip .sf-date-card:nth-child(2) { display: flex; }
+  .sf-date-strip .sf-date-card:nth-child(5), .sf-date-strip .sf-date-card:nth-child(6) { display: none; }
+  .sf-date-strip .sf-date-card { display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 38px; padding: 3px 2px; line-height: 1.2; }
+  .sf-date-strip .sf-date-card b, .sf-date-strip .sf-date-card span { font-size: 10px; }
+  .sf-date-strip .sf-date-card .sf-desktop-copy { display: none; }
+  .sf-date-strip .sf-date-card.is-active { min-height: 38px; border-radius: 7px; }
+  .sf-date-strip .sf-date-arrow { width: 26px; height: 26px; }
+}
+
+.sf-mobile-extra-airlines { display: none; }
+@media (max-width: 767.98px) {
+  .sf-multicity-card .sf-card-heading { position: relative; display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, .85fr) auto; gap: 5px; min-height: 28px; padding: 0 0 5px; overflow: visible; }
+  .sf-multicity-card .sf-card-airline-mark { display: flex; align-items: center; flex-wrap: nowrap; gap: 3px; min-width: 0; padding: 0; margin: 0; background: none; }
+  .sf-multicity-card .sf-card-airline-mark::before, .sf-multicity-card .sf-card-airline-mark::after { display: none; content: none; }
+  .sf-multicity-card .sf-card-airline-mark > img { width: 32px !important; max-width: 32px !important; height: 15px !important; object-fit: contain; }
+  .sf-multicity-card .sf-mobile-extra-airlines { display: inline-flex; align-items: center; gap: 2px; min-width: 0; color: #081e5d; font-size: 9px; }
+  .sf-multicity-card .sf-mobile-extra-airlines img { width: 32px !important; max-width: 32px !important; height: 15px !important; object-fit: contain; }
+  .sf-multicity-card .sf-card-kind { position: static !important; left: auto !important; flex: none; padding: 2px 4px; font-size: 7px; }
+  .sf-multicity-card .sf-card-route-copy { min-width: 0; margin: 0; overflow: hidden; font-size: 8px; line-height: 1.15; white-space: normal; }
+  .sf-multicity-card .sf-card-heading::after { content: '3 flights'; position: static; display: block; padding: 3px 5px; border-radius: 999px; background: #e5efff; color: #103782; font-size: 8px; white-space: nowrap; }
+  .sf-multicity-card .sf-card-itineraries > .sf-leg { grid-template-columns: minmax(75px, 27%) minmax(0, 1fr); min-height: 48px; padding: 4px 8px; }
+  .sf-multicity-card .sf-card-itineraries > .sf-leg::before { content: '1'; position: absolute; left: 11px; top: 50%; transform: translateY(-50%); width: 14px; text-align: center; color: #fff; font-size: 9px; font-weight: 700; }
+  .sf-multicity-card .sf-card-itineraries > .sf-leg.sf-leg-warm::before { content: '2'; color: #071d61; }
+  .sf-multicity-card .sf-card-itineraries > .sf-leg:last-child::before { content: '3'; }
+  .sf-multicity-card .sf-card-itineraries > .sf-leg .sf-leg-caption { position: relative; padding-left: 21px; }
+  .sf-multicity-card .sf-card-itineraries > .sf-leg .sf-leg-caption { background: radial-gradient(circle at 7px center, #0757ff 0 7px, transparent 8px); }
+  .sf-multicity-card .sf-card-itineraries > .sf-leg.sf-leg-warm .sf-leg-caption { background: radial-gradient(circle at 7px center, #ffb900 0 7px, transparent 8px); }
+  .sf-multicity-card .sf-card-itineraries > .sf-leg .sf-time strong { font-size: 16px; }
+  .sf-multicity-card .sf-card-itineraries > .sf-leg .sf-time span, .sf-multicity-card .sf-card-itineraries > .sf-leg .sf-time small { font-size: 9px; }
+  .sf-multicity-card .sf-card-itineraries > .sf-leg .sf-flight-path { width: 100%; max-width: 60px; justify-self: center; }
+  .sf-multicity-card .sf-card-itineraries > .sf-leg .sf-flight-path::after { content: none; }
+  .sf-multicity-card .sf-fare > div strong { font-size: 21px; }
+}
+
+/* Improve flight card readability on desktop and mobile. */
+.sf-flight-card .sf-card-route-copy { font-size: 14px; }
+.sf-flight-card .sf-card-kind { font-size: 12px; }
+.sf-flight-card .sf-card-itineraries .sf-leg .sf-leg-caption::before,
+.sf-flight-card .sf-card-itineraries .sf-leg .sf-leg-caption::after { font-size: 12px; }
+.sf-flight-card .sf-card-itineraries .sf-leg .sf-time span,
+.sf-flight-card .sf-card-itineraries .sf-leg .sf-time small { font-size: 13px; }
+.sf-flight-card .sf-card-itineraries .sf-leg .sf-time strong { font-size: 21px; }
+.sf-flight-card .sf-fare > div span, .sf-flight-card .sf-fare-details summary { font-size: 13px; }
+@media (max-width: 767.98px) {
+  .sf-flight-card .sf-card-route-copy, .sf-multicity-card .sf-card-route-copy { font-size: 10px; }
+  .sf-flight-card .sf-card-kind, .sf-multicity-card .sf-card-kind { font-size: 9px; }
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-caption::before,
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-caption::after { font-size: 11px; }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-time span,
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-time small { font-size: 11px; }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-time strong { font-size: 19px; }
+  .sf-flight-card .sf-card-itineraries::after { font-size: 12px; }
+  .sf-flight-card .sf-fare > div span, .sf-flight-card .sf-fare-details summary { font-size: 12px; }
+  .sf-flight-card .sf-fare .sf-primary-btn { font-size: 13px; }
+}
+
+.sf-flight-card .sf-card-route-copy { font-size: 16px; }
+.sf-flight-card .sf-card-kind { font-size: 14px; }
+.sf-flight-card .sf-card-itineraries .sf-leg .sf-leg-caption::before,
+.sf-flight-card .sf-card-itineraries .sf-leg .sf-leg-caption::after { font-size: 14px; }
+.sf-flight-card .sf-card-itineraries .sf-leg .sf-time span,
+.sf-flight-card .sf-card-itineraries .sf-leg .sf-time small { font-size: 15px; }
+.sf-flight-card .sf-card-itineraries .sf-leg .sf-time strong { font-size: 24px; }
+.sf-flight-card .sf-fare > div span, .sf-flight-card .sf-fare-details summary { font-size: 15px; }
+@media (max-width: 767.98px) {
+  .sf-flight-card .sf-card-route-copy, .sf-multicity-card .sf-card-route-copy { font-size: 12px; }
+  .sf-flight-card .sf-card-kind, .sf-multicity-card .sf-card-kind { font-size: 10px; }
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-caption::before,
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-caption::after { font-size: 12px; }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-time span,
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-time small { font-size: 12px; }
+  .sf-flight-card .sf-card-itineraries .sf-leg .sf-time strong { font-size: 21px; }
+  .sf-flight-card .sf-card-itineraries::after { font-size: 13px; }
+  .sf-flight-card .sf-fare > div span, .sf-flight-card .sf-fare-details summary { font-size: 13px; }
+  .sf-flight-card .sf-fare .sf-primary-btn { font-size: 14px; }
+}
+
+/* Match the All filters control to the first itinerary leg. */
+.sf-results-title .sf-filter-row > summary {
+  border: 1px solid #cbdcf8;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #eaf3ff 0%, #f5f9ff 62%, #fff 100%);
+  box-shadow: 0 2px 5px rgba(10, 45, 110, .08);
+}
+.sf-results-title .sf-filter-row > summary:hover,
+.sf-results-title .sf-filter-row > summary:focus-visible {
+  border-color: #8fb3f5;
+  background: linear-gradient(135deg, #e3efff 0%, #f2f7ff 62%, #fff 100%);
+}
+.sf-results-title .sf-chip-dropdown > summary {
+  border: 1px solid #cbdcf8;
+  background: linear-gradient(135deg, #eaf3ff 0%, #f5f9ff 62%, #fff 100%);
+}
+.sf-results-title .sf-chip-dropdown > summary:hover,
+.sf-results-title .sf-chip-dropdown > summary:focus-visible,
+.sf-results-title .sf-chip-dropdown[open] > summary {
+  border-color: #8fb3f5;
+  background: linear-gradient(135deg, #e3efff 0%, #f2f7ff 62%, #fff 100%);
+}
+.sf-flight-card .sf-card-itineraries > .sf-leg:not(.sf-leg-warm) {
+  background: linear-gradient(135deg, #eaf3ff 0%, #f5f9ff 62%, #fff 100%);
+  border: 1px solid #cbdcf8;
+}
+.sf-flight-card .sf-card-itineraries > .sf-leg.sf-leg-warm {
+  background: linear-gradient(to left, #fff4df 0%, #fffaf0 58%, #fff 100%);
+  border: 1px solid #f1e4c8;
+}
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-details li:last-child span::after,
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-details::after { font-size: 12px; }
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-details { align-items: center; }
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-details li:last-child,
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-details::after {
+  box-sizing: border-box;
+  width: 132px;
+  min-height: 26px;
+  justify-content: center;
+  padding: 3px 8px;
+  text-align: center;
+  white-space: nowrap;
+}
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-details li:last-child span,
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-details li:last-child span::after,
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-details::after {
+  font-family: inherit !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0 !important;
+}
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-details li:last-child span {
+  font-size: 0 !important;
+}
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-details li:last-child span::after {
+  color: #36577f !important;
+}
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-flight-path { position: relative; }
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-flight-path i { position: relative; z-index: 1; }
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-flight-path {
+  background: linear-gradient(#b8cff5, #b8cff5) right center / calc(50% - 12px) 1px no-repeat;
+}
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-flight-path::after {
+  top: calc(100% + 3px);
+}
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-flight-duration {
+  display: none !important;
+}
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-flight-path::after {
+  content: "3h 15m" !important;
+  position: absolute !important;
+  top: calc(100% + 3px) !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  display: block !important;
+  width: max-content !important;
+  height: auto !important;
+  background: none !important;
+  text-align: center !important;
+  color: #081e5d !important;
+  font-size: 12px !important;
+  white-space: nowrap !important;
+}
+.sf-flight-card.sf-roundtrip-card .sf-leg-warm .sf-flight-path::after { content: "4h 05m" !important; }
+.sf-flight-card.sf-multicity-card .sf-leg-warm .sf-flight-path::after { content: "1h 30m" !important; }
+.sf-flight-card.sf-multicity-card .sf-leg:last-child .sf-flight-path::after { content: "3h 35m" !important; }
+.sf-flight-card .sf-card-itineraries { gap: 9px; }
+.sf-flight-card .sf-card-itineraries > .sf-leg { min-height: 76px; }
+@media (max-width: 767.98px) {
+  .sf-flight-card .sf-card-itineraries > .sf-leg { min-height: 62px; }
+}
+@media (max-width: 767.98px) {
+  .sf-results-title .sf-filter-row > summary {
+    border: 1px solid #cbdcf8;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #eaf3ff 0%, #f5f9ff 62%, #fff 100%);
+  }
+}
+
+/* Slightly larger flight card text on mobile and desktop. */
+.sf-flight-card .sf-card-route-copy { font-size: 17px; }
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-caption::before,
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-caption::after { font-size: 15px; }
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-time span,
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-time small { font-size: 16px; }
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-time strong { font-size: 26px; }
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-details li:last-child span::after,
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-details::after { font-size: 13px !important; }
+@media (max-width: 767.98px) {
+  .sf-flight-card .sf-card-route-copy, .sf-multicity-card .sf-card-route-copy { font-size: 13px; }
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-caption::before,
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-caption::after { font-size: 13px; }
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-time span,
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-time small { font-size: 13px; }
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-time strong { font-size: 22px; }
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-details li:last-child span::after,
+  .sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-details::after { font-size: 13px !important; }
+  .sf-flight-card .sf-fare > div span, .sf-flight-card .sf-fare-details summary { font-size: 14px; }
+}
+
+/* More breathing room inside each itinerary leg. */
+.sf-flight-card .sf-card-itineraries > .sf-leg { padding: 12px 16px !important; }
+@media (max-width: 767.98px) {
+  .sf-flight-card .sf-card-itineraries > .sf-leg { padding: 9px 12px !important; }
 }
