@@ -240,10 +240,6 @@
   font-weight: var(--td-weight-medium);
   white-space: nowrap;
 }
-.td-service-title {
-  color: var(--td-text);
-  font-weight: var(--td-weight-bold);
-}
 .td-multi-controls {
   display: none;
   margin-top: var(--td-space-07);

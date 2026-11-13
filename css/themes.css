@@ -637,9 +637,6 @@ b {
   left: auto;
   right: 0;
 }
-.cal-h i:hover {
-  background: var(--td-hover);
-}
 @keyframes td-pop-in {
   from {
     opacity: 0;
