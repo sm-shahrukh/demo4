@@ -343,11 +343,11 @@ textarea.td-input { height: auto; min-height: 84px; padding-top: 8px; padding-bo
   background: linear-gradient(180deg, rgba(8, 22, 64, 0.15), rgba(8, 22, 64, 0.8)), url("../images/dubai.jpg") center / cover no-repeat;
 }
 .td-route-text { position: relative; }
-.td-route-title { margin: 0; color: #fff; font-size: 0.9375rem; font-weight: 700; line-height: 1.3; }
+.td-route-title { margin: 0; color: var(--td-brand-yellow); font-size: 0.9375rem; font-weight: 700; line-height: 1.3; letter-spacing: .04em; }
 .td-route-title i { margin: 0 4px; font-size: 0.85em; }
 .td-route-meta { margin: 2px 0 0; font-size: 0.75rem; }
 .td-fare-body { padding: 14px 18px 18px; }
-.td-fare-title { margin: 0 0 8px; font-size: 0.9375rem; font-weight: 700; color: var(--td-navy); }
+.td-fare-title { margin: 0 0 8px; font-size: 0.9375rem; font-weight: 700; color: var(--td-brand-yellow); }
 .td-fare-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; font-size: 0.8125rem; }
 .td-fare-row i { margin-left: 4px; color: var(--td-muted); }
 .td-fare-total {
@@ -492,18 +492,15 @@ textarea.td-input { height: auto; min-height: 84px; padding-top: 8px; padding-bo
   .td-assist-sub { font-size: 0.75rem; }
 
   /* fare summary: small photo beside the route */
-  .td-fare { position: static; }
-  .td-route { align-items: center; gap: 12px; min-height: 0; padding: 12px 14px 0; color: var(--td-navy); }
+  .td-fare { position: static; padding: 0; }
+  .td-route { align-items: flex-end; min-height: 128px; padding: 14px 16px; color: #fff; }
   .td-route-photo {
-    position: static;
-    flex: none;
-    width: 76px;
-    height: 60px;
-    border-radius: 8px;
-    background: url("../images/dubai.jpg") center / cover no-repeat;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(8, 22, 64, 0.15), rgba(8, 22, 64, 0.8)), url("../images/dubai.jpg") center / cover no-repeat;
   }
-  .td-route-title { color: var(--td-navy); font-size: 0.9375rem; }
-  .td-route-meta { color: var(--td-muted); }
+  .td-route-title { color: var(--td-brand-yellow); font-size: 0.9375rem; }
+  .td-route-meta { color: #fff; }
   .td-fare-body { padding: 12px 14px 16px; }
 
   .td-modal .modal-dialog { margin: 0 auto; max-width: calc(100% - 2rem); }
@@ -519,3 +516,5 @@ textarea.td-input { height: auto; min-height: 84px; padding-top: 8px; padding-bo
 .td-page .td-label, .td-page .td-step, .td-page .td-saved-text strong, .td-page .td-assist-title, .td-page .td-fare-row, .td-page .td-input { font-size: 1rem; }
 .td-page .td-hero p { font-size: 1rem; }
 @media (max-width: 900px) { .td-wrap { width: calc(100% - 24px); } }
+.td-page .td-fare .td-route-title { color: #ffcf4a; font-size: .75rem; font-weight: 700; letter-spacing: .04em; }
+.td-page .td-fare .td-fare-title { color: var(--td-navy); }
