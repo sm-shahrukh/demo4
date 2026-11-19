@@ -370,6 +370,9 @@ textarea.form-control {
   height: 22px;
   color: #1554ff;
 }
+.office-detail > i {
+  color: #1554ff;
+}
 .office-detail p {
   font-size: 14px;
   line-height: 1.4;

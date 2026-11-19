@@ -13,7 +13,7 @@
 .td-header-brand { display: inline-flex; align-items: center; justify-self: start; }
 .td-header-brand img { display: block; width: 168px; max-height: 38px; object-fit: contain; }
 .td-header-links { display: flex; align-items: center; justify-content: flex-start; gap: 10px; }
-.td-header-links a { position: relative; display: inline-flex; align-items: center; padding: 2px 10px; color: var(--td-text); font-family: var(--td-font); font-size: 14px; font-weight: 500; line-height: 1.25; letter-spacing: 0; text-decoration: none; }
+.td-header-links a { position: relative; display: inline-flex; align-items: center; padding: 2px 10px; color: var(--td-text); font-family: var(--td-font); font-size: 15px; font-weight: 500; line-height: 1.25; letter-spacing: 0; text-decoration: none; }
 .td-header-links a::after { position: absolute; right: -4px; bottom: -5px; left: -4px; height: 2px; width: 0; background: var(--td-blue); content: ""; transition: width var(--td-search-animation-duration) var(--td-search-animation-easing); }
 .td-header-links a:hover, .td-header-links a:focus-visible { color: var(--td-blue); }
 .td-header-links a:hover::after, .td-header-links a:focus-visible::after { width: 100%; }

@@ -1212,7 +1212,9 @@
       (() => {
         const mobileView = window.matchMedia("(max-width: 767.98px)");
         const carousels = [
-          ...document.querySelectorAll("#destinations .td-dest, #flight-deals .td-fdg, .td-panel-section .td-jp"),
+          ...document.querySelectorAll(
+            "#destinations .td-dest, #flight-deals .td-fdg, .td-panel-section .td-jp",
+          ),
         ];
         const visibleCarousels = new Set();
         const timers = new Map();
@@ -1228,13 +1230,16 @@
           timers.set(
             carousel,
             window.setTimeout(() => {
-              const cards = [...carousel.children].filter((card) => card.offsetWidth > 0);
+              const cards = [...carousel.children].filter(
+                (card) => card.offsetWidth > 0,
+              );
               if (cards.length > 1) {
-                const current = cards.reduce((nearest, card, index) =>
-                  Math.abs(card.offsetLeft - carousel.scrollLeft) <
-                  Math.abs(cards[nearest].offsetLeft - carousel.scrollLeft)
-                    ? index
-                    : nearest,
+                const current = cards.reduce(
+                  (nearest, card, index) =>
+                    Math.abs(card.offsetLeft - carousel.scrollLeft) <
+                    Math.abs(cards[nearest].offsetLeft - carousel.scrollLeft)
+                      ? index
+                      : nearest,
                   0,
                 );
                 const next = (current + 1) % cards.length;
@@ -1250,7 +1255,9 @@
 
         carousels.forEach((carousel) => {
           ["touchstart", "pointerdown", "wheel"].forEach((eventName) =>
-            carousel.addEventListener(eventName, () => schedule(carousel), { passive: true }),
+            carousel.addEventListener(eventName, () => schedule(carousel), {
+              passive: true,
+            }),
           );
         });
 
