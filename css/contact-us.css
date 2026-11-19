@@ -218,6 +218,10 @@ svg.icon {
   width: 28px;
   height: 28px;
 }
+.contact-card .icon-bubble i {
+  font-size: 1.6rem;
+  line-height: 1;
+}
 .contact-card h2 {
   font-size: 17px;
   font-weight: 700;
