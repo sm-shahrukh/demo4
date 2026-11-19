@@ -24,7 +24,7 @@
     <link href="css/themes.css" rel="stylesheet" />
     <link href="components/header.css?v=20261112-31" rel="stylesheet" />
     <link href="css/flight-booking.css" rel="stylesheet" />
-    <link href="css/travellers.css?v=20261119-2" rel="stylesheet" />
+    <link href="css/travellers.css?v=20261119-3" rel="stylesheet" />
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       defer
@@ -37,6 +37,12 @@
     <div data-component="mobile-navigation"></div>
     <main class="td-page">
       <div class="td-wrap">
+        <section class="td-hero" aria-labelledby="travellersHeroTitle">
+          <div class="td-hero-text">
+            <h1 id="travellersHeroTitle">Traveller details</h1>
+            <p>Tell us who is travelling on this journey.</p>
+          </div>
+        </section>
         <div class="td-inner">
           <!-- ===== Progress steps ===== -->
           <nav aria-label="Booking progress">
@@ -60,8 +66,8 @@
               </li>
               <li class="td-step-line" aria-hidden="true"></li>
               <li class="td-step">
-                <i class="bi bi-gift td-step-icon" aria-hidden="true"></i>
-                <span class="td-step-label">Extras</span>
+                <i class="bi bi-bag-plus td-step-icon" aria-hidden="true"></i>
+                <span class="td-step-label">Add-ons</span>
                 <span class="td-badge">3</span>
               </li>
               <li class="td-step-line" aria-hidden="true"></li>
@@ -808,7 +814,7 @@
               Edit details
             </button>
             <!-- Point this link to your Extras page -->
-            <a class="td-btn td-btn-primary" href="#"
+            <a class="td-btn td-btn-primary" href="seats.html"
               ><span class="td-extras-out">Confirm</span
               ><span class="td-extras-in" aria-hidden="true"
                 >Next step <i class="bi bi-arrow-right"></i></span

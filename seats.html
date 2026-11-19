@@ -1,0 +1,1266 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Choose seats | TravelDeals</title>
+    <link rel="icon" href="images/favicon.ico" sizes="any" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/seats.css" rel="stylesheet" />
+    <link href="css/themes.css" rel="stylesheet" />
+    <link href="components/header.css?v=20261112-31" rel="stylesheet" />
+    <link href="components/footer.css?v=20261112-31" rel="stylesheet" />
+    <script src="components/include.js?v=20261112-31" defer></script>
+  </head>
+  <body>
+    <div data-component="header"></div>
+    <div data-component="mobile-navigation"></div>
+    <!-- Seat icon (used by the Seats tab and "Selected seat") -->
+    <svg class="td-sprite" aria-hidden="true" focusable="false">
+      <symbol id="icon-seat" viewBox="0 0 24 24">
+        <g
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M7.5 3.8l2.6 8.6" stroke-width="2.8" />
+          <path d="M10.1 12.4h6.3c.9 0 1.7.8 1.7 1.7V19" />
+          <path d="M13 19h6.2" />
+        </g>
+      </symbol>
+    </svg>
+
+    <main class="td-page">
+      <div class="td-wrap">
+        <section class="td-hero">
+          <div class="td-hero-text">
+            <h1>Choose seats</h1>
+            <p>Customize your flight for a more comfortable journey.</p>
+          </div>
+        </section>
+
+        <div class="td-steps-card">
+          <nav aria-label="Booking progress">
+            <ol class="td-steps">
+              <li class="td-step is-done">
+                <i
+                  class="bi bi-airplane td-plane td-step-icon"
+                  aria-hidden="true"
+                ></i>
+                <span class="td-step-label">Flight</span>
+                <span class="td-step-badge"
+                  ><i class="bi bi-check-lg" aria-hidden="true"></i
+                  ><span class="visually-hidden">Completed</span></span
+                >
+              </li>
+              <li class="td-step-line" aria-hidden="true"></li>
+              <li class="td-step is-done">
+                <i class="bi bi-person td-step-icon" aria-hidden="true"></i>
+                <span class="td-step-label">Travellers</span>
+                <span class="td-step-badge"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Completed</span></span>
+              </li>
+              <li class="td-step-line" aria-hidden="true"></li>
+              <li class="td-step is-current" aria-current="step">
+                <i class="bi bi-bag-plus td-step-icon" aria-hidden="true"></i>
+                <span class="td-step-label">Add-ons</span>
+                <span class="td-step-badge">3</span>
+              </li>
+              <li class="td-step-line" aria-hidden="true"></li>
+              <li class="td-step">
+                <i
+                  class="bi bi-credit-card td-step-icon"
+                  aria-hidden="true"
+                ></i>
+                <span class="td-step-label">Payment</span>
+                <span class="td-step-badge">4</span>
+              </li>
+            </ol>
+          </nav>
+          <ul class="td-tabs" aria-label="Customize your flight">
+            <li role="presentation">
+              <a class="td-tab active" aria-current="page" href="seats.html"
+                ><svg class="td-svg" aria-hidden="true" focusable="false">
+                  <use href="#icon-seat"></use>
+                </svg>
+                Seats</a
+              >
+            </li>
+            <li role="presentation">
+              <a class="td-tab" href="meals.html"
+                ><i class="bi bi-egg-fried" aria-hidden="true"></i> Meals</a
+              >
+            </li>
+            <li role="presentation">
+              <a class="td-tab" href="baggage.html"
+                ><i class="bi bi-briefcase" aria-hidden="true"></i> Baggage</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div id="pane-seats">
+          <!-- ===== Main content ===== -->
+          <div class="td-main">
+            <div class="d-lg-none mb-3">
+              <section
+                class="td-card td-passenger"
+                aria-label="Select passenger"
+              >
+                <div class="td-icon-row">
+                  <i class="bi bi-person td-card-ico" aria-hidden="true"></i>
+                  <label class="td-passenger-title" for="passengerSeatsM"
+                    >Select passenger</label
+                  >
+                  <span></span>
+                  <div class="td-field-row">
+                    <select
+                      class="form-select td-input js-passenger"
+                      id="passengerSeatsM"
+                      name="passengerSeatsM"
+                    >
+                      <option value="1" selected>Ahsan Khan (Adult)</option>
+                      <option value="2">Sara Khan (Adult)</option>
+                    </select>
+                  </div>
+                </div>
+                <hr class="td-divider" />
+                <div class="td-icon-row td-selected-row">
+                  <svg
+                    class="td-svg td-card-ico"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <use href="#icon-seat"></use>
+                  </svg>
+                  <div>
+                    <span class="td-selected-label">Selected seat</span>
+                    <strong
+                      class="td-selected-seat is-empty"
+                      data-selected-seat
+                      aria-live="polite"
+                      >Not selected</strong
+                    >
+                  </div>
+                  <button class="td-change" type="button" data-change-seat>
+                    Select
+                  </button>
+                </div>
+              </section>
+            </div>
+            <div class="row g-3 g-lg-4">
+              <!-- ---------- Left: flight info ---------- -->
+              <div class="col-12 col-lg-4">
+                <div class="td-stack td-seat-left">
+                  <section class="td-card td-flight-ticket" aria-label="Flight summary">
+                    <svg class="td-flight-ticket-art" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                      <path d="M 8 0.5 H 92 Q 99.5 0.5 99.5 8 V 37 C 94.5 37 94.5 47 99.5 47 V 92 Q 99.5 99.5 92 99.5 H 8 Q 0.5 99.5 0.5 92 V 47 C 5.5 47 5.5 37 0.5 37 V 8 Q 0.5 0.5 8 0.5 Z" />
+                    </svg>
+                    <button
+                      class="td-card-toggle"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flightBody"
+                      aria-expanded="false"
+                      aria-controls="flightBody"
+                    >
+                      <i
+                        class="bi bi-airplane td-plane td-card-ico"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="td-head-text">
+                        <span class="td-route-name"
+                          >Islamabad (ISB)
+                          <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                          Dubai (DXB)</span
+                        >
+                        <span class="td-card-sub"
+                          >Sat, Nov 21 &nbsp;•&nbsp; Non-stop &nbsp;•&nbsp; 3h
+                          55m</span
+                        >
+                      </span>
+                      <i
+                        class="bi bi-chevron-down td-chevron d-lg-none"
+                        aria-hidden="true"
+                      ></i>
+                    </button>
+
+                    <div class="collapse td-lg-open" id="flightBody">
+                      <div class="td-flight-body">
+                        <h2 class="td-flight-title">Flight details</h2>
+                        <div class="td-flight-no">
+                          <span
+                            ><i
+                              class="bi bi-airplane td-plane"
+                              aria-hidden="true"
+                            ></i>
+                            PK430</span
+                          >
+                          <span class="td-pill">Economy</span>
+                        </div>
+                        <dl class="td-times">
+                          <div>
+                            <dt>Departure</dt>
+                            <dd>
+                              <strong>ISB 10:20 AM</strong>Islamabad Int.
+                              Airport
+                            </dd>
+                          </div>
+                          <div>
+                            <dt>Arrival</dt>
+                            <dd>
+                              <strong>DXB 1:15 PM</strong>Dubai Int. Airport
+                            </dd>
+                          </div>
+                        </dl>
+                      </div>
+                    </div>
+                  </section>
+
+                  <!-- Desktop only -->
+                  <aside class="td-promo d-none d-lg-flex" aria-label="Tip">
+                    <div>
+                      <h2>Make your flight more comfortable</h2>
+                      <p>
+                        Pick your preferred seat, add a meal, or bring extra
+                        baggage.
+                      </p>
+                    </div>
+                  </aside>
+                  <section class="td-card td-seat-guide d-none d-lg-block" aria-labelledby="seatGuideTitle">
+                    <h2 id="seatGuideTitle">Choosing your seats</h2>
+                    <ul>
+                      <li><i class="bi bi-person-check" aria-hidden="true"></i><span>Select a passenger, then choose an available seat.</span></li>
+                      <li><i class="bi bi-people" aria-hidden="true"></i><span>Choose a seat for each traveller before continuing.</span></li>
+                      <li><i class="bi bi-info-circle" aria-hidden="true"></i><span>Exit-row seats have additional eligibility requirements.</span></li>
+                    </ul>
+                  </section>
+                </div>
+              </div>
+
+              <!-- ---------- Middle: seat map ---------- -->
+              <div class="col-12 col-lg-4 td-map-column">
+                <div class="td-map-frame">
+                <div class="td-map-wrap">
+                  <div class="td-fuselage">
+                    <div
+                      class="td-cabin-icons d-none d-lg-flex"
+                      aria-hidden="true"
+                    >
+                      <span class="td-cabin-icon"
+                        ><i class="bi bi-person-standing"></i
+                        ><i class="bi bi-person-standing-dress"></i
+                      ></span>
+                      <span class="td-cabin-icon"
+                        ><i class="bi bi-cup-hot"></i
+                      ></span>
+                    </div>
+                    <h2 class="td-cabin-name">Economy cabin</h2>
+
+                    <div
+                      id="seatMap"
+                      role="group"
+                      aria-label="Economy cabin seat map"
+                      data-fee="2000"
+                    >
+                      <div class="td-row td-row-head" aria-hidden="true">
+                        <span class="td-row-edge"></span>
+                        <div class="td-seat-group">
+                          <span class="td-col-letter">A</span
+                          ><span class="td-col-letter">B</span
+                          ><span class="td-col-letter">C</span>
+                        </div>
+                        <span class="td-row-no"></span>
+                        <div class="td-seat-group">
+                          <span class="td-col-letter">D</span
+                          ><span class="td-col-letter">E</span
+                          ><span class="td-col-letter">F</span>
+                        </div>
+                        <span class="td-row-edge"></span>
+                      </div>
+                      <div class="td-row" role="group" aria-label="Row 10">
+                        <span class="td-row-edge" aria-hidden="true">10</span>
+                        <div class="td-seat-group">
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="10A"
+                            aria-pressed="false"
+                            aria-label="Seat 10A, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="10B"
+                            aria-pressed="false"
+                            aria-label="Seat 10B, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="10C"
+                            aria-pressed="false"
+                            aria-label="Seat 10C, standard"
+                          ></button>
+                        </div>
+                        <span class="td-row-no" aria-hidden="true">10</span>
+                        <div class="td-seat-group">
+                          <button
+                            type="button"
+                            class="td-seat is-unavailable"
+                            data-seat="10D"
+                            disabled
+                            aria-label="Seat 10D, unavailable"
+                          >
+                            <i class="bi bi-x-lg" aria-hidden="true"></i>
+                          </button>
+                          <button
+                            type="button"
+                            class="td-seat is-unavailable"
+                            data-seat="10E"
+                            disabled
+                            aria-label="Seat 10E, unavailable"
+                          >
+                            <i class="bi bi-x-lg" aria-hidden="true"></i>
+                          </button>
+                          <button
+                            type="button"
+                            class="td-seat is-unavailable"
+                            data-seat="10F"
+                            disabled
+                            aria-label="Seat 10F, unavailable"
+                          >
+                            <i class="bi bi-x-lg" aria-hidden="true"></i>
+                          </button>
+                        </div>
+                        <span class="td-row-edge" aria-hidden="true">10</span>
+                      </div>
+                      <div class="td-row" role="group" aria-label="Row 11">
+                        <span class="td-row-edge" aria-hidden="true">11</span>
+                        <div class="td-seat-group">
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="11A"
+                            aria-pressed="false"
+                            aria-label="Seat 11A, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="11B"
+                            aria-pressed="false"
+                            aria-label="Seat 11B, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="11C"
+                            aria-pressed="false"
+                            aria-label="Seat 11C, standard"
+                          ></button>
+                        </div>
+                        <span class="td-row-no" aria-hidden="true">11</span>
+                        <div class="td-seat-group">
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="11D"
+                            aria-pressed="false"
+                            aria-label="Seat 11D, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="11E"
+                            aria-pressed="false"
+                            aria-label="Seat 11E, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="11F"
+                            aria-pressed="false"
+                            aria-label="Seat 11F, standard"
+                          ></button>
+                        </div>
+                        <span class="td-row-edge" aria-hidden="true">11</span>
+                      </div>
+                      <div class="td-row" role="group" aria-label="Row 12">
+                        <span class="td-row-edge" aria-hidden="true">12</span>
+                        <div class="td-seat-group">
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="12A"
+                            aria-pressed="false"
+                            aria-label="Seat 12A, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="12B"
+                            aria-pressed="false"
+                            aria-label="Seat 12B, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="12C"
+                            aria-pressed="false"
+                            aria-label="Seat 12C, standard"
+                          ></button>
+                        </div>
+                        <span class="td-row-no" aria-hidden="true">12</span>
+                        <div class="td-seat-group">
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="12D"
+                            aria-pressed="false"
+                            aria-label="Seat 12D, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="12E"
+                            aria-pressed="false"
+                            aria-label="Seat 12E, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="12F"
+                            aria-pressed="false"
+                            aria-label="Seat 12F, standard"
+                          ></button>
+                        </div>
+                        <span class="td-row-edge" aria-hidden="true">12</span>
+                      </div>
+                      <div class="td-row" role="group" aria-label="Row 13">
+                        <span class="td-row-edge" aria-hidden="true">13</span>
+                        <div class="td-seat-group">
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="13A"
+                            aria-pressed="false"
+                            aria-label="Seat 13A, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="13B"
+                            aria-pressed="false"
+                            aria-label="Seat 13B, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="13C"
+                            aria-pressed="false"
+                            aria-label="Seat 13C, standard"
+                          ></button>
+                        </div>
+                        <span class="td-row-no" aria-hidden="true">13</span>
+                        <div class="td-seat-group">
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="13D"
+                            aria-pressed="false"
+                            aria-label="Seat 13D, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="13E"
+                            aria-pressed="false"
+                            aria-label="Seat 13E, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="13F"
+                            aria-pressed="false"
+                            aria-label="Seat 13F, standard"
+                          ></button>
+                        </div>
+                        <span class="td-row-edge" aria-hidden="true">13</span>
+                      </div>
+                      <div class="td-row" role="group" aria-label="Row 14">
+                        <span class="td-row-edge" aria-hidden="true">14</span>
+                        <div class="td-seat-group">
+                          <button
+                            type="button"
+                            class="td-seat is-unavailable"
+                            data-seat="14A"
+                            disabled
+                            aria-label="Seat 14A, unavailable"
+                          >
+                            <i class="bi bi-x-lg" aria-hidden="true"></i>
+                          </button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="14B"
+                            aria-pressed="false"
+                            aria-label="Seat 14B, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="14C"
+                            aria-pressed="false"
+                            aria-label="Seat 14C, standard"
+                          ></button>
+                        </div>
+                        <span class="td-row-no" aria-hidden="true">14</span>
+                        <div class="td-seat-group">
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="14D"
+                            aria-pressed="false"
+                            aria-label="Seat 14D, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="14E"
+                            aria-pressed="false"
+                            aria-label="Seat 14E, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="14F"
+                            aria-pressed="false"
+                            aria-label="Seat 14F, standard"
+                          ></button>
+                        </div>
+                        <span class="td-row-edge" aria-hidden="true">14</span>
+                      </div>
+                      <div class="td-row" role="group" aria-label="Row 15">
+                        <span class="td-row-edge" aria-hidden="true">15</span>
+                        <div class="td-seat-group">
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="15A"
+                            aria-pressed="false"
+                            aria-label="Seat 15A, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="15B"
+                            aria-pressed="false"
+                            aria-label="Seat 15B, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="15C"
+                            aria-pressed="false"
+                            aria-label="Seat 15C, standard"
+                          ></button>
+                        </div>
+                        <span class="td-row-no" aria-hidden="true">15</span>
+                        <div class="td-seat-group">
+                          <button
+                            type="button"
+                            class="td-seat is-unavailable"
+                            data-seat="15D"
+                            disabled
+                            aria-label="Seat 15D, unavailable"
+                          >
+                            <i class="bi bi-x-lg" aria-hidden="true"></i>
+                          </button>
+                          <button
+                            type="button"
+                            class="td-seat is-unavailable"
+                            data-seat="15E"
+                            disabled
+                            aria-label="Seat 15E, unavailable"
+                          >
+                            <i class="bi bi-x-lg" aria-hidden="true"></i>
+                          </button>
+                          <button
+                            type="button"
+                            class="td-seat is-unavailable"
+                            data-seat="15F"
+                            disabled
+                            aria-label="Seat 15F, unavailable"
+                          >
+                            <i class="bi bi-x-lg" aria-hidden="true"></i>
+                          </button>
+                        </div>
+                        <span class="td-row-edge" aria-hidden="true">15</span>
+                      </div>
+                      <div
+                        class="td-row is-exit"
+                        role="group"
+                        aria-label="Row 16"
+                      >
+                        <i
+                          class="bi bi-caret-left-fill td-exit-arrow is-left"
+                          aria-hidden="true"
+                        ></i>
+                        <span class="td-row-edge" aria-hidden="true">16</span>
+                        <div class="td-seat-group">
+                          <button
+                            type="button"
+                            class="td-seat is-exit"
+                            data-seat="16A"
+                            aria-pressed="false"
+                            aria-label="Seat 16A, exit row, extra legroom"
+                            title="Exit row seat"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat is-exit"
+                            data-seat="16B"
+                            aria-pressed="false"
+                            aria-label="Seat 16B, exit row, extra legroom"
+                            title="Exit row seat"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat is-exit"
+                            data-seat="16C"
+                            aria-pressed="false"
+                            aria-label="Seat 16C, exit row, extra legroom"
+                            title="Exit row seat"
+                          ></button>
+                        </div>
+                        <span class="td-row-no" aria-hidden="true">16</span>
+                        <div class="td-seat-group">
+                          <button
+                            type="button"
+                            class="td-seat is-exit"
+                            data-seat="16D"
+                            aria-pressed="false"
+                            aria-label="Seat 16D, exit row, extra legroom"
+                            title="Exit row seat"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat is-exit"
+                            data-seat="16E"
+                            aria-pressed="false"
+                            aria-label="Seat 16E, exit row, extra legroom"
+                            title="Exit row seat"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat is-exit"
+                            data-seat="16F"
+                            aria-pressed="false"
+                            aria-label="Seat 16F, exit row, extra legroom"
+                            title="Exit row seat"
+                          ></button>
+                        </div>
+                        <span class="td-row-edge" aria-hidden="true">16</span>
+                        <i
+                          class="bi bi-caret-right-fill td-exit-arrow is-right"
+                          aria-hidden="true"
+                        ></i>
+                      </div>
+                      <div class="td-row" role="group" aria-label="Row 17">
+                        <span class="td-row-edge" aria-hidden="true">17</span>
+                        <div class="td-seat-group">
+                          <button
+                            type="button"
+                            class="td-seat is-unavailable"
+                            data-seat="17A"
+                            disabled
+                            aria-label="Seat 17A, unavailable"
+                          >
+                            <i class="bi bi-x-lg" aria-hidden="true"></i>
+                          </button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="17B"
+                            aria-pressed="false"
+                            aria-label="Seat 17B, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="17C"
+                            aria-pressed="false"
+                            aria-label="Seat 17C, standard"
+                          ></button>
+                        </div>
+                        <span class="td-row-no" aria-hidden="true">17</span>
+                        <div class="td-seat-group">
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="17D"
+                            aria-pressed="false"
+                            aria-label="Seat 17D, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="17E"
+                            aria-pressed="false"
+                            aria-label="Seat 17E, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="17F"
+                            aria-pressed="false"
+                            aria-label="Seat 17F, standard"
+                          ></button>
+                        </div>
+                        <span class="td-row-edge" aria-hidden="true">17</span>
+                      </div>
+                      <div class="td-row" role="group" aria-label="Row 18">
+                        <span class="td-row-edge" aria-hidden="true">18</span>
+                        <div class="td-seat-group">
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="18A"
+                            aria-pressed="false"
+                            aria-label="Seat 18A, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="18B"
+                            aria-pressed="false"
+                            aria-label="Seat 18B, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="18C"
+                            aria-pressed="false"
+                            aria-label="Seat 18C, standard"
+                          ></button>
+                        </div>
+                        <span class="td-row-no" aria-hidden="true">18</span>
+                        <div class="td-seat-group">
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="18D"
+                            aria-pressed="false"
+                            aria-label="Seat 18D, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="18E"
+                            aria-pressed="false"
+                            aria-label="Seat 18E, standard"
+                          ></button>
+                          <button
+                            type="button"
+                            class="td-seat"
+                            data-seat="18F"
+                            aria-pressed="false"
+                            aria-label="Seat 18F, standard"
+                          ></button>
+                        </div>
+                        <span class="td-row-edge" aria-hidden="true">18</span>
+                      </div>
+                      <div class="td-row" role="group" aria-label="Row 19">
+                        <span class="td-row-edge" aria-hidden="true">19</span>
+                        <div class="td-seat-group">
+                          <button type="button" class="td-seat" data-seat="19A" aria-pressed="false" aria-label="Seat 19A, standard"></button>
+                          <button type="button" class="td-seat" data-seat="19B" aria-pressed="false" aria-label="Seat 19B, standard"></button>
+                          <button type="button" class="td-seat" data-seat="19C" aria-pressed="false" aria-label="Seat 19C, standard"></button>
+                        </div>
+                        <span class="td-row-no" aria-hidden="true">19</span>
+                        <div class="td-seat-group">
+                          <button type="button" class="td-seat" data-seat="19D" aria-pressed="false" aria-label="Seat 19D, standard"></button>
+                          <button type="button" class="td-seat" data-seat="19E" aria-pressed="false" aria-label="Seat 19E, standard"></button>
+                          <button type="button" class="td-seat" data-seat="19F" aria-pressed="false" aria-label="Seat 19F, standard"></button>
+                        </div>
+                        <span class="td-row-edge" aria-hidden="true">19</span>
+                      </div>
+                      <div class="td-row" role="group" aria-label="Row 20">
+                        <span class="td-row-edge" aria-hidden="true">20</span>
+                        <div class="td-seat-group">
+                          <button type="button" class="td-seat" data-seat="20A" aria-pressed="false" aria-label="Seat 20A, standard"></button>
+                          <button type="button" class="td-seat" data-seat="20B" aria-pressed="false" aria-label="Seat 20B, standard"></button>
+                          <button type="button" class="td-seat" data-seat="20C" aria-pressed="false" aria-label="Seat 20C, standard"></button>
+                        </div>
+                        <span class="td-row-no" aria-hidden="true">20</span>
+                        <div class="td-seat-group">
+                          <button type="button" class="td-seat" data-seat="20D" aria-pressed="false" aria-label="Seat 20D, standard"></button>
+                          <button type="button" class="td-seat" data-seat="20E" aria-pressed="false" aria-label="Seat 20E, standard"></button>
+                          <button type="button" class="td-seat" data-seat="20F" aria-pressed="false" aria-label="Seat 20F, standard"></button>
+                        </div>
+                        <span class="td-row-edge" aria-hidden="true">20</span>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+
+                  <!-- Exit row info: popover on desktop, accordion on mobile -->
+                  <div class="td-exit is-dismissed" id="exitInfo">
+                    <div class="td-exit-head">
+                      <button
+                        class="td-exit-toggle"
+                        id="exitToggle"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="exitBody"
+                      >
+                        <i class="bi bi-info-circle" aria-hidden="true"></i>
+                        <span>Exit row (Row 16)</span>
+                        <i
+                          class="bi bi-chevron-down td-chevron d-lg-none"
+                          aria-hidden="true"
+                        ></i>
+                      </button>
+                      <button
+                        class="td-exit-close"
+                        id="exitClose"
+                        type="button"
+                        aria-label="Close exit row information"
+                      >
+                        <i class="bi bi-x-lg" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                    <div class="td-exit-body" id="exitBody">
+                      <ul class="td-exit-list">
+                        <li>
+                          <i class="bi bi-check-lg" aria-hidden="true"></i>
+                          Extra legroom for more comfort
+                        </li>
+                        <li>
+                          <i class="bi bi-check-lg" aria-hidden="true"></i> You
+                          must be 15 years or older
+                        </li>
+                        <li>
+                          <i class="bi bi-check-lg" aria-hidden="true"></i> Able
+                          to assist in an emergency
+                        </li>
+                      </ul>
+                      <a class="td-exit-more" href="#"
+                        >Learn more
+                        <i class="bi bi-chevron-right" aria-hidden="true"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ---------- Right: passenger, legend, total ---------- -->
+              <div class="col-12 col-lg-4">
+                <div class="td-stack">
+                  <section
+                    class="td-card td-passenger d-none d-lg-block"
+                    aria-label="Select passenger"
+                  >
+                    <div class="td-icon-row">
+                      <i
+                        class="bi bi-person td-card-ico"
+                        aria-hidden="true"
+                      ></i>
+                      <label class="td-passenger-title" for="passengerSeats"
+                        >Select passenger</label
+                      >
+                      <span></span>
+                      <div class="td-field-row">
+                        <select
+                          class="form-select td-input js-passenger"
+                          id="passengerSeats"
+                          name="passengerSeats"
+                        >
+                          <option value="1" selected>Ahsan Khan (Adult)</option>
+                          <option value="2">Sara Khan (Adult)</option>
+                        </select>
+                      </div>
+                    </div>
+                    <hr class="td-divider" />
+                    <div class="td-icon-row td-selected-row">
+                      <svg
+                        class="td-svg td-card-ico"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <use href="#icon-seat"></use>
+                      </svg>
+                      <div>
+                        <span class="td-selected-label">Selected seat</span>
+                        <strong
+                          class="td-selected-seat is-empty"
+                          data-selected-seat
+                          aria-live="polite"
+                          >Not selected</strong
+                        >
+                      </div>
+                      <button class="td-change" type="button" data-change-seat>
+                        Select
+                      </button>
+                    </div>
+                  </section>
+
+                  <section class="td-card" aria-labelledby="legendTitle">
+                    <button
+                      class="td-card-toggle"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#legendBody"
+                      aria-expanded="false"
+                      aria-controls="legendBody"
+                    >
+                      <i class="bi bi-tag td-card-ico" aria-hidden="true"></i>
+                      <span class="td-card-title" id="legendTitle"
+                        >Seat legend</span
+                      >
+                      <i
+                        class="bi bi-chevron-down td-chevron d-lg-none"
+                        aria-hidden="true"
+                      ></i>
+                    </button>
+                    <div class="collapse td-lg-open" id="legendBody">
+                      <div class="td-card-inner">
+                        <ul class="td-legend">
+                          <li>
+                            <span
+                              class="td-swatch is-selected"
+                              aria-hidden="true"
+                            ></span>
+                            <div>
+                              <strong>Selected seat</strong
+                              ><span>Your current seat</span>
+                            </div>
+                          </li>
+                          <li>
+                            <span class="td-swatch" aria-hidden="true"></span>
+                            <div>
+                              <strong>Standard seat</strong
+                              ><span>Available at no extra cost</span>
+                            </div>
+                          </li>
+                          <li>
+                            <span
+                              class="td-swatch is-exit"
+                              aria-hidden="true"
+                            ></span>
+                            <div>
+                              <strong>Exit row</strong
+                              ><span>Extra legroom (no additional fee)</span>
+                            </div>
+                          </li>
+                          <li>
+                            <span
+                              class="td-swatch is-taken"
+                              aria-hidden="true"
+                            ></span>
+                            <div>
+                              <strong>Other traveler</strong
+                              ><span>Selected by another passenger</span>
+                            </div>
+                          </li>
+                          <li>
+                            <span
+                              class="td-swatch is-unavailable"
+                              aria-hidden="true"
+                              ><i class="bi bi-x-lg"></i
+                            ></span>
+                            <div>
+                              <strong>Unavailable</strong
+                              ><span>Already booked</span>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </section>
+
+                  <!-- Desktop total -->
+                  <div class="td-summary d-none d-lg-block">
+                    <div class="td-summary-row">
+                      <span>Seat selection</span
+                      ><span class="td-price" data-seat-price>PKR 0</span>
+                    </div>
+                    <p
+                      class="td-seat-alert"
+                      data-seat-alert
+                      role="alert"
+                      hidden
+                    ></p>
+                    <a
+                      class="td-btn td-btn-primary td-btn-block"
+                      href="#"
+                      data-go="meals"
+                      >Continue</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Mobile sticky total bar -->
+          <div class="td-mobile-bar d-lg-none">
+            <p class="td-seat-alert" data-seat-alert role="alert" hidden></p>
+            <div>
+              <span class="td-mobile-label">Seat selection</span>
+              <strong class="td-price" data-seat-price>PKR 0</strong>
+            </div>
+            <a class="td-btn td-btn-primary" href="#" data-go="meals"
+              >Continue</a
+            >
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div data-component="footer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      (function () {
+        "use strict";
+        var NAMES = { 1: "Ahsan Khan", 2: "Sara Khan" };
+        var KEY = "traveldeals-customize";
+        var state = {
+          active: 1,
+          seat: { 1: null, 2: null },
+          meal: { 1: {}, 2: {} },
+          bag: { 1: "bag0", 2: "bag0" },
+        };
+        try {
+          var saved = JSON.parse(sessionStorage.getItem(KEY));
+          if (saved) state = saved;
+        } catch (e) {}
+        function save() {
+          try {
+            sessionStorage.setItem(KEY, JSON.stringify(state));
+          } catch (e) {}
+        }
+
+        function $(sel, root) {
+          return (root || document).querySelector(sel);
+        }
+        function $$(sel, root) {
+          return Array.prototype.slice.call(
+            (root || document).querySelectorAll(sel),
+          );
+        }
+        function fmt(n) {
+          return "PKR " + n.toLocaleString("en-US");
+        }
+
+        /* ---- passenger boxes ---- */
+        var selects = $$(".js-passenger");
+        selects.forEach(function (sel) {
+          sel.addEventListener("change", function () {
+            state.active = Number(sel.value);
+            save();
+            render();
+          });
+        });
+        function renderPassenger() {
+          var seat = state.seat[state.active];
+          selects.forEach(function (sel) {
+            sel.value = String(state.active);
+          });
+          $$("[data-selected-seat]").forEach(function (el) {
+            el.textContent = seat || "Not selected";
+            el.classList.toggle("is-empty", !seat);
+          });
+          $$("[data-change-seat]").forEach(function (b) {
+            b.textContent = seat ? "Change" : "Select";
+          });
+          $$("[data-passenger-name]").forEach(function (el) {
+            el.textContent = NAMES[state.active];
+          });
+        }
+
+        /* ---- SEATS ---- */
+        var map = document.getElementById("seatMap");
+        var defaultFee = Number(map.dataset.fee) || 0;
+        var seatEls = $$(".td-seat[data-seat]", map);
+        var priceLabels = $$("[data-seat-price]");
+        var alerts = $$("[data-seat-alert]");
+        var exitInfo = document.getElementById("exitInfo");
+        var exitToggle = document.getElementById("exitToggle");
+        var exitClose = document.getElementById("exitClose");
+
+        selects.forEach(function (sel) {
+          sel.addEventListener("change", function () {
+            if (exitInfo) exitInfo.classList.add("is-dismissed");
+          });
+        });
+
+        function seatOwner(id) {
+          return state.seat[1] === id ? 1 : state.seat[2] === id ? 2 : 0;
+        }
+        function seatEl(id) {
+          return map.querySelector('[data-seat="' + id + '"]');
+        }
+        function seatsDone() {
+          return !!(state.seat[1] && state.seat[2]);
+        }
+        function setExitOpen(open) {
+          if (!exitInfo) return;
+          exitInfo.classList.toggle("is-open", open);
+          if (exitToggle)
+            exitToggle.setAttribute("aria-expanded", String(open));
+        }
+        function renderSeats() {
+          seatEls.forEach(function (seat) {
+            if (seat.disabled) return;
+            var id = seat.dataset.seat,
+              owner = seatOwner(id);
+            var mine = owner === state.active,
+              taken = owner !== 0 && !mine;
+            seat.classList.toggle("is-selected", mine);
+            seat.classList.toggle("is-taken", taken);
+            seat.setAttribute("aria-pressed", String(mine));
+            if (taken) {
+              seat.dataset.owner = "T" + owner;
+              seat.dataset.tip =
+                "Seat " +
+                id +
+                " is not available \u2013 it is selected by " +
+                NAMES[owner] +
+                ". Please choose another seat for " +
+                NAMES[state.active] +
+                ".";
+              seat.setAttribute("aria-disabled", "true");
+              seat.setAttribute(
+                "aria-label",
+                "Seat " +
+                  id +
+                  ", selected by " +
+                  NAMES[owner] +
+                  ", not available",
+              );
+            } else {
+              delete seat.dataset.owner;
+              delete seat.dataset.tip;
+              seat.removeAttribute("aria-disabled");
+              seat.setAttribute(
+                "aria-label",
+                "Seat " +
+                  id +
+                  (seat.classList.contains("is-exit")
+                    ? ", exit row, extra legroom"
+                    : ", standard"),
+              );
+            }
+          });
+          var total = 0;
+          [1, 2].forEach(function (p) {
+            var id = state.seat[p];
+            if (!id) return;
+            var el = seatEl(id);
+            total +=
+              el && el.dataset.price !== undefined
+                ? Number(el.dataset.price)
+                : defaultFee;
+          });
+          priceLabels.forEach(function (el) {
+            el.textContent = fmt(total);
+          });
+          if (seatsDone())
+            alerts.forEach(function (a) {
+              a.hidden = true;
+            });
+        }
+        map.addEventListener("click", function (event) {
+          var seat = event.target.closest(".td-seat");
+          if (!seat || seat.disabled) return;
+          var owner = seatOwner(seat.dataset.seat);
+          if (owner && owner !== state.active) {
+            seat.classList.add("show-tip");
+            setTimeout(function () {
+              seat.classList.remove("show-tip");
+            }, 2800);
+            return;
+          }
+          state.seat[state.active] = seat.dataset.seat;
+          save();
+          render();
+          if (exitInfo) {
+            if (seat.classList.contains("is-exit")) {
+              exitInfo.classList.remove("is-dismissed");
+              setExitOpen(true);
+            } else exitInfo.classList.add("is-dismissed");
+          }
+        });
+        if (exitToggle)
+          exitToggle.addEventListener("click", function () {
+            setExitOpen(!exitInfo.classList.contains("is-open"));
+          });
+        if (exitClose)
+          exitClose.addEventListener("click", function () {
+            exitInfo.classList.add("is-dismissed");
+          });
+
+        function scrollToSeat() {
+          var id = state.seat[state.active],
+            target = id ? seatEl(id) : map;
+          var calm = window.matchMedia(
+            "(prefers-reduced-motion: reduce)",
+          ).matches;
+          target.scrollIntoView({
+            block: "center",
+            behavior: calm ? "auto" : "smooth",
+          });
+          if (id) target.focus({ preventScroll: true });
+        }
+        $$("[data-change-seat]").forEach(function (btn) {
+          btn.addEventListener("click", scrollToSeat);
+        });
+
+        /* Continue -> meals.html (every traveler needs a seat first) */
+        $$("[data-go]").forEach(function (go) {
+          go.addEventListener("click", function (event) {
+            event.preventDefault();
+            if (!seatsDone()) {
+              var missing = state.seat[1] ? 2 : 1;
+              state.active = missing;
+              save();
+              render();
+              alerts.forEach(function (a) {
+                a.textContent =
+                  "Please select a seat for " +
+                  NAMES[missing] +
+                  " to continue.";
+                a.hidden = false;
+              });
+              return;
+            }
+            window.location.href = "meals.html";
+          });
+        });
+
+        function render() {
+          renderPassenger();
+          renderSeats();
+        }
+        render();
+      })();
+    </script>
+  </body>
+</html>

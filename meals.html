@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Choose your meal | TravelDeals</title>
+    <link rel="icon" href="images/favicon.ico" sizes="any" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/meals.css" rel="stylesheet" />
+    <link href="css/themes.css" rel="stylesheet" />
+    <link href="components/header.css?v=20261112-31" rel="stylesheet" />
+    <link href="components/footer.css?v=20261112-31" rel="stylesheet" />
+    <script src="components/include.js?v=20261112-31" defer></script>
+  </head>
+  <body>
+    <div data-component="header"></div>
+    <div data-component="mobile-navigation"></div>
+    <!-- Seat icon (used by the Seats tab and "Selected seat") -->
+    <svg class="td-sprite" aria-hidden="true" focusable="false">
+      <symbol id="icon-seat" viewBox="0 0 24 24">
+        <g
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M7.5 3.8l2.6 8.6" stroke-width="2.8" />
+          <path d="M10.1 12.4h6.3c.9 0 1.7.8 1.7 1.7V19" />
+          <path d="M13 19h6.2" />
+        </g>
+      </symbol>
+    </svg>
+
+    <main class="td-page">
+      <div class="td-wrap">
+        <section class="td-hero">
+          <div class="td-hero-text">
+            <h1>Choose your meal.</h1>
+            <p>Delicious, convenient meals for a more comfortable journey.</p>
+          </div>
+        </section>
+
+        <div class="td-steps-card">
+          <nav aria-label="Booking progress">
+            <ol class="td-steps">
+              <li class="td-step is-done">
+                <i
+                  class="bi bi-airplane td-plane td-step-icon"
+                  aria-hidden="true"
+                ></i>
+                <span class="td-step-label">Flight</span>
+                <span class="td-step-badge"
+                  ><i class="bi bi-check-lg" aria-hidden="true"></i
+                  ><span class="visually-hidden">Completed</span></span
+                >
+              </li>
+              <li class="td-step-line" aria-hidden="true"></li>
+              <li class="td-step is-done">
+                <i class="bi bi-person td-step-icon" aria-hidden="true"></i>
+                <span class="td-step-label">Travellers</span>
+                <span class="td-step-badge"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Completed</span></span>
+              </li>
+              <li class="td-step-line" aria-hidden="true"></li>
+              <li class="td-step is-current" aria-current="step">
+                <i class="bi bi-bag-plus td-step-icon" aria-hidden="true"></i>
+                <span class="td-step-label">Add-ons</span>
+                <span class="td-step-badge">3</span>
+              </li>
+              <li class="td-step-line" aria-hidden="true"></li>
+              <li class="td-step">
+                <i
+                  class="bi bi-credit-card td-step-icon"
+                  aria-hidden="true"
+                ></i>
+                <span class="td-step-label">Payment</span>
+                <span class="td-step-badge">4</span>
+              </li>
+            </ol>
+          </nav>
+          <ul class="td-tabs" aria-label="Customize your flight">
+            <li role="presentation">
+              <a class="td-tab" href="seats.html"
+                ><svg class="td-svg" aria-hidden="true" focusable="false">
+                  <use href="#icon-seat"></use>
+                </svg>
+                Seats</a
+              >
+            </li>
+            <li role="presentation">
+              <a class="td-tab active" aria-current="page" href="meals.html"
+                ><i class="bi bi-egg-fried" aria-hidden="true"></i> Meals</a
+              >
+            </li>
+            <li role="presentation">
+              <a class="td-tab" href="baggage.html"
+                ><i class="bi bi-briefcase" aria-hidden="true"></i> Baggage</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div id="pane-meals">
+          <!-- ===== Main content ===== -->
+          <div class="td-main">
+            <div class="d-lg-none mb-3">
+              <section
+                class="td-card td-passenger"
+                aria-label="Select passenger"
+              >
+                <div class="td-icon-row">
+                  <i class="bi bi-person td-card-ico" aria-hidden="true"></i>
+                  <label class="td-passenger-title" for="passengerMealsM"
+                    >Select passenger</label
+                  >
+                  <span></span>
+                  <div class="td-field-row">
+                    <select
+                      class="form-select td-input js-passenger"
+                      id="passengerMealsM"
+                      name="passengerMealsM"
+                    >
+                      <option value="1" selected>Ahsan Khan (Adult)</option>
+                      <option value="2">Sara Khan (Adult)</option>
+                    </select>
+                  </div>
+                </div>
+                <hr class="td-divider" />
+                <div class="td-icon-row td-selected-row">
+                  <svg
+                    class="td-svg td-card-ico"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <use href="#icon-seat"></use>
+                  </svg>
+                  <div>
+                    <span class="td-selected-label">Selected seat</span>
+                    <strong
+                      class="td-selected-seat is-empty"
+                      data-selected-seat
+                      aria-live="polite"
+                      >Not selected</strong
+                    >
+                  </div>
+                  <button class="td-change" type="button" data-change-seat>
+                    Select
+                  </button>
+                </div>
+              </section>
+            </div>
+            <h2 class="td-h2">Add a meal to your flight</h2>
+            <p class="td-lead">
+              Enjoy a range of fresh, great-tasting meals, from hearty
+              favourites to lighter options.
+            </p>
+
+            <div class="row g-3 g-lg-4">
+              <!-- Meals grid (+ mobile summary) -->
+              <div class="col-lg">
+                <div
+                  class="row g-3 g-lg-4 row-cols-2 row-cols-lg-3"
+                  id="mealGrid"
+                >
+                  <div class="col">
+                    <article
+                      class="td-meal"
+                      data-meal="chicken-rice"
+                      data-name="Chicken rice"
+                      data-price="1500"
+                    >
+                      <div class="td-meal-media">
+                        <img
+                          src="images/meal1.jpg"
+                          alt=""
+                          loading="lazy"
+                        />
+                        <span class="td-meal-tag"
+                          ><i class="bi bi-egg-fried" aria-hidden="true"></i>
+                          Non-Veg</span
+                        >
+                      </div>
+                      <div class="td-meal-body">
+                        <h3 class="td-meal-name">Chicken rice</h3>
+                        <p class="td-meal-desc">
+                          Tender chicken with fragrant rice and mild spices.
+                        </p>
+                        <div class="td-meal-foot">
+                          <span class="td-meal-price">PKR 1,500</span>
+                          <button class="td-meal-select" type="button" data-meal-select aria-pressed="false">Select</button>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                  <div class="col">
+                    <article
+                      class="td-meal"
+                      data-meal="vegetarian-pasta"
+                      data-name="Vegetarian pasta"
+                      data-price="1200"
+                    >
+                      <div class="td-meal-media">
+                        <img
+                          src="images/meal2.jpg"
+                          alt=""
+                          loading="lazy"
+                        />
+                        <span class="td-meal-tag"
+                          ><i class="bi bi-flower1" aria-hidden="true"></i>
+                          Vegetarian</span
+                        >
+                      </div>
+                      <div class="td-meal-body">
+                        <h3 class="td-meal-name">Vegetarian pasta</h3>
+                        <p class="td-meal-desc">
+                          Penne pasta with seasonal vegetables in a rich tomato
+                          sauce.
+                        </p>
+                        <div class="td-meal-foot">
+                          <span class="td-meal-price">PKR 1,200</span>
+                          <button class="td-meal-select" type="button" data-meal-select aria-pressed="false">Select</button>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                  <div class="col">
+                    <article
+                      class="td-meal"
+                      data-meal="sandwich"
+                      data-name="Sandwich"
+                      data-price="900"
+                    >
+                      <div class="td-meal-media">
+                        <img
+                          src="images/meal3.jpg"
+                          alt=""
+                          loading="lazy"
+                        />
+                        <span class="td-meal-tag"
+                          ><i
+                            class="bi bi-brightness-high"
+                            aria-hidden="true"
+                          ></i>
+                          Light meal</span
+                        >
+                      </div>
+                      <div class="td-meal-body">
+                        <h3 class="td-meal-name">Sandwich</h3>
+                        <p class="td-meal-desc">
+                          Classic chicken sandwich with fresh vegetables.
+                        </p>
+                        <div class="td-meal-foot">
+                          <span class="td-meal-price">PKR 900</span>
+                          <button class="td-meal-select" type="button" data-meal-select aria-pressed="false">Select</button>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                  <div class="col">
+                    <article
+                      class="td-meal"
+                      data-meal="fruit-plate"
+                      data-name="Fruit plate"
+                      data-price="700"
+                    >
+                      <div class="td-meal-media">
+                        <img
+                          src="images/meal4.jpg"
+                          alt=""
+                          loading="lazy"
+                        />
+                        <span class="td-meal-tag"
+                          ><i class="bi bi-flower2" aria-hidden="true"></i>
+                          Vegan</span
+                        >
+                      </div>
+                      <div class="td-meal-body">
+                        <h3 class="td-meal-name">Fruit plate</h3>
+                        <p class="td-meal-desc">
+                          A refreshing selection of seasonal fresh fruits.
+                        </p>
+                        <div class="td-meal-foot">
+                          <span class="td-meal-price">PKR 700</span>
+                          <button class="td-meal-select" type="button" data-meal-select aria-pressed="false">Select</button>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                  <div class="col">
+                    <article
+                      class="td-meal"
+                      data-meal="breakfast"
+                      data-name="Breakfast"
+                      data-price="1300"
+                    >
+                      <div class="td-meal-media">
+                        <img
+                          src="images/meal5.jpg"
+                          alt=""
+                          loading="lazy"
+                        />
+                        <span class="td-meal-tag"
+                          ><i class="bi bi-cup-hot" aria-hidden="true"></i>
+                          Breakfast</span
+                        >
+                      </div>
+                      <div class="td-meal-body">
+                        <h3 class="td-meal-name">Breakfast</h3>
+                        <p class="td-meal-desc">
+                          Scrambled eggs, chicken sausage, hash brown and toast.
+                        </p>
+                        <div class="td-meal-foot">
+                          <span class="td-meal-price">PKR 1,300</span>
+                          <button class="td-meal-select" type="button" data-meal-select aria-pressed="false">Select</button>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                  <div class="col">
+                    <article
+                      class="td-meal"
+                      data-meal="kids-meal"
+                      data-name="Kids meal"
+                      data-price="1000"
+                    >
+                      <div class="td-meal-media">
+                        <img
+                          src="images/meal6.jpg"
+                          alt=""
+                          loading="lazy"
+                        />
+                        <span class="td-meal-tag"
+                          ><i class="bi bi-emoji-smile" aria-hidden="true"></i>
+                          Kids friendly</span
+                        >
+                      </div>
+                      <div class="td-meal-body">
+                        <h3 class="td-meal-name">Kids meal</h3>
+                        <p class="td-meal-desc">
+                          Crispy chicken nuggets with fries and a fruit juice.
+                        </p>
+                        <div class="td-meal-foot">
+                          <span class="td-meal-price">PKR 1,000</span>
+                          <button class="td-meal-select" type="button" data-meal-select aria-pressed="false">Select</button>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+
+                <!-- Mobile only: selected meals + continue -->
+                <section
+                  class="td-selected-card d-lg-none mt-3"
+                  aria-label="Selected meals"
+                >
+                  <button
+                    class="td-selected-toggle"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#selectedBody"
+                    aria-expanded="true"
+                    aria-controls="selectedBody"
+                  >
+                    <span
+                      >Selected meal (<span data-count>0</span>) &middot;
+                      <span data-passenger-name>Ahsan Khan</span></span
+                    >
+                    <i class="bi bi-chevron-up" aria-hidden="true"></i>
+                  </button>
+                  <div class="collapse show" id="selectedBody">
+                    <ul class="td-sum-list" data-summary-list></ul>
+                    <div class="td-total">
+                      <span>Total</span
+                      ><span class="td-total-amount" data-total>PKR 0</span>
+                    </div>
+                  </div>
+                  <a
+                    class="td-btn td-btn-primary td-btn-block"
+                    href="#"
+                    data-go="baggage"
+                    >Continue</a
+                  >
+                </section>
+                <!-- Feature strip (desktop only) -->
+                <ul class="td-features d-none d-lg-flex list-unstyled">
+                  <li class="td-feature">
+                    <i class="bi bi-patch-check" aria-hidden="true"></i>
+                    <div>
+                      <strong>Quality meals</strong
+                      ><span>Fresh and hygienic options</span>
+                    </div>
+                  </li>
+                  <li class="td-feature">
+                    <i class="bi bi-flower2" aria-hidden="true"></i>
+                    <div>
+                      <strong>Dietary choices</strong
+                      ><span>Veg, non-veg and special diets</span>
+                    </div>
+                  </li>
+                  <li class="td-feature">
+                    <i class="bi bi-bell" aria-hidden="true"></i>
+                    <div>
+                      <strong>Onboard service</strong
+                      ><span>Served at the right time</span>
+                    </div>
+                  </li>
+                  <li class="td-feature">
+                    <i class="bi bi-heart" aria-hidden="true"></i>
+                    <div>
+                      <strong>Greater comfort</strong
+                      ><span>A more enjoyable journey</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Desktop sidebar -->
+              <div class="col-lg-auto td-side-col d-none d-lg-block">
+                <div class="td-side">
+                  <section
+                    class="td-card td-passenger"
+                    aria-label="Select passenger"
+                  >
+                    <div class="td-icon-row">
+                      <i
+                        class="bi bi-person td-card-ico"
+                        aria-hidden="true"
+                      ></i>
+                      <label class="td-passenger-title" for="passengerMeals"
+                        >Select passenger</label
+                      >
+                      <span></span>
+                      <div class="td-field-row">
+                        <select
+                          class="form-select td-input js-passenger"
+                          id="passengerMeals"
+                          name="passengerMeals"
+                        >
+                          <option value="1" selected>Ahsan Khan (Adult)</option>
+                          <option value="2">Sara Khan (Adult)</option>
+                        </select>
+                      </div>
+                    </div>
+                    <hr class="td-divider" />
+                    <div class="td-icon-row td-selected-row">
+                      <svg
+                        class="td-svg td-card-ico"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <use href="#icon-seat"></use>
+                      </svg>
+                      <div>
+                        <span class="td-selected-label">Selected seat</span>
+                        <strong
+                          class="td-selected-seat is-empty"
+                          data-selected-seat
+                          aria-live="polite"
+                          >Not selected</strong
+                        >
+                      </div>
+                      <button class="td-change" type="button" data-change-seat>
+                        Select
+                      </button>
+                    </div>
+                  </section>
+                  <section class="td-side-card" aria-labelledby="sumTitle">
+                    <h2 class="td-side-title" id="sumTitle">
+                      Selection summary
+                    </h2>
+                    <p class="td-sum-for">
+                      <i class="bi bi-person" aria-hidden="true"></i>
+                      <span data-passenger-name>Ahsan Khan</span>
+                    </p>
+                    <ul class="td-sum-list" data-summary-list></ul>
+                    <div class="td-total">
+                      <span>Total</span
+                      ><span class="td-total-amount" data-total>PKR 0</span>
+                    </div>
+                    <a
+                      class="td-btn td-btn-primary td-btn-block"
+                      href="#"
+                      data-go="baggage"
+                      >Continue</a
+                    >
+                  </section>
+
+                  <section class="td-side-card" aria-labelledby="infoTitle">
+                    <h2 class="td-side-title" id="infoTitle">
+                      <i class="bi bi-info-circle" aria-hidden="true"></i> Meal
+                      information
+                    </h2>
+                    <ul class="td-info-list">
+                      <li>Meals are served during your flight.</li>
+                      <li>Availability may vary by route and airline.</li>
+                      <li>
+                        Let us know about any dietary needs at least 24 hours
+                        before departure.
+                      </li>
+                    </ul>
+                  </section>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div data-component="footer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      (function () {
+        "use strict";
+        var NAMES = { 1: "Ahsan Khan", 2: "Sara Khan" };
+        var KEY = "traveldeals-customize";
+        var state = {
+          active: 1,
+          seat: { 1: null, 2: null },
+          meal: { 1: {}, 2: {} },
+          bag: { 1: "bag0", 2: "bag0" },
+        };
+        try {
+          var saved = JSON.parse(sessionStorage.getItem(KEY));
+          if (saved) state = saved;
+        } catch (e) {}
+        function save() {
+          try {
+            sessionStorage.setItem(KEY, JSON.stringify(state));
+          } catch (e) {}
+        }
+
+        function $(sel, root) {
+          return (root || document).querySelector(sel);
+        }
+        function $$(sel, root) {
+          return Array.prototype.slice.call(
+            (root || document).querySelectorAll(sel),
+          );
+        }
+        function fmt(n) {
+          return "PKR " + n.toLocaleString("en-US");
+        }
+
+        /* ---- passenger boxes ---- */
+        var selects = $$(".js-passenger");
+        selects.forEach(function (sel) {
+          sel.addEventListener("change", function () {
+            state.active = Number(sel.value);
+            save();
+            render();
+          });
+        });
+        function renderPassenger() {
+          var seat = state.seat[state.active];
+          selects.forEach(function (sel) {
+            sel.value = String(state.active);
+          });
+          $$("[data-selected-seat]").forEach(function (el) {
+            el.textContent = seat || "Not selected";
+            el.classList.toggle("is-empty", !seat);
+          });
+          $$("[data-change-seat]").forEach(function (b) {
+            b.textContent = seat ? "Change" : "Select";
+          });
+          $$("[data-passenger-name]").forEach(function (el) {
+            el.textContent = NAMES[state.active];
+          });
+        }
+
+        /* "Change / Select" seat lives on the Seats page */
+        $$("[data-change-seat]").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            window.location.href = "seats.html";
+          });
+        });
+
+        /* ---- MEALS ---- */
+        var grid = document.getElementById("mealGrid");
+        var cards = $$(".td-meal", grid);
+        state.mealNames = {};
+        cards.forEach(function (card) { state.mealNames[card.dataset.meal] = card.dataset.name; });
+        save();
+        var lists = $$("[data-summary-list]");
+        var totals = $$("[data-total]");
+        var counts = $$("[data-count]");
+
+        function buildRow(card, count) {
+          var price = Number(card.dataset.price);
+          var li = document.createElement("li");
+          li.className = "td-sum-item";
+          var thumb = document.createElement("img");
+          thumb.className = "td-sum-thumb";
+          thumb.alt = "";
+          thumb.src = card
+            .querySelector(".td-meal-media img")
+            .getAttribute("src");
+          var text = document.createElement("div");
+          text.className = "td-sum-text";
+          var name = document.createElement("span");
+          name.className = "td-sum-name";
+          name.textContent = card.dataset.name;
+          var meta = document.createElement("span");
+          meta.className = "td-sum-meta";
+          meta.textContent = fmt(price);
+          text.appendChild(name);
+          text.appendChild(meta);
+          var sum = document.createElement("span");
+          sum.className = "td-sum-price";
+          sum.textContent = fmt(price * count);
+          var remove = document.createElement("button");
+          remove.type = "button";
+          remove.className = "td-sum-remove";
+          remove.dataset.remove = card.dataset.meal;
+          remove.setAttribute("aria-label", "Remove " + card.dataset.name);
+          remove.innerHTML = '<i class="bi bi-trash3" aria-hidden="true"></i>';
+          li.appendChild(thumb);
+          li.appendChild(text);
+          li.appendChild(sum);
+          li.appendChild(remove);
+          return li;
+        }
+        function renderMeals() {
+          var qty = state.meal[state.active],
+            total = 0,
+            itemCount = 0;
+          lists.forEach(function (list) {
+            list.replaceChildren();
+          });
+          cards.forEach(function (card) {
+            var count = qty[card.dataset.meal] ? 1 : 0;
+            qty[card.dataset.meal] = count;
+            card.classList.toggle("is-selected", count > 0);
+            var selectButton = card.querySelector("[data-meal-select]");
+            selectButton.textContent = count ? "Selected" : "Select";
+            selectButton.setAttribute("aria-pressed", String(count > 0));
+            selectButton.setAttribute("aria-label", (count ? "Remove " : "Select ") + card.dataset.name);
+            if (count > 0) {
+              total += Number(card.dataset.price) * count;
+              itemCount += count;
+              lists.forEach(function (list) {
+                list.appendChild(buildRow(card, count));
+              });
+            }
+          });
+          if (itemCount === 0) {
+            lists.forEach(function (list) {
+              var empty = document.createElement("li");
+              empty.className = "td-sum-empty";
+              empty.textContent = "No meals selected yet.";
+              list.appendChild(empty);
+            });
+          }
+          totals.forEach(function (el) {
+            el.textContent = fmt(total);
+          });
+          counts.forEach(function (el) {
+            el.textContent = itemCount;
+          });
+        }
+        grid.addEventListener("click", function (event) {
+          var btn = event.target.closest("button");
+          var card = btn && btn.closest(".td-meal");
+          if (!card || !btn.hasAttribute("data-meal-select")) return;
+          var qty = state.meal[state.active],
+            id = card.dataset.meal;
+          qty[id] = qty[id] ? 0 : 1;
+          save();
+          renderMeals();
+        });
+        lists.forEach(function (list) {
+          list.addEventListener("click", function (event) {
+            var btn = event.target.closest("[data-remove]");
+            if (!btn) return;
+            state.meal[state.active][btn.dataset.remove] = 0;
+            save();
+            renderMeals();
+          });
+        });
+
+        /* Continue -> baggage.html */
+        $$("[data-go]").forEach(function (go) {
+          go.addEventListener("click", function (event) {
+            event.preventDefault();
+            window.location.href = "baggage.html";
+          });
+        });
+
+        function render() {
+          renderPassenger();
+          renderMeals();
+        }
+        render();
+      })();
+    </script>
+  </body>
+</html>

@@ -1,5 +1,15 @@
 /* TravelDeals theme tokens — change here, every page updates */
 :root {
+  --td-navy: #0f1f4d;
+  --td-tint: #f3f7ff;
+  --td-tint-2: #e8f0ff;
+  --td-field: #d2dcef;
+  --td-green: #1f9d55;
+  --td-green-tint: #e6f7ec;
+  --td-green-line: #84d3a1;
+  --seat: 32px;
+  --seat-gap: 6px;
+  --row-gap: 6px;
   --td-white: #fff;
   --td-white-rgb: 255, 255, 255;
   --td-page-bg: #fff;
@@ -345,6 +355,46 @@
   --td-results-chevron-size: 8px;
 }
 
+@media (max-width: 991.98px) {
+  .td-page {
+    --seat: clamp(24px, 7.6vw, 32px);
+    --seat-gap: 5px;
+  }
+}
+
+/* Align booking extras with the shared header and footer container. */
+.td-page > .td-wrap {
+  width: min(calc(var(--td-content-max-width) - 24px), calc(100% - 2 * var(--td-content-gutter)));
+  max-width: none;
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+.td-page > .td-wrap > .td-hero {
+  position: relative;
+  left: 50%;
+  width: calc(100vw - 2 * var(--td-hero-banner-horizontal-inset));
+  padding-top: 20px;
+  padding-left: max(0px, calc((100vw - min(calc(var(--td-content-max-width) - 24px), calc(100vw - 2 * var(--td-content-gutter)))) / 2 - var(--td-hero-banner-horizontal-inset)));
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, rgba(var(--td-brand-navy-rgb), 0.8), rgba(var(--td-brand-navy-rgb), 0.35)), url("../images/seats-meals-baggage-hero.jpg") center / cover no-repeat;
+}
+
+@media (max-width: 767.98px) {
+  .td-page > .td-wrap > .td-hero {
+    width: calc(100vw - 2 * var(--td-space-2));
+    padding-top: 16px;
+    padding-left: max(0px, calc(var(--td-content-gutter) - var(--td-space-2)));
+  }
+}
+
+.td-page .td-steps-card,
+.td-page #pane-seats .td-main,
+.td-page #pane-meals .td-main,
+.td-page #pane-baggage .td-main {
+  max-width: none;
+}
+
 body {
   margin: 0;
   font: var(--td-font-size)/var(--td-line-height) var(--td-font);
@@ -637,6 +687,222 @@ b {
   left: auto;
   right: 0;
 }
+/* Shared visual treatment for the booking extras pages. */
+.search-flight-page .sf-page-hero {
+  width: calc(100% - 2 * var(--td-hero-banner-horizontal-inset));
+  min-height: 182px;
+  margin: 24px auto 0;
+  padding-top: 20px;
+  border-radius: 22px;
+  color: var(--td-white);
+  background: linear-gradient(90deg, rgba(var(--td-brand-navy-rgb), 0.8), rgba(var(--td-brand-navy-rgb), 0.35)), url("../images/seats-meals-baggage-hero.jpg") center / cover no-repeat;
+}
+.search-flight-page .sf-page-hero-inner {
+  width: min(calc(var(--td-content-max-width) - 24px), calc(100vw - 2 * var(--td-content-gutter)));
+  max-width: 100%;
+  margin-inline: auto;
+}
+.search-flight-page .sf-page-hero h1 { margin: 0 0 4px; color: var(--td-brand-yellow); font-size: var(--td-font-hero); font-weight: var(--td-weight-hero); line-height: var(--td-line-height-hero); letter-spacing: var(--td-letter-spacing-hero); }
+.search-flight-page .sf-page-hero p { margin: 0; font-size: var(--td-font-body-large); }
+.search-flight-page .sf-search-hero { position: relative; margin-top: -78px; padding-top: 0; }
+.search-flight-page .sf-search-hero .sf-search-card { margin-top: 0; }
+@media (max-width: 767.98px) {
+  .search-flight-page .sf-page-hero { width: calc(100% - 2 * var(--td-space-2)); min-height: 150px; margin-top: 16px; padding-top: 16px; }
+  .search-flight-page .sf-page-hero-inner { width: calc(100vw - 2 * var(--td-content-gutter)); }
+  .search-flight-page .sf-page-hero h1 { font-size: var(--td-font-hero-mobile); }
+  .search-flight-page .sf-search-hero { margin-top: -34px; }
+}
+.td-page #pane-meals .td-feature strong { font-size: var(--td-font-default); }
+.td-page #pane-meals .td-feature span { font-size: var(--td-font-md); line-height: var(--td-line-height-description); }
+.td-page #pane-meals .td-meal-media { height: auto; aspect-ratio: 2.2 / 1; background: var(--td-hover); }
+.td-page #pane-meals .td-meal-media img { object-fit: cover; object-position: center; transform: scale(1.08); }
+.td-page #pane-meals .td-meal-body { padding: 10px 12px; }
+.td-page #pane-meals .td-meal-desc { margin-bottom: 8px; }
+.td-page #pane-meals .td-meal-select {
+  padding: 7px 14px;
+  border: 1px solid var(--td-blue);
+  border-radius: var(--td-button-radius);
+  background: var(--td-white);
+  color: var(--td-blue);
+  font: inherit;
+  font-size: var(--td-font-sm);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--td-transition-fast), color var(--td-transition-fast), border-color var(--td-transition-fast);
+}
+.td-page #pane-meals .td-meal-select:hover { background: var(--td-hover); }
+.td-page #pane-meals .td-meal-select[aria-pressed="true"] { background: var(--td-blue); color: var(--td-white); }
+.td-seat-guide h2 { margin: 0 0 14px; font-size: var(--td-font-card-title); }
+.td-seat-guide ul { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.td-seat-guide li { display: flex; align-items: flex-start; gap: 10px; line-height: var(--td-line-height-loose); }
+.td-seat-guide li i { color: var(--td-blue); }
+.td-page #pane-seats .td-promo h2 { color: var(--td-white); }
+@media (min-width: 992px) {
+  .td-page #pane-seats .td-promo { min-height: 150px; }
+  .td-page #pane-seats .td-seat-left { height: 100%; }
+  .td-page #pane-seats .td-seat-guide { flex: 1; display: flex; flex-direction: column; padding: 14px 20px; }
+  .td-page #pane-seats .td-seat-guide h2 { margin-bottom: 8px; }
+  .td-page #pane-seats .td-seat-guide ul { flex: 1; align-content: space-between; gap: 6px; }
+  .td-page #pane-seats .td-seat-guide li { font-size: var(--td-font-default); line-height: var(--td-line-height-loose); }
+  .td-page #pane-seats .td-map-frame { display: flex; flex-direction: column; }
+  .td-page #pane-seats .td-map-wrap { flex: 1; }
+  .td-page #pane-seats .td-fuselage { height: 100%; display: flex; flex-direction: column; }
+  .td-page #pane-seats #seatMap { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+}
+.td-page .td-steps .td-step-icon { color: var(--td-blue); font-size: 1.4rem; line-height: 1; }
+.td-page .td-steps .td-step { gap: 8px; }
+.td-page .td-steps .td-step.is-done .td-step-badge { color: var(--td-white); background: var(--td-blue); border-color: var(--td-blue); }
+@media (max-width: 767.98px) {
+  .td-page .td-steps .td-step { gap: 4px; }
+  .td-page .td-steps .td-step-icon { font-size: 1.1rem; }
+}
+.td-booking-review {
+  width: min(560px, calc(100% - 32px));
+  max-height: 85vh;
+  padding: 24px;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius-card);
+  color: var(--td-text);
+  background: var(--td-white);
+  box-shadow: var(--td-shadow-lg);
+}
+.td-booking-review::backdrop { background: rgba(var(--td-text-rgb), 0.55); }
+.td-booking-review-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.td-booking-review-header h2 { margin: 0; }
+.td-review-close { border: 0; background: transparent; color: var(--td-text); font-size: 1.75rem; cursor: pointer; }
+#bookingReviewTravellers { display: grid; gap: 12px; }
+#bookingReviewTravellers details { overflow: hidden; border: 1px solid var(--td-border); border-radius: var(--td-radius-card); background: var(--td-hover); }
+#bookingReviewTravellers summary { display: flex; align-items: center; gap: 10px; padding: 14px 16px; color: var(--td-text); font-size: var(--td-font-card-title); font-weight: 700; cursor: pointer; list-style: none; }
+#bookingReviewTravellers summary::-webkit-details-marker { display: none; }
+#bookingReviewTravellers summary i, #bookingReviewTravellers p > i { color: var(--td-blue); }
+#bookingReviewTravellers .td-review-chevron { margin-left: auto; transition: transform var(--td-transition-fast); }
+#bookingReviewTravellers details[open] .td-review-chevron { transform: rotate(180deg); }
+#bookingReviewTravellers .td-review-details { display: grid; gap: 10px; padding: 14px 16px 16px; border-top: 1px solid var(--td-border); }
+#bookingReviewTravellers p { display: flex; align-items: flex-start; gap: 10px; margin: 0; }
+.td-booking-review-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+.td-booking-review-actions :is(button, a) { padding: 10px 18px; border: 1px solid var(--td-blue); border-radius: var(--td-button-radius); font: inherit; font-weight: 700; text-decoration: none; cursor: pointer; }
+.td-review-edit { color: var(--td-blue); background: var(--td-white); }
+.td-review-confirm { color: var(--td-white); background: var(--td-search-gradient); }
+.td-booking-review-actions :is(button, a):hover { color: var(--td-text); background: var(--td-brand-yellow); }
+.td-page #pane-seats .td-card.td-flight-ticket {
+  position: relative;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.td-flight-ticket-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.td-flight-ticket-art path {
+  fill: var(--td-hover);
+  stroke: var(--td-border-hover);
+  stroke-width: 1.5px;
+  vector-effect: non-scaling-stroke;
+}
+.td-flight-ticket > :not(.td-flight-ticket-art) { position: relative; }
+.td-flight-ticket .td-flight-body::before,
+.td-flight-ticket .td-flight-body::after { display: none; }
+.td-page > .td-wrap .td-hero h1 {
+  font-size: var(--td-font-hero);
+  font-weight: var(--td-weight-hero);
+  line-height: var(--td-line-height-hero);
+  letter-spacing: var(--td-letter-spacing-hero);
+}
+.td-page > .td-wrap .td-hero p { font-size: var(--td-font-body-large); }
+.td-page :is(#pane-seats, #pane-meals, #pane-baggage) p {
+  font-size: var(--td-font-default);
+  line-height: var(--td-line-height-loose);
+}
+.td-page > .td-wrap .td-steps-card,
+.td-page :is(#pane-seats, #pane-meals, #pane-baggage) :is(.td-card, .td-meal, .td-price-card, .td-summary, .td-info-card, .td-allow-card, .td-flight) {
+  border: var(--td-border-width) solid var(--td-border);
+  border-radius: var(--td-radius-card);
+  box-shadow: var(--td-shadow);
+}
+.td-page > .td-wrap .td-tab {
+  font-family: var(--td-font);
+  font-size: var(--td-font-tab);
+  transition: color var(--td-transition-fast), border-color var(--td-transition-fast);
+}
+.td-page :is(#pane-seats, #pane-meals, #pane-baggage) :is(.td-h2, .td-card-title, .td-meal-name, .td-flight-route) {
+  color: var(--td-text);
+  font-size: var(--td-font-card-title);
+  line-height: var(--td-line-height-card);
+}
+.td-page :is(#pane-seats, #pane-meals, #pane-baggage) :is(.td-lead, .td-card-sub, .td-meal-desc, .td-flight-meta) {
+  color: var(--td-muted);
+  font-size: var(--td-font-caption);
+  line-height: var(--td-line-height-loose);
+}
+.td-page :is(#pane-seats, #pane-meals, #pane-baggage) p:is(.td-lead, .td-meal-desc, .td-flight-meta) {
+  font-size: var(--td-font-default);
+}
+.td-page :is(#pane-seats, #pane-meals, #pane-baggage) :is(select, .td-acc-toggle, .td-acc-body, .td-exit-list, .td-exit-more, .td-legend, .td-side-title, .td-info-list, .td-price-row, .td-sum-item, .td-sum-empty, .td-summary-row > span:first-child) {
+  font-size: var(--td-font-default);
+  line-height: var(--td-line-height-loose);
+}
+.td-page :is(#pane-seats, #pane-meals, #pane-baggage) :is(.td-legend li, .td-info-list li, .td-sum-name, .td-sum-meta, .td-card-sub) {
+  font-size: var(--td-font-default);
+}
+.td-page :is(#pane-seats, #pane-meals, #pane-baggage) :is(.td-btn, .td-change, .td-qty-btn, .td-extra, .td-seat, .td-acc-toggle) {
+  font-family: var(--td-font);
+  transition: background var(--td-transition-fast), border-color var(--td-transition-fast), color var(--td-transition-fast), box-shadow var(--td-transition-fast), transform var(--td-transition-fast);
+}
+.td-page :is(#pane-seats, #pane-meals, #pane-baggage) .td-btn-primary {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: var(--td-button-radius);
+  background: var(--td-search-gradient);
+  color: var(--td-white);
+  font-size: var(--td-font-button);
+}
+.td-page :is(#pane-seats, #pane-meals, #pane-baggage) .td-btn-primary::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0 auto 0 0;
+  width: 0;
+  border-radius: inherit;
+  background: var(--td-brand-yellow);
+  content: "";
+  transition: width var(--td-search-animation-duration) var(--td-search-animation-easing);
+}
+.td-page :is(#pane-seats, #pane-meals, #pane-baggage) .td-btn-primary::after {
+  position: absolute;
+  inset: 0;
+  border: var(--td-search-outline-width) solid var(--td-search-outline);
+  border-radius: inherit;
+  content: "";
+  pointer-events: none;
+}
+.td-page :is(#pane-seats, #pane-meals, #pane-baggage) .td-btn-primary:is(:hover, :focus-visible)::before {
+  width: 100%;
+}
+.td-page :is(#pane-seats, #pane-meals, #pane-baggage) .td-btn-primary:is(:hover, :focus-visible) {
+  color: var(--td-text);
+  box-shadow: var(--td-brand-glow);
+  transform: translateY(var(--td-hover-lift));
+}
+.td-page :is(#pane-seats, #pane-meals, #pane-baggage) :is(.td-change, .td-qty-btn, .td-acc-toggle):hover:not(:disabled) {
+  background: var(--td-hover);
+  color: var(--td-blue);
+}
+.td-page :is(#pane-seats, #pane-meals, #pane-baggage) :is(.td-meal, .td-extra) {
+  transition: border-color var(--td-transition-fast), box-shadow var(--td-transition-fast), background var(--td-transition-fast);
+}
+.td-page :is(#pane-seats, #pane-meals, #pane-baggage) :is(.td-meal, .td-extra):hover {
+  border-color: var(--td-border-hover);
+  box-shadow: var(--td-shadow-lg);
+}
+@media (max-width: 767.98px) {
+  .td-page > .td-wrap .td-hero h1 { font-size: var(--td-font-hero-mobile); }
+  .td-page > .td-wrap .td-tab { font-size: var(--td-font-sm); }
+}
+
 @keyframes td-pop-in {
   from {
     opacity: 0;

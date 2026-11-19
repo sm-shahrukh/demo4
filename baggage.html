@@ -1,0 +1,954 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Extra baggage | TravelDeals</title>
+    <link rel="icon" href="images/favicon.ico" sizes="any" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/baggage.css" rel="stylesheet" />
+    <link href="css/themes.css" rel="stylesheet" />
+    <link href="components/header.css?v=20261112-31" rel="stylesheet" />
+    <link href="components/footer.css?v=20261112-31" rel="stylesheet" />
+    <script src="components/include.js?v=20261112-31" defer></script>
+  </head>
+  <body>
+    <div data-component="header"></div>
+    <div data-component="mobile-navigation"></div>
+    <!-- Seat icon (used by the Seats tab and "Selected seat") -->
+    <svg class="td-sprite" aria-hidden="true" focusable="false">
+      <symbol id="icon-seat" viewBox="0 0 24 24">
+        <g
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M7.5 3.8l2.6 8.6" stroke-width="2.8" />
+          <path d="M10.1 12.4h6.3c.9 0 1.7.8 1.7 1.7V19" />
+          <path d="M13 19h6.2" />
+        </g>
+      </symbol>
+    </svg>
+
+    <main class="td-page">
+      <div class="td-wrap">
+        <section class="td-hero">
+          <div class="td-hero-text">
+            <h1>Extra baggage</h1>
+            <p>Add the baggage you need for a more comfortable journey.</p>
+          </div>
+        </section>
+
+        <div class="td-steps-card">
+          <nav aria-label="Booking progress">
+            <ol class="td-steps">
+              <li class="td-step is-done">
+                <i
+                  class="bi bi-airplane td-plane td-step-icon"
+                  aria-hidden="true"
+                ></i>
+                <span class="td-step-label">Flight</span>
+                <span class="td-step-badge"
+                  ><i class="bi bi-check-lg" aria-hidden="true"></i
+                  ><span class="visually-hidden">Completed</span></span
+                >
+              </li>
+              <li class="td-step-line" aria-hidden="true"></li>
+              <li class="td-step is-done">
+                <i class="bi bi-person td-step-icon" aria-hidden="true"></i>
+                <span class="td-step-label">Travellers</span>
+                <span class="td-step-badge"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Completed</span></span>
+              </li>
+              <li class="td-step-line" aria-hidden="true"></li>
+              <li class="td-step is-current" aria-current="step">
+                <i class="bi bi-bag-plus td-step-icon" aria-hidden="true"></i>
+                <span class="td-step-label">Add-ons</span>
+                <span class="td-step-badge">3</span>
+              </li>
+              <li class="td-step-line" aria-hidden="true"></li>
+              <li class="td-step">
+                <i
+                  class="bi bi-credit-card td-step-icon"
+                  aria-hidden="true"
+                ></i>
+                <span class="td-step-label">Payment</span>
+                <span class="td-step-badge">4</span>
+              </li>
+            </ol>
+          </nav>
+          <ul class="td-tabs" aria-label="Customize your flight">
+            <li role="presentation">
+              <a class="td-tab" href="seats.html"
+                ><svg class="td-svg" aria-hidden="true" focusable="false">
+                  <use href="#icon-seat"></use>
+                </svg>
+                Seats</a
+              >
+            </li>
+            <li role="presentation">
+              <a class="td-tab" href="meals.html"
+                ><i class="bi bi-egg-fried" aria-hidden="true"></i> Meals</a
+              >
+            </li>
+            <li role="presentation">
+              <a class="td-tab active" aria-current="page" href="baggage.html"
+                ><i class="bi bi-briefcase" aria-hidden="true"></i> Baggage</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div id="pane-baggage">
+          <!-- ===== Main content ===== -->
+          <div class="td-main">
+            <div class="row g-3 g-lg-4">
+              <!-- Left: flight, included allowance, extra options -->
+              <div class="col-lg">
+                <div class="d-lg-none mb-3">
+                  <section
+                    class="td-card td-passenger"
+                    aria-label="Select passenger"
+                  >
+                    <div class="td-icon-row">
+                      <i
+                        class="bi bi-person td-card-ico"
+                        aria-hidden="true"
+                      ></i>
+                      <label class="td-passenger-title" for="passengerBagM"
+                        >Select passenger</label
+                      >
+                      <span></span>
+                      <div class="td-field-row">
+                        <select
+                          class="form-select td-input js-passenger"
+                          id="passengerBagM"
+                          name="passengerBagM"
+                        >
+                          <option value="1" selected>Ahsan Khan (Adult)</option>
+                          <option value="2">Sara Khan (Adult)</option>
+                        </select>
+                      </div>
+                    </div>
+                    <hr class="td-divider" />
+                    <div class="td-icon-row td-selected-row">
+                      <svg
+                        class="td-svg td-card-ico"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <use href="#icon-seat"></use>
+                      </svg>
+                      <div>
+                        <span class="td-selected-label">Selected seat</span>
+                        <strong
+                          class="td-selected-seat is-empty"
+                          data-selected-seat
+                          aria-live="polite"
+                          >Not selected</strong
+                        >
+                      </div>
+                      <button class="td-change" type="button" data-change-seat>
+                        Select
+                      </button>
+                    </div>
+                  </section>
+                </div>
+
+                <section class="td-flight" aria-label="Flight summary">
+                  <i
+                    class="bi bi-airplane td-plane td-flight-ico"
+                    aria-hidden="true"
+                  ></i>
+                  <div>
+                    <p class="td-flight-route">
+                      Islamabad (ISB)
+                      <i class="bi bi-arrow-right" aria-hidden="true"></i> Dubai
+                      (DXB)
+                    </p>
+                    <p class="td-flight-meta">
+                      Sat, Nov 21 &nbsp;•&nbsp; Economy &nbsp;•&nbsp; 2
+                      Travelers
+                    </p>
+                  </div>
+                  <div class="td-airline">
+                    <img
+                      class="td-airline-logo"
+                      src="images/airlines/emirates.svg"
+                      alt="Emirates logo"
+                    />
+                    <div><strong>Emirates</strong><span>EK 621</span></div>
+                  </div>
+                </section>
+
+                <h2 class="td-h2">Your included baggage allowance</h2>
+                <p class="td-lead">
+                  Here&rsquo;s what&rsquo;s already included with your fare.
+                </p>
+                <div class="td-allow">
+                  <div class="td-allow-card">
+                    <i
+                      class="bi bi-handbag td-allow-ico"
+                      aria-hidden="true"
+                    ></i>
+                    <div>
+                      <span class="td-allow-name">Cabin baggage</span
+                      ><span class="td-allow-val">7 kg</span
+                      ><span class="td-allow-note">Per traveler, 1 piece</span>
+                    </div>
+                  </div>
+                  <div class="td-allow-card">
+                    <i
+                      class="bi bi-suitcase-lg td-allow-ico"
+                      aria-hidden="true"
+                    ></i>
+                    <div>
+                      <span class="td-allow-name">Checked baggage</span
+                      ><span class="td-allow-val">23 kg</span
+                      ><span class="td-allow-note">Per traveler, 1 piece</span>
+                    </div>
+                  </div>
+                </div>
+
+                <h2 class="td-h2">Add extra checked baggage</h2>
+                <p class="td-lead">
+                  Need more space? Choose an additional baggage allowance for
+                  your trip.
+                </p>
+                <div
+                  class="td-extra-grid"
+                  role="radiogroup"
+                  aria-label="Extra checked baggage"
+                >
+                  <div>
+                    <input
+                      class="td-extra-input visually-hidden"
+                      type="radio"
+                      name="extraBaggage"
+                      id="bag0"
+                      value="0"
+                      data-price="0"
+                      data-label="none"
+                      checked
+                    />
+                    <label class="td-extra" for="bag0"
+                      ><span class="td-dot" aria-hidden="true"></span
+                      ><span class="td-extra-name">No extra</span
+                      ><span class="td-extra-price">PKR 0</span></label
+                    >
+                  </div>
+                  <div>
+                    <input
+                      class="td-extra-input visually-hidden"
+                      type="radio"
+                      name="extraBaggage"
+                      id="bag5"
+                      value="5"
+                      data-price="4500"
+                      data-label="+5 kg"
+                    />
+                    <label class="td-extra" for="bag5"
+                      ><span class="td-dot" aria-hidden="true"></span
+                      ><span class="td-extra-name">+5 kg</span
+                      ><span class="td-extra-price">PKR 4,500</span></label
+                    >
+                  </div>
+                  <div>
+                    <input
+                      class="td-extra-input visually-hidden"
+                      type="radio"
+                      name="extraBaggage"
+                      id="bag10"
+                      value="10"
+                      data-price="8000"
+                      data-label="+10 kg"
+                    />
+                    <label class="td-extra" for="bag10"
+                      ><span class="td-dot" aria-hidden="true"></span
+                      ><span class="td-extra-name">+10 kg</span
+                      ><span class="td-extra-price">PKR 8,000</span></label
+                    >
+                  </div>
+                  <div>
+                    <input
+                      class="td-extra-input visually-hidden"
+                      type="radio"
+                      name="extraBaggage"
+                      id="bag15"
+                      value="15"
+                      data-price="11000"
+                      data-label="+15 kg"
+                    />
+                    <label class="td-extra" for="bag15"
+                      ><span class="td-dot" aria-hidden="true"></span
+                      ><span class="td-extra-name">+15 kg</span
+                      ><span class="td-extra-price">PKR 11,000</span></label
+                    >
+                  </div>
+                </div>
+                <!-- Restrictions + dimensions -->
+                <div class="row g-3 g-lg-4">
+                  <div class="col-lg-6">
+                    <section class="td-info-card" aria-labelledby="restrictTitle">
+                      <h2 class="td-card-heading" id="restrictTitle">
+                        <button
+                          class="td-card-toggle"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#restrictBody"
+                          aria-expanded="false"
+                          aria-controls="restrictBody"
+                        >
+                          <span>Baggage restrictions</span>
+                          <i
+                            class="bi bi-chevron-down td-chevron d-lg-none"
+                            aria-hidden="true"
+                          ></i>
+                        </button>
+                      </h2>
+                      <div class="collapse td-lg-open" id="restrictBody">
+                        <div class="td-card-inner">
+                          <div class="td-acc" id="restrictAcc">
+                            <div class="td-acc-item">
+                              <h3 class="td-acc-heading">
+                                <button
+                                  class="td-acc-toggle collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#accPack"
+                                  aria-expanded="false"
+                                  aria-controls="accPack"
+                                >
+                                  <span class="td-acc-ico"
+                                    ><i
+                                      class="bi bi-handbag"
+                                      aria-hidden="true"
+                                    ></i></span
+                                  ><span>What can I pack?</span
+                                  ><i
+                                    class="bi bi-chevron-down ms-auto"
+                                    aria-hidden="true"
+                                  ></i>
+                                </button>
+                              </h3>
+                              <div
+                                class="collapse"
+                                id="accPack"
+                                data-bs-parent="#restrictAcc"
+                              >
+                                <div class="td-acc-body">
+                                  Clothing, shoes, toiletries and electronics are
+                                  fine in checked baggage. Keep valuables,
+                                  medication and travel documents in your cabin bag.
+                                </div>
+                              </div>
+                            </div>
+                            <div class="td-acc-item">
+                              <h3 class="td-acc-heading">
+                                <button
+                                  class="td-acc-toggle collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#accRestricted"
+                                  aria-expanded="false"
+                                  aria-controls="accRestricted"
+                                >
+                                  <span class="td-acc-ico"
+                                    ><i
+                                      class="bi bi-slash-circle"
+                                      aria-hidden="true"
+                                    ></i></span
+                                  ><span>Restricted items</span
+                                  ><i
+                                    class="bi bi-chevron-down ms-auto"
+                                    aria-hidden="true"
+                                  ></i>
+                                </button>
+                              </h3>
+                              <div
+                                class="collapse"
+                                id="accRestricted"
+                                data-bs-parent="#restrictAcc"
+                              >
+                                <div class="td-acc-body">
+                                  Explosives, flammable liquids, compressed gases
+                                  and spare lithium batteries are not allowed in
+                                  checked baggage. Check the airline&rsquo;s full
+                                  list before you pack.
+                                </div>
+                              </div>
+                            </div>
+                            <div class="td-acc-item">
+                              <h3 class="td-acc-heading">
+                                <button
+                                  class="td-acc-toggle collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#accExcess"
+                                  aria-expanded="false"
+                                  aria-controls="accExcess"
+                                >
+                                  <span class="td-acc-ico"
+                                    ><i
+                                      class="bi bi-shield-plus"
+                                      aria-hidden="true"
+                                    ></i></span
+                                  ><span>Excess baggage policy</span
+                                  ><i
+                                    class="bi bi-chevron-down ms-auto"
+                                    aria-hidden="true"
+                                  ></i>
+                                </button>
+                              </h3>
+                              <div
+                                class="collapse"
+                                id="accExcess"
+                                data-bs-parent="#restrictAcc"
+                              >
+                                <div class="td-acc-body">
+                                  Baggage over your allowance is charged at the
+                                  airport, usually at a higher rate. Adding extra
+                                  baggage now is the cheaper option.
+                                </div>
+                              </div>
+                            </div>
+                            <div class="td-acc-item">
+                              <h3 class="td-acc-heading">
+                                <button
+                                  class="td-acc-toggle collapsed"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#accRefunds"
+                                  aria-expanded="false"
+                                  aria-controls="accRefunds"
+                                >
+                                  <span class="td-acc-ico"
+                                    ><i
+                                      class="bi bi-info-circle"
+                                      aria-hidden="true"
+                                    ></i></span
+                                  ><span>Changes &amp; refunds</span
+                                  ><i
+                                    class="bi bi-chevron-down ms-auto"
+                                    aria-hidden="true"
+                                  ></i>
+                                </button>
+                              </h3>
+                              <div
+                                class="collapse"
+                                id="accRefunds"
+                                data-bs-parent="#restrictAcc"
+                              >
+                                <div class="td-acc-body">
+                                  Extra baggage can be changed or removed before
+                                  departure. Refunds follow the airline&rsquo;s fare
+                                  rules.
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <section class="td-info-card" aria-labelledby="dimTitle">
+                      <h2 class="td-card-heading" id="dimTitle">
+                        <button
+                          class="td-card-toggle"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#dimBody"
+                          aria-expanded="false"
+                          aria-controls="dimBody"
+                        >
+                          <span>Baggage dimensions</span>
+                          <i
+                            class="bi bi-chevron-down td-chevron d-lg-none"
+                            aria-hidden="true"
+                          ></i>
+                        </button>
+                      </h2>
+                      <div class="collapse td-lg-open" id="dimBody">
+                        <div class="td-card-inner">
+                          <p class="td-dim-note-top">
+                            Make sure your bags meet the airline&rsquo;s size
+                            limits.
+                          </p>
+                          <div class="td-dim-grid">
+                            <div class="td-dim-item">
+                              <svg
+                                class="td-dim-svg"
+                                viewBox="0 0 190 120"
+                                role="img"
+                                aria-label="Cabin baggage: 55 by 36 by 23 centimetres"
+                              >
+                                <defs>
+                                  <marker
+                                    id="arrC"
+                                    viewBox="0 0 6 6"
+                                    refX="3"
+                                    refY="3"
+                                    markerWidth="5"
+                                    markerHeight="5"
+                                    orient="auto-start-reverse"
+                                  >
+                                    <path d="M0 0L6 3L0 6z" fill="#62728f" />
+                                  </marker>
+                                </defs>
+                                <g class="td-dim-line" marker-start="url(#arrC)">
+                                  <line
+                                    x1="40"
+                                    y1="14"
+                                    x2="40"
+                                    y2="84"
+                                    marker-start="url(#arrC)"
+                                    marker-end="url(#arrC)"
+                                  />
+                                </g>
+                                <text x="4" y="52">55 cm</text>
+                                <rect
+                                  class="td-dim-bag"
+                                  x="58"
+                                  y="14"
+                                  width="52"
+                                  height="68"
+                                  rx="9"
+                                />
+                                <path
+                                  class="td-dim-bag"
+                                  d="M72 14V7h24v7"
+                                  fill="none"
+                                />
+                                <path
+                                  class="td-dim-detail"
+                                  d="M76 28v38M92 28v38"
+                                />
+                                <circle
+                                  class="td-dim-wheel"
+                                  cx="68"
+                                  cy="88"
+                                  r="3.5"
+                                />
+                                <circle
+                                  class="td-dim-wheel"
+                                  cx="100"
+                                  cy="88"
+                                  r="3.5"
+                                />
+                                <line
+                                  class="td-dim-line"
+                                  x1="58"
+                                  y1="104"
+                                  x2="110"
+                                  y2="104"
+                                  marker-start="url(#arrC)"
+                                  marker-end="url(#arrC)"
+                                />
+                                <text x="84" y="116" text-anchor="middle">
+                                  36 cm
+                                </text>
+                                <line
+                                  class="td-dim-line"
+                                  x1="116"
+                                  y1="82"
+                                  x2="136"
+                                  y2="70"
+                                  marker-start="url(#arrC)"
+                                  marker-end="url(#arrC)"
+                                />
+                                <text x="140" y="76">23 cm</text>
+                              </svg>
+                              <span class="td-dim-pill">Cabin baggage</span>
+                              <p class="td-dim-max">
+                                Max 55 &times; 36 &times; 23 cm (7 kg)
+                              </p>
+                            </div>
+                            <div class="td-dim-item">
+                              <svg
+                                class="td-dim-svg"
+                                viewBox="0 0 190 120"
+                                role="img"
+                                aria-label="Checked baggage: total up to 158 centimetres"
+                              >
+                                <defs>
+                                  <marker
+                                    id="arrK"
+                                    viewBox="0 0 6 6"
+                                    refX="3"
+                                    refY="3"
+                                    markerWidth="5"
+                                    markerHeight="5"
+                                    orient="auto-start-reverse"
+                                  >
+                                    <path d="M0 0L6 3L0 6z" fill="#62728f" />
+                                  </marker>
+                                </defs>
+                                <rect
+                                  class="td-dim-bag"
+                                  x="50"
+                                  y="12"
+                                  width="62"
+                                  height="86"
+                                  rx="10"
+                                />
+                                <path
+                                  class="td-dim-bag"
+                                  d="M70 12V5h22v7"
+                                  fill="none"
+                                />
+                                <path
+                                  class="td-dim-detail"
+                                  d="M66 26v52M81 26v52M96 26v52"
+                                />
+                                <circle
+                                  class="td-dim-wheel"
+                                  cx="62"
+                                  cy="104"
+                                  r="4"
+                                />
+                                <circle
+                                  class="td-dim-wheel"
+                                  cx="100"
+                                  cy="104"
+                                  r="4"
+                                />
+                                <line
+                                  class="td-dim-line"
+                                  x1="130"
+                                  y1="12"
+                                  x2="130"
+                                  y2="100"
+                                  marker-start="url(#arrK)"
+                                  marker-end="url(#arrK)"
+                                />
+                                <text x="138" y="52">158 cm</text>
+                                <text class="is-small" x="138" y="63">
+                                  (L + W + H)
+                                </text>
+                              </svg>
+                              <span class="td-dim-pill">Checked baggage</span>
+                              <p class="td-dim-max">Total up to 158 cm (23 kg)</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+
+                <!-- Mobile continue -->
+                <div class="d-lg-none mt-3">
+                  <a class="td-btn td-btn-primary td-btn-block" href="#"
+                    >Continue</a
+                  >
+                  <p class="td-secure">
+                    <i class="bi bi-shield-check" aria-hidden="true"></i> Secure
+                    booking &nbsp;•&nbsp; Instant confirmation
+                  </p>
+                </div>
+              </div>
+
+              <!-- Right: price details (continue button lives here on desktop) -->
+              <div class="col-lg-auto td-side-col">
+                <div class="td-stack">
+                  <section
+                    class="td-card td-passenger d-none d-lg-block"
+                    aria-label="Select passenger"
+                  >
+                    <div class="td-icon-row">
+                      <i
+                        class="bi bi-person td-card-ico"
+                        aria-hidden="true"
+                      ></i>
+                      <label class="td-passenger-title" for="passengerBag"
+                        >Select passenger</label
+                      >
+                      <span></span>
+                      <div class="td-field-row">
+                        <select
+                          class="form-select td-input js-passenger"
+                          id="passengerBag"
+                          name="passengerBag"
+                        >
+                          <option value="1" selected>Ahsan Khan (Adult)</option>
+                          <option value="2">Sara Khan (Adult)</option>
+                        </select>
+                      </div>
+                    </div>
+                    <hr class="td-divider" />
+                    <div class="td-icon-row td-selected-row">
+                      <svg
+                        class="td-svg td-card-ico"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <use href="#icon-seat"></use>
+                      </svg>
+                      <div>
+                        <span class="td-selected-label">Selected seat</span>
+                        <strong
+                          class="td-selected-seat is-empty"
+                          data-selected-seat
+                          aria-live="polite"
+                          >Not selected</strong
+                        >
+                      </div>
+                      <button class="td-change" type="button" data-change-seat>
+                        Select
+                      </button>
+                    </div>
+                  </section>
+                  <section
+                    class="td-price-card"
+                    id="priceCard"
+                    data-base="84500"
+                    aria-labelledby="priceTitle"
+                  >
+                    <h2 class="td-card-heading" id="priceTitle">
+                      <button
+                        class="td-card-toggle"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#priceBody"
+                        aria-expanded="true"
+                        aria-controls="priceBody"
+                      >
+                        <span>Price details</span>
+                        <i
+                          class="bi bi-chevron-down td-chevron d-lg-none"
+                          aria-hidden="true"
+                        ></i>
+                      </button>
+                    </h2>
+                    <div class="collapse show td-lg-open" id="priceBody">
+                      <div class="td-card-inner">
+                        <div class="td-price-row">
+                          <span>Base fare (1 traveler)</span
+                          ><span>PKR 84,500</span>
+                        </div>
+                        <div class="td-price-row">
+                          <span data-bag-label>Extra baggage (none)</span
+                          ><span data-bag-price>PKR 0</span>
+                        </div>
+                        <div class="td-price-total">
+                          <span>Total amount</span
+                          ><span class="td-price-amount" data-bag-total
+                            >PKR 84,500</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="d-none d-lg-block mt-3">
+                      <a class="td-btn td-btn-primary td-btn-block" href="#"
+                        >Continue</a
+                      >
+                      <p class="td-secure">
+                        <i class="bi bi-shield-check" aria-hidden="true"></i>
+                        Secure booking &nbsp;•&nbsp; Instant confirmation
+                      </p>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <dialog class="td-booking-review" id="bookingReview" aria-labelledby="bookingReviewTitle">
+      <div class="td-booking-review-header">
+        <h2 id="bookingReviewTitle">Review your trip</h2>
+        <button type="button" class="td-review-close" aria-label="Close review">&times;</button>
+      </div>
+      <p>Check the selections for both travellers before continuing.</p>
+      <div id="bookingReviewTravellers"></div>
+      <div class="td-booking-review-actions">
+        <button type="button" class="td-review-edit">Edit selections</button>
+        <a class="td-review-confirm" href="payment.html">Confirm and continue</a>
+      </div>
+    </dialog>
+    <div data-component="footer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      (function () {
+        "use strict";
+        var NAMES = { 1: "Ahsan Khan", 2: "Sara Khan" };
+        var KEY = "traveldeals-customize";
+        var state = {
+          active: 1,
+          seat: { 1: null, 2: null },
+          meal: { 1: {}, 2: {} },
+          bag: { 1: "bag0", 2: "bag0" },
+        };
+        try {
+          var saved = JSON.parse(sessionStorage.getItem(KEY));
+          if (saved) state = saved;
+        } catch (e) {}
+        function save() {
+          try {
+            sessionStorage.setItem(KEY, JSON.stringify(state));
+          } catch (e) {}
+        }
+
+        function $(sel, root) {
+          return (root || document).querySelector(sel);
+        }
+        function $$(sel, root) {
+          return Array.prototype.slice.call(
+            (root || document).querySelectorAll(sel),
+          );
+        }
+        function fmt(n) {
+          return "PKR " + n.toLocaleString("en-US");
+        }
+
+        /* ---- passenger boxes ---- */
+        var selects = $$(".js-passenger");
+        selects.forEach(function (sel) {
+          sel.addEventListener("change", function () {
+            state.active = Number(sel.value);
+            save();
+            render();
+          });
+        });
+        function renderPassenger() {
+          var seat = state.seat[state.active];
+          selects.forEach(function (sel) {
+            sel.value = String(state.active);
+          });
+          $$("[data-selected-seat]").forEach(function (el) {
+            el.textContent = seat || "Not selected";
+            el.classList.toggle("is-empty", !seat);
+          });
+          $$("[data-change-seat]").forEach(function (b) {
+            b.textContent = seat ? "Change" : "Select";
+          });
+          $$("[data-passenger-name]").forEach(function (el) {
+            el.textContent = NAMES[state.active];
+          });
+        }
+
+        $$("[data-change-seat]").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            window.location.href = "seats.html";
+          });
+        });
+
+        /* ---- BAGGAGE ---- */
+        var priceCard = document.getElementById("priceCard");
+        var base = Number(priceCard.dataset.base) || 0;
+        var radios = $$('input[name="extraBaggage"]');
+        var bagLabels = $$("[data-bag-label]");
+        var bagPrices = $$("[data-bag-price]");
+        var bagTotals = $$("[data-bag-total]");
+
+        function renderBag() {
+          var id = state.bag[state.active],
+            chosen = null;
+          radios.forEach(function (r) {
+            r.checked = r.id === id;
+            if (r.checked) chosen = r;
+          });
+          if (!chosen) return;
+          var extra = Number(chosen.dataset.price) || 0;
+          bagLabels.forEach(function (el) {
+            el.textContent = "Extra baggage (" + chosen.dataset.label + ")";
+          });
+          bagPrices.forEach(function (el) {
+            el.textContent = fmt(extra);
+          });
+          bagTotals.forEach(function (el) {
+            el.textContent = fmt(base + extra);
+          });
+        }
+        radios.forEach(function (r) {
+          r.addEventListener("change", function () {
+            if (r.checked) {
+              state.bag[state.active] = r.id;
+              save();
+              renderBag();
+            }
+          });
+        });
+
+        /* Review both travellers before continuing. */
+        var review = document.getElementById("bookingReview");
+        var reviewTravellers = document.getElementById("bookingReviewTravellers");
+        $$(".td-btn-primary").forEach(function (btn) {
+          btn.addEventListener("click", function (event) {
+            event.preventDefault();
+            reviewTravellers.replaceChildren();
+            [1, 2].forEach(function (id) {
+              var section = document.createElement("details");
+              section.open = id === 1;
+              var heading = document.createElement("summary");
+              var personIcon = document.createElement("i");
+              personIcon.className = "bi bi-person-circle";
+              personIcon.setAttribute("aria-hidden", "true");
+              heading.appendChild(personIcon);
+              heading.appendChild(document.createTextNode(NAMES[id]));
+              var chevron = document.createElement("i");
+              chevron.className = "bi bi-chevron-down td-review-chevron";
+              chevron.setAttribute("aria-hidden", "true");
+              heading.appendChild(chevron);
+              section.appendChild(heading);
+              var details = document.createElement("div");
+              details.className = "td-review-details";
+              var meals = Object.keys((state.meal && state.meal[id]) || {}).filter(function (key) { return state.meal[id][key] > 0; }).map(function (key) {
+                return ((state.mealNames && state.mealNames[key]) || key.replace(/-/g, " ")) + " × " + state.meal[id][key];
+              });
+              var bag = document.getElementById((state.bag && state.bag[id]) || "bag0");
+              [["Seat", (state.seat && state.seat[id]) || "Not selected", "bi-person"], ["Meals", meals.join(", ") || "No meals selected", "bi-cup-hot"], ["Extra baggage", bag ? (bag.dataset.label === "none" ? "No extra baggage" : bag.dataset.label + " — " + fmt(Number(bag.dataset.price))) : "No extra baggage", "bi-briefcase"]].forEach(function (item) {
+                var line = document.createElement("p");
+                var icon = document.createElement("i");
+                icon.className = "bi " + item[2];
+                icon.setAttribute("aria-hidden", "true");
+                line.appendChild(icon);
+                var text = document.createElement("span");
+                var label = document.createElement("strong");
+                label.textContent = item[0] + ": ";
+                text.appendChild(label);
+                text.appendChild(document.createTextNode(item[1]));
+                line.appendChild(text);
+                details.appendChild(line);
+              });
+              section.appendChild(details);
+              reviewTravellers.appendChild(section);
+            });
+            review.showModal();
+          });
+        });
+        review.querySelectorAll(".td-review-close, .td-review-edit").forEach(function (button) {
+          button.addEventListener("click", function () { review.close(); });
+        });
+
+        function render() {
+          renderPassenger();
+          renderBag();
+        }
+        render();
+      })();
+    </script>
+  </body>
+</html>
