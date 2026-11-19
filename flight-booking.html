@@ -25,7 +25,10 @@
     <link href="components/header.css?v=20261112-31" rel="stylesheet" />
     <link href="css/flight-booking.css" rel="stylesheet" />
     <link href="css/travellers.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
     <link href="components/footer.css?v=20261112-31" rel="stylesheet" />
     <script src="components/include.js?v=20261112-31" defer></script>
   </head>
@@ -33,376 +36,789 @@
     <div data-component="header"></div>
     <div data-component="mobile-navigation"></div>
     <main class="td-page">
-  <div class="td-wrap">
+      <div class="td-wrap">
+        <div class="td-inner">
+          <!-- ===== Progress steps ===== -->
+          <nav aria-label="Booking progress">
+            <ol class="td-steps">
+              <li class="td-step is-done">
+                <i
+                  class="bi bi-airplane td-plane td-step-icon"
+                  aria-hidden="true"
+                ></i>
+                <span class="td-step-label">Flight</span>
+                <span class="td-badge"
+                  ><i class="bi bi-check-lg" aria-hidden="true"></i
+                  ><span class="visually-hidden">Completed</span></span
+                >
+              </li>
+              <li class="td-step-line" aria-hidden="true"></li>
+              <li class="td-step is-current" aria-current="step">
+                <i class="bi bi-person td-step-icon" aria-hidden="true"></i>
+                <span class="td-step-label">Travellers</span>
+                <span class="td-badge">2</span>
+              </li>
+              <li class="td-step-line" aria-hidden="true"></li>
+              <li class="td-step">
+                <i class="bi bi-gift td-step-icon" aria-hidden="true"></i>
+                <span class="td-step-label">Extras</span>
+                <span class="td-badge">3</span>
+              </li>
+              <li class="td-step-line" aria-hidden="true"></li>
+              <li class="td-step">
+                <i
+                  class="bi bi-credit-card td-step-icon"
+                  aria-hidden="true"
+                ></i>
+                <span class="td-step-label">Payment</span>
+                <span class="td-badge">4</span>
+              </li>
+            </ol>
+          </nav>
 
-    <div class="td-inner">
+          <div class="row g-3 g-lg-4">
+            <!-- ===== Left column: forms ===== -->
+            <div class="col-lg-8">
+              <form class="td-stack" id="travellerForm" novalidate>
+                <!-- Traveller details -->
+                <section class="td-card" aria-labelledby="travellerTitle">
+                  <div class="td-card-head">
+                    <button
+                      class="td-card-toggle"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#travellerBody"
+                      aria-expanded="true"
+                      aria-controls="travellerBody"
+                    >
+                      <span class="td-icon-box"
+                        ><i
+                          class="bi bi-airplane td-plane"
+                          aria-hidden="true"
+                        ></i
+                      ></span>
+                      <span class="td-head-text">
+                        <span class="td-card-title" id="travellerTitle"
+                          >Traveller details</span
+                        >
+                        <span class="td-card-sub"
+                          >Enter details as per your passport for a smooth
+                          journey.</span
+                        >
+                      </span>
+                      <i
+                        class="bi bi-chevron-down td-chevron d-lg-none"
+                        aria-hidden="true"
+                      ></i>
+                    </button>
 
-      <!-- ===== Progress steps ===== -->
-      <nav aria-label="Booking progress">
-        <ol class="td-steps">
-          <li class="td-step is-done">
-            <i class="bi bi-airplane td-plane td-step-icon" aria-hidden="true"></i>
-            <span class="td-step-label">Flight</span>
-            <span class="td-badge"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Completed</span></span>
-          </li>
-          <li class="td-step-line" aria-hidden="true"></li>
-          <li class="td-step is-current" aria-current="step">
-            <i class="bi bi-person td-step-icon" aria-hidden="true"></i>
-            <span class="td-step-label">Travellers</span>
-            <span class="td-badge">2</span>
-          </li>
-          <li class="td-step-line" aria-hidden="true"></li>
-          <li class="td-step">
-            <i class="bi bi-gift td-step-icon" aria-hidden="true"></i>
-            <span class="td-step-label">Extras</span>
-            <span class="td-badge">3</span>
-          </li>
-          <li class="td-step-line" aria-hidden="true"></li>
-          <li class="td-step">
-            <i class="bi bi-credit-card td-step-icon" aria-hidden="true"></i>
-            <span class="td-step-label">Payment</span>
-            <span class="td-badge">4</span>
-          </li>
-        </ol>
-      </nav>
-
-      <div class="row g-3 g-lg-4">
-
-        <!-- ===== Left column: forms ===== -->
-        <div class="col-lg-8">
-          <form class="td-stack" id="travellerForm" novalidate>
-
-            <!-- Traveller details -->
-            <section class="td-card" aria-labelledby="travellerTitle">
-              <div class="td-card-head">
-                <button class="td-card-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#travellerBody" aria-expanded="true" aria-controls="travellerBody">
-                  <span class="td-icon-box"><i class="bi bi-airplane td-plane" aria-hidden="true"></i></span>
-                  <span class="td-head-text">
-                    <span class="td-card-title" id="travellerTitle">Traveller details</span>
-                    <span class="td-card-sub">Enter details as per your passport for a smooth journey.</span>
-                  </span>
-                  <i class="bi bi-chevron-down td-chevron d-lg-none" aria-hidden="true"></i>
-                </button>
-
-                <!-- Desktop only: pick a saved traveller (labels tick the matching radio below) -->
-                <div class="dropdown d-none d-lg-block">
-                  <button class="td-link-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Use saved traveller <i class="bi bi-chevron-down" aria-hidden="true"></i>
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-end td-dropdown">
-                    <label class="dropdown-item" for="saved1">Ahsan Khan</label>
-                    <label class="dropdown-item" for="saved2">Sara Khan</label>
-                  </div>
-                </div>
-              </div>
-
-              <div class="collapse show td-lg-open" id="travellerBody">
-                <div class="td-card-inner">
-
-                  <div class="td-saved" role="radiogroup" aria-label="Saved travellers">
-                    <div class="td-saved-item">
-                      <input class="td-saved-input visually-hidden" type="radio" name="savedTraveller" id="saved1" checked>
-                      <label class="td-saved-chip" for="saved1">
-                        <span class="td-avatar"><i class="bi bi-person" aria-hidden="true"></i></span>
-                        <span class="td-saved-text">
-                          <strong>Ahsan Khan</strong>
-                          <small>Passport: AW7359282</small>
-                        </span>
-                      </label>
-                      <!-- Mobile only: opens / closes the edit form below -->
-                      <button class="td-kebab d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#traveller1" aria-expanded="false" aria-controls="traveller1" aria-label="Edit Ahsan Khan">
-                        <i class="bi bi-three-dots-vertical" aria-hidden="true"></i>
+                    <!-- Desktop only: pick a saved traveller (labels tick the matching radio below) -->
+                    <div class="dropdown d-none d-lg-block">
+                      <button
+                        class="td-link-btn"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        Use saved traveller
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
                       </button>
+                      <div class="dropdown-menu dropdown-menu-end td-dropdown">
+                        <label class="dropdown-item" for="saved1"
+                          >Ahsan Khan</label
+                        >
+                        <label class="dropdown-item" for="saved2"
+                          >Sara Khan</label
+                        >
+                      </div>
                     </div>
+                  </div>
 
-                    <!-- Second saved traveller is desktop only, as in the mobile design -->
-                    <div class="td-saved-item">
-                      <input class="td-saved-input visually-hidden" type="radio" name="savedTraveller" id="saved2">
-                      <label class="td-saved-chip" for="saved2">
-                        <span class="td-avatar"><i class="bi bi-person" aria-hidden="true"></i></span>
-                        <span class="td-saved-text">
-                          <strong>Sara Khan</strong>
-                          <small>Passport: BV4829173</small>
-                        </span>
-                      </label>
+                  <div class="collapse show td-lg-open" id="travellerBody">
+                    <div class="td-card-inner">
+                      <div
+                        class="td-saved"
+                        role="radiogroup"
+                        aria-label="Saved travellers"
+                      >
+                        <div class="td-saved-item">
+                          <input
+                            class="td-saved-input visually-hidden"
+                            type="radio"
+                            name="savedTraveller"
+                            id="saved1"
+                            checked
+                          />
+                          <label class="td-saved-chip" for="saved1">
+                            <span class="td-avatar"
+                              ><i class="bi bi-person" aria-hidden="true"></i
+                            ></span>
+                            <span class="td-saved-text">
+                              <strong>Ahsan Khan</strong>
+                              <small>Passport: AW7359282</small>
+                            </span>
+                          </label>
+                          <!-- Mobile only: opens / closes the edit form below -->
+                          <button
+                            class="td-kebab d-lg-none"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#traveller1"
+                            aria-expanded="false"
+                            aria-controls="traveller1"
+                            aria-label="Edit Ahsan Khan"
+                          >
+                            <i
+                              class="bi bi-three-dots-vertical"
+                              aria-hidden="true"
+                            ></i>
+                          </button>
+                        </div>
+
+                        <!-- Second saved traveller is desktop only, as in the mobile design -->
+                        <div class="td-saved-item">
+                          <input
+                            class="td-saved-input visually-hidden"
+                            type="radio"
+                            name="savedTraveller"
+                            id="saved2"
+                          />
+                          <label class="td-saved-chip" for="saved2">
+                            <span class="td-avatar"
+                              ><i class="bi bi-person" aria-hidden="true"></i
+                            ></span>
+                            <span class="td-saved-text">
+                              <strong>Sara Khan</strong>
+                              <small>Passport: BV4829173</small>
+                            </span>
+                          </label>
+                        </div>
+
+                        <button class="td-add" type="button">
+                          <i class="bi bi-plus-lg" aria-hidden="true"></i> Add
+                          new traveller
+                        </button>
+                      </div>
+
+                      <!-- Traveller 1 form (collapsed on mobile, always open on desktop) -->
+                      <div class="collapse td-lg-open" id="traveller1">
+                        <div class="td-subcard">
+                          <div class="td-sub-head">
+                            <h3 class="td-sub-title">
+                              <i class="bi bi-person" aria-hidden="true"></i>
+                              Traveller 1
+                            </h3>
+                            <button class="td-remove" type="button">
+                              <i class="bi bi-trash3" aria-hidden="true"></i>
+                              Remove
+                            </button>
+                          </div>
+
+                          <div class="row g-3">
+                            <div class="col-12 col-md-4">
+                              <label class="td-label" for="firstName"
+                                >First name
+                                <span class="td-req" aria-hidden="true"
+                                  >*</span
+                                ></label
+                              >
+                              <input
+                                class="form-control td-input"
+                                type="text"
+                                id="firstName"
+                                name="firstName"
+                                value="Ahsan"
+                                autocomplete="given-name"
+                                required
+                              />
+                            </div>
+                            <div class="col-12 col-md-4">
+                              <label class="td-label" for="lastName"
+                                >Last name
+                                <span class="td-req" aria-hidden="true"
+                                  >*</span
+                                ></label
+                              >
+                              <input
+                                class="form-control td-input"
+                                type="text"
+                                id="lastName"
+                                name="lastName"
+                                value="Khan"
+                                autocomplete="family-name"
+                                required
+                              />
+                            </div>
+                            <div class="col-12 col-md-4">
+                              <label class="td-label" for="dob"
+                                >Date of birth
+                                <span class="td-req" aria-hidden="true"
+                                  >*</span
+                                ></label
+                              >
+                              <div class="td-field has-icon">
+                                <i
+                                  class="bi bi-calendar3 td-field-icon"
+                                  aria-hidden="true"
+                                ></i>
+                                <input
+                                  class="form-control td-input"
+                                  type="date"
+                                  id="dob"
+                                  name="dob"
+                                  value="1990-04-12"
+                                  autocomplete="bday"
+                                  required
+                                />
+                              </div>
+                            </div>
+
+                            <div class="col-12 col-md-4">
+                              <label class="td-label" for="nationality"
+                                >Nationality
+                                <span class="td-req" aria-hidden="true"
+                                  >*</span
+                                ></label
+                              >
+                              <select
+                                class="form-select td-input"
+                                id="nationality"
+                                name="nationality"
+                                required
+                              >
+                                <option value="PK" selected>Pakistan</option>
+                                <option value="AE">United Arab Emirates</option>
+                                <option value="SA">Saudi Arabia</option>
+                                <option value="IN">India</option>
+                                <option value="GB">United Kingdom</option>
+                                <option value="US">United States</option>
+                              </select>
+                            </div>
+                            <div class="col-12 col-md-4">
+                              <label class="td-label" for="passportNo"
+                                >Passport number
+                                <span class="td-req" aria-hidden="true"
+                                  >*</span
+                                ></label
+                              >
+                              <input
+                                class="form-control td-input"
+                                type="text"
+                                id="passportNo"
+                                name="passportNo"
+                                value="AW7359282"
+                                autocomplete="off"
+                                required
+                              />
+                            </div>
+                            <div class="col-12 col-md-4">
+                              <label class="td-label" for="passportExpiry"
+                                >Passport expiry
+                                <span class="td-req" aria-hidden="true"
+                                  >*</span
+                                ></label
+                              >
+                              <div class="td-field has-icon">
+                                <i
+                                  class="bi bi-calendar3 td-field-icon"
+                                  aria-hidden="true"
+                                ></i>
+                                <input
+                                  class="form-control td-input"
+                                  type="date"
+                                  id="passportExpiry"
+                                  name="passportExpiry"
+                                  value="2030-08-15"
+                                  required
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                  </div>
+                </section>
 
-                    <button class="td-add" type="button">
-                      <i class="bi bi-plus-lg" aria-hidden="true"></i> Add new traveller
+                <!-- Contact information -->
+                <section class="td-card" aria-labelledby="contactTitle">
+                  <div class="td-card-head">
+                    <button
+                      class="td-card-toggle"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#contactBody"
+                      aria-expanded="true"
+                      aria-controls="contactBody"
+                    >
+                      <span class="td-icon-box"
+                        ><i class="bi bi-envelope" aria-hidden="true"></i
+                      ></span>
+                      <span class="td-head-text">
+                        <span class="td-card-title" id="contactTitle"
+                          >Contact information</span
+                        >
+                        <span class="td-card-sub"
+                          >We’ll use this to send your booking confirmation and
+                          travel updates.</span
+                        >
+                      </span>
+                      <i
+                        class="bi bi-chevron-down td-chevron d-lg-none"
+                        aria-hidden="true"
+                      ></i>
                     </button>
                   </div>
 
-                  <!-- Traveller 1 form (collapsed on mobile, always open on desktop) -->
-                  <div class="collapse td-lg-open" id="traveller1">
-                    <div class="td-subcard">
-                      <div class="td-sub-head">
-                        <h3 class="td-sub-title"><i class="bi bi-person" aria-hidden="true"></i> Traveller 1</h3>
-                        <button class="td-remove" type="button"><i class="bi bi-trash3" aria-hidden="true"></i> Remove</button>
-                      </div>
-
+                  <div class="collapse show td-lg-open" id="contactBody">
+                    <div class="td-card-inner">
                       <div class="row g-3">
-                        <div class="col-12 col-md-4">
-                          <label class="td-label" for="firstName">First name <span class="td-req" aria-hidden="true">*</span></label>
-                          <input class="form-control td-input" type="text" id="firstName" name="firstName" value="Ahsan" autocomplete="given-name" required>
+                        <div class="col-12 col-md-6">
+                          <label class="td-label td-label-sm-hidden" for="email"
+                            >Email address
+                            <span class="td-req" aria-hidden="true"
+                              >*</span
+                            ></label
+                          >
+                          <div class="td-field has-mobile-icon">
+                            <i
+                              class="bi bi-envelope td-field-icon is-mobile-only"
+                              aria-hidden="true"
+                            ></i>
+                            <input
+                              class="form-control td-input"
+                              type="email"
+                              id="email"
+                              name="email"
+                              value="ahsan.khan@email.com"
+                              placeholder="Email address"
+                              autocomplete="email"
+                              required
+                            />
+                          </div>
                         </div>
-                        <div class="col-12 col-md-4">
-                          <label class="td-label" for="lastName">Last name <span class="td-req" aria-hidden="true">*</span></label>
-                          <input class="form-control td-input" type="text" id="lastName" name="lastName" value="Khan" autocomplete="family-name" required>
+                        <div class="col-12 col-md-6">
+                          <label class="td-label td-label-sm-hidden" for="phone"
+                            >Phone number
+                            <span class="td-req" aria-hidden="true"
+                              >*</span
+                            ></label
+                          >
+                          <div class="td-field has-flag">
+                            <!-- Pakistan flag (inline SVG, no image file needed) -->
+                            <span class="td-field-icon" aria-hidden="true">
+                              <svg
+                                width="22"
+                                height="16"
+                                viewBox="0 0 22 16"
+                                role="img"
+                                focusable="false"
+                              >
+                                <rect
+                                  width="22"
+                                  height="16"
+                                  rx="2"
+                                  fill="#01411c"
+                                />
+                                <rect
+                                  width="5.5"
+                                  height="16"
+                                  rx="2"
+                                  fill="#fff"
+                                />
+                                <rect
+                                  x="3"
+                                  width="2.5"
+                                  height="16"
+                                  fill="#fff"
+                                />
+                                <circle cx="14" cy="8" r="4.2" fill="#fff" />
+                                <circle
+                                  cx="15.3"
+                                  cy="7.2"
+                                  r="3.6"
+                                  fill="#01411c"
+                                />
+                                <polygon
+                                  points="16.5,4.2 16.88,5.27 18.02,5.31 17.12,6 17.44,7.09 16.5,6.45 15.56,7.09 15.88,6 14.98,5.31 16.12,5.27"
+                                  fill="#fff"
+                                />
+                              </svg>
+                            </span>
+                            <input
+                              class="form-control td-input"
+                              type="tel"
+                              id="phone"
+                              name="phone"
+                              value="+92 300 1234567"
+                              placeholder="Phone number"
+                              autocomplete="tel"
+                              required
+                            />
+                          </div>
                         </div>
-                        <div class="col-12 col-md-4">
-                          <label class="td-label" for="dob">Date of birth <span class="td-req" aria-hidden="true">*</span></label>
-                          <div class="td-field has-icon">
-                            <i class="bi bi-calendar3 td-field-icon" aria-hidden="true"></i>
-                            <input class="form-control td-input" type="date" id="dob" name="dob" value="1990-04-12" autocomplete="bday" required>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- Optional assistance -->
+                <section class="td-card" aria-labelledby="assistTitle">
+                  <div class="td-card-head">
+                    <button
+                      class="td-card-toggle"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#assistBody"
+                      aria-expanded="false"
+                      aria-controls="assistBody"
+                    >
+                      <span class="td-icon-box"
+                        ><i
+                          class="bi bi-person-wheelchair"
+                          aria-hidden="true"
+                        ></i
+                      ></span>
+                      <span class="td-head-text">
+                        <span class="td-card-title" id="assistTitle"
+                          >Optional assistance</span
+                        >
+                        <span class="td-card-sub"
+                          >Let us know if you need any special support during
+                          your journey.</span
+                        >
+                      </span>
+                      <i
+                        class="bi bi-chevron-down td-chevron d-lg-none"
+                        aria-hidden="true"
+                      ></i>
+                    </button>
+                  </div>
+
+                  <div class="collapse td-lg-open" id="assistBody">
+                    <div class="td-card-inner">
+                      <div class="td-assist" id="assistList">
+                        <div class="td-assist-item">
+                          <button
+                            class="td-assist-toggle"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#assistMobility"
+                            aria-expanded="false"
+                            aria-controls="assistMobility"
+                          >
+                            <span class="td-assist-ico"
+                              ><i
+                                class="bi bi-person-wheelchair"
+                                aria-hidden="true"
+                              ></i
+                            ></span>
+                            <span class="td-assist-text">
+                              <span class="td-assist-title"
+                                >Mobility assistance</span
+                              >
+                              <span class="td-assist-sub"
+                                >Wheelchair support, airport guidance, or
+                                boarding assistance.</span
+                              >
+                            </span>
+                            <i
+                              class="bi bi-chevron-down ms-auto"
+                              aria-hidden="true"
+                            ></i>
+                          </button>
+                          <div
+                            class="collapse"
+                            id="assistMobility"
+                            data-bs-parent="#assistList"
+                          >
+                            <div class="td-assist-body">
+                              <label class="td-label" for="mobilityType"
+                                >Type of assistance</label
+                              >
+                              <select
+                                class="form-select td-input"
+                                id="mobilityType"
+                                name="mobilityType"
+                              >
+                                <option value="" selected>None needed</option>
+                                <option value="wheelchair">
+                                  Wheelchair support
+                                </option>
+                                <option value="guidance">
+                                  Airport guidance
+                                </option>
+                                <option value="boarding">
+                                  Boarding assistance
+                                </option>
+                              </select>
+                            </div>
                           </div>
                         </div>
 
-                        <div class="col-12 col-md-4">
-                          <label class="td-label" for="nationality">Nationality <span class="td-req" aria-hidden="true">*</span></label>
-                          <select class="form-select td-input" id="nationality" name="nationality" required>
-                            <option value="PK" selected>Pakistan</option>
-                            <option value="AE">United Arab Emirates</option>
-                            <option value="SA">Saudi Arabia</option>
-                            <option value="IN">India</option>
-                            <option value="GB">United Kingdom</option>
-                            <option value="US">United States</option>
-                          </select>
+                        <div class="td-assist-item">
+                          <button
+                            class="td-assist-toggle"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#assistMeal"
+                            aria-expanded="false"
+                            aria-controls="assistMeal"
+                          >
+                            <span class="td-assist-ico"
+                              ><i class="bi bi-egg-fried" aria-hidden="true"></i
+                            ></span>
+                            <span class="td-assist-text">
+                              <span class="td-assist-title"
+                                >Meal preference</span
+                              >
+                              <span class="td-assist-sub"
+                                >Request a special meal (e.g., vegetarian,
+                                halal, etc.).</span
+                              >
+                            </span>
+                            <i
+                              class="bi bi-chevron-down ms-auto"
+                              aria-hidden="true"
+                            ></i>
+                          </button>
+                          <div
+                            class="collapse"
+                            id="assistMeal"
+                            data-bs-parent="#assistList"
+                          >
+                            <div class="td-assist-body">
+                              <label class="td-label" for="mealType"
+                                >Meal type</label
+                              >
+                              <select
+                                class="form-select td-input"
+                                id="mealType"
+                                name="mealType"
+                              >
+                                <option value="" selected>Standard meal</option>
+                                <option value="vegetarian">Vegetarian</option>
+                                <option value="halal">Halal</option>
+                                <option value="vegan">Vegan</option>
+                                <option value="gluten-free">Gluten-free</option>
+                              </select>
+                            </div>
+                          </div>
                         </div>
-                        <div class="col-12 col-md-4">
-                          <label class="td-label" for="passportNo">Passport number <span class="td-req" aria-hidden="true">*</span></label>
-                          <input class="form-control td-input" type="text" id="passportNo" name="passportNo" value="AW7359282" autocomplete="off" required>
-                        </div>
-                        <div class="col-12 col-md-4">
-                          <label class="td-label" for="passportExpiry">Passport expiry <span class="td-req" aria-hidden="true">*</span></label>
-                          <div class="td-field has-icon">
-                            <i class="bi bi-calendar3 td-field-icon" aria-hidden="true"></i>
-                            <input class="form-control td-input" type="date" id="passportExpiry" name="passportExpiry" value="2030-08-15" required>
+
+                        <div class="td-assist-item">
+                          <button
+                            class="td-assist-toggle"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#assistOther"
+                            aria-expanded="false"
+                            aria-controls="assistOther"
+                          >
+                            <span class="td-assist-ico"
+                              ><i class="bi bi-heart" aria-hidden="true"></i
+                            ></span>
+                            <span class="td-assist-text">
+                              <span class="td-assist-title"
+                                >Other assistance</span
+                              >
+                              <span class="td-assist-sub"
+                                >Medical needs, travelling with an infant, or
+                                other requirements.</span
+                              >
+                            </span>
+                            <i
+                              class="bi bi-chevron-down ms-auto"
+                              aria-hidden="true"
+                            ></i>
+                          </button>
+                          <div
+                            class="collapse"
+                            id="assistOther"
+                            data-bs-parent="#assistList"
+                          >
+                            <div class="td-assist-body">
+                              <label class="td-label" for="otherNotes"
+                                >Tell us what you need</label
+                              >
+                              <textarea
+                                class="form-control td-input"
+                                id="otherNotes"
+                                name="otherNotes"
+                                rows="3"
+                                placeholder="Add any details for the airline"
+                              ></textarea>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                </section>
 
+                <!-- Desktop buttons -->
+                <div class="td-actions d-none d-lg-flex">
+                  <a class="td-btn td-btn-outline" href="#"
+                    ><i class="bi bi-chevron-left" aria-hidden="true"></i> Back
+                    to flight</a
+                  >
+                  <button
+                    class="td-btn td-btn-primary"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#reviewModal"
+                  >
+                    <span class="td-extras-out">Continue to extras</span
+                    ><span class="td-extras-in" aria-hidden="true"
+                      >Next step <i class="bi bi-arrow-right"></i
+                    ></span>
+                  </button>
                 </div>
-              </div>
-            </section>
-
-            <!-- Contact information -->
-            <section class="td-card" aria-labelledby="contactTitle">
-              <div class="td-card-head">
-                <button class="td-card-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#contactBody" aria-expanded="true" aria-controls="contactBody">
-                  <span class="td-icon-box"><i class="bi bi-envelope" aria-hidden="true"></i></span>
-                  <span class="td-head-text">
-                    <span class="td-card-title" id="contactTitle">Contact information</span>
-                    <span class="td-card-sub">We’ll use this to send your booking confirmation and travel updates.</span>
-                  </span>
-                  <i class="bi bi-chevron-down td-chevron d-lg-none" aria-hidden="true"></i>
-                </button>
-              </div>
-
-              <div class="collapse show td-lg-open" id="contactBody">
-                <div class="td-card-inner">
-                  <div class="row g-3">
-                    <div class="col-12 col-md-6">
-                      <label class="td-label td-label-sm-hidden" for="email">Email address <span class="td-req" aria-hidden="true">*</span></label>
-                      <div class="td-field has-mobile-icon">
-                        <i class="bi bi-envelope td-field-icon is-mobile-only" aria-hidden="true"></i>
-                        <input class="form-control td-input" type="email" id="email" name="email" value="ahsan.khan@email.com" placeholder="Email address" autocomplete="email" required>
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                      <label class="td-label td-label-sm-hidden" for="phone">Phone number <span class="td-req" aria-hidden="true">*</span></label>
-                      <div class="td-field has-flag">
-                        <!-- Pakistan flag (inline SVG, no image file needed) -->
-                        <span class="td-field-icon" aria-hidden="true">
-                          <svg width="22" height="16" viewBox="0 0 22 16" role="img" focusable="false">
-                            <rect width="22" height="16" rx="2" fill="#01411c"/>
-                            <rect width="5.5" height="16" rx="2" fill="#fff"/>
-                            <rect x="3" width="2.5" height="16" fill="#fff"/>
-                            <circle cx="14" cy="8" r="4.2" fill="#fff"/>
-                            <circle cx="15.3" cy="7.2" r="3.6" fill="#01411c"/>
-                            <polygon points="16.5,4.2 16.88,5.27 18.02,5.31 17.12,6 17.44,7.09 16.5,6.45 15.56,7.09 15.88,6 14.98,5.31 16.12,5.27" fill="#fff"/>
-                          </svg>
-                        </span>
-                        <input class="form-control td-input" type="tel" id="phone" name="phone" value="+92 300 1234567" placeholder="Phone number" autocomplete="tel" required>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <!-- Optional assistance -->
-            <section class="td-card" aria-labelledby="assistTitle">
-              <div class="td-card-head">
-                <button class="td-card-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#assistBody" aria-expanded="false" aria-controls="assistBody">
-                  <span class="td-icon-box"><i class="bi bi-person-wheelchair" aria-hidden="true"></i></span>
-                  <span class="td-head-text">
-                    <span class="td-card-title" id="assistTitle">Optional assistance</span>
-                    <span class="td-card-sub">Let us know if you need any special support during your journey.</span>
-                  </span>
-                  <i class="bi bi-chevron-down td-chevron d-lg-none" aria-hidden="true"></i>
-                </button>
-              </div>
-
-              <div class="collapse td-lg-open" id="assistBody">
-                <div class="td-card-inner">
-                  <div class="td-assist" id="assistList">
-
-                    <div class="td-assist-item">
-                      <button class="td-assist-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#assistMobility" aria-expanded="false" aria-controls="assistMobility">
-                        <span class="td-assist-ico"><i class="bi bi-person-wheelchair" aria-hidden="true"></i></span>
-                        <span class="td-assist-text">
-                          <span class="td-assist-title">Mobility assistance</span>
-                          <span class="td-assist-sub">Wheelchair support, airport guidance, or boarding assistance.</span>
-                        </span>
-                        <i class="bi bi-chevron-down ms-auto" aria-hidden="true"></i>
-                      </button>
-                      <div class="collapse" id="assistMobility" data-bs-parent="#assistList">
-                        <div class="td-assist-body">
-                          <label class="td-label" for="mobilityType">Type of assistance</label>
-                          <select class="form-select td-input" id="mobilityType" name="mobilityType">
-                            <option value="" selected>None needed</option>
-                            <option value="wheelchair">Wheelchair support</option>
-                            <option value="guidance">Airport guidance</option>
-                            <option value="boarding">Boarding assistance</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="td-assist-item">
-                      <button class="td-assist-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#assistMeal" aria-expanded="false" aria-controls="assistMeal">
-                        <span class="td-assist-ico"><i class="bi bi-egg-fried" aria-hidden="true"></i></span>
-                        <span class="td-assist-text">
-                          <span class="td-assist-title">Meal preference</span>
-                          <span class="td-assist-sub">Request a special meal (e.g., vegetarian, halal, etc.).</span>
-                        </span>
-                        <i class="bi bi-chevron-down ms-auto" aria-hidden="true"></i>
-                      </button>
-                      <div class="collapse" id="assistMeal" data-bs-parent="#assistList">
-                        <div class="td-assist-body">
-                          <label class="td-label" for="mealType">Meal type</label>
-                          <select class="form-select td-input" id="mealType" name="mealType">
-                            <option value="" selected>Standard meal</option>
-                            <option value="vegetarian">Vegetarian</option>
-                            <option value="halal">Halal</option>
-                            <option value="vegan">Vegan</option>
-                            <option value="gluten-free">Gluten-free</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="td-assist-item">
-                      <button class="td-assist-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#assistOther" aria-expanded="false" aria-controls="assistOther">
-                        <span class="td-assist-ico"><i class="bi bi-heart" aria-hidden="true"></i></span>
-                        <span class="td-assist-text">
-                          <span class="td-assist-title">Other assistance</span>
-                          <span class="td-assist-sub">Medical needs, travelling with an infant, or other requirements.</span>
-                        </span>
-                        <i class="bi bi-chevron-down ms-auto" aria-hidden="true"></i>
-                      </button>
-                      <div class="collapse" id="assistOther" data-bs-parent="#assistList">
-                        <div class="td-assist-body">
-                          <label class="td-label" for="otherNotes">Tell us what you need</label>
-                          <textarea class="form-control td-input" id="otherNotes" name="otherNotes" rows="3" placeholder="Add any details for the airline"></textarea>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <!-- Desktop buttons -->
-            <div class="td-actions d-none d-lg-flex">
-              <a class="td-btn td-btn-outline" href="#"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back to flight</a>
-              <button class="td-btn td-btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#reviewModal">
-                <span class="td-extras-out">Continue to extras</span><span class="td-extras-in" aria-hidden="true">Next step <i class="bi bi-arrow-right"></i></span>
-              </button>
+              </form>
             </div>
 
-          </form>
+            <!-- ===== Right column: fare summary ===== -->
+            <aside class="col-lg-4" aria-label="Fare summary">
+              <div class="td-card td-fare">
+                <div class="td-route">
+                  <div class="td-route-photo" aria-hidden="true"></div>
+                  <div class="td-route-text">
+                    <h2 class="td-route-title">
+                      Islamabad (ISB)
+                      <i class="bi bi-arrow-right" aria-hidden="true"></i> Dubai
+                      (DXB)
+                    </h2>
+                    <p class="td-route-meta">
+                      Sat, Nov 21 &nbsp;•&nbsp; 1 traveller &nbsp;•&nbsp;
+                      Economy
+                    </p>
+                  </div>
+                </div>
+
+                <div class="td-fare-body">
+                  <h3 class="td-fare-title">Fare summary</h3>
+                  <div class="td-fare-row">
+                    <span>Base fare</span><span>PKR 74,000</span>
+                  </div>
+                  <div class="td-fare-row">
+                    <span
+                      >Taxes and fees
+                      <i
+                        class="bi bi-info-circle"
+                        role="img"
+                        aria-label="Includes airline taxes and airport charges"
+                        title="Includes airline taxes and airport charges"
+                      ></i
+                    ></span>
+                    <span>PKR 10,500</span>
+                  </div>
+                  <div class="td-fare-total">
+                    <span>Total</span><span class="amount">PKR 84,500</span>
+                  </div>
+
+                  <div class="td-lock">
+                    <i class="bi bi-shield-check" aria-hidden="true"></i>
+                    <div>
+                      <strong>Price locked</strong>
+                      <span>Your fare is secured for the next 15 minutes.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="td-card td-client-ad" aria-label="Advertisement">
+                <span>Advertisement</span>
+                <div class="td-ad-content">
+                  <p>Discover more of Dubai</p>
+                  <strong>Make your next stay unforgettable.</strong
+                  ><span>Explore hotels for every journey</span
+                  ><a href="index.html#flight-deals">Explore stays</a>
+                </div>
+              </div>
+            </aside>
+          </div>
         </div>
+      </div>
 
-        <!-- ===== Right column: fare summary ===== -->
-        <aside class="col-lg-4" aria-label="Fare summary">
-          <div class="td-card td-fare">
-            <div class="td-route">
-              <div class="td-route-photo" aria-hidden="true"></div>
-              <div class="td-route-text">
-                <h2 class="td-route-title">Islamabad (ISB) <i class="bi bi-arrow-right" aria-hidden="true"></i> Dubai (DXB)</h2>
-                <p class="td-route-meta">Sat, Nov 21 &nbsp;•&nbsp; 1 traveller &nbsp;•&nbsp; Economy</p>
-              </div>
-            </div>
-
-            <div class="td-fare-body">
-              <h3 class="td-fare-title">Fare summary</h3>
-              <div class="td-fare-row"><span>Base fare</span><span>PKR 74,000</span></div>
-              <div class="td-fare-row">
-                <span>Taxes and fees <i class="bi bi-info-circle" role="img" aria-label="Includes airline taxes and airport charges" title="Includes airline taxes and airport charges"></i></span>
-                <span>PKR 10,500</span>
-              </div>
-              <div class="td-fare-total"><span>Total</span><span class="amount">PKR 84,500</span></div>
-
-              <div class="td-lock">
-                <i class="bi bi-shield-check" aria-hidden="true"></i>
-                <div>
-                  <strong>Price locked</strong>
-                  <span>Your fare is secured for the next 15 minutes.</span>
-                </div>
-              </div>
-            </div>
+      <!-- Mobile sticky total bar -->
+      <div class="td-mobile-bar d-lg-none">
+        <div>
+          <span class="td-mobile-total-label">Total</span>
+          <strong class="td-mobile-total">PKR 84,500</strong>
+        </div>
+        <button
+          class="td-btn td-btn-primary"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#reviewModal"
+        >
+          <span class="td-extras-out">Continue to extras</span
+          ><span class="td-extras-in" aria-hidden="true"
+            >Next step <i class="bi bi-arrow-right"></i
+          ></span>
+        </button>
+      </div>
+    </main>
+    <div
+      class="modal fade td-modal"
+      id="reviewModal"
+      tabindex="-1"
+      aria-labelledby="reviewTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="reviewTitle">Review traveller</h2>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
-          <div class="td-card td-client-ad" aria-label="Advertisement">
-            <span>Advertisement</span>
-            <div class="td-ad-content"><p>Discover more of Dubai</p><strong>Make your next stay unforgettable.</strong><span>Explore hotels for every journey</span><a href="index.html#flight-deals">Explore stays</a></div>
+          <div class="modal-body">
+            <div class="td-review-name">
+              <i class="bi bi-person" aria-hidden="true"></i> Ahsan Khan
+            </div>
+            <dl class="td-review-list">
+              <div>
+                <dt>Date of birth</dt>
+                <dd>Apr 12, 1990</dd>
+              </div>
+              <div>
+                <dt>Nationality</dt>
+                <dd>Pakistan</dd>
+              </div>
+              <div>
+                <dt>Passport number</dt>
+                <dd>AW7359282</dd>
+              </div>
+              <div>
+                <dt>Passport expiry</dt>
+                <dd>Aug 15, 2030</dd>
+              </div>
+            </dl>
           </div>
-        </aside>
-
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="td-btn td-btn-outline"
+              data-bs-dismiss="modal"
+            >
+              Edit details
+            </button>
+            <!-- Point this link to your Extras page -->
+            <a class="td-btn td-btn-primary" href="#"
+              ><span class="td-extras-out">Confirm</span
+              ><span class="td-extras-in" aria-hidden="true"
+                >Next step <i class="bi bi-arrow-right"></i></span
+            ></a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Mobile sticky total bar -->
-  <div class="td-mobile-bar d-lg-none">
-    <div>
-      <span class="td-mobile-total-label">Total</span>
-      <strong class="td-mobile-total">PKR 84,500</strong>
-    </div>
-    <button class="td-btn td-btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#reviewModal">
-      <span class="td-extras-out">Continue to extras</span><span class="td-extras-in" aria-hidden="true">Next step <i class="bi bi-arrow-right"></i></span>
-    </button>
-  </div>
-</main>
-    <div class="modal fade td-modal" id="reviewModal" tabindex="-1" aria-labelledby="reviewTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title" id="reviewTitle">Review traveller</h2>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="td-review-name"><i class="bi bi-person" aria-hidden="true"></i> Ahsan Khan</div>
-        <dl class="td-review-list">
-          <div><dt>Date of birth</dt><dd>Apr 12, 1990</dd></div>
-          <div><dt>Nationality</dt><dd>Pakistan</dd></div>
-          <div><dt>Passport number</dt><dd>AW7359282</dd></div>
-          <div><dt>Passport expiry</dt><dd>Aug 15, 2030</dd></div>
-        </dl>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="td-btn td-btn-outline" data-bs-dismiss="modal">Edit details</button>
-        <!-- Point this link to your Extras page -->
-        <a class="td-btn td-btn-primary" href="#"><span class="td-extras-out">Confirm</span><span class="td-extras-in" aria-hidden="true">Next step <i class="bi bi-arrow-right"></i></span></a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Bootstrap bundle (powers collapse, dropdown and modal – no custom JS needed) -->
+    <!-- Bootstrap bundle (powers collapse, dropdown and modal – no custom JS needed) -->
 
     <div data-component="footer"></div>
     <script src="components/travellers.js" defer></script>
