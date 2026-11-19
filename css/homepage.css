@@ -38,7 +38,7 @@
   border-radius: var(--td-hero-banner-radius);
   background:
     var(--td-hero-overlay),
-    url(../images/hero-forest-wing.png) var(--td-hero-image-position) / cover;
+    url(../images/hero-forest-wing.jpg) var(--td-hero-image-position) / cover;
 }
 .td-hero .container {
   position: relative;

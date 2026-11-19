@@ -36,7 +36,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--td-hero-overlay);
+  background: linear-gradient(110deg, rgba(7, 82, 151, 0.22), rgba(16, 45, 98, 0.25));
   pointer-events: none;
 }
 .about-hero__title {

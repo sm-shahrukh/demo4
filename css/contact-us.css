@@ -160,8 +160,8 @@ svg.icon {
   border-radius: 34px;
   overflow: hidden;
   background:
-    linear-gradient(#07529744, #102d6266),
-    url("../images/about-hero.png") center 57% / cover;
+    linear-gradient(#07529738, #102d6240),
+    url("../images/about-hero.jpg") center 57% / cover;
   min-height: 210px;
   display: flex;
   align-items: center;
@@ -922,8 +922,8 @@ textarea.form-control {
     padding: 22px 20px;
     margin-bottom: 12px;
     background-image:
-      linear-gradient(#07529744, #102d6266),
-      url("../images/about-hero-mobile.png");
+      linear-gradient(#07529738, #102d6240),
+      url("../images/about-hero-mobile.jpg");
     background-position: center;
   }
   .hero h1 {
