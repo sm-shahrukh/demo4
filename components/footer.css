@@ -41,7 +41,8 @@
   .td-footer-about { grid-column: 1; grid-row: 1 / span 2; }
   .td-footer-column:nth-child(2), .td-footer-column:nth-child(4) { grid-column: 2; }
   .td-footer-column:nth-child(3), .td-footer-column:nth-child(5) { grid-column: 3; }
-  .td-footer-brand img { width: 165px; max-height: 44px; }
+  .td-footer-brand { max-width: 100%; }
+  .td-footer-brand img { width: 130px; max-width: 100%; max-height: 36px; }
   .td-footer-about p { font-size: 13px; }
   .td-social-links { gap: 12px; }
   .td-social-links a { font-size: 20px; }

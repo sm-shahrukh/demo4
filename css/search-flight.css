@@ -9742,3 +9742,22 @@ body.sf-filter-open {
 @media (max-width: 767.98px) {
   .sf-flight-card .sf-card-itineraries > .sf-leg { padding: 9px 12px !important; }
 }
+html:has(.search-flight-page),
+body.search-flight-page {
+  overflow-x: clip;
+}
+
+/* Align the search content with the shared header and footer. */
+.sf-container {
+  width: min(calc(var(--td-content-max-width) - 24px), calc(100% - 2 * var(--td-content-gutter)));
+  max-width: none;
+  padding-inline: 0;
+}
+.search-flight-page .sf-main {
+  font-size: 1rem;
+  --td-font-sm: .9rem;
+  --td-font-md: 1rem;
+}
+@media (max-width: 900px) {
+  .sf-container { width: calc(100% - 24px); }
+}

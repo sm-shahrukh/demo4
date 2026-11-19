@@ -1,0 +1,521 @@
+/* =========================================================
+   TravelDeals · 07 Travellers (middle content only)
+   Needs: Bootstrap 5.3.3 + Bootstrap Icons 1.11.3
+   Desktop layout from 992px up, mobile layout below (Bootstrap "lg")
+   Images used (optional, gradients show if missing):
+     images/hero-banner.jpg  -> top banner background
+     images/dubai.jpg        -> fare summary card photo
+   ========================================================= */
+
+.td-page, .td-modal {
+  --td-navy: var(--td-brand-navy);
+  --td-blue-dark: #123fb3;
+  --td-tint: #f3f7ff;
+  --td-tint-2: #e8f0ff;
+  --td-field: #d2dcef;
+  --td-red: #e03a3e;
+  --td-radius: 16px;
+  --td-shadow: 0 6px 20px rgba(26, 60, 140, 0.06);
+}
+
+
+
+.td-page :focus-visible {
+  outline: 2px solid var(--td-blue);
+  outline-offset: 2px;
+}
+
+/* ---------- Page wrappers ---------- */
+.td-page { padding: 24px 0 56px; }
+.td-wrap { max-width: 1000px; margin: 0 auto; padding: 0 16px; }
+.td-inner { max-width: 920px; margin: 0 auto; }
+.td-stack { display: flex; flex-direction: column; gap: 16px; }
+
+/* ---------- Hero banner ---------- */
+.td-hero {
+  border-radius: 22px;
+  color: #fff;
+  padding: 28px 52px;
+  min-height: 108px;
+  margin-bottom: 20px;
+  background:
+    linear-gradient(90deg, rgba(10, 36, 100, 0.92) 0%, rgba(14, 52, 130, 0.7) 45%, rgba(14, 52, 130, 0.2) 100%),
+    url("../images/hero-forest-wing.jpg") center / cover no-repeat,
+    linear-gradient(135deg, #0d2c78 0%, #2f6ac5 100%);
+}
+.td-hero h1 { margin: 0 0 6px; font-size: 1.65rem; font-weight: 700; line-height: 1.2; }
+.td-hero p { margin: 0; max-width: 430px; font-size: 0.875rem; line-height: 1.5; }
+
+/* ---------- Progress steps ---------- */
+.td-steps {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--td-tint);
+  border: 1px solid var(--td-border);
+  border-radius: 14px;
+  box-shadow: var(--td-shadow);
+}
+.td-step { display: flex; align-items: center; gap: 8px; font-size: 0.8125rem; font-weight: 500; color: var(--td-navy); }
+.td-step.is-current .td-step-label { font-weight: 700; }
+.td-step-icon { font-size: 1.3rem; line-height: 1; color: var(--td-blue); }
+.td-plane { display: inline-block; transform: rotate(45deg); }
+.td-step-line { flex: 0 1 90px; height: 1px; margin: 0 16px; background: #b7c6e6; }
+.td-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--td-navy);
+  background: #fff;
+  border: 1px solid var(--td-border);
+}
+.td-step.is-done .td-badge,
+.td-step.is-current .td-badge { color: #fff; background: var(--td-blue); border-color: var(--td-blue); }
+
+/* ---------- Cards ---------- */
+.td-card {
+  min-width: 0;
+  padding: 18px 20px;
+  background: linear-gradient(180deg, #fff 0%, #fbfdff 100%);
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  box-shadow: var(--td-shadow);
+}
+.td-card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.td-card-toggle {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+}
+.td-icon-box {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--td-tint-2);
+  color: var(--td-blue);
+  font-size: 1.15rem;
+}
+.td-head-text { display: flex; flex-direction: column; min-width: 0; }
+.td-card-title { font-size: 1.0625rem; font-weight: 700; line-height: 1.25; color: var(--td-navy); }
+.td-card-sub { margin-top: 2px; font-size: 0.75rem; color: var(--td-muted); }
+.td-chevron { margin-left: auto; color: var(--td-navy); }
+.td-card-inner { padding-top: 14px; }
+
+.td-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--td-navy);
+  white-space: nowrap;
+}
+.td-dropdown {
+  min-width: 170px;
+  padding: 6px;
+  font-size: 0.8125rem;
+  border: 1px solid var(--td-border);
+  border-radius: 10px;
+  box-shadow: var(--td-shadow);
+}
+.td-dropdown .dropdown-item { margin: 0; border-radius: 6px; cursor: pointer; }
+
+/* ---------- Saved travellers ---------- */
+.td-saved { display: flex; flex-wrap: wrap; gap: 12px; }
+.td-saved-item { position: relative; }
+.td-saved-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 168px;
+  min-height: 42px;
+  margin: 0;
+  padding: 7px 12px;
+  background: #fff;
+  border: 1px solid var(--td-field);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.td-saved-input:checked + .td-saved-chip {
+  background: var(--td-tint-2);
+  border-color: var(--td-blue);
+  box-shadow: 0 0 0 1px var(--td-blue);
+}
+.td-saved-input:focus-visible + .td-saved-chip { outline: 2px solid var(--td-blue); outline-offset: 2px; }
+.td-avatar {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--td-tint-2);
+  color: var(--td-blue);
+  font-size: 0.9rem;
+}
+.td-saved-text { display: flex; flex-direction: column; line-height: 1.25; }
+.td-saved-text strong { font-size: 0.75rem; color: var(--td-navy); }
+.td-saved-text small { font-size: 0.625rem; color: var(--td-muted); }
+.td-kebab { border: 0; background: none; color: var(--td-navy); font-size: 1.15rem; }
+.td-add {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 150px;
+  min-height: 42px;
+  padding: 7px 14px;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--td-navy);
+  background: #fff;
+  border: 1px solid var(--td-field);
+  border-radius: 10px;
+}
+.td-add i { color: var(--td-blue); font-size: 0.95rem; }
+
+/* ---------- Traveller block + form fields ---------- */
+.td-subcard {
+  margin-top: 14px;
+  padding: 14px 16px 16px;
+  background: var(--td-tint);
+  border: 1px solid var(--td-border);
+  border-radius: 12px;
+}
+.td-sub-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.td-sub-title { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 0.9375rem; font-weight: 700; color: var(--td-navy); }
+.td-sub-title i { color: var(--td-blue); }
+.td-remove {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 0.6875rem;
+  color: var(--td-navy);
+}
+
+.td-label { display: block; margin-bottom: 5px; font-size: 0.6875rem; font-weight: 700; color: var(--td-navy); }
+.td-req { color: var(--td-red); }
+.td-input {
+  height: 36px;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 12px;
+  padding-right: 12px;
+  font-size: 0.75rem;
+  color: var(--td-text);
+  background-color: #fff;
+  border: 1px solid var(--td-field);
+  border-radius: 8px;
+  box-shadow: none;
+}
+.form-select.td-input { padding-right: 2.25rem; }
+textarea.td-input { height: auto; min-height: 84px; padding-top: 8px; padding-bottom: 8px; resize: vertical; }
+.td-input:focus { border-color: var(--td-blue); box-shadow: 0 0 0 3px rgba(26, 79, 214, 0.15); outline: 0; }
+.td-input::placeholder { color: #8d9bb5; }
+
+.td-field { position: relative; }
+.td-field-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  z-index: 2;
+  display: flex;
+  transform: translateY(-50%);
+  color: var(--td-navy);
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+.td-field.has-icon .td-input { padding-left: 36px; }
+.td-field.has-flag .td-input { padding-left: 46px; }
+.td-field .is-mobile-only { display: none; }
+.td-field input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* ---------- Optional assistance ---------- */
+.td-assist { display: flex; flex-direction: column; gap: 8px; }
+.td-assist-item { overflow: hidden; background: var(--td-tint); border: 1px solid var(--td-border); border-radius: 12px; }
+.td-assist-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 14px;
+  border: 0;
+  background: none;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+}
+.td-assist-ico {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--td-border);
+  color: var(--td-blue);
+  font-size: 0.95rem;
+}
+.td-assist-text { display: flex; flex-direction: column; min-width: 0; }
+.td-assist-title { font-size: 0.8125rem; font-weight: 700; color: var(--td-navy); }
+.td-assist-sub { font-size: 0.6875rem; color: var(--td-muted); }
+.td-assist-body { padding: 2px 14px 14px; }
+
+/* ---------- Buttons ---------- */
+.td-actions { display: flex; align-items: center; justify-content: space-between; margin-top: 4px; }
+.td-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.6rem 1.25rem;
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 999px;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+.td-btn-primary { position: relative; min-height: 48px; color: var(--td-white); background: var(--td-search-gradient); border: 1px solid var(--td-border); font-size: 14px; font-weight: 700; transition: filter 180ms ease, transform 180ms ease; }
+.td-btn-primary::after { position: absolute; inset: 0; border: var(--td-search-outline-width) solid var(--td-search-outline); border-radius: inherit; content: ""; pointer-events: none; }
+.td-btn-primary:has(.td-extras-out) { isolation: isolate; overflow: hidden; min-width: 190px; }
+.td-btn-primary:has(.td-extras-out)::before { position: absolute; z-index: 0; inset: 0 auto 0 0; width: 0; border-radius: inherit; background: var(--td-brand-yellow); content: ""; transition: width var(--td-search-animation-duration) var(--td-search-animation-easing); }
+.td-btn-primary:has(.td-extras-out):hover::before, .td-btn-primary:has(.td-extras-out):focus-visible::before { width: 100%; }
+.td-extras-out, .td-extras-in { display: flex; align-items: center; justify-content: center; gap: 6px; transition: transform var(--td-search-animation-duration) var(--td-search-animation-easing); }
+.td-extras-out { position: relative; z-index: 1; }
+.td-extras-in { position: absolute; z-index: 1; inset: 0; color: var(--td-text); transform: translateX(-100%); }
+.td-btn-primary:hover .td-extras-out, .td-btn-primary:focus-visible .td-extras-out { transform: translateX(calc(100% + 190px)); }
+.td-btn-primary:hover .td-extras-in, .td-btn-primary:focus-visible .td-extras-in { transform: translateX(0); }
+.td-btn-primary:hover, .td-btn-primary:focus-visible { color: var(--td-white); background: var(--td-search-gradient); filter: brightness(1.12); }
+.td-btn-outline { color: var(--td-navy); background: #fff; border: 1px solid var(--td-field); }
+.td-btn-outline:hover { color: var(--td-navy); background: var(--td-tint); border-color: var(--td-blue); }
+
+/* ---------- Fare summary ---------- */
+.td-fare { padding: 0; overflow: hidden; }
+.td-client-ad { height: auto; margin-top: 16px; padding: 0; overflow: hidden; }
+.td-client-ad > span { display: block; padding: 8px 14px; color: var(--td-muted); font-size: 0.75rem; }
+.td-ad-content { display: flex; min-height: 210px; flex-direction: column; align-items: flex-start; justify-content: flex-end; gap: 8px; padding: 22px; color: #fff; background: linear-gradient(90deg, rgba(7, 30, 80, .88), rgba(7, 30, 80, .35)), url("../images/dubai.jpg") center / cover; }
+.td-ad-content p { margin: 0; color: #ffcf4a; font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+.td-ad-content strong { max-width: 260px; font-size: 1.25rem; line-height: 1.2; }
+.td-ad-content span { font-size: .875rem; }
+.td-ad-content a { margin-top: 4px; padding: 8px 16px; border-radius: 999px; background: #fff; color: var(--td-brand-navy); font-size: .875rem; font-weight: 700; text-decoration: none; }
+.td-route { position: relative; display: flex; align-items: flex-end; min-height: 128px; padding: 14px 16px; color: #fff; background: #fff; }
+.td-route-photo {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 22, 64, 0.15), rgba(8, 22, 64, 0.8)), url("../images/dubai.jpg") center / cover no-repeat;
+}
+.td-route-text { position: relative; }
+.td-route-title { margin: 0; color: #fff; font-size: 0.9375rem; font-weight: 700; line-height: 1.3; }
+.td-route-title i { margin: 0 4px; font-size: 0.85em; }
+.td-route-meta { margin: 2px 0 0; font-size: 0.75rem; }
+.td-fare-body { padding: 14px 18px 18px; }
+.td-fare-title { margin: 0 0 8px; font-size: 0.9375rem; font-weight: 700; color: var(--td-navy); }
+.td-fare-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; font-size: 0.8125rem; }
+.td-fare-row i { margin-left: 4px; color: var(--td-muted); }
+.td-fare-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--td-border);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--td-navy);
+}
+.td-fare-total .amount { font-size: 1.25rem; }
+.td-lock {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 10px 12px;
+  background: var(--td-tint);
+  border: 1px solid var(--td-border);
+  border-radius: 10px;
+}
+.td-lock i { color: var(--td-blue); font-size: 1.1rem; line-height: 1.2; }
+.td-lock strong { display: block; font-size: 0.75rem; color: var(--td-navy); }
+.td-lock span { font-size: 0.6875rem; color: var(--td-muted); }
+
+/* ---------- Mobile sticky total bar ---------- */
+.td-mobile-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1030;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #fff;
+  border-top: 1px solid var(--td-border);
+  box-shadow: 0 -6px 20px rgba(26, 60, 140, 0.08);
+}
+.td-mobile-total-label { display: block; font-size: 0.8125rem; color: var(--td-muted); }
+.td-mobile-total { font-size: 1.25rem; font-weight: 700; color: var(--td-navy); }
+.td-mobile-bar .td-btn { padding: 0.8rem 1.4rem; font-size: 0.9375rem; }
+
+/* ---------- Review modal ---------- */
+.td-modal .modal-dialog { max-width: 420px; }
+.td-modal .modal-content { border: 1px solid var(--td-border); border-radius: 18px; box-shadow: 0 20px 50px rgba(15, 31, 77, 0.2); }
+.td-modal .modal-header { padding: 18px 20px 6px; border: 0; }
+.td-modal .modal-title { font-size: 1.0625rem; font-weight: 700; color: var(--td-navy); }
+.td-modal .modal-body { padding: 10px 20px 4px; }
+.td-modal .modal-footer { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 14px 20px 20px; border: 0; }
+.td-modal .modal-footer > * { margin: 0; }
+.td-modal .modal-footer .td-btn { width: 100%; min-width: 0; min-height: 48px; box-sizing: border-box; }
+.td-modal .td-btn-outline { transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform var(--td-transition), box-shadow var(--td-transition); }
+.td-modal .td-btn-outline:hover, .td-modal .td-btn-outline:focus-visible { border-color: var(--td-brand-blue); background: linear-gradient(145deg, var(--td-active-soft), var(--td-white) 72%); color: var(--td-brand-blue); box-shadow: var(--td-shadow); transform: translateY(var(--td-hover-lift-large)); }
+.td-review-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--td-navy);
+  background: var(--td-tint);
+  border: 1px solid var(--td-border);
+  border-radius: 10px;
+}
+.td-review-name i { color: var(--td-blue); }
+.td-review-list { margin: 0; padding: 8px 4px 0; }
+.td-review-list > div { display: flex; justify-content: space-between; gap: 12px; padding: 5px 0; font-size: 0.8125rem; }
+.td-review-list dt { font-weight: 400; color: var(--td-muted); }
+.td-review-list dd { margin: 0; font-weight: 500; color: var(--td-navy); text-align: right; }
+
+/* ---------- Chevron animation (only if motion is OK) ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .td-chevron, .td-assist-toggle .bi-chevron-down { transition: transform 0.2s; }
+}
+.td-card-toggle[aria-expanded="true"] .td-chevron,
+.td-assist-toggle[aria-expanded="true"] .bi-chevron-down { transform: rotate(180deg); }
+
+/* =========================================================
+   DESKTOP (992px and up): every section stays open
+   ========================================================= */
+@media (min-width: 992px) {
+  .td-lg-open.collapse:not(.show) { display: block !important; }
+  .td-card-toggle { pointer-events: none; cursor: default; }
+}
+
+/* =========================================================
+   MOBILE / TABLET (below 992px)
+   ========================================================= */
+@media (max-width: 991.98px) {
+  .td-page { padding: 16px 0 16px; }
+  .td-wrap { padding: 0 14px; }
+
+  .td-hero { padding: 22px 20px; min-height: 0; margin-bottom: 14px; border-radius: 18px; }
+  .td-hero h1 { font-size: 1.3rem; }
+  .td-hero p { font-size: 0.8125rem; }
+
+  /* steps: icon on top, label, then numbered badge joined by lines */
+  .td-steps { align-items: flex-end; justify-content: space-between; margin-bottom: 14px; padding: 4px 2px; background: none; border: 0; box-shadow: none; }
+  .td-step { flex: 0 0 auto; flex-direction: column; gap: 4px; min-width: 56px; font-size: 0.75rem; text-align: center; }
+  .td-step-line { flex: 1 1 0; margin: 0 6px 10px; }
+
+  .td-card { padding: 14px; }
+  .td-icon-box { width: auto; height: auto; background: none; font-size: 1.35rem; }
+  .td-card-title { font-size: 1rem; }
+  .td-card-sub { display: none; }
+
+  /* saved traveller becomes a full-width row with a menu button */
+  .td-saved { flex-direction: column; gap: 10px; }
+  .td-saved-chip { width: 100%; min-width: 0; min-height: 54px; padding: 10px 46px 10px 12px; }
+  .td-saved-text strong { font-size: 0.8125rem; }
+  .td-saved-text small { font-size: 0.75rem; }
+  .td-kebab { position: absolute; right: 4px; top: 50%; width: 38px; height: 38px; transform: translateY(-50%); }
+  .td-add { width: 100%; min-height: 46px; justify-content: center; font-size: 0.8125rem; }
+
+  .td-subcard { padding: 12px; }
+
+  /* larger touch-friendly fields (16px stops iOS zooming in) */
+  .td-input { height: 46px; font-size: 1rem; }
+  .td-label { font-size: 0.75rem; }
+  .td-label-sm-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .td-field .is-mobile-only { display: flex; }
+  .td-field.has-mobile-icon .td-input { padding-left: 40px; }
+  .td-field-icon { font-size: 1.05rem; }
+
+  .td-assist-sub { font-size: 0.75rem; }
+
+  /* fare summary: small photo beside the route */
+  .td-fare { position: static; }
+  .td-route { align-items: center; gap: 12px; min-height: 0; padding: 12px 14px 0; color: var(--td-navy); }
+  .td-route-photo {
+    position: static;
+    flex: none;
+    width: 76px;
+    height: 60px;
+    border-radius: 8px;
+    background: url("../images/dubai.jpg") center / cover no-repeat;
+  }
+  .td-route-title { color: var(--td-navy); font-size: 0.9375rem; }
+  .td-route-meta { color: var(--td-muted); }
+  .td-fare-body { padding: 12px 14px 16px; }
+
+  .td-modal .modal-dialog { margin: 0 auto; max-width: calc(100% - 2rem); }
+}
+
+/* Match the shared TravelDeals page frame. */
+.td-page { padding-top: 20px; }
+.td-wrap { width: min(calc(var(--td-content-max-width) - 24px), calc(100% - 2 * var(--td-content-gutter))); max-width: none; padding: 0; }
+.td-inner { max-width: none; }
+.td-page { font-family: "Plus Jakarta Sans", system-ui, sans-serif; }
+.td-page .td-card-title { font-size: 1.05rem; }
+.td-page .td-card-sub, .td-page .td-assist-sub, .td-page .td-saved-text small { font-size: .875rem; }
+.td-page .td-label, .td-page .td-step, .td-page .td-saved-text strong, .td-page .td-assist-title, .td-page .td-fare-row, .td-page .td-input { font-size: 1rem; }
+.td-page .td-hero p { font-size: 1rem; }
+@media (max-width: 900px) { .td-wrap { width: calc(100% - 24px); } }
