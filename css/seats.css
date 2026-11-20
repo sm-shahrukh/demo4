@@ -1026,7 +1026,7 @@
     padding: 16px 0 40px;
   }
   #pane-seats {
-    padding-bottom: 80px;
+    padding-bottom: 24px;
   } /* room for the sticky seats bar */
   #pane-meals .td-main {
     max-width: 640px;

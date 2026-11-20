@@ -9856,3 +9856,38 @@ body.search-flight-page {
 @media (max-width: 900px) {
   .sf-container { width: calc(100% - 24px); }
 }
+
+/* Give the search page a more consistent vertical rhythm. */
+.search-flight-page .sf-search-hero {
+  margin-bottom: var(--td-space-3);
+}
+.search-flight-page .sf-date-strip {
+  margin-top: var(--td-space-4);
+  margin-bottom: var(--td-space-4);
+}
+.search-flight-page .sf-results-layout {
+  gap: var(--td-space-4);
+}
+.search-flight-page .sf-flight-card {
+  margin-bottom: var(--td-space-4);
+}
+.search-flight-page .sf-flight-card .sf-card-itineraries {
+  gap: var(--td-space-2);
+}
+.search-flight-page .sf-confidence {
+  margin-top: var(--td-space-4);
+  margin-bottom: var(--td-space-4);
+}
+.search-flight-page .sf-help-banner {
+  margin-top: var(--td-space-4);
+  margin-bottom: var(--td-space-4);
+}
+@media (max-width: 767.98px) {
+  .search-flight-page .sf-search-card {
+    padding: 14px 18px 18px;
+  }
+  .search-flight-page .sf-search-options {
+    row-gap: var(--td-space-2);
+    margin-bottom: var(--td-space-4);
+  }
+}

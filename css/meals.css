@@ -1170,12 +1170,20 @@
   gap: 12px;
   padding: 0 18px;
   border-left: 1px solid var(--td-border);
+  box-shadow: 0 8px 16px -14px rgba(var(--td-text-rgb), 0.28);
 }
 #pane-meals .td-feature:first-child {
   padding-left: 0;
   border-left: 0;
 }
 #pane-meals .td-feature i {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  place-items: center;
+  border-radius: var(--td-radius-sm);
+  background: var(--td-active-soft);
   font-size: 1.4rem;
   color: var(--td-blue);
 }
