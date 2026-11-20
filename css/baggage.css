@@ -975,6 +975,7 @@
 #pane-baggage .td-airline {
   margin-left: auto;
   display: flex;
+  flex: 0 0 auto;
   align-items: center;
   gap: 8px;
 }

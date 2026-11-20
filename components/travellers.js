@@ -19,6 +19,20 @@
   });
 
   modal.addEventListener('show.bs.modal', () => {
+    const sections = modal.querySelectorAll('.td-review-traveller');
+    if (sections.length) {
+      fields.forEach((id) => { saved[current][id] = document.getElementById(id).value; });
+      const nationality = document.getElementById('nationality');
+      const date = (value) => value ? new Date(value + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Not provided';
+      sections.forEach((section, index) => {
+        const person = saved[index === 0 ? 'saved1' : 'saved2'];
+        section.querySelector('.td-review-name span').textContent = [person.firstName, person.lastName].filter(Boolean).join(' ') || 'Traveller';
+        const option = Array.from(nationality.options).find((item) => item.value === person.nationality);
+        const values = [date(person.dob), option ? option.text : 'Not provided', person.passportNo || 'Not provided', date(person.passportExpiry)];
+        section.querySelectorAll('.td-review-list dd').forEach((item, i) => { item.textContent = values[i]; });
+      });
+      return;
+    }
     const value = (id) => document.getElementById(id).value;
     const date = (id) => value(id) ? new Date(value(id) + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Not provided';
     modal.querySelector('.td-review-name').textContent = [value('firstName'), value('lastName')].filter(Boolean).join(' ') || 'Traveller';

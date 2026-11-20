@@ -367,17 +367,38 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="modal-title" id="reviewTitle">Review traveller</h2>
+        <h2 class="modal-title" id="reviewTitle">Review travellers</h2>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="td-review-name"><i class="bi bi-person" aria-hidden="true"></i> Ahsan Khan</div>
-        <dl class="td-review-list">
-          <div><dt>Date of birth</dt><dd>Apr 12, 1990</dd></div>
-          <div><dt>Nationality</dt><dd>Pakistan</dd></div>
-          <div><dt>Passport number</dt><dd>AW7359282</dd></div>
-          <div><dt>Passport expiry</dt><dd>Aug 15, 2030</dd></div>
-        </dl>
+        <div class="td-review-travellers">
+          <details class="td-review-traveller" open>
+            <summary class="td-review-name">
+              <i class="bi bi-person-circle" aria-hidden="true"></i>
+              <span>Ahsan Khan</span>
+              <i class="bi bi-chevron-down td-review-chevron" aria-hidden="true"></i>
+            </summary>
+            <dl class="td-review-list">
+              <div><dt>Date of birth</dt><dd>Apr 12, 1990</dd></div>
+              <div><dt>Nationality</dt><dd>Pakistan</dd></div>
+              <div><dt>Passport number</dt><dd>AW7359282</dd></div>
+              <div><dt>Passport expiry</dt><dd>Aug 15, 2030</dd></div>
+            </dl>
+          </details>
+          <details class="td-review-traveller">
+            <summary class="td-review-name">
+              <i class="bi bi-person-circle" aria-hidden="true"></i>
+              <span>Sara Khan</span>
+              <i class="bi bi-chevron-down td-review-chevron" aria-hidden="true"></i>
+            </summary>
+            <dl class="td-review-list">
+              <div><dt>Date of birth</dt><dd>Jun 20, 1992</dd></div>
+              <div><dt>Nationality</dt><dd>Pakistan</dd></div>
+              <div><dt>Passport number</dt><dd>BV4829173</dd></div>
+              <div><dt>Passport expiry</dt><dd>Jun 20, 2031</dd></div>
+            </dl>
+          </details>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="td-btn td-btn-outline" data-bs-dismiss="modal">Edit details</button>

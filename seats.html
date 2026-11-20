@@ -73,7 +73,10 @@
               <li class="td-step is-done">
                 <i class="bi bi-person td-step-icon" aria-hidden="true"></i>
                 <span class="td-step-label">Travellers</span>
-                <span class="td-step-badge"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Completed</span></span>
+                <span class="td-step-badge"
+                  ><i class="bi bi-check-lg" aria-hidden="true"></i
+                  ><span class="visually-hidden">Completed</span></span
+                >
               </li>
               <li class="td-step-line" aria-hidden="true"></li>
               <li class="td-step is-current" aria-current="step">
@@ -167,9 +170,20 @@
               <!-- ---------- Left: flight info ---------- -->
               <div class="col-12 col-lg-4">
                 <div class="td-stack td-seat-left">
-                  <section class="td-card td-flight-ticket" aria-label="Flight summary">
-                    <svg class="td-flight-ticket-art" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-                      <path d="M 8 0.5 H 92 Q 99.5 0.5 99.5 8 V 37 C 94.5 37 94.5 47 99.5 47 V 92 Q 99.5 99.5 92 99.5 H 8 Q 0.5 99.5 0.5 92 V 47 C 5.5 47 5.5 37 0.5 37 V 8 Q 0.5 0.5 8 0.5 Z" />
+                  <section
+                    class="td-card td-flight-ticket"
+                    aria-label="Flight summary"
+                  >
+                    <svg
+                      class="td-flight-ticket-art"
+                      viewBox="0 0 100 100"
+                      preserveAspectRatio="none"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path
+                        d="M 8 0.5 H 92 Q 99.5 0.5 99.5 8 V 37 C 94.5 37 94.5 47 99.5 47 V 92 Q 99.5 99.5 92 99.5 H 8 Q 0.5 99.5 0.5 92 V 47 C 5.5 47 5.5 37 0.5 37 V 8 Q 0.5 0.5 8 0.5 Z"
+                      />
                     </svg>
                     <button
                       class="td-card-toggle"
@@ -242,12 +256,33 @@
                       </p>
                     </div>
                   </aside>
-                  <section class="td-card td-seat-guide d-none d-lg-block" aria-labelledby="seatGuideTitle">
+                  <section
+                    class="td-card td-seat-guide d-none d-lg-block"
+                    aria-labelledby="seatGuideTitle"
+                  >
                     <h2 id="seatGuideTitle">Choosing your seats</h2>
                     <ul>
-                      <li><i class="bi bi-person-check" aria-hidden="true"></i><span>Select a passenger, then choose an available seat.</span></li>
-                      <li><i class="bi bi-people" aria-hidden="true"></i><span>Choose a seat for each traveller before continuing.</span></li>
-                      <li><i class="bi bi-info-circle" aria-hidden="true"></i><span>Exit-row seats have additional eligibility requirements.</span></li>
+                      <li>
+                        <i class="bi bi-person-check" aria-hidden="true"></i
+                        ><span
+                          >Select a passenger, then choose an available
+                          seat.</span
+                        >
+                      </li>
+                      <li>
+                        <i class="bi bi-people" aria-hidden="true"></i
+                        ><span
+                          >Choose a seat for each traveller before
+                          continuing.</span
+                        >
+                      </li>
+                      <li>
+                        <i class="bi bi-info-circle" aria-hidden="true"></i
+                        ><span
+                          >Exit-row seats have additional eligibility
+                          requirements.</span
+                        >
+                      </li>
                     </ul>
                   </section>
                 </div>
@@ -256,567 +291,639 @@
               <!-- ---------- Middle: seat map ---------- -->
               <div class="col-12 col-lg-4 td-map-column">
                 <div class="td-map-frame">
-                <div class="td-map-wrap">
-                  <div class="td-fuselage">
-                    <div
-                      class="td-cabin-icons d-none d-lg-flex"
-                      aria-hidden="true"
-                    >
-                      <span class="td-cabin-icon"
-                        ><i class="bi bi-person-standing"></i
-                        ><i class="bi bi-person-standing-dress"></i
-                      ></span>
-                      <span class="td-cabin-icon"
-                        ><i class="bi bi-cup-hot"></i
-                      ></span>
-                    </div>
-                    <h2 class="td-cabin-name">Economy cabin</h2>
-
-                    <div
-                      id="seatMap"
-                      role="group"
-                      aria-label="Economy cabin seat map"
-                      data-fee="2000"
-                    >
-                      <div class="td-row td-row-head" aria-hidden="true">
-                        <span class="td-row-edge"></span>
-                        <div class="td-seat-group">
-                          <span class="td-col-letter">A</span
-                          ><span class="td-col-letter">B</span
-                          ><span class="td-col-letter">C</span>
-                        </div>
-                        <span class="td-row-no"></span>
-                        <div class="td-seat-group">
-                          <span class="td-col-letter">D</span
-                          ><span class="td-col-letter">E</span
-                          ><span class="td-col-letter">F</span>
-                        </div>
-                        <span class="td-row-edge"></span>
-                      </div>
-                      <div class="td-row" role="group" aria-label="Row 10">
-                        <span class="td-row-edge" aria-hidden="true">10</span>
-                        <div class="td-seat-group">
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="10A"
-                            aria-pressed="false"
-                            aria-label="Seat 10A, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="10B"
-                            aria-pressed="false"
-                            aria-label="Seat 10B, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="10C"
-                            aria-pressed="false"
-                            aria-label="Seat 10C, standard"
-                          ></button>
-                        </div>
-                        <span class="td-row-no" aria-hidden="true">10</span>
-                        <div class="td-seat-group">
-                          <button
-                            type="button"
-                            class="td-seat is-unavailable"
-                            data-seat="10D"
-                            disabled
-                            aria-label="Seat 10D, unavailable"
-                          >
-                            <i class="bi bi-x-lg" aria-hidden="true"></i>
-                          </button>
-                          <button
-                            type="button"
-                            class="td-seat is-unavailable"
-                            data-seat="10E"
-                            disabled
-                            aria-label="Seat 10E, unavailable"
-                          >
-                            <i class="bi bi-x-lg" aria-hidden="true"></i>
-                          </button>
-                          <button
-                            type="button"
-                            class="td-seat is-unavailable"
-                            data-seat="10F"
-                            disabled
-                            aria-label="Seat 10F, unavailable"
-                          >
-                            <i class="bi bi-x-lg" aria-hidden="true"></i>
-                          </button>
-                        </div>
-                        <span class="td-row-edge" aria-hidden="true">10</span>
-                      </div>
-                      <div class="td-row" role="group" aria-label="Row 11">
-                        <span class="td-row-edge" aria-hidden="true">11</span>
-                        <div class="td-seat-group">
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="11A"
-                            aria-pressed="false"
-                            aria-label="Seat 11A, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="11B"
-                            aria-pressed="false"
-                            aria-label="Seat 11B, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="11C"
-                            aria-pressed="false"
-                            aria-label="Seat 11C, standard"
-                          ></button>
-                        </div>
-                        <span class="td-row-no" aria-hidden="true">11</span>
-                        <div class="td-seat-group">
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="11D"
-                            aria-pressed="false"
-                            aria-label="Seat 11D, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="11E"
-                            aria-pressed="false"
-                            aria-label="Seat 11E, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="11F"
-                            aria-pressed="false"
-                            aria-label="Seat 11F, standard"
-                          ></button>
-                        </div>
-                        <span class="td-row-edge" aria-hidden="true">11</span>
-                      </div>
-                      <div class="td-row" role="group" aria-label="Row 12">
-                        <span class="td-row-edge" aria-hidden="true">12</span>
-                        <div class="td-seat-group">
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="12A"
-                            aria-pressed="false"
-                            aria-label="Seat 12A, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="12B"
-                            aria-pressed="false"
-                            aria-label="Seat 12B, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="12C"
-                            aria-pressed="false"
-                            aria-label="Seat 12C, standard"
-                          ></button>
-                        </div>
-                        <span class="td-row-no" aria-hidden="true">12</span>
-                        <div class="td-seat-group">
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="12D"
-                            aria-pressed="false"
-                            aria-label="Seat 12D, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="12E"
-                            aria-pressed="false"
-                            aria-label="Seat 12E, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="12F"
-                            aria-pressed="false"
-                            aria-label="Seat 12F, standard"
-                          ></button>
-                        </div>
-                        <span class="td-row-edge" aria-hidden="true">12</span>
-                      </div>
-                      <div class="td-row" role="group" aria-label="Row 13">
-                        <span class="td-row-edge" aria-hidden="true">13</span>
-                        <div class="td-seat-group">
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="13A"
-                            aria-pressed="false"
-                            aria-label="Seat 13A, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="13B"
-                            aria-pressed="false"
-                            aria-label="Seat 13B, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="13C"
-                            aria-pressed="false"
-                            aria-label="Seat 13C, standard"
-                          ></button>
-                        </div>
-                        <span class="td-row-no" aria-hidden="true">13</span>
-                        <div class="td-seat-group">
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="13D"
-                            aria-pressed="false"
-                            aria-label="Seat 13D, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="13E"
-                            aria-pressed="false"
-                            aria-label="Seat 13E, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="13F"
-                            aria-pressed="false"
-                            aria-label="Seat 13F, standard"
-                          ></button>
-                        </div>
-                        <span class="td-row-edge" aria-hidden="true">13</span>
-                      </div>
-                      <div class="td-row" role="group" aria-label="Row 14">
-                        <span class="td-row-edge" aria-hidden="true">14</span>
-                        <div class="td-seat-group">
-                          <button
-                            type="button"
-                            class="td-seat is-unavailable"
-                            data-seat="14A"
-                            disabled
-                            aria-label="Seat 14A, unavailable"
-                          >
-                            <i class="bi bi-x-lg" aria-hidden="true"></i>
-                          </button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="14B"
-                            aria-pressed="false"
-                            aria-label="Seat 14B, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="14C"
-                            aria-pressed="false"
-                            aria-label="Seat 14C, standard"
-                          ></button>
-                        </div>
-                        <span class="td-row-no" aria-hidden="true">14</span>
-                        <div class="td-seat-group">
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="14D"
-                            aria-pressed="false"
-                            aria-label="Seat 14D, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="14E"
-                            aria-pressed="false"
-                            aria-label="Seat 14E, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="14F"
-                            aria-pressed="false"
-                            aria-label="Seat 14F, standard"
-                          ></button>
-                        </div>
-                        <span class="td-row-edge" aria-hidden="true">14</span>
-                      </div>
-                      <div class="td-row" role="group" aria-label="Row 15">
-                        <span class="td-row-edge" aria-hidden="true">15</span>
-                        <div class="td-seat-group">
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="15A"
-                            aria-pressed="false"
-                            aria-label="Seat 15A, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="15B"
-                            aria-pressed="false"
-                            aria-label="Seat 15B, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="15C"
-                            aria-pressed="false"
-                            aria-label="Seat 15C, standard"
-                          ></button>
-                        </div>
-                        <span class="td-row-no" aria-hidden="true">15</span>
-                        <div class="td-seat-group">
-                          <button
-                            type="button"
-                            class="td-seat is-unavailable"
-                            data-seat="15D"
-                            disabled
-                            aria-label="Seat 15D, unavailable"
-                          >
-                            <i class="bi bi-x-lg" aria-hidden="true"></i>
-                          </button>
-                          <button
-                            type="button"
-                            class="td-seat is-unavailable"
-                            data-seat="15E"
-                            disabled
-                            aria-label="Seat 15E, unavailable"
-                          >
-                            <i class="bi bi-x-lg" aria-hidden="true"></i>
-                          </button>
-                          <button
-                            type="button"
-                            class="td-seat is-unavailable"
-                            data-seat="15F"
-                            disabled
-                            aria-label="Seat 15F, unavailable"
-                          >
-                            <i class="bi bi-x-lg" aria-hidden="true"></i>
-                          </button>
-                        </div>
-                        <span class="td-row-edge" aria-hidden="true">15</span>
-                      </div>
+                  <div class="td-map-wrap">
+                    <div class="td-fuselage">
                       <div
-                        class="td-row is-exit"
-                        role="group"
-                        aria-label="Row 16"
+                        class="td-cabin-icons d-none d-lg-flex"
+                        aria-hidden="true"
                       >
-                        <i
-                          class="bi bi-caret-left-fill td-exit-arrow is-left"
-                          aria-hidden="true"
-                        ></i>
-                        <span class="td-row-edge" aria-hidden="true">16</span>
-                        <div class="td-seat-group">
-                          <button
-                            type="button"
-                            class="td-seat is-exit"
-                            data-seat="16A"
-                            aria-pressed="false"
-                            aria-label="Seat 16A, exit row, extra legroom"
-                            title="Exit row seat"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat is-exit"
-                            data-seat="16B"
-                            aria-pressed="false"
-                            aria-label="Seat 16B, exit row, extra legroom"
-                            title="Exit row seat"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat is-exit"
-                            data-seat="16C"
-                            aria-pressed="false"
-                            aria-label="Seat 16C, exit row, extra legroom"
-                            title="Exit row seat"
-                          ></button>
-                        </div>
-                        <span class="td-row-no" aria-hidden="true">16</span>
-                        <div class="td-seat-group">
-                          <button
-                            type="button"
-                            class="td-seat is-exit"
-                            data-seat="16D"
-                            aria-pressed="false"
-                            aria-label="Seat 16D, exit row, extra legroom"
-                            title="Exit row seat"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat is-exit"
-                            data-seat="16E"
-                            aria-pressed="false"
-                            aria-label="Seat 16E, exit row, extra legroom"
-                            title="Exit row seat"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat is-exit"
-                            data-seat="16F"
-                            aria-pressed="false"
-                            aria-label="Seat 16F, exit row, extra legroom"
-                            title="Exit row seat"
-                          ></button>
-                        </div>
-                        <span class="td-row-edge" aria-hidden="true">16</span>
-                        <i
-                          class="bi bi-caret-right-fill td-exit-arrow is-right"
-                          aria-hidden="true"
-                        ></i>
+                        <span class="td-cabin-icon"
+                          ><i class="bi bi-person-standing"></i
+                          ><i class="bi bi-person-standing-dress"></i
+                        ></span>
+                        <span class="td-cabin-icon"
+                          ><i class="bi bi-cup-hot"></i
+                        ></span>
                       </div>
-                      <div class="td-row" role="group" aria-label="Row 17">
-                        <span class="td-row-edge" aria-hidden="true">17</span>
-                        <div class="td-seat-group">
-                          <button
-                            type="button"
-                            class="td-seat is-unavailable"
-                            data-seat="17A"
-                            disabled
-                            aria-label="Seat 17A, unavailable"
-                          >
-                            <i class="bi bi-x-lg" aria-hidden="true"></i>
-                          </button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="17B"
-                            aria-pressed="false"
-                            aria-label="Seat 17B, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="17C"
-                            aria-pressed="false"
-                            aria-label="Seat 17C, standard"
-                          ></button>
+                      <h2 class="td-cabin-name">Economy cabin</h2>
+
+                      <div
+                        id="seatMap"
+                        role="group"
+                        aria-label="Economy cabin seat map"
+                        data-fee="2000"
+                      >
+                        <div class="td-row td-row-head" aria-hidden="true">
+                          <span class="td-row-edge"></span>
+                          <div class="td-seat-group">
+                            <span class="td-col-letter">A</span
+                            ><span class="td-col-letter">B</span
+                            ><span class="td-col-letter">C</span>
+                          </div>
+                          <span class="td-row-no"></span>
+                          <div class="td-seat-group">
+                            <span class="td-col-letter">D</span
+                            ><span class="td-col-letter">E</span
+                            ><span class="td-col-letter">F</span>
+                          </div>
+                          <span class="td-row-edge"></span>
                         </div>
-                        <span class="td-row-no" aria-hidden="true">17</span>
-                        <div class="td-seat-group">
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="17D"
-                            aria-pressed="false"
-                            aria-label="Seat 17D, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="17E"
-                            aria-pressed="false"
-                            aria-label="Seat 17E, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="17F"
-                            aria-pressed="false"
-                            aria-label="Seat 17F, standard"
-                          ></button>
+                        <div class="td-row" role="group" aria-label="Row 10">
+                          <span class="td-row-edge" aria-hidden="true">10</span>
+                          <div class="td-seat-group">
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="10A"
+                              aria-pressed="false"
+                              aria-label="Seat 10A, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="10B"
+                              aria-pressed="false"
+                              aria-label="Seat 10B, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="10C"
+                              aria-pressed="false"
+                              aria-label="Seat 10C, standard"
+                            ></button>
+                          </div>
+                          <span class="td-row-no" aria-hidden="true">10</span>
+                          <div class="td-seat-group">
+                            <button
+                              type="button"
+                              class="td-seat is-unavailable"
+                              data-seat="10D"
+                              disabled
+                              aria-label="Seat 10D, unavailable"
+                            >
+                              <i class="bi bi-x-lg" aria-hidden="true"></i>
+                            </button>
+                            <button
+                              type="button"
+                              class="td-seat is-unavailable"
+                              data-seat="10E"
+                              disabled
+                              aria-label="Seat 10E, unavailable"
+                            >
+                              <i class="bi bi-x-lg" aria-hidden="true"></i>
+                            </button>
+                            <button
+                              type="button"
+                              class="td-seat is-unavailable"
+                              data-seat="10F"
+                              disabled
+                              aria-label="Seat 10F, unavailable"
+                            >
+                              <i class="bi bi-x-lg" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                          <span class="td-row-edge" aria-hidden="true">10</span>
                         </div>
-                        <span class="td-row-edge" aria-hidden="true">17</span>
+                        <div class="td-row" role="group" aria-label="Row 11">
+                          <span class="td-row-edge" aria-hidden="true">11</span>
+                          <div class="td-seat-group">
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="11A"
+                              aria-pressed="false"
+                              aria-label="Seat 11A, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="11B"
+                              aria-pressed="false"
+                              aria-label="Seat 11B, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="11C"
+                              aria-pressed="false"
+                              aria-label="Seat 11C, standard"
+                            ></button>
+                          </div>
+                          <span class="td-row-no" aria-hidden="true">11</span>
+                          <div class="td-seat-group">
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="11D"
+                              aria-pressed="false"
+                              aria-label="Seat 11D, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="11E"
+                              aria-pressed="false"
+                              aria-label="Seat 11E, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="11F"
+                              aria-pressed="false"
+                              aria-label="Seat 11F, standard"
+                            ></button>
+                          </div>
+                          <span class="td-row-edge" aria-hidden="true">11</span>
+                        </div>
+                        <div class="td-row" role="group" aria-label="Row 12">
+                          <span class="td-row-edge" aria-hidden="true">12</span>
+                          <div class="td-seat-group">
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="12A"
+                              aria-pressed="false"
+                              aria-label="Seat 12A, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="12B"
+                              aria-pressed="false"
+                              aria-label="Seat 12B, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="12C"
+                              aria-pressed="false"
+                              aria-label="Seat 12C, standard"
+                            ></button>
+                          </div>
+                          <span class="td-row-no" aria-hidden="true">12</span>
+                          <div class="td-seat-group">
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="12D"
+                              aria-pressed="false"
+                              aria-label="Seat 12D, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="12E"
+                              aria-pressed="false"
+                              aria-label="Seat 12E, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="12F"
+                              aria-pressed="false"
+                              aria-label="Seat 12F, standard"
+                            ></button>
+                          </div>
+                          <span class="td-row-edge" aria-hidden="true">12</span>
+                        </div>
+                        <div class="td-row" role="group" aria-label="Row 13">
+                          <span class="td-row-edge" aria-hidden="true">13</span>
+                          <div class="td-seat-group">
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="13A"
+                              aria-pressed="false"
+                              aria-label="Seat 13A, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="13B"
+                              aria-pressed="false"
+                              aria-label="Seat 13B, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="13C"
+                              aria-pressed="false"
+                              aria-label="Seat 13C, standard"
+                            ></button>
+                          </div>
+                          <span class="td-row-no" aria-hidden="true">13</span>
+                          <div class="td-seat-group">
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="13D"
+                              aria-pressed="false"
+                              aria-label="Seat 13D, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="13E"
+                              aria-pressed="false"
+                              aria-label="Seat 13E, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="13F"
+                              aria-pressed="false"
+                              aria-label="Seat 13F, standard"
+                            ></button>
+                          </div>
+                          <span class="td-row-edge" aria-hidden="true">13</span>
+                        </div>
+                        <div class="td-row" role="group" aria-label="Row 14">
+                          <span class="td-row-edge" aria-hidden="true">14</span>
+                          <div class="td-seat-group">
+                            <button
+                              type="button"
+                              class="td-seat is-unavailable"
+                              data-seat="14A"
+                              disabled
+                              aria-label="Seat 14A, unavailable"
+                            >
+                              <i class="bi bi-x-lg" aria-hidden="true"></i>
+                            </button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="14B"
+                              aria-pressed="false"
+                              aria-label="Seat 14B, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="14C"
+                              aria-pressed="false"
+                              aria-label="Seat 14C, standard"
+                            ></button>
+                          </div>
+                          <span class="td-row-no" aria-hidden="true">14</span>
+                          <div class="td-seat-group">
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="14D"
+                              aria-pressed="false"
+                              aria-label="Seat 14D, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="14E"
+                              aria-pressed="false"
+                              aria-label="Seat 14E, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="14F"
+                              aria-pressed="false"
+                              aria-label="Seat 14F, standard"
+                            ></button>
+                          </div>
+                          <span class="td-row-edge" aria-hidden="true">14</span>
+                        </div>
+                        <div class="td-row" role="group" aria-label="Row 15">
+                          <span class="td-row-edge" aria-hidden="true">15</span>
+                          <div class="td-seat-group">
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="15A"
+                              aria-pressed="false"
+                              aria-label="Seat 15A, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="15B"
+                              aria-pressed="false"
+                              aria-label="Seat 15B, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="15C"
+                              aria-pressed="false"
+                              aria-label="Seat 15C, standard"
+                            ></button>
+                          </div>
+                          <span class="td-row-no" aria-hidden="true">15</span>
+                          <div class="td-seat-group">
+                            <button
+                              type="button"
+                              class="td-seat is-unavailable"
+                              data-seat="15D"
+                              disabled
+                              aria-label="Seat 15D, unavailable"
+                            >
+                              <i class="bi bi-x-lg" aria-hidden="true"></i>
+                            </button>
+                            <button
+                              type="button"
+                              class="td-seat is-unavailable"
+                              data-seat="15E"
+                              disabled
+                              aria-label="Seat 15E, unavailable"
+                            >
+                              <i class="bi bi-x-lg" aria-hidden="true"></i>
+                            </button>
+                            <button
+                              type="button"
+                              class="td-seat is-unavailable"
+                              data-seat="15F"
+                              disabled
+                              aria-label="Seat 15F, unavailable"
+                            >
+                              <i class="bi bi-x-lg" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                          <span class="td-row-edge" aria-hidden="true">15</span>
+                        </div>
+                        <div
+                          class="td-row is-exit"
+                          role="group"
+                          aria-label="Row 16"
+                        >
+                          <i
+                            class="bi bi-caret-left-fill td-exit-arrow is-left"
+                            aria-hidden="true"
+                          ></i>
+                          <span class="td-row-edge" aria-hidden="true">16</span>
+                          <div class="td-seat-group">
+                            <button
+                              type="button"
+                              class="td-seat is-exit"
+                              data-seat="16A"
+                              aria-pressed="false"
+                              aria-label="Seat 16A, exit row, extra legroom"
+                              title="Exit row seat"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat is-exit"
+                              data-seat="16B"
+                              aria-pressed="false"
+                              aria-label="Seat 16B, exit row, extra legroom"
+                              title="Exit row seat"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat is-exit"
+                              data-seat="16C"
+                              aria-pressed="false"
+                              aria-label="Seat 16C, exit row, extra legroom"
+                              title="Exit row seat"
+                            ></button>
+                          </div>
+                          <span class="td-row-no" aria-hidden="true">16</span>
+                          <div class="td-seat-group">
+                            <button
+                              type="button"
+                              class="td-seat is-exit"
+                              data-seat="16D"
+                              aria-pressed="false"
+                              aria-label="Seat 16D, exit row, extra legroom"
+                              title="Exit row seat"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat is-exit"
+                              data-seat="16E"
+                              aria-pressed="false"
+                              aria-label="Seat 16E, exit row, extra legroom"
+                              title="Exit row seat"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat is-exit"
+                              data-seat="16F"
+                              aria-pressed="false"
+                              aria-label="Seat 16F, exit row, extra legroom"
+                              title="Exit row seat"
+                            ></button>
+                          </div>
+                          <span class="td-row-edge" aria-hidden="true">16</span>
+                          <i
+                            class="bi bi-caret-right-fill td-exit-arrow is-right"
+                            aria-hidden="true"
+                          ></i>
+                        </div>
+                        <div class="td-row" role="group" aria-label="Row 17">
+                          <span class="td-row-edge" aria-hidden="true">17</span>
+                          <div class="td-seat-group">
+                            <button
+                              type="button"
+                              class="td-seat is-unavailable"
+                              data-seat="17A"
+                              disabled
+                              aria-label="Seat 17A, unavailable"
+                            >
+                              <i class="bi bi-x-lg" aria-hidden="true"></i>
+                            </button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="17B"
+                              aria-pressed="false"
+                              aria-label="Seat 17B, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="17C"
+                              aria-pressed="false"
+                              aria-label="Seat 17C, standard"
+                            ></button>
+                          </div>
+                          <span class="td-row-no" aria-hidden="true">17</span>
+                          <div class="td-seat-group">
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="17D"
+                              aria-pressed="false"
+                              aria-label="Seat 17D, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="17E"
+                              aria-pressed="false"
+                              aria-label="Seat 17E, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="17F"
+                              aria-pressed="false"
+                              aria-label="Seat 17F, standard"
+                            ></button>
+                          </div>
+                          <span class="td-row-edge" aria-hidden="true">17</span>
+                        </div>
+                        <div class="td-row" role="group" aria-label="Row 18">
+                          <span class="td-row-edge" aria-hidden="true">18</span>
+                          <div class="td-seat-group">
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="18A"
+                              aria-pressed="false"
+                              aria-label="Seat 18A, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="18B"
+                              aria-pressed="false"
+                              aria-label="Seat 18B, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="18C"
+                              aria-pressed="false"
+                              aria-label="Seat 18C, standard"
+                            ></button>
+                          </div>
+                          <span class="td-row-no" aria-hidden="true">18</span>
+                          <div class="td-seat-group">
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="18D"
+                              aria-pressed="false"
+                              aria-label="Seat 18D, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="18E"
+                              aria-pressed="false"
+                              aria-label="Seat 18E, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="18F"
+                              aria-pressed="false"
+                              aria-label="Seat 18F, standard"
+                            ></button>
+                          </div>
+                          <span class="td-row-edge" aria-hidden="true">18</span>
+                        </div>
+                        <div class="td-row" role="group" aria-label="Row 19">
+                          <span class="td-row-edge" aria-hidden="true">19</span>
+                          <div class="td-seat-group">
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="19A"
+                              aria-pressed="false"
+                              aria-label="Seat 19A, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="19B"
+                              aria-pressed="false"
+                              aria-label="Seat 19B, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="19C"
+                              aria-pressed="false"
+                              aria-label="Seat 19C, standard"
+                            ></button>
+                          </div>
+                          <span class="td-row-no" aria-hidden="true">19</span>
+                          <div class="td-seat-group">
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="19D"
+                              aria-pressed="false"
+                              aria-label="Seat 19D, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="19E"
+                              aria-pressed="false"
+                              aria-label="Seat 19E, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="19F"
+                              aria-pressed="false"
+                              aria-label="Seat 19F, standard"
+                            ></button>
+                          </div>
+                          <span class="td-row-edge" aria-hidden="true">19</span>
+                        </div>
+                        <div class="td-row" role="group" aria-label="Row 20">
+                          <span class="td-row-edge" aria-hidden="true">20</span>
+                          <div class="td-seat-group">
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="20A"
+                              aria-pressed="false"
+                              aria-label="Seat 20A, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="20B"
+                              aria-pressed="false"
+                              aria-label="Seat 20B, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="20C"
+                              aria-pressed="false"
+                              aria-label="Seat 20C, standard"
+                            ></button>
+                          </div>
+                          <span class="td-row-no" aria-hidden="true">20</span>
+                          <div class="td-seat-group">
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="20D"
+                              aria-pressed="false"
+                              aria-label="Seat 20D, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="20E"
+                              aria-pressed="false"
+                              aria-label="Seat 20E, standard"
+                            ></button>
+                            <button
+                              type="button"
+                              class="td-seat"
+                              data-seat="20F"
+                              aria-pressed="false"
+                              aria-label="Seat 20F, standard"
+                            ></button>
+                          </div>
+                          <span class="td-row-edge" aria-hidden="true">20</span>
+                        </div>
                       </div>
-                      <div class="td-row" role="group" aria-label="Row 18">
-                        <span class="td-row-edge" aria-hidden="true">18</span>
-                        <div class="td-seat-group">
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="18A"
-                            aria-pressed="false"
-                            aria-label="Seat 18A, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="18B"
-                            aria-pressed="false"
-                            aria-label="Seat 18B, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="18C"
-                            aria-pressed="false"
-                            aria-label="Seat 18C, standard"
-                          ></button>
-                        </div>
-                        <span class="td-row-no" aria-hidden="true">18</span>
-                        <div class="td-seat-group">
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="18D"
-                            aria-pressed="false"
-                            aria-label="Seat 18D, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="18E"
-                            aria-pressed="false"
-                            aria-label="Seat 18E, standard"
-                          ></button>
-                          <button
-                            type="button"
-                            class="td-seat"
-                            data-seat="18F"
-                            aria-pressed="false"
-                            aria-label="Seat 18F, standard"
-                          ></button>
-                        </div>
-                        <span class="td-row-edge" aria-hidden="true">18</span>
-                      </div>
-                      <div class="td-row" role="group" aria-label="Row 19">
-                        <span class="td-row-edge" aria-hidden="true">19</span>
-                        <div class="td-seat-group">
-                          <button type="button" class="td-seat" data-seat="19A" aria-pressed="false" aria-label="Seat 19A, standard"></button>
-                          <button type="button" class="td-seat" data-seat="19B" aria-pressed="false" aria-label="Seat 19B, standard"></button>
-                          <button type="button" class="td-seat" data-seat="19C" aria-pressed="false" aria-label="Seat 19C, standard"></button>
-                        </div>
-                        <span class="td-row-no" aria-hidden="true">19</span>
-                        <div class="td-seat-group">
-                          <button type="button" class="td-seat" data-seat="19D" aria-pressed="false" aria-label="Seat 19D, standard"></button>
-                          <button type="button" class="td-seat" data-seat="19E" aria-pressed="false" aria-label="Seat 19E, standard"></button>
-                          <button type="button" class="td-seat" data-seat="19F" aria-pressed="false" aria-label="Seat 19F, standard"></button>
-                        </div>
-                        <span class="td-row-edge" aria-hidden="true">19</span>
-                      </div>
-                      <div class="td-row" role="group" aria-label="Row 20">
-                        <span class="td-row-edge" aria-hidden="true">20</span>
-                        <div class="td-seat-group">
-                          <button type="button" class="td-seat" data-seat="20A" aria-pressed="false" aria-label="Seat 20A, standard"></button>
-                          <button type="button" class="td-seat" data-seat="20B" aria-pressed="false" aria-label="Seat 20B, standard"></button>
-                          <button type="button" class="td-seat" data-seat="20C" aria-pressed="false" aria-label="Seat 20C, standard"></button>
-                        </div>
-                        <span class="td-row-no" aria-hidden="true">20</span>
-                        <div class="td-seat-group">
-                          <button type="button" class="td-seat" data-seat="20D" aria-pressed="false" aria-label="Seat 20D, standard"></button>
-                          <button type="button" class="td-seat" data-seat="20E" aria-pressed="false" aria-label="Seat 20E, standard"></button>
-                          <button type="button" class="td-seat" data-seat="20F" aria-pressed="false" aria-label="Seat 20F, standard"></button>
-                        </div>
-                        <span class="td-row-edge" aria-hidden="true">20</span>
-                      </div>
-                    </div>
                     </div>
                   </div>
 

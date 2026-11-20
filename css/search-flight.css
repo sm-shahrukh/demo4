@@ -1,4 +1,6 @@
 /* Search results layout. Design values come from themes.css. */
+.search-flight-page .sf-flight-drawer .sf-drawer-continue,
+.search-flight-page .sf-flight-drawer:has([data-drawer-panel="0"].is-active) .sf-drawer-continue { min-height: 50px; }
 .search-flight-page {
   background: var(--td-home-page-bg);
 }
@@ -950,6 +952,18 @@
 .sf-flight-drawer.is-open {
   transform: translateX(0);
 }
+@media (min-width: 768px) {
+  .sf-flight-drawer {
+    inset: 0 0 0 auto;
+    width: min(var(--td-flight-drawer-width), 92vw);
+    height: 100vh;
+    height: 100dvh;
+    max-height: none;
+    border-radius: 0;
+    transform: translateX(100%);
+  }
+  .sf-flight-drawer.is-open { transform: translateX(0); }
+}
 .sf-drawer-header {
   display: flex;
   flex: none;
@@ -1542,6 +1556,28 @@ body.sf-drawer-open {
 }
 
 @media (max-width: 767.98px) {
+  .sf-filter-row[open],
+  .sf-filter-row.is-closing {
+    inset: 0;
+    width: 100%;
+    min-width: 0;
+    height: 100dvh;
+    padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom));
+    border: 0;
+    border-radius: 0;
+    transform: translateX(100%);
+  }
+  .sf-filter-row.is-open { transform: translateX(0); }
+  .sf-filter-row[open] .sf-filter-panel,
+  .sf-filter-row.is-closing .sf-filter-panel {
+    position: static;
+    inset: auto;
+    width: 100%;
+    max-height: none;
+    min-height: 0;
+    padding: 0;
+    overflow-y: auto;
+  }
   .sf-flight-card {
     padding: var(--td-space-2);
     border-radius: var(--td-radius-xl);
@@ -3726,7 +3762,7 @@ body.sf-drawer-open {
   }
 }
 
-.sf-card-airline-mark:has(img[src*="emirates.svg"])::after,
+.sf-card-airline-mark:has(img[src*="emirates.png"])::after,
 .sf-airline-emirates::after {
   content: "Emirates";
   color: var(--td-airline-emirates);
@@ -3735,7 +3771,8 @@ body.sf-drawer-open {
   font-weight: var(--td-weight-bold);
   white-space: nowrap;
 }
-.sf-card-airline-mark:has(img[src*="emirates.svg"]) img,
+.sf-airline-emirates::after { content: none; }
+.sf-card-airline-mark:has(img[src*="emirates.png"]) img,
 .sf-airline-emirates img {
   width: var(--td-space-5);
   max-width: var(--td-space-5);
@@ -3746,17 +3783,21 @@ body.sf-drawer-open {
   align-items: center;
   gap: var(--td-space-1);
 }
-.sf-drawer-leg-heading:has(img[src*="emirates.svg"])::after,
+.sf-drawer-leg-heading:has(img[src*="emirates.png"])::after,
 .sf-drawer-route:has(
-    [data-flight-summary-primary][src*="emirates.svg"]
+    [data-flight-summary-primary][src*="emirates.png"]
   )::after {
   content: none;
 }
-.sf-drawer-leg-heading img[src*="emirates.svg"],
-.sf-drawer-route img[src*="emirates.svg"] {
+.sf-drawer-leg-heading img[src*="emirates.png"],
+.sf-drawer-route img[src*="emirates.png"] {
   width: var(--td-space-5);
   max-width: var(--td-space-5);
   height: var(--td-space-5);
+}
+@media (min-width: 768px) {
+  .sf-drawer-leg-heading { display: flex; flex-direction: row; align-items: center; }
+  .sf-drawer-leg-heading img[src*="emirates.png"] { position: static; align-self: center; margin: 0 0 0 auto; }
 }
 .sf-oneway-card .sf-card-airline-mark {
   gap: var(--td-space-1);
@@ -3766,6 +3807,27 @@ body.sf-drawer-open {
 .sf-container {
   width: calc(100% - 48px);
   max-width: 1440px;
+}
+@media (max-width: 767.98px) {
+  .sf-multicity-card .sf-card-airline-mark { display: flex !important; }
+  .sf-multicity-card .sf-card-heading { grid-template-columns: minmax(0, 1fr) minmax(0, auto) auto; }
+  .sf-multicity-card .sf-card-airline-mark { grid-column: 1 / -1; grid-row: 1; }
+  .sf-multicity-card .sf-card-route-copy { grid-column: 1; grid-row: 2; }
+  .sf-multicity-card .sf-card-heading::after { grid-column: 3; grid-row: 2; }
+  .sf-multicity-card .sf-card-itineraries > .sf-leg::before { box-sizing: border-box; width: 22px; height: 22px; min-width: 22px; aspect-ratio: 1; padding: 0; line-height: 1; }
+  .sf-multicity-card .sf-card-itineraries > .sf-leg .sf-leg-caption { padding-left: 25px; background: none !important; }
+  .sf-multicity-card .sf-card-itineraries > .sf-leg::before {
+    left: 10px;
+    display: grid;
+    width: 20px;
+    height: 20px;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--td-blue);
+    color: var(--td-white);
+    font-size: 10px;
+  }
+  .sf-multicity-card .sf-card-itineraries > .sf-leg.sf-leg-warm::before { background: var(--td-brand-yellow); color: var(--td-text); }
 }
 .sf-search-hero {
   position: relative;
@@ -5018,7 +5080,7 @@ body.sf-drawer-open {
 .sf-flight-card .sf-airline-qatar {
   overflow: visible;
 }
-.sf-flight-card .sf-card-airline-mark img[src*="emirates.svg"],
+.sf-flight-card .sf-card-airline-mark img[src*="emirates.png"],
 .sf-flight-card .sf-airline-emirates img {
   width: auto;
   height: auto;
@@ -5026,12 +5088,12 @@ body.sf-drawer-open {
   max-height: 30px;
   object-fit: contain;
 }
-.sf-drawer-leg-heading img[src*="emirates.svg"] {
+.sf-drawer-leg-heading img[src*="emirates.png"] {
   width: var(--td-flight-drawer-logo-width);
   max-width: var(--td-flight-drawer-logo-width);
   height: var(--td-flight-drawer-logo-height);
 }
-.sf-drawer-route img[src*="emirates.svg"] {
+.sf-drawer-route img[src*="emirates.png"] {
   width: var(--td-flight-drawer-summary-logo-width);
   max-width: var(--td-flight-drawer-summary-logo-width);
   height: var(--td-flight-drawer-summary-logo-height);
@@ -5039,7 +5101,7 @@ body.sf-drawer-open {
 @media (max-width: 767.98px) {
   .sf-flight-card .sf-card-airline-mark img[src*="qatar.svg"],
   .sf-flight-card .sf-airline-qatar img,
-  .sf-flight-card .sf-card-airline-mark img[src*="emirates.svg"],
+  .sf-flight-card .sf-card-airline-mark img[src*="emirates.png"],
   .sf-flight-card .sf-airline-emirates img {
     max-width: 115px;
     max-height: 27px;
@@ -5466,12 +5528,12 @@ body.sf-filter-open {
   color: #5c0632;
 }
 /* The supplied SVGs include their complete airline marks. */
-.sf-flight-card .sf-card-airline-mark:has(img[src*="emirates.svg"])::after,
+.sf-flight-card .sf-card-airline-mark:has(img[src*="emirates.png"])::after,
 .sf-flight-card .sf-airline-emirates::after {
   content: none;
 }
 .sf-flight-card .sf-airline-emirates img,
-.sf-flight-card .sf-card-airline-mark img[src*="emirates.svg"] {
+.sf-flight-card .sf-card-airline-mark img[src*="emirates.png"] {
   width: auto;
   max-width: 82px;
   max-height: 30px;
@@ -8936,7 +8998,7 @@ body.sf-filter-open {
   .sf-oneway-card .sf-card-heading::after { content: 'Non-stop'; }
   .sf-roundtrip-card .sf-card-heading::after { content: '2 flights'; }
   .sf-multicity-card .sf-card-heading::after { content: '3 flights'; }
-  .sf-roundtrip-card .sf-card-airline-mark::before, .sf-multicity-card .sf-card-airline-mark::before { content: ''; display: block; width: 72px; height: 24px; flex: none; background: url('../images/airlines/emirates.svg') center / contain no-repeat; order: 1; }
+  .sf-roundtrip-card .sf-card-airline-mark::before, .sf-multicity-card .sf-card-airline-mark::before { content: ''; display: block; width: 72px; height: 24px; flex: none; background: url('../images/airlines/emirates.png') center / contain no-repeat; order: 1; }
   .sf-roundtrip-card .sf-card-airline-mark::after, .sf-multicity-card .sf-card-airline-mark::after { content: '+'; display: block; order: 0; color: #071d61; font-weight: 700; }
   .sf-multicity-card .sf-card-airline-mark::before { background-image: url('../images/airlines/flydubai.svg'); }
   .sf-multicity-card .sf-card-airline-mark::after { content: '/'; }
@@ -9121,7 +9183,7 @@ body.sf-filter-open {
     font-weight: 700;
   }
   .sf-roundtrip-card .sf-card-airline-mark::before {
-    background-image: url("../images/airlines/emirates.svg");
+    background-image: url("../images/airlines/emirates.png");
   }
   .sf-roundtrip-card .sf-card-airline-mark::after {
     content: "+";
@@ -9571,6 +9633,39 @@ body.sf-filter-open {
   .sf-multicity-card .sf-card-itineraries > .sf-leg .sf-flight-path { width: 100%; max-width: 60px; justify-self: center; }
   .sf-multicity-card .sf-card-itineraries > .sf-leg .sf-flight-path::after { content: none; }
   .sf-multicity-card .sf-fare > div strong { font-size: 21px; }
+}
+
+/* Mobile filters occupy the full viewport as a sliding drawer. */
+@media (max-width: 767.98px) {
+  .sf-filter-row[open],
+  .sf-filter-row.is-closing {
+    position: fixed !important;
+    top: 0 !important;
+    right: auto !important;
+    bottom: 0 !important;
+    left: calc((100% - 100vw) / 2) !important;
+    width: 100vw !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    margin: 0 !important;
+    padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom)) !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    transform: translateX(100%);
+  }
+  .sf-filter-row.is-open { transform: translateX(0); }
+  .sf-filter-row[open] .sf-filter-panel,
+  .sf-filter-row.is-closing .sf-filter-panel {
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    max-height: none !important;
+    height: 100% !important;
+    padding: 0 !important;
+    overflow-y: auto !important;
+  }
 }
 
 /* Improve flight card readability on desktop and mobile. */

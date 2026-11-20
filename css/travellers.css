@@ -432,6 +432,14 @@ textarea.td-input { height: auto; min-height: 84px; padding-top: 8px; padding-bo
   border-radius: 10px;
 }
 .td-review-name i { color: var(--td-blue); }
+.td-review-travellers { display: grid; gap: 10px; }
+.td-review-traveller { overflow: hidden; border: 1px solid var(--td-border); border-radius: 12px; background: var(--td-white); }
+.td-review-traveller[open] { background: var(--td-tint); }
+.td-review-name { cursor: pointer; list-style: none; }
+.td-review-name::-webkit-details-marker { display: none; }
+.td-review-name .td-review-chevron { margin-left: auto; color: var(--td-muted); transition: transform 180ms ease; }
+.td-review-traveller[open] .td-review-chevron { transform: rotate(180deg); }
+.td-review-traveller .td-review-list { padding: 4px 14px 12px; }
 .td-review-list { margin: 0; padding: 8px 4px 0; }
 .td-review-list > div { display: flex; justify-content: space-between; gap: 12px; padding: 5px 0; font-size: 0.8125rem; }
 .td-review-list dt { font-weight: 400; color: var(--td-muted); }

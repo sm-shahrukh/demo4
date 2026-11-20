@@ -173,9 +173,19 @@
               <!-- Meals grid (+ mobile summary) -->
               <div class="col-lg">
                 <div
-                  class="row g-3 g-lg-4 row-cols-2 row-cols-lg-3"
+                  class="row g-3 g-lg-4 row-cols-2 row-cols-lg-4"
                   id="mealGrid"
                 >
+                  <div class="col">
+                    <article class="td-meal td-no-meal" data-meal="no-meal" data-name="No meal" data-price="0">
+                      <div class="td-meal-media td-no-meal-media" aria-hidden="true"><i class="bi bi-cup-hot"></i></div>
+                      <div class="td-meal-body">
+                        <h3 class="td-meal-name">No meal</h3>
+                        <p class="td-meal-desc">Continue without selecting a meal.</p>
+                        <div class="td-meal-foot"><span class="td-meal-price">PKR 0</span><button class="td-meal-select" type="button" data-meal-select aria-pressed="true">Selected</button></div>
+                      </div>
+                    </article>
+                  </div>
                   <div class="col">
                     <article
                       class="td-meal"
@@ -357,6 +367,19 @@
                           <span class="td-meal-price">PKR 1,000</span>
                           <button class="td-meal-select" type="button" data-meal-select aria-pressed="false">Select</button>
                         </div>
+                      </div>
+                    </article>
+                  </div>
+                  <div class="col">
+                    <article class="td-meal" data-meal="cheese-sandwich" data-name="Cheese sandwich" data-price="850">
+                      <div class="td-meal-media">
+                        <img src="images/cheese-sandwich.png" alt="" loading="lazy" />
+                        <span class="td-meal-tag"><i class="bi bi-flower2" aria-hidden="true"></i> Vegetarian</span>
+                      </div>
+                      <div class="td-meal-body">
+                        <h3 class="td-meal-name">Cheese sandwich</h3>
+                        <p class="td-meal-desc">A toasted cheese and vegetable sandwich.</p>
+                        <div class="td-meal-foot"><span class="td-meal-price">PKR 850</span><button class="td-meal-select" type="button" data-meal-select aria-pressed="false">Select</button></div>
                       </div>
                     </article>
                   </div>
@@ -641,18 +664,22 @@
           var qty = state.meal[state.active],
             total = 0,
             itemCount = 0;
+          var selectedMeal = cards.find(function (card) { return card.dataset.meal !== "no-meal" && qty[card.dataset.meal] > 0; });
+          Object.keys(qty).forEach(function (key) { if (!selectedMeal || key !== selectedMeal.dataset.meal) qty[key] = 0; });
+          save();
           lists.forEach(function (list) {
             list.replaceChildren();
           });
           cards.forEach(function (card) {
-            var count = qty[card.dataset.meal] ? 1 : 0;
-            qty[card.dataset.meal] = count;
+            var noMeal = card.dataset.meal === "no-meal";
+            var count = noMeal ? (Object.keys(qty).some(function (key) { return key !== "no-meal" && qty[key] > 0; }) ? 0 : 1) : (qty[card.dataset.meal] ? 1 : 0);
+            if (!noMeal) qty[card.dataset.meal] = count;
             card.classList.toggle("is-selected", count > 0);
             var selectButton = card.querySelector("[data-meal-select]");
             selectButton.textContent = count ? "Selected" : "Select";
             selectButton.setAttribute("aria-pressed", String(count > 0));
-            selectButton.setAttribute("aria-label", (count ? "Remove " : "Select ") + card.dataset.name);
-            if (count > 0) {
+            selectButton.setAttribute("aria-label", noMeal ? "Select no meal" : (count ? "Remove " : "Select ") + card.dataset.name);
+            if (count > 0 && !noMeal) {
               total += Number(card.dataset.price) * count;
               itemCount += count;
               lists.forEach(function (list) {
@@ -681,7 +708,9 @@
           if (!card || !btn.hasAttribute("data-meal-select")) return;
           var qty = state.meal[state.active],
             id = card.dataset.meal;
-          qty[id] = qty[id] ? 0 : 1;
+          var wasSelected = !!qty[id];
+          Object.keys(qty).forEach(function (key) { qty[key] = 0; });
+          if (id !== "no-meal" && !wasSelected) qty[id] = 1;
           save();
           renderMeals();
         });
