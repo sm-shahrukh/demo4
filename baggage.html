@@ -73,7 +73,10 @@
               <li class="td-step is-done">
                 <i class="bi bi-person td-step-icon" aria-hidden="true"></i>
                 <span class="td-step-label">Travellers</span>
-                <span class="td-step-badge"><i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden">Completed</span></span>
+                <span class="td-step-badge"
+                  ><i class="bi bi-check-lg" aria-hidden="true"></i
+                  ><span class="visually-hidden">Completed</span></span
+                >
               </li>
               <li class="td-step-line" aria-hidden="true"></li>
               <li class="td-step is-current" aria-current="step">
@@ -303,7 +306,10 @@
                 <!-- Restrictions + dimensions -->
                 <div class="row g-3 g-lg-4">
                   <div class="col-lg-6">
-                    <section class="td-info-card" aria-labelledby="restrictTitle">
+                    <section
+                      class="td-info-card"
+                      aria-labelledby="restrictTitle"
+                    >
                       <h2 class="td-card-heading" id="restrictTitle">
                         <button
                           class="td-card-toggle"
@@ -351,9 +357,10 @@
                                 data-bs-parent="#restrictAcc"
                               >
                                 <div class="td-acc-body">
-                                  Clothing, shoes, toiletries and electronics are
-                                  fine in checked baggage. Keep valuables,
-                                  medication and travel documents in your cabin bag.
+                                  Clothing, shoes, toiletries and electronics
+                                  are fine in checked baggage. Keep valuables,
+                                  medication and travel documents in your cabin
+                                  bag.
                                 </div>
                               </div>
                             </div>
@@ -385,10 +392,10 @@
                                 data-bs-parent="#restrictAcc"
                               >
                                 <div class="td-acc-body">
-                                  Explosives, flammable liquids, compressed gases
-                                  and spare lithium batteries are not allowed in
-                                  checked baggage. Check the airline&rsquo;s full
-                                  list before you pack.
+                                  Explosives, flammable liquids, compressed
+                                  gases and spare lithium batteries are not
+                                  allowed in checked baggage. Check the
+                                  airline&rsquo;s full list before you pack.
                                 </div>
                               </div>
                             </div>
@@ -421,8 +428,8 @@
                               >
                                 <div class="td-acc-body">
                                   Baggage over your allowance is charged at the
-                                  airport, usually at a higher rate. Adding extra
-                                  baggage now is the cheaper option.
+                                  airport, usually at a higher rate. Adding
+                                  extra baggage now is the cheaper option.
                                 </div>
                               </div>
                             </div>
@@ -455,8 +462,8 @@
                               >
                                 <div class="td-acc-body">
                                   Extra baggage can be changed or removed before
-                                  departure. Refunds follow the airline&rsquo;s fare
-                                  rules.
+                                  departure. Refunds follow the airline&rsquo;s
+                                  fare rules.
                                 </div>
                               </div>
                             </div>
@@ -511,7 +518,10 @@
                                     <path d="M0 0L6 3L0 6z" fill="#62728f" />
                                   </marker>
                                 </defs>
-                                <g class="td-dim-line" marker-start="url(#arrC)">
+                                <g
+                                  class="td-dim-line"
+                                  marker-start="url(#arrC)"
+                                >
                                   <line
                                     x1="40"
                                     y1="14"
@@ -643,7 +653,9 @@
                                 </text>
                               </svg>
                               <span class="td-dim-pill">Checked baggage</span>
-                              <p class="td-dim-max">Total up to 158 cm (23 kg)</p>
+                              <p class="td-dim-max">
+                                Total up to 158 cm (23 kg)
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -767,23 +779,29 @@
                 </div>
               </div>
             </div>
-
-
           </div>
         </div>
       </div>
     </main>
 
-    <dialog class="td-booking-review" id="bookingReview" aria-labelledby="bookingReviewTitle">
+    <dialog
+      class="td-booking-review"
+      id="bookingReview"
+      aria-labelledby="bookingReviewTitle"
+    >
       <div class="td-booking-review-header">
         <h2 id="bookingReviewTitle">Review your trip</h2>
-        <button type="button" class="td-review-close" aria-label="Close review">&times;</button>
+        <button type="button" class="td-review-close" aria-label="Close review">
+          &times;
+        </button>
       </div>
       <p>Check the selections for both travellers before continuing.</p>
       <div id="bookingReviewTravellers"></div>
       <div class="td-booking-review-actions">
         <button type="button" class="td-review-edit">Edit selections</button>
-        <a class="td-review-confirm" href="payment.html"><span>Confirm and continue</span></a>
+        <a class="td-review-confirm" href="payment.html"
+          ><span>Confirm and continue</span></a
+        >
       </div>
     </dialog>
     <div data-component="footer"></div>
@@ -893,7 +911,9 @@
 
         /* Review both travellers before continuing. */
         var review = document.getElementById("bookingReview");
-        var reviewTravellers = document.getElementById("bookingReviewTravellers");
+        var reviewTravellers = document.getElementById(
+          "bookingReviewTravellers",
+        );
         $$(".td-btn-primary").forEach(function (btn) {
           btn.addEventListener("click", function (event) {
             event.preventDefault();
@@ -914,11 +934,44 @@
               section.appendChild(heading);
               var details = document.createElement("div");
               details.className = "td-review-details";
-              var meals = Object.keys((state.meal && state.meal[id]) || {}).filter(function (key) { return state.meal[id][key] > 0; }).map(function (key) {
-                return ((state.mealNames && state.mealNames[key]) || key.replace(/-/g, " ")) + " × " + state.meal[id][key];
-              });
-              var bag = document.getElementById((state.bag && state.bag[id]) || "bag0");
-              [["Seat", (state.seat && state.seat[id]) || "Not selected", "bi-person"], ["Meals", meals.join(", ") || "No meals selected", "bi-cup-hot"], ["Extra baggage", bag ? (bag.dataset.label === "none" ? "No extra baggage" : bag.dataset.label + " — " + fmt(Number(bag.dataset.price))) : "No extra baggage", "bi-briefcase"]].forEach(function (item) {
+              var meals = Object.keys((state.meal && state.meal[id]) || {})
+                .filter(function (key) {
+                  return state.meal[id][key] > 0;
+                })
+                .map(function (key) {
+                  return (
+                    ((state.mealNames && state.mealNames[key]) ||
+                      key.replace(/-/g, " ")) +
+                    " × " +
+                    state.meal[id][key]
+                  );
+                });
+              var bag = document.getElementById(
+                (state.bag && state.bag[id]) || "bag0",
+              );
+              [
+                [
+                  "Seat",
+                  (state.seat && state.seat[id]) || "Not selected",
+                  "bi-person",
+                ],
+                [
+                  "Meals",
+                  meals.join(", ") || "No meals selected",
+                  "bi-cup-hot",
+                ],
+                [
+                  "Extra baggage",
+                  bag
+                    ? bag.dataset.label === "none"
+                      ? "No extra baggage"
+                      : bag.dataset.label +
+                        " — " +
+                        fmt(Number(bag.dataset.price))
+                    : "No extra baggage",
+                  "bi-briefcase",
+                ],
+              ].forEach(function (item) {
                 var line = document.createElement("p");
                 var icon = document.createElement("i");
                 icon.className = "bi " + item[2];
@@ -938,9 +991,13 @@
             review.showModal();
           });
         });
-        review.querySelectorAll(".td-review-close, .td-review-edit").forEach(function (button) {
-          button.addEventListener("click", function () { review.close(); });
-        });
+        review
+          .querySelectorAll(".td-review-close, .td-review-edit")
+          .forEach(function (button) {
+            button.addEventListener("click", function () {
+              review.close();
+            });
+          });
 
         function render() {
           renderPassenger();

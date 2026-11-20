@@ -1,54 +1,246 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Flight booking coming soon | TravelDeals</title>
-    <meta
-      name="description"
-      content="Flight booking is coming soon to TravelDeals."
-    />
-    <link rel="icon" href="images/favicon.ico" sizes="any" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-      rel="stylesheet"
-    />
-    <link href="css/themes.css" rel="stylesheet" />
-    <link href="components/header.css?v=20261112-31" rel="stylesheet" />
-    <link href="css/flight-booking.css" rel="stylesheet" />
-    <link href="components/footer.css?v=20261112-31" rel="stylesheet" />
-    <script src="components/include.js?v=20261112-31" defer></script>
-  </head>
-  <body class="flight-booking-page">
-    <div data-component="header"></div>
-    <div data-component="mobile-navigation"></div>
-    <main class="fb-main">
-      <div class="container fb-container">
-        <section class="fb-coming-soon" aria-labelledby="fb-coming-soon-title">
-          <span class="fb-icon" aria-hidden="true"
-            ><i class="bi bi-airplane"></i
-          ></span>
-          <p class="fb-eyebrow">TravelDeals Flights</p>
-          <h1 id="fb-coming-soon-title">Flight booking is coming soon</h1>
-          <p>
-            We are getting a better booking experience ready for your next
-            journey.
-          </p>
-          <a class="btn-search fb-back-link" href="search-flight.html"
-            ><span>Back to flights</span
-            ><i class="bi bi-arrow-right" aria-hidden="true"></i
-          ></a>
-        </section>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Booking confirmed | TravelDeals</title>
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="css/themes.css" rel="stylesheet">
+<link href="components/header.css?v=20261112-31" rel="stylesheet">
+<link href="css/travellers.css?v=20261119-3" rel="stylesheet">
+<link href="css/confirm-flight.css" rel="stylesheet">
+<link href="css/payment-popup.css" rel="stylesheet">
+<link href="components/footer.css?v=20261112-31" rel="stylesheet">
+<script src="components/include.js?v=20261112-31" defer></script>
+</head>
+<body class="flight-booking-page confirm-flight-page">
+
+<svg class="position-absolute" width="0" height="0" aria-hidden="true" focusable="false">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-plane" viewBox="0 0 24 24"><path d="M21 3L3 10.5l7 3 3 7zM10 13.5L21 3"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 00-2-2H6a2 2 0 00-2 2v8a2 2 0 002 2h2"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7.5 11l4.5 4.5 4.5-4.5M4 20h16"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="14.5" rx="2.5"/><path d="M4 10h16M8 3.5v4M16 3.5v4"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="11" r="3.5"/><path d="M8.5 11h7M12 7.5c-1.5 1.5-1.5 5.5 0 7M12 7.5c1.5 1.5 1.5 5.5 0 7M8.5 17h7"/></symbol>
+  <symbol id="i-checkin" viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="11" rx="2"/><path d="M2.5 20h19M9 11.5l2 2 4-4"/></symbol>
+  <symbol id="i-tower" viewBox="0 0 24 24"><path d="M9 5h6l1 6H8zM10 11l-1 9M14 11l1 9M7 20h10M12 5V2"/></symbol>
+  <symbol id="i-bed" viewBox="0 0 24 24"><path d="M3 18V7M3 14h18v4M21 14v-2a3 3 0 00-3-3h-7v5M7 11.5h.01"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12V4h8l10 10-8 8zM7.5 8h.01"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M5 16l1.5-5.5A2 2 0 018.4 9h7.2a2 2 0 011.9 1.5L19 16M4 16h16v3H4zM7.5 18h.01M16.5 18h.01"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+</svg>
+
+<div data-component="header"></div>
+<div data-component="mobile-navigation"></div>
+
+<main class="td-page confirm-page">
+  <div class="td-wrap confirm-container">
+
+    <!-- ===== Hero section ===== -->
+    <section class="td-hero confirm-hero" aria-labelledby="confirmTitle">
+      <div class="td-hero-text">
+        <h1 id="confirmTitle" tabindex="-1">Booking confirmed</h1>
+        <p>Your flight to Dubai is all set.</p>
       </div>
-    </main>
-    <div data-component="footer"></div>
-  </body>
+    </section>
+
+    <div class="td-inner confirm-inner">
+
+      <!-- Booking summary -->
+      <section class="confirm-card" aria-labelledby="ready-title">
+        <div class="ready">
+          <span class="ready-icon"><svg class="icon"><use href="#i-check"/></svg></span>
+          <div class="ready-text">
+            <h2 id="ready-title">You're ready to go, Ali</h2>
+            <p>Your booking is confirmed. We've sent the details to ali.khan@example.com.</p>
+          </div>
+          <div class="ref-box">
+            <div><span>Booking reference</span><strong>TD7X2P</strong></div>
+            <button type="button" class="copy-btn" id="copyRef" data-ref="TD7X2P" aria-label="Copy booking reference"><svg class="icon"><use href="#i-copy"/></svg></button>
+          </div>
+        </div>
+
+        <div class="trip">
+          <div class="trip-route">
+            <span class="trip-icon"><svg class="icon"><use href="#i-plane"/></svg></span>
+            <div>
+              <h3>Islamabad (ISB) <svg class="icon"><use href="#i-arrow"/></svg> Dubai (DXB)</h3>
+              <p>Sat, 21 Nov 2026 <span>&middot;</span> 1 Adult <span>&middot;</span> Economy</p>
+            </div>
+          </div>
+
+          <div class="trip-total"><span>Total paid</span><strong>PKR 84,500</strong></div>
+
+          <div class="flight-box">
+            <div class="fl-airline">
+              <span class="airline-logo">PIA</span>
+              <div><strong>PK233</strong><span>Pakistan International Airlines</span></div>
+            </div>
+            <div class="fl-times">
+              <div class="fl-point"><strong>10:15</strong><span>ISB</span><small>Islamabad</small></div>
+              <div class="fl-route"><span>3h 25m</span><div class="fl-line"><svg class="icon"><use href="#i-plane"/></svg></div><small>Non-stop</small></div>
+              <div class="fl-point"><strong>12:40</strong><span>DXB</span><small>Dubai (local time)</small></div>
+            </div>
+            <div class="fl-class"><span>Economy</span></div>
+          </div>
+        </div>
+
+        <div class="confirm-actions">
+          <a href="#" class="btn-main" id="downloadTicket"><svg class="icon"><use href="#i-download"/></svg><span>Download ticket</span></a>
+          <a href="#" class="btn-outline"><svg class="icon"><use href="#i-calendar"/></svg><span>My bookings</span></a>
+        </div>
+      </section>
+
+      <!-- Next steps -->
+      <section class="next-steps" aria-labelledby="next-title">
+        <h2 id="next-title">Your next steps</h2>
+        <p class="next-sub">A few simple steps to make your trip to Dubai smooth and hassle-free.</p>
+        <div class="row g-2 g-lg-3">
+          <div class="col-12 col-lg-4">
+            <a href="#" class="step-card"><span class="step-icon"><svg class="icon"><use href="#i-doc"/></svg></span><div><strong>Travel documents</strong><span>Keep your passport (valid for at least 6 months) and visa handy.</span></div><svg class="icon step-go"><use href="#i-right"/></svg></a>
+          </div>
+          <div class="col-12 col-lg-4">
+            <a href="#" class="step-card"><span class="step-icon"><svg class="icon"><use href="#i-checkin"/></svg></span><div><strong>Check-in</strong><span>Online check-in opens 48 hours before your flight.</span></div><svg class="icon step-go"><use href="#i-right"/></svg></a>
+          </div>
+          <div class="col-12 col-lg-4">
+            <a href="#" class="step-card"><span class="step-icon"><svg class="icon"><use href="#i-tower"/></svg></span><div><strong>Airport arrival</strong><span>Arrive at Islamabad Airport (ISB) at least 3 hours before departure.</span></div><svg class="icon step-go"><use href="#i-right"/></svg></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dubai promo -->
+      <section class="stay-banner" aria-labelledby="stay-title">
+        <div class="stay-photo" role="img" aria-label="Dubai waterfront skyline"></div>
+        <div class="stay-body">
+          <h2 id="stay-title">Make more of your stay in Dubai</h2>
+          <p>Explore top attractions, handpicked hotels, and curated experiences to make your trip unforgettable.</p>
+          <ul class="stay-chips">
+            <li><a href="#"><svg class="icon"><use href="#i-bed"/></svg>Hotels</a></li>
+            <li><a href="#"><svg class="icon"><use href="#i-tag"/></svg>Attractions</a></li>
+            <li><a href="#"><svg class="icon"><use href="#i-car"/></svg><span class="d-none d-lg-inline">Airport&nbsp;</span>Transfers</a></li>
+          </ul>
+        </div>
+        <a href="#" class="btn-main stay-cta"><span>Explore Dubai</span> <svg class="icon"><use href="#i-arrow"/></svg></a>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Ticket downloaded toast -->
+  <div class="toast-container confirm-toast">
+    <div class="toast" id="ticketToast" role="status" aria-live="polite" aria-atomic="true">
+      <span class="ready-icon"><svg class="icon"><use href="#i-check"/></svg></span>
+      <div><strong>Ticket downloaded</strong><span>Your e-ticket (TD7X2P) has been saved.</span></div>
+      <button type="button" class="toast-close" data-bs-dismiss="toast" aria-label="Close"><svg class="icon"><use href="#i-x"/></svg></button>
+    </div>
+  </div>
+</main>
+
+<section
+      class="status-page payment-process-modal confirmation-payment-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="confirmationPaymentTitle"
+    >
+      <div class="payment-popup-frame">
+        <button
+          class="payment-process-close"
+          type="button"
+          data-confirmation-close
+          aria-label="Close payment received popup"
+        >
+          <i class="bi bi-x-lg" aria-hidden="true"></i>
+        </button>
+        <div class="payment-popup-states">
+          <div class="tab-pane" role="region" aria-label="Payment received">
+            <article class="status-card tone-green">
+              <div class="status-head">
+                <span class="status-icon"
+                  ><i class="bi bi-check-lg" aria-hidden="true"></i
+                ></span>
+                <span class="status-badge">Payment received</span>
+              </div>
+              <h2 id="confirmationPaymentTitle" tabindex="-1">
+                Payment received successfully
+              </h2>
+              <p class="status-text">
+                Your payment of <strong>PKR 84,500</strong> has been confirmed.
+                Your flight booking is ready.
+              </p>
+              <ol class="timeline">
+                <li class="is-done">
+                  <span class="tl-dot"
+                    ><i class="bi bi-check-lg" aria-hidden="true"></i></span
+                  ><strong>Payment initiated</strong
+                  ><span>Sat, Nov 21, 10:24 AM</span>
+                </li>
+                <li class="is-done">
+                  <span class="tl-dot"
+                    ><i class="bi bi-check-lg" aria-hidden="true"></i></span
+                  ><strong>Payment confirmed</strong
+                  ><span>Sat, Nov 21, 10:26 AM</span>
+                </li>
+                <li class="is-done">
+                  <span class="tl-dot"
+                    ><i class="bi bi-check-lg" aria-hidden="true"></i></span
+                  ><strong>Flight booking confirmed</strong
+                  ><span>Your itinerary is ready.</span>
+                </li>
+              </ol>
+              <div class="status-foot">
+                <dl class="ref-box">
+                  <div>
+                    <dt>Booking reference</dt>
+                    <dd>TD7X2P</dd>
+                  </div>
+                  <div>
+                    <dt>Total amount</dt>
+                    <dd>PKR 84,500</dd>
+                  </div>
+                </dl>
+                <button
+                  type="button"
+                  class="btn-search btn-status"
+                  data-confirmation-close
+                >
+                  <span class="td-search-label td-search-label--out"
+                    >View flight confirmation</span
+                  >
+                  <span
+                    class="td-search-label td-search-label--in"
+                    aria-hidden="true"
+                    >View flight confirmation</span
+                  >
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+<div data-component="footer"></div>
+<script>
+sessionStorage.removeItem("travelDealsPaymentAttempt");
+const confirmationPopup = document.querySelector(".confirmation-payment-modal");
+const closeConfirmationPopup = () => {
+  confirmationPopup.hidden = true;
+  document.querySelector("#confirmTitle").focus();
+};
+document.querySelectorAll("[data-confirmation-close]").forEach((button) => {
+  button.addEventListener("click", closeConfirmationPopup);
+});
+document.querySelector("#confirmationPaymentTitle").focus();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="confirm-flight.js"></script>
+</body>
 </html>
+

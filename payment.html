@@ -23,6 +23,7 @@
     <link href="components/header.css?v=20261112-31" rel="stylesheet" />
     <link href="css/travellers.css?v=20261119-3" rel="stylesheet" />
     <link href="css/payment.css" rel="stylesheet" />
+    <link href="css/payment-popup.css" rel="stylesheet" />
     <link href="components/footer.css?v=20261112-31" rel="stylesheet" />
     <script src="components/include.js?v=20261112-31" defer></script>
   </head>
@@ -160,7 +161,7 @@
                       aria-labelledby="tab-card"
                       tabindex="0"
                     >
-                      <form action="payment-confirmation.html" method="get" novalidate>
+                      <form action="#" method="get" novalidate data-payment-form>
                         <h3 class="pane-title">Pay with card</h3>
                         <p class="pane-desc">
                           Use your debit or credit card to complete the booking
@@ -551,15 +552,111 @@
       </div>
     </main>
 
+    <section class="status-page payment-process-modal" data-payment-modal hidden role="dialog" aria-modal="true" aria-labelledby="paymentProcessTitle">
+      <div class="payment-popup-frame">
+        <button class="payment-process-close" type="button" data-payment-close aria-label="Close payment status">
+          <i class="bi bi-x-lg" aria-hidden="true"></i>
+        </button>
+        <div class="payment-popup-states">
+        <div class="tab-pane show active" data-payment-state="processing" role="region" aria-label="Payment processing">
+          <article class="status-card tone-blue">
+            <div class="status-head">
+              <span class="status-icon"><i class="bi bi-arrow-repeat" aria-hidden="true"></i></span>
+              <span class="status-badge">Processing</span>
+            </div>
+            <h2 id="paymentProcessTitle" tabindex="-1">Your payment is being processed</h2>
+            <p class="status-text">We're confirming your payment with the bank. This usually takes a few moments.</p>
+            <ol class="timeline">
+              <li class="is-done"><span class="tl-dot"><i class="bi bi-check-lg" aria-hidden="true"></i></span><strong>Payment initiated</strong><span>Sat, Nov 21, 10:24 AM</span></li>
+              <li class="is-current"><span class="tl-dot"></span><strong>Processing payment</strong><span>Confirming with your bank...</span></li>
+              <li class="is-pending"><span class="tl-dot"></span><strong>Issuing ticket</strong><span>Pending</span></li>
+            </ol>
+            <div class="status-foot">
+              <dl class="ref-box"><div><dt>Booking reference</dt><dd>TD7X2P</dd></div><div><dt>Total amount</dt><dd>PKR 84,500</dd></div></dl>
+              <button type="button" class="td-btn td-btn-primary btn-status" data-payment-recheck><span class="td-search-label td-search-label--out">Check again</span><span class="td-search-label td-search-label--in" aria-hidden="true">Check again</span></button>
+            </div>
+          </article>
+        </div>
+        <div class="tab-pane" data-payment-state="failed" role="region" aria-label="Payment unsuccessful" hidden>
+          <article class="status-card tone-red">
+            <div class="status-head">
+              <span class="status-icon"><i class="bi bi-x-lg" aria-hidden="true"></i></span>
+              <span class="status-badge">Payment unsuccessful</span>
+            </div>
+            <h2 id="paymentFailedTitle" tabindex="-1">Payment was not successful</h2>
+            <p class="status-text">We couldn't process your payment, so no booking has been confirmed. Please try again with another payment method.</p>
+            <div class="status-alert" role="alert"><i class="bi bi-info-circle" aria-hidden="true"></i><div><strong>No booking confirmed</strong><span>You haven't been charged. You can try again using a different payment method.</span></div></div>
+            <div class="status-foot">
+              <dl class="ref-box"><div><dt>Booking reference</dt><dd>TD7X2P</dd></div><div><dt>Total amount</dt><dd>PKR 84,500</dd></div></dl>
+              <button type="button" class="td-btn td-btn-primary btn-status" data-payment-retry><span class="td-search-label td-search-label--out">Try another payment method</span><span class="td-search-label td-search-label--in" aria-hidden="true">Try another payment method</span></button>
+            </div>
+          </article>
+        </div>
+        </div>
+      </div>
+    </section>
+
     <div data-component="footer"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      document.querySelectorAll("[data-payment-next]").forEach((button) => {
-        button.addEventListener("click", () => {
-          window.location.href = "payment-confirmation.html";
+      (() => {
+        const modal = document.querySelector("[data-payment-modal]");
+        const states = modal.querySelectorAll("[data-payment-state]");
+        const key = "travelDealsPaymentAttempt";
+        let timer;
+        let lastTrigger;
+
+        const showState = (name) => {
+          states.forEach((state) => {
+            state.hidden = state.dataset.paymentState !== name;
+          });
+          modal.hidden = false;
+          const heading = modal.querySelector(`[data-payment-state="${name}"] h2`);
+          if (heading) {
+            modal.setAttribute("aria-labelledby", heading.id);
+            heading.focus();
+          }
+        };
+
+        const startPayment = (trigger) => {
+          window.clearTimeout(timer);
+          lastTrigger = trigger || document.querySelector(".btn-pay");
+          sessionStorage.setItem(key, "pending");
+          showState("processing");
+          timer = window.setTimeout(() => {
+            sessionStorage.setItem(key, "complete");
+            window.location.href = "confirm-flight.html";
+          }, 4000);
+        };
+
+        document.querySelector("[data-payment-form]").addEventListener("submit", (event) => {
+          event.preventDefault();
+          startPayment(event.submitter);
         });
-      });
+        document.querySelector("[data-payment-next]").addEventListener("click", (event) => startPayment(event.currentTarget));
+        document.querySelector("[data-payment-recheck]").addEventListener("click", (event) => startPayment(event.currentTarget));
+        document.querySelector("[data-payment-close]").addEventListener("click", () => {
+          const activeState = modal.querySelector("[data-payment-state]:not([hidden])")?.dataset.paymentState;
+          if (activeState === "processing") {
+            window.clearTimeout(timer);
+            sessionStorage.removeItem(key);
+            showState("failed");
+            return;
+          }
+          sessionStorage.removeItem(key);
+          modal.hidden = true;
+          lastTrigger?.focus();
+        });
+        document.querySelector("[data-payment-retry]").addEventListener("click", () => {
+          sessionStorage.removeItem(key);
+          modal.hidden = true;
+        });
+        if (sessionStorage.getItem(key)) {
+          sessionStorage.removeItem(key);
+          showState("failed");
+        }
+      })();
     </script>
   </body>
 </html>

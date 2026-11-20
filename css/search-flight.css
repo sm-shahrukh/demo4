@@ -3869,7 +3869,7 @@ body.sf-drawer-open {
   display: none;
 }
 .sf-search-options .sf-class .dd-t {
-  min-height: 38px;
+  min-height: 36px;
   padding: var(--td-space-1) var(--td-space-3);
 }
 .sf-breadcrumb {
@@ -9890,4 +9890,98 @@ body.search-flight-page {
     row-gap: var(--td-space-2);
     margin-bottom: var(--td-space-4);
   }
+}
+.sf-flight-card .sf-fare .sf-primary-btn .td-search-label {
+  box-sizing: border-box;
+  padding-right: 24px;
+}
+
+.sf-flight-card .sf-fare .sf-primary-btn > i.bi-arrow-right {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  right: 14px;
+  display: inline-block;
+  color: currentColor;
+  font-size: 1rem;
+  line-height: 1;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Keep each leg's duration directly below its centered aircraft icon. */
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-flight-path {
+  position: relative !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  margin-bottom: 16px !important;
+  background: linear-gradient(#b8cff5, #b8cff5) center / 100% 1px no-repeat !important;
+}
+
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-flight-path::before,
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-flight-path::after {
+  display: none !important;
+  content: none !important;
+}
+
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-flight-path > i {
+  position: relative;
+  z-index: 1;
+  border-radius: 50%;
+  background: #edf3ff;
+}
+
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-flight-path .sf-flight-duration {
+  position: absolute;
+  top: calc(100% + 3px);
+  left: 50%;
+  display: block !important;
+  width: max-content;
+  margin: 0;
+  padding: 0;
+  transform: translateX(-50%);
+  color: #081e5d;
+  font-size: 12px;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-details li:last-child span::after,
+.sf-flight-card .sf-card-itineraries > .sf-leg .sf-leg-details::after,
+.sf-flight-card .sf-card-itineraries::after {
+  font-size: 11px !important;
+}
+
+.sf-flight-card .sf-fare .sf-primary-btn {
+  box-sizing: border-box;
+  width: 150px !important;
+  min-width: 0;
+  max-width: 100%;
+  height: 37px;
+  min-height: 37px !important;
+  padding: 0 10px !important;
+  font-size: 14px;
+  justify-self: end;
+}
+
+.sf-flight-card .sf-fare .sf-primary-btn .td-search-label {
+  gap: 8px;
+  padding-right: 0;
+}
+
+.sf-flight-card .sf-fare .sf-primary-btn .td-search-label > i.bi-arrow-right {
+  position: static !important;
+  z-index: auto;
+  display: inline-block;
+  color: currentColor;
+  transform: none;
+}
+
+.search-flight-page .sf-primary-btn {
+  box-sizing: border-box;
+  height: 37px !important;
+  min-height: 37px !important;
+  padding-block: 0 !important;
 }

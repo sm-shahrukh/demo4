@@ -1,4 +1,4 @@
-/* TravelDeals contact page — Bootstrap 5 + custom responsive CSS. */
+/* TravelDeals contact page Bootstrap 5 + custom responsive CSS. */
 :root {
   --ink: #07245c;
   --blue: #104df1;
@@ -18,7 +18,12 @@ body {
   margin: 0;
   background: #fff;
   color: var(--ink);
-  font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family:
+    "Plus Jakarta Sans",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
   font-size: 14px;
   line-height: 1.4;
 }
@@ -1325,18 +1330,63 @@ textarea.form-control {
 }
 
 /* Match the shared page widths and About Us typography. */
-.content-width { width: min(calc(var(--td-content-max-width) - 24px), calc(100% - 2 * var(--td-content-gutter))); max-width: none; }
-.hero.wide-width { width: auto; max-width: none; height: 135px; min-height: 0; margin-inline: 12px; }
-.faq-section { margin-inline: 0; }
-.hero h1 { font-size: 1.1rem; }
-.section-title { font-size: 1.05rem; }
-.faq summary { font-size: .85rem; }
-.intro, .contact-card p, .office-detail p, .office-detail address, .faq p { font-size: .72rem; }
-@media (min-width: 768px) {
-  .hero.wide-width { height: clamp(190px, 17.6vw, 340px); margin-inline: 2.6vw; }
-  .hero h1 { font-size: clamp(1.6rem, 3vw, 2.8rem); }
-  .section-title { font-size: 1.75rem; }
-  .faq summary { font-size: 1rem; }
-  .intro, .contact-card p, .office-detail p, .office-detail address, .faq p { font-size: 1rem; }
+.content-width {
+  width: min(
+    calc(var(--td-content-max-width) - 24px),
+    calc(100% - 2 * var(--td-content-gutter))
+  );
+  max-width: none;
 }
-@media (max-width: 900px) { .content-width { width: calc(100% - 24px); } }
+.hero.wide-width {
+  width: auto;
+  max-width: none;
+  height: 135px;
+  min-height: 0;
+  margin-inline: 12px;
+}
+.faq-section {
+  margin-inline: 0;
+}
+.hero h1 {
+  font-size: 1.1rem;
+}
+.section-title {
+  font-size: 1.05rem;
+}
+.faq summary {
+  font-size: 0.85rem;
+}
+.intro,
+.contact-card p,
+.office-detail p,
+.office-detail address,
+.faq p {
+  font-size: 0.72rem;
+}
+@media (min-width: 768px) {
+  .hero.wide-width {
+    height: clamp(190px, 17.6vw, 340px);
+    margin-inline: 2.6vw;
+  }
+  .hero h1 {
+    font-size: clamp(1.6rem, 3vw, 2.8rem);
+  }
+  .section-title {
+    font-size: 1.75rem;
+  }
+  .faq summary {
+    font-size: 1rem;
+  }
+  .intro,
+  .contact-card p,
+  .office-detail p,
+  .office-detail address,
+  .faq p {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 900px) {
+  .content-width {
+    width: calc(100% - 24px);
+  }
+}

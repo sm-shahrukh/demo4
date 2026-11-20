@@ -27,17 +27,20 @@
 
 /* ---------- Page wrappers ---------- */
 .td-page { padding: 24px 0 56px; }
-.td-wrap { max-width: 1000px; margin: 0 auto; padding: 0 16px; }
+.td-wrap { width: min(calc(var(--td-content-max-width) - 24px), calc(100% - 2 * var(--td-content-gutter))); max-width: none; margin-inline: auto; padding-inline: 0; }
 .td-inner { max-width: 920px; margin: 0 auto; }
 .flight-booking-page .td-inner,
 .travellers-page .td-inner,
-.payment-page .td-inner { max-width: none; position: relative; }
+.payment-page .td-inner,
+.confirm-flight-page .td-inner { max-width: none; position: relative; }
 .flight-booking-page .td-page .td-hero,
 .travellers-page .td-page .td-hero,
-.payment-page .td-page .td-hero { min-height: 182px; margin-bottom: -39px; }
+.payment-page .td-page .td-hero,
+.confirm-flight-page .td-page .td-hero { min-height: 182px; margin-bottom: -39px; }
 .flight-booking-page .td-page .td-hero h1,
 .travellers-page .td-page .td-hero h1,
-.payment-page .td-page .td-hero h1 { color: var(--td-brand-yellow); }
+.payment-page .td-page .td-hero h1,
+.confirm-flight-page .td-page .td-hero h1 { color: var(--td-brand-yellow); }
 .flight-booking-page .td-inner > nav,
 .travellers-page .td-inner > nav,
 .payment-page .td-inner > nav { display: flex; align-items: center; padding: 20px 28px; border: 1px solid var(--td-border); border-radius: var(--td-radius-card); background: var(--td-white); box-shadow: var(--td-shadow); }
@@ -53,7 +56,8 @@
 @media (max-width: 991.98px) {
   .flight-booking-page .td-page .td-hero,
   .travellers-page .td-page .td-hero,
-  .payment-page .td-page .td-hero { min-height: 150px; margin-bottom: -34px; }
+  .payment-page .td-page .td-hero,
+  .confirm-flight-page .td-page .td-hero { min-height: 150px; margin-bottom: -34px; }
   .flight-booking-page .td-inner > nav,
   .travellers-page .td-inner > nav,
   .payment-page .td-inner > nav { padding: 14px; }
@@ -669,7 +673,8 @@ textarea.td-input { height: auto; min-height: 84px; padding-top: 8px; padding-bo
 
 .flight-booking-page .td-page,
 .travellers-page .td-page,
-.payment-page .td-page { padding-top: 24px; }
+.payment-page .td-page,
+.confirm-flight-page .td-page { padding-top: 24px; }
 .flight-booking-page .td-stack,
 .travellers-page .td-stack,
 .payment-page .td-stack { gap: 24px; }
