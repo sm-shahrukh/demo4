@@ -160,7 +160,7 @@
                       aria-labelledby="tab-card"
                       tabindex="0"
                     >
-                      <form action="#" novalidate>
+                      <form action="payment-confirmation.html" method="get" novalidate>
                         <h3 class="pane-title">Pay with card</h3>
                         <p class="pane-desc">
                           Use your debit or credit card to complete the booking
@@ -342,7 +342,7 @@
                       <p class="pane-desc">
                         Use your mobile wallet to complete the booking instantly.
                       </p>
-                      <button type="button" class="td-btn td-btn-primary btn-pay btn-pay-inline">
+                      <button type="button" class="td-btn td-btn-primary btn-pay btn-pay-inline" data-payment-next>
                         <span class="td-search-label td-search-label--out">
                           <i class="bi bi-wallet2" aria-hidden="true"></i> Pay PKR 84,500
                         </span>
@@ -554,5 +554,12 @@
     <div data-component="footer"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.querySelectorAll("[data-payment-next]").forEach((button) => {
+        button.addEventListener("click", () => {
+          window.location.href = "payment-confirmation.html";
+        });
+      });
+    </script>
   </body>
 </html>
